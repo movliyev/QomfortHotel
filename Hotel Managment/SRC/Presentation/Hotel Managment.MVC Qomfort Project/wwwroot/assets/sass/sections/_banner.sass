@@ -1,0 +1,95 @@
+/*******************************************************/
+/******************* ## Page Banner *******************/
+/*******************************************************/
+.page-banner-area
+    +overlay(#1D1B1A, 0.75)
+    &:before
+        mix-blend-mode: multiply
+.banner-inner
+    h1
+        font-size: 85px
+        font-weight: 400
+        text-transform: capitalize
+        +res-bl(xxl)
+            font-size: 70px
+        +res-bl(lg)
+            font-size: 60px
+        +res-bl(md)
+            font-size: 55px
+        +res-bl(sm)
+            font-size: 45px
+        +res-bl(sm)
+            font-size: 35px
+            line-height: 1.25
+.breadcrumb
+    padding: 0
+    margin: 0
+    font-size: 22px
+    background: transparent
+    text-transform: capitalize
+    +res-bl(lg)
+        font-size: 20px
+    +res-bl(sm)
+        font-size: 18px
+    +res-bl(xs)
+        font-size: 16px
+    .breadcrumb-item
+        padding: 0
+        +flexcenter(center)
+        a
+            color: white
+        &.active
+            color: white
+            text-decoration: underline
+        &+.breadcrumb-item::before
+            +gapLR(margin, 25px)
+            flex: none
+            content: ""
+            +size(5px)
+            padding-right: 0
+            border-radius: 50%
+            background: white
+            
+/* Banner Shapes */
+.banner-shapes
+    .circle
+        +size(770px)
+        z-index: -2
+        top: -300px
+        left: -200px
+        background: white
+        border-radius: 50%
+        position: absolute
+        +res-bl(lg)
+            +size(400px)
+    .shape-one,
+    .shape-two
+        z-index: -1
+        max-width: 10%
+        position: absolute
+    .shape-one
+        left: 6%
+        top: 35%
+        animation: down-up-two 15s infinite
+    .shape-two
+        right: 6%
+        top: 65%
+        animation: upDownLeft 20s infinite
+    &:after,
+    &:before
+        position: absolute
+        border: 2px solid
+        content: ''
+        +size(15px)
+        z-index: -1
+        border-radius: 50%
+    &:before
+        left: 10%
+        top: 65%
+        border-color: $primary-color
+        animation: shapeAnimationOne 30s infinite
+    &:after
+        right: 10%
+        top: 20%
+        border-color: $primary-color
+        animation: shapeAnimationTwo 30s infinite

@@ -1,0 +1,125 @@
+$flaticon_merina-font: "flaticon_merina";
+
+@font-face {
+    font-family: $flaticon_merina-font;
+    src: url("./flaticon_merina.ttf?f27ca9c5c4a70c40b6e10f4963b93d7d") format("truetype"),
+url("./flaticon_merina.woff?f27ca9c5c4a70c40b6e10f4963b93d7d") format("woff"),
+url("./flaticon_merina.woff2?f27ca9c5c4a70c40b6e10f4963b93d7d") format("woff2"),
+url("./flaticon_merina.eot?f27ca9c5c4a70c40b6e10f4963b93d7d#iefix") format("embedded-opentype"),
+url("./flaticon_merina.svg?f27ca9c5c4a70c40b6e10f4963b93d7d#flaticon_merina") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon_merina !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+$flaticon_merina-map: (
+    "location": "\f101",
+    "check-mark": "\f102",
+    "stationary-bike": "\f103",
+    "jacuzzi": "\f104",
+    "swim": "\f105",
+    "relax": "\f106",
+    "restaurant": "\f107",
+    "transportation": "\f108",
+    "transportation-1": "\f109",
+    "spa": "\f10a",
+    "wifi-router": "\f10b",
+    "drink": "\f10c",
+    "bathtub": "\f10d",
+    "swimming-pool": "\f10e",
+    "mop": "\f10f",
+    "food-delivery": "\f110",
+    "treadmill": "\f111",
+    "facial": "\f112",
+    "mission": "\f113",
+    "hotel": "\f114",
+    "champagne": "\f115",
+    "laundry-machine": "\f116",
+    "location-1": "\f117",
+    "email-marketing": "\f118",
+    "call": "\f119",
+);
+
+.flaticon-location:before {
+    content: map-get($flaticon_merina-map, "location");
+}
+.flaticon-check-mark:before {
+    content: map-get($flaticon_merina-map, "check-mark");
+}
+.flaticon-stationary-bike:before {
+    content: map-get($flaticon_merina-map, "stationary-bike");
+}
+.flaticon-jacuzzi:before {
+    content: map-get($flaticon_merina-map, "jacuzzi");
+}
+.flaticon-swim:before {
+    content: map-get($flaticon_merina-map, "swim");
+}
+.flaticon-relax:before {
+    content: map-get($flaticon_merina-map, "relax");
+}
+.flaticon-restaurant:before {
+    content: map-get($flaticon_merina-map, "restaurant");
+}
+.flaticon-transportation:before {
+    content: map-get($flaticon_merina-map, "transportation");
+}
+.flaticon-transportation-1:before {
+    content: map-get($flaticon_merina-map, "transportation-1");
+}
+.flaticon-spa:before {
+    content: map-get($flaticon_merina-map, "spa");
+}
+.flaticon-wifi-router:before {
+    content: map-get($flaticon_merina-map, "wifi-router");
+}
+.flaticon-drink:before {
+    content: map-get($flaticon_merina-map, "drink");
+}
+.flaticon-bathtub:before {
+    content: map-get($flaticon_merina-map, "bathtub");
+}
+.flaticon-swimming-pool:before {
+    content: map-get($flaticon_merina-map, "swimming-pool");
+}
+.flaticon-mop:before {
+    content: map-get($flaticon_merina-map, "mop");
+}
+.flaticon-food-delivery:before {
+    content: map-get($flaticon_merina-map, "food-delivery");
+}
+.flaticon-treadmill:before {
+    content: map-get($flaticon_merina-map, "treadmill");
+}
+.flaticon-facial:before {
+    content: map-get($flaticon_merina-map, "facial");
+}
+.flaticon-mission:before {
+    content: map-get($flaticon_merina-map, "mission");
+}
+.flaticon-hotel:before {
+    content: map-get($flaticon_merina-map, "hotel");
+}
+.flaticon-champagne:before {
+    content: map-get($flaticon_merina-map, "champagne");
+}
+.flaticon-laundry-machine:before {
+    content: map-get($flaticon_merina-map, "laundry-machine");
+}
+.flaticon-location-1:before {
+    content: map-get($flaticon_merina-map, "location-1");
+}
+.flaticon-email-marketing:before {
+    content: map-get($flaticon_merina-map, "email-marketing");
+}
+.flaticon-call:before {
+    content: map-get($flaticon_merina-map, "call");
+}

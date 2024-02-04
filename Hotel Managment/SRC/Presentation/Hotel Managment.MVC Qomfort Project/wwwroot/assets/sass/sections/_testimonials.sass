@@ -1,0 +1,212 @@
+/*******************************************************/
+/***************** ## Testimonials Area ****************/
+/*******************************************************/
+.booking-search
+    padding: 60px 50px
+    &:before
+        +poLT(0)
+        +size(100%)
+        z-index: -1
+        content: ''
+        background: $primary-color
+        transform: rotate(-1.91deg)
+    +res-bt(lg, xl)
+        +gapLR(padding, 25px)
+    +res-bl(ms)
+        +gapLR(padding, 25px)
+    
+.testimonial-right
+    +res-ab(xl)
+        padding-left: 60px
+        
+.testimonial-part
+    display: flex
+    align-items: center
+    justify-content: space-between
+    .testimonial-active
+        width: calc(100% - 110px)
+        +res-bl(xl)
+            width: calc(100% - 90px)
+        +res-bl(ms)
+            width: calc(100% - 50px)
+        .slick-track
+            display: flex
+            align-items: center
+    .testimonial-thums
+        width: 60px
+        +res-bl(ms)
+            width: 40px
+    .testi-thumb-item
+        +gapTB(margin, 5px)
+        img
+            +size(60px)
+            cursor: pointer
+            transition: 0.35
+            border-radius: 50%
+            +res-bl(ms)
+                +size(40px)
+        &.slick-current
+            img
+                border: 3px solid $primary-color
+                
+.testimonial-item
+    padding: 45px 50px 50px
+    background: $heading-color
+    +res-bl(md)
+        +gapLR(padding, 25px)
+    +res-bl(xs)
+        +gapLR(padding, 15px)
+    p
+        +res-bl(xs)
+            font-size: 14px
+            line-height: 1.8
+    .testi-author
+        display: flex
+        margin-top: 25px
+        align-items: center
+        img
+            +size(55px)
+            border-radius: 50%
+            margin-right: 25px
+            +res-bl(xs)
+                +size(40px)
+                margin-right: 10px
+        .testi-des
+            h5
+                margin-bottom: 0
+                line-height: 1.2
+                +res-bl(xs)
+                    font-size: 20px
+            span
+                opacity: 0.65
+                +res-bl(xs)
+                    font-size: 14px
+.testimonial-dots
+    margin-top: 70px
+    .slick-dots
+        justify-content: start
+        li
+            &:not(.slick-active)
+                background: white
+                
+/* Testimonials Four */
+.testimonial-four-content
+    .testimonial-item
+        background: white
+.testimonial-four-dots
+    margin-top: 70px
+    +res-bl(xl)
+        margin-top: 40px
+    .slick-dots
+        justify-content: start
+                
+/* Testimonials Two */
+.testimonials-area-two
+    +overlay($lighter-color, 1)
+    +res-ab(lb)
+        &:before
+            left: 70px
+            width: calc(100% - 140px)
+        
+.testimonial-item-two
+    .testi-author
+        display: flex
+        margin-bottom: 40px
+        align-items: center
+        img
+            +size(70px)
+            margin-right: 30px
+            border-radius: 50%
+            +res-bl(xs)
+                +size(55px)
+                margin-right: 20px
+        h5
+            margin-bottom: 0
+            +res-bl(xs)
+                font-size: 20px
+    .testi-speech
+        font-size: 30px
+        line-height: 1.65
+        margin-bottom: 20px
+        color: $heading-color
+        +res-bl(sm)
+            font-size: 22px
+        +res-bl(xs)
+            font-size: 20px
+        &:after,
+        &:before
+            line-height: 0
+            font-size: 55px
+        &:before
+            content: '“'
+        &:after
+            content: '“'
+            display: inline-block
+            transform: rotate(180deg) translate(-5px, -10px)
+        
+.testimonial-two-right
+    .testimonial-two-dots
+        +poLB(0)
+        
+/* Testimonials Three */
+.testimonials-three-slider
+    +gapLR(margin, -15px)
+    .testimonials-item-three
+        +gapLR(margin, 15px)
+    .slick-dots
+        margin-top: 40px
+
+.testimonials-item-three
+    padding: 35px 40px
+    background: white
+    position: relative
+    z-index: 1
+    text-align: center
+    margin-bottom: 30px
+    border-top: 3px solid $primary-color
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.07)
+    +res-bl(md)
+        +gapLR(padding, 25px)
+    &:after
+        +poRT(0)
+        +size(0)
+        z-index: -1
+        content: ''
+        border-right: 3px solid $primary-color
+    &:before
+        +poLB(0)
+        +size(0)
+        z-index: -1
+        content: ''
+        border-left: 3px solid $primary-color
+    .author
+        margin-bottom: 18px
+        img
+            display: inline-block
+    .text
+        &:before
+            content: '“'
+            font-size: 35px
+            color: $heading-color
+    .testi-des
+        margin-top: 25px
+        margin-bottom: -8px
+        h6
+            margin-bottom: 0
+            +res-ab(xs)
+                font-size: 20px
+        span
+            font-size: 14px
+    .ratting i
+        font-size: 12px
+        +gapTB(margin, 0)
+    &:hover
+        &:after
+            height: 100%
+            width: 100%
+            animation: border 1s linear
+            border-bottom: 3px solid $primary-color
+        &:before
+            height: 100%
+            transition: 0.5s
+            transition-delay: 1s

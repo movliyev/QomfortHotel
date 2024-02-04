@@ -1,0 +1,129 @@
+/*******************************************************/
+/******************* ## Main Footer ********************/
+/*******************************************************/
+.main-footer
+    &.bgc-black-with-lighting
+        &:after,
+        &:before
+            +size(150px)
+        &:before
+            right: 45%
+    
+/* Footer Widgets */
+.footer-widget
+    margin-bottom: 50px
+.footer-title
+    color: white
+    margin-top: -5px
+    margin-bottom: 20px
+    
+.widget_about
+    p
+        color: rgba(255, 255, 255, 0.65)
+    
+.widget_nav_menu
+    +res-ab(xl)
+        +gapLR(margin, auto)
+        max-width: max-content
+    .list-style-one
+        li
+            a
+                color: rgba(255, 255, 255, 0.65)
+                &:hover
+                    color: white
+            
+.widget_newsletter
+    form
+        input
+            border: none
+            border-radius: 0
+            margin-top: 10px
+            padding: 14px 30px
+            margin-bottom: 15px
+    &.style-two
+        +res-ab(lg)
+            text-align: center
+        form
+            padding: 5px
+            display: flex
+            background: white
+            input
+                margin: 0
+                padding: 10px 10px 10px 20px
+            .theme-btn
+                flex: none
+                
+.footer-instagram
+    .instagram-item
+        width: 100%
+        margin-bottom: 30px
+            
+/* Footer Bottom */  
+.footer-bottom
+    position: relative
+    .copyright-text
+        color: white
+        a
+            color: $primary-color
+            text-transform: uppercase
+    .scroll-top
+        position: absolute
+        top: -24px
+        left: calc(50% - 24px)
+        +circle($primary-color, 48px)
+.footer-bottom-nav
+    flex-wrap: wrap
+    display: inline-flex
+    +gapLR(margin, -15px)
+    li
+        margin: 0 15px 5px
+        a
+            color: rgba(255, 255, 255, 0.65)
+            &:hover
+                color: white
+
+.wave-shapes
+    &:before
+        content: ''
+        +poLB(0)
+        z-index: -1
+        +size(310px, 270px)
+        border-radius: 0 500px 0 0
+        animation: leftRightOne 22s infinite
+        background: linear-gradient(180deg, rgba(171, 96, 52, 0) 13.33%, rgba(171, 96, 52, 0.2) 100%)
+        +res-bl(xxl)
+            +size(155px, 135px)
+    &:after
+        content: ''
+        +poLB(0)
+        z-index: -1
+        +size(380px, 335px)
+        border-radius: 0 400px 0 0
+        animation: leftRightOne 22s infinite
+        animation-delay: 1s
+        background: linear-gradient(180deg, rgba(171, 96, 52, 0) 13.33%, rgba(171, 96, 52, 0.2) 100%)
+        +res-bl(xxl)
+            +size(190px, 170px)
+        
+.wave-shapes-two
+    &:before
+        content: ''
+        +poRT(0)
+        z-index: -1
+        +size(310px, 270px)
+        border-radius: 0 0 0 500px
+        animation: leftRightTwo 22s infinite
+        background: linear-gradient(180deg, rgba(171, 96, 52, 0) 13.33%, rgba(171, 96, 52, 0.2) 100%)
+        +res-bl(xxl)
+            +size(155px, 135px)
+    &:after
+        content: ''
+        +poRT(0)
+        z-index: -1
+        +size(380px, 335px)
+        border-radius: 0 0 0 400px
+        animation: leftRightTwo 22s infinite
+        animation-delay: 1s
+        background: linear-gradient(180deg, rgba(171, 96, 52, 0) 13.33%, rgba(171, 96, 52, 0.2) 100%)
+        +res-bl(xxl)
+            +size(190px, 170px)

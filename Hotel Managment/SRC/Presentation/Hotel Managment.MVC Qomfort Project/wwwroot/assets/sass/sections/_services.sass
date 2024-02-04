@@ -1,0 +1,69 @@
+/*******************************************************/
+/****************** ## Services Area *******************/
+/*******************************************************/
+.service-item
+    transition: 0.5s
+    text-align: center
+    position: relative
+    padding: 35px 30px
+    +res-bl(xs)
+        +gapLR(padding, 15px)
+    .icon
+        font-size: 40px
+        transition: 0.5s
+        margin: 0 auto 30px
+        color: $primary-color
+        +circle(#F7F0EB, 80px)
+    &:hover
+        z-index: 2
+        background: white
+        box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.07)
+        .icon
+            color: white
+            background: $primary-color
+        
+    &.style-two
+        padding: 0
+        box-shadow: none
+        text-align: left
+        margin-bottom: 30px
+        .icon
+            padding: 0
+            +size(auto)
+            line-height: 1
+            font-size: 50px
+            text-align: left
+            color: $primary-color
+            background: transparent
+        
+/* Service Style Two */
+.services-three-slider
+    +gapLR(margin, -15px)
+    .service-item-two
+        margin: 15px
+    .slick-dots
+        margin-top: 50px
+
+.service-item-two
+    transition: 0.5s
+    padding: 35px 40px
+    margin-bottom: 30px
+    background: $lighter-color
+    h4
+        margin-top: 20px
+        margin-bottom: 26px
+    .icon
+        line-height: 1
+        font-size: 50px
+        margin-top: 22px
+        color: $primary-color
+    &:hover
+        background: white
+        box-shadow: (0px 5px 25px rgba(0, 0, 0, 0.05))
+        h4 a
+            text-decoration: underline
+        
+/* Service Four */
+.services-area-four
+    .triangle-shapes-two
+        +size(400px)

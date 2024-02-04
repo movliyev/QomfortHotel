@@ -1,0 +1,40 @@
+/*******************************************************/
+/******************* ## Activity Area ******************/
+/*******************************************************/
+.activity-item
+    overflow: hidden
+    position: relative
+    margin-bottom: 30px
+    &:before
+        +poLB(0)
+        z-index: 1
+        content: ''
+        +size(100%)
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #000 100%)
+    .image
+        img
+            width: 100%
+    .content
+        +poLB(0)
+        z-index: 2
+        color: white
+        padding: 40px
+        max-width: 250px
+        transition: 0.5s
+        .icon
+            font-size: 45px
+            margin-bottom: 30px
+        h5
+            margin-bottom: -5px
+        a
+            color: white
+        .theme-btn
+            opacity: 0
+            margin-top: 30px
+            position: absolute
+    &:hover
+        .content
+            bottom: 84px
+            .theme-btn
+                opacity: 1
+                transition-delay: 0.35s

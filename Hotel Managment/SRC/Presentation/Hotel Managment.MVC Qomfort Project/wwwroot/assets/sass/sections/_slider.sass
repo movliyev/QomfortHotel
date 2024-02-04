@@ -1,0 +1,261 @@
+/*******************************************************/
+/******************* ## Main Slider ********************/
+/*******************************************************/
+.main-slider-area
+    display: flex
+    overflow: hidden
+    padding-top: 80px
+    flex-direction: column
+    justify-content: center
+    .container
+        +res-ab(xl)
+            max-width: 1750px
+    .slick-dots
+        li
+            background: white
+            &:before
+                border-color: white
+    
+.main-slider-active
+    width: 100%
+    .slick-list
+        overflow: visible
+        
+.slider-item
+    +gapTB(padding, 100px)
+    +res-bl(lg)
+        padding-top: 60px
+        
+.main-slider-dots
+    z-index: 2
+    position: relative
+    margin-top: -155px
+    max-width: max-content
+    +res-ab(lb)
+        padding-left: 100px
+    +res-bl(xxl)
+        margin-top: -135px
+    +res-bl(xl)
+        margin-top: -145px
+        padding-left: 30px
+    .slick-dots
+        li
+            border-color: white
+            &.slick-active
+                background: white
+.slider-content
+    z-index: 2
+    position: relative
+    +gapTB(padding, 55px)
+    +res-ab(lb)
+        padding-left: 100px
+    +res-ab(lg)
+        margin-right: -150px
+    +res-bl(xl)
+        padding-top: 0
+        padding-bottom: 75px
+    .sub-title
+        color: white
+        display: flex
+        font-size: 18px
+        font-weight: 500
+        align-items: center
+        margin-bottom: 15px
+        display: inline-block
+        font-family: 'Catamaran', sans-serif
+        i
+            +size(55px, 30px)
+            line-height: 30px
+            margin-right: 25px
+            text-align: center
+            border-radius: 15px
+            background: $primary-color
+    h1
+        color: white
+        margin-bottom: 40px
+        span
+            font-weight: 400
+            font-style: italic
+        +res-bl(md)
+            font-size: 55px
+        +res-bl(sm)
+            font-size: 45px
+        +res-bl(xs)
+            font-size: 40px
+            
+.slider-image,
+.slider-content > *
+    transition: 1s
+    animation-duration: 1s
+    animation-fill-mode: both
+    
+.slick-active
+    .slider-content 
+        *
+            animation-name: fadeInUp
+    .sub-title
+        animation-delay: 0.2s
+    h1
+        animation-delay: 0.4s
+    .theme-btn
+        animation-delay: 0.6s
+    .slider-image
+        animation-delay: 0.4s
+        animation-name: fadeInRight
+        
+.slider-shapes
+    .shape
+        z-index: -1
+        position: absolute
+    .circle-half
+        top: 25%
+        left: 5%
+        animation-delay: 5s
+        animation: rotated_circle 30s infinite
+    .circle
+        left: 5%
+        bottom: 20%
+        animation: shapeAnimationThree 40s infinite
+    &:before
+        content: ''
+        +poLB(0)
+        z-index: -1
+        +size(565px, 500px)
+        border-radius: 0 500px 0 0
+        animation: leftRightOne 22s infinite
+        background: linear-gradient(180deg, rgba(171, 96, 52, 0) 13.33%, rgba(171, 96, 52, 0.2) 100%)
+        +res-bl(xxl)
+            +size(262px, 250px)
+    &:after
+        content: ''
+        +poLB(0)
+        z-index: -1
+        +size(455px, 400px)
+        border-radius: 0 400px 0 0
+        animation: leftRightOne 22s infinite
+        animation-delay: 1s
+        background: linear-gradient(180deg, rgba(171, 96, 52, 0) 13.33%, rgba(171, 96, 52, 0.2) 100%)
+        +res-bl(xxl)
+            +size(222px, 200px)
+        
+/* Main Slider Two */
+.hero-slider-two
+    background: $black-color
+    .bg-lines
+        span
+            z-index: 0
+            background: rgba(255, 255, 255, 0.07)
+    
+.slider-two-active
+    .slider-item-two
+        display: flex
+    .slick-arrow
+        top: 50%
+        z-index: 2
+        left: 100px
+        position: absolute
+        transform: translateY(-50%)
+        +res-bl(sm)
+            +size(50px)
+            line-height: 50px
+        +res-bl(lg)
+            left: 15px
+        &.next-arrow
+            left: auto
+            right: 100px
+            +res-bl(lg)
+                right: 15px
+.slider-item-two
+    +flexcenter(center)
+    +gapTB(padding, 150px)
+    background-size: cover
+    +overlay(#1D1B1A, 0.85)
+    background-position: center
+    +res-ab(lg)
+        min-height: 100vh
+    &:before
+        mix-blend-mode: multiply
+    &:after
+        z-index: -1
+        content: ''
+        +size(415px)
+        +abs-middle()
+        filter: blur(125px)
+        background: $primary-color
+        +res-bl(lg)
+            +size(200px)
+            filter: blur(80px)
+.slider-content-two
+    z-index: 5
+    +container(750px)
+    position: relative
+    text-align: center
+    h1
+        color: white
+        line-height: 1.1
+        margin-bottom: 25px
+        i
+            font-weight: 300
+        +res-ab(xxl)
+            font-size: 85px
+        +res-bl(md)
+            font-size: 55px
+        +res-bl(sm)
+            font-size: 45px
+        +res-bl(xs)
+            font-size: 40px
+    p
+        color: white
+        margin-bottom: 40px
+        +res-ab(xs)
+            font-size: 18px
+            
+.slider-content-two > *
+    transition: 1s
+    animation-duration: 1s
+    animation-fill-mode: both
+    
+.slick-active
+    .slider-content-two
+        *
+            animation-name: fadeInUp
+    h1
+        animation-delay: 0.2s
+    p
+        animation-delay: 0.4s
+    .theme-btn
+        animation-delay: 0.6s
+            
+.hero-left-shapes
+    &:after,
+    &:before
+        +poLT(0)
+        content: ''
+        opacity: 0.55
+        background: $primary-color
+        clip-path: polygon(0 0, 0% 100%, 100% 0)
+    &:before
+        +size(310px, 295px)
+        +res-bl(lg)
+            +size(165px, 155px)
+    &:after
+        +size(410px, 390px)
+        +res-bl(lg)
+            +size(250px, 235px)
+            
+.hero-right-shapes
+    &:after,
+    &:before
+        +poRB(0)
+        content: ''
+        opacity: 0.55
+        background: $primary-color
+        clip-path: polygon(0 100%, 100% 100%, 100% 0)
+    &:before
+        +size(165px, 155px)
+        +res-bl(lg)
+            +size(85px, 75px)
+    &:after
+        +size(250px, 235px)
+        +res-bl(lg)
+            +size(125px, 115px)

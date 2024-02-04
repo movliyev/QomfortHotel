@@ -1,0 +1,71 @@
+/*******************************************************/
+/******************* ## History Area ******************/
+/*******************************************************/
+.history-slider-active
+    +gapLR(margin, -20px)
+    &:after
+        content: ''
+        z-index: -1
+        +poLT(50%, 41.5%)
+        +size(111%, 1px)
+        background: $border-color
+        transform: translate(-50%)
+        +res-bl(lb)
+            width: 105%
+    .history-slide-item
+        +gapLR(margin, 20px)
+    .slick-arrow
+        top: 35.5%
+        z-index: 2
+        background: white
+        position: absolute
+        color: $base-color
+        &:focus,
+        &:hover
+            color: white
+            background: $primary-color
+        &.prev-arrow
+            left: -200px
+            +res-bl(lb)
+                left: -55px
+            +res-bl(xxl)
+                left: 0
+        &.next-arrow
+            right: -200px
+            +res-bl(lb)
+                right: -55px
+            +res-bl(xxl)
+                right: 0
+
+.history-slide-item
+    .year
+        font-size: 20px
+        font-weight: 700
+        transition: 0.5s
+        +gapTB(margin, 40px)
+        +circle(white, 80px)
+        color: $heading-color
+    .content
+        background: white
+        position: relative
+        margin-bottom: 30px
+        padding: 25px 35px 10px
+        +res-bl(xs)
+            +gapLR(padding, 25px)
+        &:before
+            content: ''
+            +poLB(22px, 100%)
+            border-left: 30px solid white
+            border-top: 20px solid transparent
+        h5
+            font-size: 22px
+            font-weight: 700
+            margin-bottom: 10px
+            span
+                color: $primary-color
+    &.slick-current
+        .year
+            color: white
+            outline: 8px solid white
+            background: $primary-color
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25)

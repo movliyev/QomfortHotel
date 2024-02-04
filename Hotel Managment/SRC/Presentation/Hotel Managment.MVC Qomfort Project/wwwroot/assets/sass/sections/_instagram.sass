@@ -1,0 +1,62 @@
+/*******************************************************/
+/****************** ## Instagram Area ******************/
+/*******************************************************/
+.instagram-area
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    
+.instagram-item
+    position: relative
+    text-align: center
+    +res-ab(xl)
+        flex: 1 1
+    +res-bt(md, xl)
+        width: 33.333%
+        &:first-child
+            order: 5
+    +res-bl(md)
+        width: 50%
+    +res-bl(sm)
+        width: 100%
+    img
+        width: 100%
+    .content
+        height: 100%
+        display: flex
+        padding: 25px
+        align-items: center
+        flex-direction: column
+        justify-content: center
+        background: $primary-color
+        +res-bl(sm)
+            +gapTB(padding, 50px)
+        .icon
+            line-height: 1
+            margin-bottom: 1vw
+        .call-text
+            font-size: 1vw
+            +res-bl(xl)
+                font-size: 2vw
+        hr
+            opacity: 1
+            +gapTB(margin, 1vw)
+            +size(50px, 4px)
+        h2, .h2, .icon
+            font-size: 2vw
+            +res-bl(xl)
+                font-size: 30px
+    .instagram-gallery
+        .icon
+            +poLT(0)
+            z-index: 2
+            opacity: 0
+            +size(100%)
+            color: white
+            font-size: 24px
+            transition: 0.5s
+            +flexcenter(center)
+            background: rgba(171, 96, 52, 0.85)
+    &:hover
+        .instagram-gallery .icon
+            opacity: 1

@@ -1,0 +1,35 @@
+/*******************************************************/
+/******************** ## Hero Section ******************/
+/*******************************************************/
+.hero-area
+    +overlay(#1D1B1A, 0.85)
+    &:before
+        mix-blend-mode: multiply
+    .video-play
+        margin-bottom: 30px
+    h1
+        line-height: 1.1
+        margin-bottom: 30px
+        i
+            font-weight: 400
+        +res-ab(xl)
+            font-size: 85px
+        +res-bl(sm)
+            font-size: 55px
+        +res-bl(ms)
+            font-size: 45px
+        +res-bl(xs)
+            font-size: 40px
+    p
+        +res-ab(sm)
+            font-size: 18px
+    
+    .booking-search
+        +res-ab(xl)
+            margin-left: 100px
+        &:before
+            display: none
+
+    .bg-lines
+        span
+            background: rgba(255, 255, 255, 0.1)

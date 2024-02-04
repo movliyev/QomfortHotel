@@ -1,0 +1,133 @@
+/*******************************************************/
+/******************** ## About Section *****************/
+/*******************************************************/
+.about-image-part
+    max-width: 535px
+    img
+        width: 60%
+    .top-part
+        display: flex
+        align-items: end
+        img
+            margin-right: 3%
+        .icon
+            color: white
+            font-size: 65px
+            margin-bottom: 19%
+            +circle($primary-color, 130px)
+            box-shadow: 0px 10px 50px rgba(171, 96, 52, 0.5)
+            +res-bl(sm)
+                +size(80px)
+                font-size: 35px
+                line-height: 80px
+    .bottom-part
+        display: flex
+        margin-top: -16%
+        .video-play-text
+            position: relative
+            margin: 22% -10% 0 10%
+            +res-ab(xxl)
+                min-width: 210px
+            +res-bl(xs)
+                margin-left: 5%
+                margin-right: -22%
+
+.about-content-part
+    .feature-list
+        display: flex
+        padding: 40px 25px 5px
+        background: $lighter-color
+        +res-bl(sm)
+            +gapLR(padding, 15px)
+        +res-bl(xs)
+            flex-wrap: wrap
+        .feature-item
+            +gapLR(padding, 15px)
+            +res-bl(md)
+                +gapLR(padding, 5px)
+            
+.about-author
+    display: flex
+    flex-wrap: wrap
+    max-width: 530px
+    padding-top: 25px
+    align-items: center
+    .author
+        +size(70px)
+        margin-top: 25px
+        border-radius: 50%
+        margin-right: 25px
+        +res-bl(xs)
+            +size(40px)
+            margin-right: 10px
+    .description
+        margin-top: 25px
+        margin-right: auto
+        h5
+            margin-bottom: 0
+            line-height: 1.1
+            +res-bl(xs)
+                font-size: 20px
+        span
+            font-size: 14px
+    .signature
+        margin-top: 25px
+        
+/* About Three */
+.about-three-image-part
+    display: flex
+    .first-image
+        width: 30%
+        z-index: 2
+        position: relative
+    .middle-image
+        width: 70%
+        z-index: 1
+        margin-top: 6%
+        margin-left: -12%
+        padding-bottom: 12%
+        position: relative
+        img
+            border-radius: 50%
+    .last-image
+        width: 30%
+        align-self: end
+        margin-left: -18%
+    img
+        width: 100%
+    .video-play
+        +poRT(10%)
+        z-index: 3
+        color: white
+        font-size: 16px
+        border-radius: 0
+        +res-ab(sm)
+            +size(80px)
+            line-height: 80px
+        +res-bl(ms)
+            top: 5%
+            right: 5%
+        
+.about-content-three
+    +res-ab(xxl)
+        padding-left: 100px
+    .feature-list
+        display: flex
+        flex-wrap: wrap
+        justify-content: space-between
+        .feature-item
+            width: 100%
+            margin-bottom: 20px
+            +res-ab(ms)
+                width: 48%
+                
+/* About Page */
+.about-page-right
+    padding: 65px 60px 1px
+    +res-bl(md)
+        +gapLR(padding, 25px)
+    .feature-item.style-two
+        +res-bl(ms)
+            flex-wrap: wrap
+            .icon
+                margin-bottom: 25px

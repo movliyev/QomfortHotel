@@ -1,0 +1,204 @@
+/*******************************************************/
+/******************** ## Shop Area ********************/
+/*******************************************************/
+.shop-shorter
+    flex-wrap: wrap
+    +flexcenter(space-between)
+    .sort-text
+        font-weight: 500
+        margin-bottom: 15px
+        color: $heading-color
+        
+.products-dropdown
+    margin-bottom: 15px
+    .nice-select
+        font-size: 16px
+        padding: 0 25px 0 0
+        border-bottom: none
+        font-family: $base-font
+        .current
+            font-weight: 400
+        .list
+            margin-top: 15px
+        &:after
+            +size(7px)
+            right: 5px
+
+.offer-banner-wrap
+    z-index: 1
+    position: relative
+    padding: 110px 100px
+    +res-bl(md)
+        padding: 70px 50px
+    +res-bl(ms)
+        +gapLR(padding, 25px)
+    &:before
+        +poLT(0)
+        content: ''
+        +size(100%)
+        z-index: -1
+        background: linear-gradient(90deg, rgba(12, 11, 11, 0.85) 0%, rgba(12, 11, 11, 0.00) 100%)
+    .section-title
+        h2
+            +res-ab(xl)
+                font-size: 48px
+                
+/* Product box */
+.product-item
+    margin-bottom: 50px
+    .image
+        margin-bottom: 25px
+        position: relative
+        img
+            width: 100%
+        .social-style-one
+            +size(100%)
+            +poLT(0)
+            margin: 0
+            opacity: 0
+            padding: 40px
+            display: flex
+            transition: 0.5s
+            align-items: flex-end
+            justify-content: center
+            background: rgba(29, 27, 26, 0.75)
+            a
+                +size(60px)
+                line-height: 60px
+                +res-bl(xs)
+                    +size(40px)
+                    line-height: 40px
+                &:not(:hover)
+                    background: white
+                    color: $heading-color
+    .content
+        .ratting
+            font-size: 13px
+            padding-bottom: 8px
+                
+    &:hover
+        .social-style-one
+            opacity: 1
+        
+        
+        
+/* Product Details */
+.preview-images
+    margin-bottom: 30px
+    img
+        width: 100%
+.thumb-images
+    justify-content: space-between
+    .thumb-item
+        width: calc(33.3333% - 20px)
+        img
+            width: 100%
+        
+.product-details-content
+    .section-title
+        h2
+            margin-bottom: 15px
+            +res-ab(xxl)
+                font-size: 48px
+    .ratting-price
+        display: flex
+        align-items: center
+    .price
+        font-size: 24px
+        font-weight: 500
+        display: inline-block
+    .add-to-cart
+        display: flex
+        flex-wrap: wrap
+        align-items: center
+        input
+            max-width: 190px
+            font-weight: 500
+            padding: 8px 20px
+            text-align: center
+            margin: 20px 20px 0 0
+            font-family: $base-font
+            border: 1px solid $border-color
+        .theme-btn
+            margin-top: 20px
+            +gapTB(padding, 9px)
+            
+    .category-tags
+        li
+            &:not(:last-child)
+                margin-bottom: 8px
+            b
+                min-width: 65px
+                font-weight: 500
+                display: inline-block
+                color: $heading-color
+            span
+                +gapLR(margin, 15px)
+            a
+                &:not(:last-child)
+                    &:after
+                        content: ','
+                        margin-right: 3px
+                
+.product-details
+    .tab-content
+        h4
+            margin-bottom: 15px
+            +res-ab(xxl)
+                font-size: 30px
+            
+.product-information-tab
+    padding: 25px 90px
+    background: $lighter-color
+    +res-bl(md)
+        padding: 15px 25px
+    li
+        display: flex
+        align-items: center
+        a
+            font-size: 24px
+            +res-bl(sm)
+                font-size: 20px
+            +res-bl(xs)
+                font-size: 18px
+            &.active
+                font-weight: 500
+                color: $heading-color
+                text-decoration: underline
+        &:not(:last-child)
+            position: relative
+            &:after
+                +size(7px)
+                content: ''
+                opacity: 0.25
+                border-radius: 50%
+                +gapLR(margin, 50px)
+                background: $heading-color
+                +res-bl(sm)
+                    +gapLR(margin, 15px)
+                
+.review-form
+    .ratting
+        b
+            font-size: 20px
+            font-weight: 400
+            margin-right: 20px
+    .form-group
+        margin-bottom: 30px
+        .nice-select,
+        .form-control
+            line-height: 1.4
+            background: $lighter-color
+            border-color: $lighter-color
+            +res-ab(ms)
+                font-size: 20px
+            &::placeholder
+                color: $heading-color
+            &:focus
+                background: transparent
+                border-color: $heading-color
+            .current
+                font-weight: 400
+    .theme-btn
+        +res-ab(md)
+            padding: 14px 55px

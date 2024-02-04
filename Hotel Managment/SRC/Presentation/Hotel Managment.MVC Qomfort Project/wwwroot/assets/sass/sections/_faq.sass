@@ -1,0 +1,50 @@
+/*******************************************************/
+/******************** ## FAQs Area *********************/
+/*******************************************************/
+.faq-image-part
+    img
+        width: 100%
+.faq-counter-part
+    +poRB(30px, 15px)
+    max-width: calc(100% - 60px)
+    .counter-item
+        margin-bottom: 15px
+        +res-ab(ms)
+            min-width: 175px
+        +res-bl(ms)
+            .count-text
+                font-size: 40px
+            .counter-title
+                font-size: 14px
+
+.accordion-item
+    border: none
+    background: transparent
+    .accordion-button
+        font-size: 24px
+        @extend %heading
+        box-shadow: none
+        padding: 15px 0 22px
+        background: transparent
+        border-bottom: 1px solid $border-color
+        +res-bl(xs)
+            font-size: 18px
+        &:focus
+            box-shadow: none
+        &:after
+            font-size: 18px
+            background: none
+            content: "\f067"
+            font-weight: 400
+            text-align: right
+            font-family: "Font Awesome 5 Pro"
+        &:not(.collapsed):after
+            content: "\f068"
+            color: $primary-color
+            transform: rotate(0deg)
+    .accordion-body
+        padding: 15px 0 0
+        p
+            &:last-child
+                margin-bottom: 0
+            

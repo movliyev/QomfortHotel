@@ -1,0 +1,53 @@
+/*******************************************************/
+/******************* ## Hotel Section ******************/
+/*******************************************************/
+.hotel-item
+    display: flex
+    margin-bottom: 30px
+    background: $lighter-color
+    .content
+        padding: 60px 45px 70px
+        +res-ab(ms)
+            display: flex
+            flex-direction: column
+            justify-content: space-between
+        +res-bt(lg, xl)
+            padding: 35px 30px 45px
+        +res-bl(md)
+            padding: 35px 30px 45px
+        h3
+            margin-bottom: 10px
+        .price
+            margin-bottom: 30px
+            span
+                font-size: 27px
+                font-weight: 600
+                color: $primary-color
+        .theme-btn
+            padding: 8px 40px
+    .image
+        +res-ab(ms)
+            flex: none
+            max-width: 48%
+            align-self: center
+        img
+            width: 100%
+    &:hover
+        .content
+            h3
+                a
+                    color: $primary-color
+                    text-decoration: underline
+            .theme-btn
+                color: white
+                background: $primary-color
+                border-color: $primary-color
+            
+.hotel-carousel-active
+    +gapLR(margin, -15px)
+    .hotel-item
+        +gapLR(margin, 15px)
+        +res-ab(ms)
+            display: flex
+    .slick-dots
+        margin-top: 40px

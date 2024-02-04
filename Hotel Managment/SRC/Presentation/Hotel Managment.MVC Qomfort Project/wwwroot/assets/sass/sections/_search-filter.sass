@@ -1,0 +1,60 @@
+/*******************************************************/
+/****************** ## Search Filter *******************/
+/*******************************************************/
+.search-filter-inner
+    display: flex
+    flex-wrap: wrap
+    align-items: flex-end
+    padding: 50px 80px 20px
+    background: $black-color
+    transform: translateY(-80px)
+    justify-content: space-between
+    +res-bl(xxl)
+        +gapLR(padding, 30px)
+    .section-title
+        width: 100%
+        .sub-title
+            color: white
+            font-weight: 400
+        h3
+            font-size: 30px
+            font-weight: 400
+    .theme-btn,
+    .filter-item
+        margin-bottom: 30px
+        width: calc(20% - 22px)
+        +res-bl(xl)
+            width: calc(50% - 22px)
+        +res-bl(sm)
+            width: 100%
+    .filter-item
+        input,
+        .nice-select
+            line-height: 1.6
+            padding: 0 0 15px
+            background: transparent
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2)
+            &::placeholder
+                color: white
+            &:focus
+                border-color: white
+        input
+            color: white
+        input[type="date"]::-webkit-calendar-picker-indicator
+            color: rgba(0, 0, 0, 0)
+            opacity: 1
+            display: block
+            background: url(../images/icons/calendar.png) no-repeat center
+            +size(16px, 15px)
+        .nice-select
+            &:after
+                right: 3px
+                margin-top: -10px
+                border-color: white
+            .current
+                color: white
+    .theme-btn.style-two
+        color: white
+        border-color: white
+        &:hover
+            border-color: $primary-color

@@ -1,0 +1,56 @@
+/*******************************************************/
+/****************** ## Pricing Section *****************/
+/*******************************************************/
+.pricing-area
+    background-repeat: no-repeat
+    background-position: center bottom
+
+.pricing-item
+    transition: 0.5s
+    text-align: center
+    margin-bottom: 30px
+    padding: 70px 55px 50px
+    background-color: $black-color
+    background-position: top left
+    background-repeat: no-repeat
+    +res-bl(xs)
+        +gapLR(padding, 35px)
+    .title
+        color: white
+        margin-bottom: 30px
+    .price
+        color: white
+        display: block
+        font-size: 65px
+        font-weight: 600
+        margin-bottom: 33px
+        font-family: $heading-font
+    .per-text
+        display: block
+        font-size: 18px
+        color: rgba(255, 255, 255, 0.65)
+    hr
+        +gapTB(margin, 40px)
+    ul
+        padding-bottom: 25px
+        li
+            color: white
+            font-size: 18px
+            text-align: left
+            margin-bottom: 16px
+            &:before
+                content: "\f00c"
+                margin-right: 15px
+                color: $primary-color
+                font-family: 'Font Awesome 5 Pro'
+            &.unable
+                color: white
+                opacity: 0.15
+                &:before
+                    color: white
+    &:not(:hover)
+        .theme-btn
+            color: rgba(255, 255, 255, 0.65)
+            background: rgba(255, 255, 255, 0.1)
+    &:hover
+        transform: translateY(-20px)

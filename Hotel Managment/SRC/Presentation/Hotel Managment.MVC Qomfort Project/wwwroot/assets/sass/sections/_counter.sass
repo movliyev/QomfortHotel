@@ -1,0 +1,137 @@
+/*******************************************************/
+/****************** ## Counter Section *****************/
+/*******************************************************/
+.for-bg-and-shapes
+    .bg-color-and-shapes
+        +poLB(0)
+        z-index: -1
+        +size(100%, 172%)
+        .wave-shapes,
+        .wave-shapes-two
+            +res-ab(xl)
+                &:after
+                    +size(456px, 400px)
+                &:before
+                    +size(566px, 500px)
+               
+.triangle-shapes,
+.triangle-shapes:before
+        +poLB(0)
+        content: ''
+        z-index: -1
+        background: rgba(171, 96, 52, 0.05)
+        clip-path: polygon(0 0, 0 100%, 100% 100%)
+.triangle-shapes
+    +size(400px)
+    &:before
+        +size(70%)
+
+.triangle-shapes-two,
+.triangle-shapes-two:after,
+.triangle-shapes-two:before
+        +poRB(0)
+        content: ''
+        z-index: -1
+        background: rgba(171, 96, 52, 0.05)
+        clip-path: polygon(0 100%, 100% 100%, 100% 0)
+.triangle-shapes-two
+    +size(700px)
+    +res-bl(sm)
+        +size(400px)
+    &:before
+        +size(80%)
+    &:after
+        +size(60%)
+
+.counter-item
+    background: white
+    text-align: center
+    margin-bottom: 30px
+    .count-text
+        color: white
+        display: block
+        line-height: 1
+        font-size: 65px
+        padding: 10px 15px 20px
+        font-family: $heading-font
+        background: $primary-color
+        &:after
+            content: '+'
+    .counter-title
+        padding: 14px
+        display: block
+        line-height: 1
+        font-size: 18px
+        color: $heading-color
+        
+    &.style-two
+        text-align: left
+        background: transparent
+        .icon
+            +size(80px)
+            color: white
+            font-size: 33px
+            line-height: 80px
+            margin-left: 40px
+            text-align: center
+            background: $primary-color
+        .count-text
+            &:after
+                color: $primary-color
+        .count-text,
+        .counter-title
+            +gapLR(padding, 40px)
+            background: $black-color
+        .counter-title
+            padding-top: 5px
+            padding-bottom: 35px
+            color: rgba(255, 255, 255, 0.65)
+            +res-ab(xs)
+                font-size: 22px
+                
+    &.style-three
+        background: transparent
+        .count-text
+            color: $heading-color
+            background: transparent
+            &:after
+                color: $primary-color
+        .counter-title
+            color: $base-color
+            padding-top: 25px
+            margin-top: 10px
+            padding-bottom: 10px
+            background: transparent
+            border-top: 1px solid $border-color
+        
+/* Counter Style Two */
+.about-three-right
+    +res-ab(xl)
+        margin-left: -50px
+.counter-item-two
+    +res-ab(xs)
+        display: flex
+    &:not(:last-child)
+        margin-bottom: 60px
+    .count-text
+        flex: none
+        width: 170px
+        line-height: 1
+        font-size: 65px
+        font-weight: 700
+        margin-bottom: 25px
+        display: inline-block
+        color: $primary-color
+        font-family: $heading-font
+        +res-bl(sm)
+            width: 120px
+            font-size: 55px
+        &:after
+            content: '+'
+    .content
+        h4
+            margin-bottom: 15px
+            +res-ab(sm)
+                font-size: 30px
+        p
+            margin-bottom: 0

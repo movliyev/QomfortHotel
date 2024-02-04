@@ -1,0 +1,57 @@
+/*******************************************************/
+/******************* ## Gallery Area *******************/
+/*******************************************************/
+.gallery-active
+    +res-ab(xxl)
+        margin-left: 70px
+    .gallery-item
+        +gapLR(margin, 35px)
+        +res-bl(xxl)
+            +gapLR(margin, 15px)
+    .slick-track
+        display: flex
+        align-items: center
+        
+.gallery-item
+    position: relative
+    .image
+        img
+            width: 100%
+    .over-content
+        +poLT(20px)
+        opacity: 0
+        transition: 0.5s
+        text-align: center
+        padding: 25px 15px
+        +flexcenter(center)
+        flex-direction: column
+        +size(calc(100% - 40px))
+        background: transparentize(map-get($colors, primary-color), 0.15)
+        h2
+            color: white
+            margin-bottom: 0
+            margin-top: 20px
+            +res-bl(xxl)
+                font-size: 35px
+    &:hover
+        .over-content
+            opacity: 1
+    
+    &.style-two
+        margin-bottom: 30px
+        .over-content
+            top: 0
+            left: 0
+            +size(100%)
+            background: rgba(29, 27, 26, 0.85)
+            h2
+                margin-top: 0
+                +res-bl(xxl)
+                    font-size: 35px
+                    
+/* Gallery Page */
+.gallery-masonry-active
+    .details-btn
+        color: white
+        margin-bottom: 20px
+        background: $primary-color
