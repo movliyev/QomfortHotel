@@ -1,0 +1,210 @@
+﻿ 
+ 
+@model RoomVM
+
+<!--Form Back Drop-->
+<div class="form-back-drop"></div>
+
+<!-- Hidden Sidebar -->
+<section class="hidden-bar">
+    <div class="inner-box text-center">
+        <div class="cross-icon"><span class="fa fa-times"></span></div>
+        <div class="title">
+            <h4>Get Appointment</h4>
+        </div>
+
+        <!--Appointment Form-->
+        <div class="appointment-form">
+            <form method="post" action="contact.html">
+                <div class="form-group">
+                    <input type="text" name="text" value="" placeholder="Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" value="" placeholder="Email Address" required>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Message" rows="5"></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="theme-btn">Submit now</button>
+                </div>
+            </form>
+        </div>
+
+        <!--Social Icons-->
+        <div class="social-style-one">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-pinterest-p"></i></a>
+        </div>
+    </div>
+</section>
+<!--End Hidden Sidebar -->
+<!-- Page Banner Start -->
+<section class="page-banner-area pt-195 rpt-135 pb-190 rpb-125 rel z-1 bgs-cover bgc-black text-center" style="background-image: url(assets/images/rooms/@Model.Room.RoomImages.FirstOrDefault(p=>p.IsPrimary==true)?.Url)">
+    <div class="container">
+        <div class="banner-inner text-white rpb-25">
+            <h1 class="page-title wow fadeInUp delay-0-2s">@Model.Room.Name</h1>
+        </div>
+    </div>
+    <div class="bg-lines">
+        <span></span><span></span>
+        <span></span><span></span>
+        <span></span><span></span>
+        <span></span><span></span>
+        <span></span><span></span>
+    </div>
+</section>
+<!-- Page Banner End -->
+<!-- Room Details Area start -->
+<section class="room-details-area py-130 rpy-100 rel z-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="room-details-content rmb-55">
+                    <div class="section-title wow fadeInUp delay-0-2s">
+                        <h2>Description</h2>
+                    </div>
+                    <ul class="blog-meta wow fadeInUp delay-0-3s">
+                        <li>
+                            <i class="far fa-drafting-compass"></i>
+                            <a href="#">Size : @Model.Room.Size 2</a>
+                        </li>
+                        <li>
+                            <i class="far fa-bed-alt"></i>
+                            <a href="#">Beds :@Model.Room.Bed</a>
+                        </li>
+                        <li>
+                            <i class="far fa-bath"></i>
+                            <a href="#">Bathrooms : @Model.Room.BathRoom</a>
+                        </li>
+                        <li>
+                            <div class="ratting">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="price mb-35">$@Model.Room.Price Per Night</div>
+                    <p>@Model.Room.DetailDescription</p>
+                    <div class="room-details-images mt-45 wow fadeInUp delay-0-2s">
+                        @foreach (var item in Model.Room.RoomImages.FindAll(x => x.IsPrimary == null))
+                        {
+                            <img src="~/assets/images/rooms/@item.Url" alt="Room Details">
+                        }
+                       
+                    </div>
+                    <div class="section-title mt-35">
+                        <h2>Room Facilities</h2>
+                    </div>
+                    <p>Aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia</p>
+                    <ul class="list-style-two three-column pt-10 wow fadeInUp delay-0-2s">
+                      @foreach (var item in Model.Room.RoomFacilities)
+                        {
+                            <li>@item.Facility.Name</li>
+                        }
+                       
+                    </ul>
+                    <div class="section-title my-40">
+                        <h2>@Model.Room.Status</h2>
+                    </div>
+
+                    <div class="room-calendar wow fadeInUp delay-0-2s" id="calendar"></div>
+
+                    <div class="room-location mt-70 wow fadeInUp delay-0-2s">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m12!1m10!1m3!1d142190.2862584524!2d-74.01298319978558!3d40.721725351435126!2m1!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sbd!4v1663473911885!5m2!1sen!2sbd" style="border:0; width: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="section-title mt-45">
+                        <h2>Rules & Regulations</h2>
+                    </div>
+                    <p>To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage avoids a pain that produces no resultant pleasure</p>
+                    <ul class="list-style-two pt-10 wow fadeInUp delay-0-2s">
+                        <li>Check-in: After 02:00pm</li>
+                        <li>Checkout: Before 11:00am</li>
+                        <li>Late Checkout: Additional charge 50% of the room rate.</li>
+                        <li>No smoking in side the room</li>
+                        <li>No pets</li>
+                        <li>Identification document is must for hotel registration.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="room-details-sidebar bgc-lighter p-50 rp-40">
+                    <form class="widget-search-filter wow fadeInUp delay-0-4s">
+                        <div class="form-group">
+                            <label for="checkin">Check In</label>
+                            <input type="date" id="checkin" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="checkout">Check Out</label>
+                            <input type="date" id="checkout" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="adults">Adults</label>
+                            <select name="adults" id="adults">
+                                <option value="adults1">1</option>
+                                <option value="adults2">2</option>
+                                <option value="adults3" selected>3</option>
+                                <option value="adults3">4</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="children">Children</label>
+                            <select name="children" id="children">
+                                <option value="children1">1</option>
+                                <option value="children2" selected>2</option>
+                                <option value="children3">3</option>
+                            </select>
+                        </div>
+                        <button class="theme-btn w-100">Check Availability <i class="far fa-angle-right"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-lines for-bg-white">
+        <span></span><span></span>
+        <span></span><span></span>
+        <span></span><span></span>
+        <span></span><span></span>
+        <span></span><span></span>
+    </div>
+</section>
+<!-- Room Details Area end -->
+<!-- Instagram Area start -->
+<section class="instagram-area">
+    <div class="instagram-item wow fadeInUp delay-0-2s">
+        <a class="instagram-gallery" href="~/assets/images/instagrams/instagram1.jpg">
+            <img src="~/assets/images/instagrams/instagram1.jpg" alt="instagram">
+        </a>
+    </div>
+    <div class="instagram-item wow fadeInUp delay-0-3s">
+        <a class="instagram-gallery" href="~/assets/images/instagrams/instagram2.jpg">
+            <img src="~/assets/images/instagrams/instagram2.jpg" alt="instagram">
+        </a>
+    </div>
+    <div class="instagram-item wow fadeInUp delay-0-4s">
+        <div class="content text-white">
+            <div class="icon"><i class="fab fa-instagram"></i></div>
+            <h2><a href="https://www.instagram.com">Follow Our Instagram</a></h2>
+            <hr>
+            <div class="call-text">Make A Call</div>
+            <a class="h2" href="callto:+000(123)45688">+000 (123) 456 88</a>
+        </div>
+    </div>
+    <div class="instagram-item wow fadeInUp delay-0-5s">
+        <a class="instagram-gallery" href="~/assets/images/instagrams/instagram3.jpg">
+            <img src="~/assets/images/instagrams/instagram3.jpg" alt="instagram">
+        </a>
+    </div>
+    <div class="instagram-item wow fadeInUp delay-0-6s">
+        <a class="instagram-gallery" href="~/assets/images/instagrams/instagram4.jpg">
+            <img src="~/assets/images/instagrams/instagram4.jpg" alt="instagram">
+        </a>
+    </div>
+</section>
+<!-- Instagram Area end -->

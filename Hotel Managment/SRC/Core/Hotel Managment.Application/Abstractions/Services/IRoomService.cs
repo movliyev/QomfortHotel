@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Hotel_Managment.Application.Abstractions.Services
 {
-    internal interface IRoomService:IService<Room>
+    public interface IRoomService:IService<Room>
     {
     }
 }

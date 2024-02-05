@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\helpdesk_connect\\Downloads\\Hotel Managment\\SRC\\Infrastructure\\Hotel Managment.Rersistance\\Hotel Managment.Persistance.csproj": {}
+    "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Infrastructure\\Hotel Managment.Rersistance\\Hotel Managment.Persistance.csproj": {}
   },
   "projects": {
-    "C:\\Users\\helpdesk_connect\\Downloads\\Hotel Managment\\SRC\\Core\\Hotel Managment.Application\\Hotel Managment.Application.csproj": {
+    "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Core\\Hotel Managment.Application\\Hotel Managment.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\helpdesk_connect\\Downloads\\Hotel Managment\\SRC\\Core\\Hotel Managment.Application\\Hotel Managment.Application.csproj",
+        "projectUniqueName": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Core\\Hotel Managment.Application\\Hotel Managment.Application.csproj",
         "projectName": "Hotel Managment.Application",
-        "projectPath": "C:\\Users\\helpdesk_connect\\Downloads\\Hotel Managment\\SRC\\Core\\Hotel Managment.Application\\Hotel Managment.Application.csproj",
+        "projectPath": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Core\\Hotel Managment.Application\\Hotel Managment.Application.csproj",
         "packagesPath": "C:\\Users\\helpdesk_connect\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\helpdesk_connect\\Downloads\\Hotel Managment\\SRC\\Core\\Hotel Managment.Application\\obj\\",
+        "outputPath": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Core\\Hotel Managment.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,8 +32,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\helpdesk_connect\\Downloads\\Hotel Managment\\SRC\\Core\\Hotel Managment.Domain\\Hotel Managment.Domain.csproj": {
-                "projectPath": "C:\\Users\\helpdesk_connect\\Downloads\\Hotel Managment\\SRC\\Core\\Hotel Managment.Domain\\Hotel Managment.Domain.csproj"
+              "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Core\\Hotel Managment.Domain\\Hotel Managment.Domain.csproj": {
+                "projectPath": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Core\\Hotel Managment.Domain\\Hotel Managment.Domain.csproj"
               }
             }
           }
@@ -48,6 +48,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.9.0, )"
+            },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[11.3.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.26, )"
@@ -89,14 +97,14 @@
         }
       }
     },
-    "C:\\Users\\helpdesk_connect\\Downloads\\Hotel Managment\\SRC\\Core\\Hotel Managment.Domain\\Hotel Managment.Domain.csproj": {
+    "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Core\\Hotel Managment.Domain\\Hotel Managment.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\helpdesk_connect\\Downloads\\Hotel Managment\\SRC\\Core\\Hotel Managment.Domain\\Hotel Managment.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Core\\Hotel Managment.Domain\\Hotel Managment.Domain.csproj",
         "projectName": "Hotel Managment.Domain",
-        "projectPath": "C:\\Users\\helpdesk_connect\\Downloads\\Hotel Managment\\SRC\\Core\\Hotel Managment.Domain\\Hotel Managment.Domain.csproj",
+        "projectPath": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Core\\Hotel Managment.Domain\\Hotel Managment.Domain.csproj",
         "packagesPath": "C:\\Users\\helpdesk_connect\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\helpdesk_connect\\Downloads\\Hotel Managment\\SRC\\Core\\Hotel Managment.Domain\\obj\\",
+        "outputPath": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Core\\Hotel Managment.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -170,14 +178,14 @@
         }
       }
     },
-    "C:\\Users\\helpdesk_connect\\Downloads\\Hotel Managment\\SRC\\Infrastructure\\Hotel Managment.Rersistance\\Hotel Managment.Persistance.csproj": {
+    "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Infrastructure\\Hotel Managment.Rersistance\\Hotel Managment.Persistance.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\helpdesk_connect\\Downloads\\Hotel Managment\\SRC\\Infrastructure\\Hotel Managment.Rersistance\\Hotel Managment.Persistance.csproj",
+        "projectUniqueName": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Infrastructure\\Hotel Managment.Rersistance\\Hotel Managment.Persistance.csproj",
         "projectName": "Hotel Managment.Persistance",
-        "projectPath": "C:\\Users\\helpdesk_connect\\Downloads\\Hotel Managment\\SRC\\Infrastructure\\Hotel Managment.Rersistance\\Hotel Managment.Persistance.csproj",
+        "projectPath": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Infrastructure\\Hotel Managment.Rersistance\\Hotel Managment.Persistance.csproj",
         "packagesPath": "C:\\Users\\helpdesk_connect\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\helpdesk_connect\\Downloads\\Hotel Managment\\SRC\\Infrastructure\\Hotel Managment.Rersistance\\obj\\",
+        "outputPath": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Infrastructure\\Hotel Managment.Rersistance\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -198,11 +206,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\helpdesk_connect\\Downloads\\Hotel Managment\\SRC\\Core\\Hotel Managment.Application\\Hotel Managment.Application.csproj": {
-                "projectPath": "C:\\Users\\helpdesk_connect\\Downloads\\Hotel Managment\\SRC\\Core\\Hotel Managment.Application\\Hotel Managment.Application.csproj"
+              "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Core\\Hotel Managment.Application\\Hotel Managment.Application.csproj": {
+                "projectPath": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Core\\Hotel Managment.Application\\Hotel Managment.Application.csproj"
               },
-              "C:\\Users\\helpdesk_connect\\Downloads\\Hotel Managment\\SRC\\Core\\Hotel Managment.Domain\\Hotel Managment.Domain.csproj": {
-                "projectPath": "C:\\Users\\helpdesk_connect\\Downloads\\Hotel Managment\\SRC\\Core\\Hotel Managment.Domain\\Hotel Managment.Domain.csproj"
+              "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Core\\Hotel Managment.Domain\\Hotel Managment.Domain.csproj": {
+                "projectPath": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Core\\Hotel Managment.Domain\\Hotel Managment.Domain.csproj"
               }
             }
           }

@@ -133,8 +133,8 @@ namespace Hotel_Managment.Rersistance.Migrations
                     b.Property<int>("Size")
                         .HasColumnType("int");
 
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
+                    b.Property<bool?>("Status")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
@@ -166,10 +166,6 @@ namespace Hotel_Managment.Rersistance.Migrations
 
                     b.Property<DateTime?>("ModifiedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("RoomId")
                         .HasColumnType("int");

@@ -2,7 +2,6 @@
 using Hotel_Managment.Domain.Entities;
 using Hotel_Managment.Rersistance.DAL;
 using Microsoft.EntityFrameworkCore;
-
 using System.Linq.Expressions;
 
 
@@ -26,6 +25,10 @@ namespace Hotel_Managment.Rersistance.Implementations.Repositories.Generic
 
         }
       
+        public List<T> GetListByFilter(Expression<Func<T, bool>> filter)
+        {
+           return _dbSet.Where(filter).ToList(); 
+        }
         public async Task<T> GetByIdAsync(int id)
         {
             IQueryable<T> query = _dbSet.Where(x => x.Id == id);
@@ -63,7 +66,6 @@ namespace Hotel_Managment.Rersistance.Implementations.Repositories.Generic
         {
             await _context.SaveChangesAsync();
         }
-       
 
     }
 }

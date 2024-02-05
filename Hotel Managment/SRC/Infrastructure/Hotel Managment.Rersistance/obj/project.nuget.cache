@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "dOdzy5hNuLm47jiNOcaASw44hQEdtwxZo8DD5DW1dJcO3oEKYLU8VnZez+LNMg2tfPvMpsc9eYxCBGVmezoGMg==",
+  "dgSpecHash": "Y3fzgnU1kg2M4ExXfPbS1LTd0FC86/94RDwvUx0I9lCv28FspYE+Jsin/wZYTTGWuPRKFoleb61N7iOMio9ZUQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\helpdesk_connect\\Downloads\\Hotel Managment\\SRC\\Infrastructure\\Hotel Managment.Rersistance\\Hotel Managment.Persistance.csproj",
+  "projectFilePath": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Infrastructure\\Hotel Managment.Rersistance\\Hotel Managment.Persistance.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\helpdesk_connect\\.nuget\\packages\\fluentvalidation\\11.9.0\\fluentvalidation.11.9.0.nupkg.sha512",
+    "C:\\Users\\helpdesk_connect\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
+    "C:\\Users\\helpdesk_connect\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
     "C:\\Users\\helpdesk_connect\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\helpdesk_connect\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\helpdesk_connect\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",

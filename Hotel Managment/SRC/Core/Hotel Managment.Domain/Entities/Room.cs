@@ -18,7 +18,7 @@ namespace Hotel_Managment.Domain.Entities
         public int BathRoom { get; set; }
         public Category Category { get; set; }
         public List<RoomFacility> RoomFacilities { get; set; }
-        public RoomAvail Status { get; set; }
+        public bool? Status { get; set; }
 
     }
 }

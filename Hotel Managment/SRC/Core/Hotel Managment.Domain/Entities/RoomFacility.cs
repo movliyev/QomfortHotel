@@ -5,7 +5,6 @@ namespace Hotel_Managment.Domain.Entities
     public class RoomFacility:BaseEntity
     {
         public int Id { get; set; }
-        public string Name { get; set; }
 
         public int RoomId { get; set; }
         public Room Room { get; set; }

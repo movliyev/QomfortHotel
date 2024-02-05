@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Hotel_Managment.Rersistance.Implementations.Service
 {
-    internal class CategoryService : ICategoryService
+    public class CategoryService : ICategoryService
     {
         private readonly ICategoryRepository _repo;
 

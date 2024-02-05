@@ -9,25 +9,53 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Hotel_Managment.MVC_Qomfort_Project
 build_property.RootNamespace = Hotel_Managment.MVC_Qomfort_Project
-build_property.ProjectDir = C:\Users\helpdesk_connect\Downloads\Hotel Managment\SRC\Presentation\Hotel Managment.MVC Qomfort Project\
+build_property.ProjectDir = C:\Users\helpdesk_connect\Desktop\Hotel\Hotel Managment\SRC\Presentation\Hotel Managment.MVC Qomfort Project\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\helpdesk_connect\Downloads\Hotel Managment\SRC\Presentation\Hotel Managment.MVC Qomfort Project
+build_property.MSBuildProjectDirectory = C:\Users\helpdesk_connect\Desktop\Hotel\Hotel Managment\SRC\Presentation\Hotel Managment.MVC Qomfort Project
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/helpdesk_connect/Downloads/Hotel Managment/SRC/Presentation/Hotel Managment.MVC Qomfort Project/Views/Home/Index.cshtml]
+[C:/Users/helpdesk_connect/Desktop/Hotel/Hotel Managment/SRC/Presentation/Hotel Managment.MVC Qomfort Project/Views/Blog/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xEZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/helpdesk_connect/Desktop/Hotel/Hotel Managment/SRC/Presentation/Hotel Managment.MVC Qomfort Project/Views/Blog/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/helpdesk_connect/Desktop/Hotel/Hotel Managment/SRC/Presentation/Hotel Managment.MVC Qomfort Project/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/helpdesk_connect/Downloads/Hotel Managment/SRC/Presentation/Hotel Managment.MVC Qomfort Project/Views/_ViewImports.cshtml]
+[C:/Users/helpdesk_connect/Desktop/Hotel/Hotel Managment/SRC/Presentation/Hotel Managment.MVC Qomfort Project/Views/Room/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbVxEZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/helpdesk_connect/Desktop/Hotel/Hotel Managment/SRC/Presentation/Hotel Managment.MVC Qomfort Project/Views/Room/RoomList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbVxSb29tTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/helpdesk_connect/Desktop/Hotel/Hotel Managment/SRC/Presentation/Hotel Managment.MVC Qomfort Project/Views/Shared/Components/RoomPartial/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcUm9vbVBhcnRpYWxcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/helpdesk_connect/Desktop/Hotel/Hotel Managment/SRC/Presentation/Hotel Managment.MVC Qomfort Project/Views/Shared/Components/SearchPartial/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcU2VhcmNoUGFydGlhbFxEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/helpdesk_connect/Desktop/Hotel/Hotel Managment/SRC/Presentation/Hotel Managment.MVC Qomfort Project/Views/Shared/Components/SlidePartial/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcU2xpZGVQYXJ0aWFsXERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/helpdesk_connect/Desktop/Hotel/Hotel Managment/SRC/Presentation/Hotel Managment.MVC Qomfort Project/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/helpdesk_connect/Downloads/Hotel Managment/SRC/Presentation/Hotel Managment.MVC Qomfort Project/Views/_ViewStart.cshtml]
+[C:/Users/helpdesk_connect/Desktop/Hotel/Hotel Managment/SRC/Presentation/Hotel Managment.MVC Qomfort Project/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/helpdesk_connect/Downloads/Hotel Managment/SRC/Presentation/Hotel Managment.MVC Qomfort Project/Views/Shared/_Layout.cshtml]
+[C:/Users/helpdesk_connect/Desktop/Hotel/Hotel Managment/SRC/Presentation/Hotel Managment.MVC Qomfort Project/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-4n1ykt7mo9

@@ -1,0 +1,32 @@
+﻿@model List<Room>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-xl-3 col-lg-4 col-sm-6">
+            <div class="room-three-item wow fadeInUp delay-0-2s">
+                <div class="image">
+                    <img src="~/assets/images/rooms/@item.RoomImages.FirstOrDefault(p=>p.IsPrimary==true)?.Url" alt="Room">
+                    <div class="image-over">
+                        <a class="category" asp-action="Detail" asp-controller="Room" asp-route-id="@item.Id">@item.Category.Name</a>
+                        <div class="price"><span>$@item.Price</span>/per night</div>
+                    </div>
+                </div>
+                <div class="content">
+                    <h4><a href="room-details.html">@item.Name</a></h4>
+                    <ul class="blog-meta">
+                        <li>
+                            <i class="far fa-bed-alt"></i>
+                            <a href="#">Adults :@item.Capacity</a>
+                        </li>
+                        <li>
+                            <i class="far fa-drafting-compass"></i>
+                            <a href="#">Size :@item.Size /ft</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>

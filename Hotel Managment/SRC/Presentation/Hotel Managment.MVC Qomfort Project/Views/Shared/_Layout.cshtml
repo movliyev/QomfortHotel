@@ -70,17 +70,12 @@
                                 <div class="navbar-collapse collapse clearfix">
                                     <ul class="navigation clearfix">
                                         <li >
-                                            <a href="#">Home</a>
+                                            <a asp-action="Index" asp-controller="Home">Home</a>
                                            
                                         </li>
-                                        <li class="dropdown">
-                                            <a href="#">Room</a>
-                                            <ul>
-                                                <li><a href="room-grid.html">Room Grid</a></li>
-                                                <li><a href="room-2columns.html">Room 2 Column</a></li>
-                                                <li><a href="room-list.html">Room List</a></li>
-                                                <li><a href="room-details.html">Room Details</a></li>
-                                            </ul>
+                                        <li >
+                                            <a asp-action="RoomList" asp-controller="Room">Room</a>
+                                           
                                         </li>
                                         <li class="dropdown">
                                             <a href="#">pages</a>
@@ -98,12 +93,9 @@
                                                 <li><a href="product-details.html">Product details</a></li>
                                             </ul>
                                         </li>
-                                        <li class="dropdown">
-                                            <a href="#">blog</a>
-                                            <ul>
-                                                <li><a href="blog.html">blog Grid</a></li>
-                                                <li><a href="blog-details.html">blog details</a></li>
-                                            </ul>
+                                        <li >
+                                            <a asp-action="index" asp-controller="Blog">Blog</a>
+                                           
                                         </li>
                                         <li><a href="contact.html">Contact</a></li>
                                     </ul>

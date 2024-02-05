@@ -1,9 +1,12 @@
+using Hotel_Managment.Application.ServiceRegistration;
 using ProniaOnion202.Persistance.ServiceRegistration;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddApplicationServices();
+
 builder.Services.AddPersistanceService(builder.Configuration);
 
 var app = builder.Build();

@@ -7,6 +7,7 @@ namespace Hotel_Managment.Application.Abstractions.Repositories.Generic
 {
     public interface IRepository<T> where T : BaseEntity,new()
     {
+        List<T>GetListByFilter(Expression<Func<T, bool>> filter);
         List<T> GetAll( );
        
         Task<T> GetByIdAsync(int id);
