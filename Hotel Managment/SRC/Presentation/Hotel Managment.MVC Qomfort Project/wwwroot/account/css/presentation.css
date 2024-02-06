@@ -1,0 +1,157 @@
+body {
+    font-family: 'Rubik';
+    font-size: 20px;
+}
+
+header {
+    padding-top: 24px;
+}
+
+header .logo {
+    text-align: center;
+    margin-bottom: 64px;
+}
+
+h1 {
+    font-size: 1.65rem;
+    font-weight: 700;
+    line-height: 2.2rem;
+}
+
+header .heading {
+    text-align: center;
+}
+
+.btn {
+    font-weight: 700;
+    border-radius: 8px;
+    padding: 8px 32px;
+    box-shadow: 0 3px 6px rgba(32, 32, 32, 0.12);
+}
+
+.mobile-img {
+    margin: 32px 0;
+    height: 388px;
+    background: url(../img/pres-mob.png) center center no-repeat;
+}
+
+.mobile-img img {
+    width: 100%;
+}
+
+section {
+    text-align: center;
+}
+
+.line {
+    margin: 0 auto;
+    width: 190px;
+    height: 16px;
+    margin-bottom: 32px;
+    border-bottom: 2px solid #2f71ff;
+}
+
+.cards {
+    margin-top: 24px;
+    margin-bottom: 40px;
+}
+
+.pres-card {
+    margin-bottom: 24px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+.pres-img img {
+    width: 100%;
+}
+
+.pres-title a {
+    padding: 8px 0;
+    text-align: center;
+    text-transform: uppercase;
+    color: black;
+    display: block;
+    font-size: 14px;
+    background: white;
+}
+
+footer {
+    margin-top: 40px;
+    padding: 40px 0;
+    text-align: center;
+    color: white;
+    background: rgba(47, 113, 255, 1);
+}
+
+@media (min-width: 768px) {
+    body {
+        background: url(../img/pres-bg.png) right top no-repeat;
+    }
+
+    header {
+        height: 800px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    header .container:first-child {
+        text-align: left;
+    }
+
+    header .container:last-child {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    header .logo {
+        text-align: left;
+    }
+
+    header .heading {
+        text-align: left;
+    }
+
+    h1 {
+        font-size: 48px;
+        font-weight: 500;
+        line-height: 60px;
+    }
+
+    .btn {
+        padding: 16px 48px;
+        font-size: 22px;
+    }
+
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 80px;
+    }
+
+    .cards .pres-card {
+        margin-bottom: 30px;
+    }
+
+    .pres-title {
+        font-size: 14px;
+    }
+
+    footer {
+        margin-top: 80px;
+    }
+
+    .cta p {
+        margin-bottom: 24px;
+    }
+
+    .section-1 {
+        padding-top: 80px;
+        background: url(../img/circle-01.png) left top no-repeat,
+            url(../img/circle-02.png) right center no-repeat;
+    }
+
+    .section-1 {
+    }
+}

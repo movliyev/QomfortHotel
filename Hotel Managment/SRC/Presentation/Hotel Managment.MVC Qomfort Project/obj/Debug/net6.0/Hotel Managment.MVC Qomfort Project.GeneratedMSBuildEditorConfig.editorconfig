@@ -16,6 +16,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\helpdesk_connect\Desktop\Hotel\Hotel Managment\SRC\Presentation\Hotel Managment.MVC Qomfort Project
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/helpdesk_connect/Desktop/Hotel/Hotel Managment/SRC/Presentation/Hotel Managment.MVC Qomfort Project/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/helpdesk_connect/Desktop/Hotel/Hotel Managment/SRC/Presentation/Hotel Managment.MVC Qomfort Project/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/helpdesk_connect/Desktop/Hotel/Hotel Managment/SRC/Presentation/Hotel Managment.MVC Qomfort Project/Views/Blog/Detail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xEZXRhaWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -34,6 +42,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/helpdesk_connect/Desktop/Hotel/Hotel Managment/SRC/Presentation/Hotel Managment.MVC Qomfort Project/Views/Room/RoomList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbVxSb29tTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/helpdesk_connect/Desktop/Hotel/Hotel Managment/SRC/Presentation/Hotel Managment.MVC Qomfort Project/Views/Shared/Components/InstagramPartial/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcSW5zdGFncmFtUGFydGlhbFxEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/helpdesk_connect/Desktop/Hotel/Hotel Managment/SRC/Presentation/Hotel Managment.MVC Qomfort Project/Views/Shared/Components/RoomPartial/Default.cshtml]

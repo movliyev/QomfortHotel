@@ -1,0 +1,126 @@
+:root {
+    --forny-form-paddings: 2.5rem;
+    --forny-bg-color: hsla(48, 100%, 95%, 1);
+
+    --forny-color-accent-500: hsla(208, 100%, 50%, 1);
+    --forny-color-accent-700: hsla(211, 91%, 42%, 1);
+
+    --forny-color-gray-300: hsla(0, 0%, 0%, 0.16);
+    --forny-color-gray-700: hsla(209, 23%, 60%, 1);
+    --forny-color-gray-900: hsla(208, 20%, 24%, 1);
+
+    --forny-font-family: 'Nunito', sans-serif;
+    --forny-color-text: var(--forny-color-gray-700);
+    --forny-color-header: var(--forny-color-gray-900);
+    --forny-link-color: var(--forny-color-accent-700);
+
+    --forny-form-control-border: 1px solid var(--forny-color-gray-700);
+    --forny-form-control-padding: var(--forny-p2) var(--forny-p4);
+    --forny-form-control-radius: 0;
+    --forny-shadow-color: var(--forny-color-gray-300);
+}
+
+.forny-container {
+    background-size: contain;
+    background-position-y: 20vh;
+}
+
+.forny-form {
+    padding: 2.5rem;
+    padding: var(--forny-form-paddings);
+    background: white;
+}
+
+@media (min-width: 768px) {
+    .forny-container {
+        background: url('../img/bg-01.svg') center bottom no-repeat
+            hsla(48, 100%, 95%, 1);
+        background: url('../img/bg-01.svg') center bottom no-repeat
+            var(--forny-bg-color);
+    }
+
+    .forny-inner {
+        width: calc(
+            26rem + (2.5rem * 2)
+        );
+        width: calc(
+            var(--forny-form-width) + (var(--forny-form-paddings) * 2)
+        );
+    }
+
+    .forny-form {
+        box-shadow: 0 3px 6px hsla(0, 0%, 0%, 0.16);
+        box-shadow: var(--forny-shadow);
+        width: calc(
+            26rem + (2.5rem * 2)
+        );
+        width: calc(
+            var(--forny-form-width) + (var(--forny-form-paddings) * 2)
+        );
+    }
+}
+
+.forny-form .nav-tabs {
+    margin-bottom: 2rem;
+    margin-bottom: var(--forny-p8);
+    border-bottom: 0;
+}
+
+.forny-form .nav-tabs li a {
+    background: transparent;
+    border: none;
+    color: hsla(209, 23%, 60%, 1);
+    color: var(--forny-color-text);
+    padding: 0;
+    margin-right: 1rem;
+    margin-right: var(--forny-p4);
+}
+
+.forny-form .nav-tabs li a.active span {
+    display: block;
+    padding-bottom: 0.25rem;
+    padding-bottom: var(--forny-p1);
+    border-bottom: 2px solid hsla(208, 100%, 50%, 1);
+    border-bottom: 2px solid var(--forny-color-accent-500);
+    color: hsla(208, 100%, 50%, 1);
+    color: var(--forny-color-accent-500);
+}
+
+.forny-form .form-group {
+    margin-bottom: 1rem;
+    margin-bottom: var(--forny-p4);
+}
+
+.forny-form .form-control,
+.forny-form .input-group-text {
+    color: hsla(209, 23%, 60%, 1);
+    color: var(--forny-color-gray-700);
+    background: transparent;
+}
+
+.forny-form .btn {
+    border-radius: 0;
+    padding: 0.5rem 1rem;
+    padding: var(--forny-p2) var(--forny-p4);
+}
+
+.forny-form .form-group .input-group-append .input-group-text:hover {
+    color: hsla(208, 100%, 50%, 1);
+    color: var(--forny-color-accent-500);
+}
+
+.forny-container .alert {
+    border-radius: 0;
+}
+
+.forny-form .input-group-prepend .input-group-text {
+    border-right: 0;
+    padding-right: 0.25rem;
+    padding-right: var(--forny-p1);
+}
+
+.forny-form .input-group-append .input-group-text {
+    padding-left: 0.25rem;
+    padding-left: var(--forny-p1);
+    border-left: 0;
+}

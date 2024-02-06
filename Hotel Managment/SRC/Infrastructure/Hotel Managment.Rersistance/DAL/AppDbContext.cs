@@ -1,4 +1,5 @@
 ﻿using Hotel_Managment.Domain.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Hotel_Managment.Rersistance.DAL
 {
-    public class AppDbContext:DbContext
+    public class AppDbContext:IdentityDbContext<AppUser,AppRole,int>
     {
         public AppDbContext(DbContextOptions<AppDbContext>options):base(options) { }
         public DbSet<Category> Categories { get; set; }

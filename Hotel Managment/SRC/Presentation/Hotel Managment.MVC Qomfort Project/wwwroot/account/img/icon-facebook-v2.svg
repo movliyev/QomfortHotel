@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+    <defs>
+        <style>.if-a{fill:url(#if-a);}.if-b{fill:#fff;fill-rule:evenodd;}</style>
+        <linearGradient id="if-a" y1="0.5" x2="1" y2="0.5" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#245a9c"/>
+            <stop offset="1" stop-color="#2b189c"/>
+        </linearGradient>
+    </defs>
+    <circle class="if-a" cx="12" cy="12" r="12"/>
+    <path class="if-b" d="M178.99,105.585v7.277a.194.194,0,0,0,.2.191h2.778a.194.194,0,0,0,.2-.191v-7.394h2.013a.2.2,0,0,0,.2-.171l.191-2.227a.191.191,0,0,0-.2-.206h-2.209v-1.585a.678.678,0,0,1,.689-.67h1.55a.194.194,0,0,0,.2-.191V98.191a.194.194,0,0,0-.2-.191h-2.622a2.75,2.75,0,0,0-2.788,2.711v2.148H177.6a.194.194,0,0,0-.2.191v2.227a.194.194,0,0,0,.2.191h1.394Z" transform="translate(-169.013 -93.451)"/>
+</svg>

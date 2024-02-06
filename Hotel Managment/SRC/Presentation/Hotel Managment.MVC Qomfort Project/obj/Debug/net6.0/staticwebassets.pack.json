@@ -5,6 +5,258 @@
       "PackagePath": "staticwebassets\\Hotel Managment.MVC Qomfort Project.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\account\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\css\\common.css",
+      "PackagePath": "staticwebassets\\account\\css\\common.css"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\css\\presentation.css",
+      "PackagePath": "staticwebassets\\account\\css\\presentation.css"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\css\\theme-01.css",
+      "PackagePath": "staticwebassets\\account\\css\\theme-01.css"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\css\\theme-02.css",
+      "PackagePath": "staticwebassets\\account\\css\\theme-02.css"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\css\\theme-03.css",
+      "PackagePath": "staticwebassets\\account\\css\\theme-03.css"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\css\\theme-04.css",
+      "PackagePath": "staticwebassets\\account\\css\\theme-04.css"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\css\\theme-05.css",
+      "PackagePath": "staticwebassets\\account\\css\\theme-05.css"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\css\\theme-06.css",
+      "PackagePath": "staticwebassets\\account\\css\\theme-06.css"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\css\\theme-07.css",
+      "PackagePath": "staticwebassets\\account\\css\\theme-07.css"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\css\\theme-08.css",
+      "PackagePath": "staticwebassets\\account\\css\\theme-08.css"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\bg-01.svg",
+      "PackagePath": "staticwebassets\\account\\img\\bg-01.svg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\bg-02.svg",
+      "PackagePath": "staticwebassets\\account\\img\\bg-02.svg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\bg-03-01.svg",
+      "PackagePath": "staticwebassets\\account\\img\\bg-03-01.svg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\bg-03-02.svg",
+      "PackagePath": "staticwebassets\\account\\img\\bg-03-02.svg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\bg-04.svg",
+      "PackagePath": "staticwebassets\\account\\img\\bg-04.svg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\bg-05.svg",
+      "PackagePath": "staticwebassets\\account\\img\\bg-05.svg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\bg-06.png",
+      "PackagePath": "staticwebassets\\account\\img\\bg-06.png"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\bg-06@2x.png",
+      "PackagePath": "staticwebassets\\account\\img\\bg-06@2x.png"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\bg-07.svg",
+      "PackagePath": "staticwebassets\\account\\img\\bg-07.svg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\bg-08.png",
+      "PackagePath": "staticwebassets\\account\\img\\bg-08.png"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\circle-01.png",
+      "PackagePath": "staticwebassets\\account\\img\\circle-01.png"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\circle-02.png",
+      "PackagePath": "staticwebassets\\account\\img\\circle-02.png"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\icon-envelope.svg",
+      "PackagePath": "staticwebassets\\account\\img\\icon-envelope.svg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\icon-eye.svg",
+      "PackagePath": "staticwebassets\\account\\img\\icon-eye.svg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\icon-facebook-rounded.svg",
+      "PackagePath": "staticwebassets\\account\\img\\icon-facebook-rounded.svg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\icon-facebook-v2.svg",
+      "PackagePath": "staticwebassets\\account\\img\\icon-facebook-v2.svg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\icon-facebook.png",
+      "PackagePath": "staticwebassets\\account\\img\\icon-facebook.png"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\icon-facebook.svg",
+      "PackagePath": "staticwebassets\\account\\img\\icon-facebook.svg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\icon-google-rounded.svg",
+      "PackagePath": "staticwebassets\\account\\img\\icon-google-rounded.svg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\icon-google-v2.svg",
+      "PackagePath": "staticwebassets\\account\\img\\icon-google-v2.svg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\icon-google.png",
+      "PackagePath": "staticwebassets\\account\\img\\icon-google.png"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\icon-google.svg",
+      "PackagePath": "staticwebassets\\account\\img\\icon-google.svg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\icon-lock.svg",
+      "PackagePath": "staticwebassets\\account\\img\\icon-lock.svg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\icon-twitter-rounded.svg",
+      "PackagePath": "staticwebassets\\account\\img\\icon-twitter-rounded.svg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\icon-twitter-v2.svg",
+      "PackagePath": "staticwebassets\\account\\img\\icon-twitter-v2.svg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\icon-twitter.png",
+      "PackagePath": "staticwebassets\\account\\img\\icon-twitter.png"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\icon-twitter.svg",
+      "PackagePath": "staticwebassets\\account\\img\\icon-twitter.svg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\icon-user.svg",
+      "PackagePath": "staticwebassets\\account\\img\\icon-user.svg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\logo-01.svg",
+      "PackagePath": "staticwebassets\\account\\img\\logo-01.svg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\logo-02.svg",
+      "PackagePath": "staticwebassets\\account\\img\\logo-02.svg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\logo-03.svg",
+      "PackagePath": "staticwebassets\\account\\img\\logo-03.svg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\logo-04.svg",
+      "PackagePath": "staticwebassets\\account\\img\\logo-04.svg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\logo-05.svg",
+      "PackagePath": "staticwebassets\\account\\img\\logo-05.svg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\logo-06.svg",
+      "PackagePath": "staticwebassets\\account\\img\\logo-06.svg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\logo-07.svg",
+      "PackagePath": "staticwebassets\\account\\img\\logo-07.svg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\logo-08.svg",
+      "PackagePath": "staticwebassets\\account\\img\\logo-08.svg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\pres-01.png",
+      "PackagePath": "staticwebassets\\account\\img\\pres-01.png"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\pres-02.png",
+      "PackagePath": "staticwebassets\\account\\img\\pres-02.png"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\pres-03.png",
+      "PackagePath": "staticwebassets\\account\\img\\pres-03.png"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\pres-04.png",
+      "PackagePath": "staticwebassets\\account\\img\\pres-04.png"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\pres-05.png",
+      "PackagePath": "staticwebassets\\account\\img\\pres-05.png"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\pres-06.png",
+      "PackagePath": "staticwebassets\\account\\img\\pres-06.png"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\pres-07.png",
+      "PackagePath": "staticwebassets\\account\\img\\pres-07.png"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\pres-08.png",
+      "PackagePath": "staticwebassets\\account\\img\\pres-08.png"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\pres-bg.png",
+      "PackagePath": "staticwebassets\\account\\img\\pres-bg.png"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\pres-logo.svg",
+      "PackagePath": "staticwebassets\\account\\img\\pres-logo.svg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\img\\pres-mob.png",
+      "PackagePath": "staticwebassets\\account\\img\\pres-mob.png"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\account\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\js\\demo.js",
+      "PackagePath": "staticwebassets\\account\\js\\demo.js"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\js\\jquery.min.js",
+      "PackagePath": "staticwebassets\\account\\js\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\js\\main.js",
+      "PackagePath": "staticwebassets\\account\\js\\main.js"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\account\\js\\theme-10.js",
+      "PackagePath": "staticwebassets\\account\\js\\theme-10.js"
+    },
+    {
       "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\assets\\css\\animate.min.css",
       "PackagePath": "staticwebassets\\assets\\css\\animate.min.css"
     },
@@ -171,6 +423,10 @@
     {
       "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\assets\\fonts\\flaticon_merina.woff2",
       "PackagePath": "staticwebassets\\assets\\fonts\\flaticon_merina.woff2"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\assets\\images\\User\\dc6f1cbc-6cf8-49b2-a02c-e6be0d89a4d7profil.png",
+      "PackagePath": "staticwebassets\\assets\\images\\User\\dc6f1cbc-6cf8-49b2-a02c-e6be0d89a4d7profil.png"
     },
     {
       "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\assets\\images\\about\\about-author.jpg",
