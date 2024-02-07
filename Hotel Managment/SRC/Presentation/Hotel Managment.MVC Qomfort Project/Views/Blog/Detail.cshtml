@@ -1,4 +1,6 @@
-﻿        <!--Form Back Drop-->
+﻿       
+ @model Blog
+<!--Form Back Drop-->
 <div class="form-back-drop"></div>
 
 <!-- Hidden Sidebar -->
@@ -45,15 +47,15 @@
             <ul class="blog-meta style-two mt-20 wow fadeInUp delay-0-3s">
                 <li>
                     <i class="far fa-user"></i>
-                    <a href="#">Diann W. Gaddis</a>
+                    <a href="#">@Model.Name</a>
                 </li>
                 <li>
                     <i class="far fa-calendar-alt"></i>
-                    <a href="#">25 June 2023</a>
+                    <a href="#">@Model.BlogDate</a>
                 </li>
                 <li>
                     <i class="far fa-comments"></i>
-                    <a href="#">Comments (5)</a>
+                    <a href="#">Comments (@Model.Comments.Count)</a>
                 </li>
             </ul>
         </div>
@@ -73,18 +75,18 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="blog-details-content">
-                    <p class="big-first-letter">QSed ut perspiciatis unde omnis iste natus error voluptatem accusantium doloremque laudantium totams rem aperiam, eaque ipsa quae abillo inventore veritatis quasi architecto beatae vitae dictaey </p>
-                    <p>perspiciatis unde omnis iste natus error voluptatem accusantium doloremque laudantium totam rem aperiam, eaque ipsa quae abillo inventore veritatis quasi architecto beatae vitae dictaey</p>
-                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita</p>
+                    <p class="big-first-letter">Q @Model.Desc1 </p>
+                    
                     <div class="image my-40 wow fadeInUp delay-0-2s">
-                        <img src="~/assets/images/blog/blog-details.jpg" alt="Blog Single">
+                        <img src="~/assets/images/blog/@Model.MainImage" alt="Blog Single">
                     </div>
-                    <p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish</p>
                     <blockquote>
-                        Handling Mounting And Unmounting Of Given Navigation Routes In React Native
-                        <span class="blockquote-footer">Johnny M. Martin</span>
+                       @Model.Title
+                        <span class="blockquote-footer">@Model.Name</span>
                     </blockquote>
-                    <p>In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains</p>
+                    <p>@Model.Desc2</p>
+                   
+                   
                 </div>
                 <div class="tag-share py-30 wow fadeInUp delay-0-2s">
                     <div class="item">
@@ -104,128 +106,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="admin-comment bgc-lighter mb-60 wow fadeInUp delay-0-2s">
-                    <div class="comment-body">
-                        <div class="author-thumb">
-                            <img src="~/assets/images/blog/admin-author.jpg" alt="Author">
-                        </div>
-                        <div class="content">
-                            <h5>Richard M. Fudge</h5>
-                            <p>We denounce with righteous indignation and dislike men beguiled and demoralized by the charms of pleasure of the moment</p>
-                            <div class="social-style-two">
-                                <a href="contact.html"><i class="fab fa-facebook-f"></i></a>
-                                <a href="contact.html"><i class="fab fa-twitter"></i></a>
-                                <a href="contact.html"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="contact.html"><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="next-prev-blog pb-25">
-                    <div class="item wow fadeInLeft delay-0-2s">
-                        <div class="image">
-                            <img src="~/assets/images/blog/blog-prev.jpg" alt="Prev">
-                        </div>
-                        <div class="content">
-                            <h6><a href="blog-details.html">Tips For Conducting Usability Studies</a></h6>
-                            <a class="read-more" href="blog-details.html">Read More <i class="far fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="item wow fadeInRight delay-0-2s">
-                        <div class="image">
-                            <img src="~/assets/images/blog/blog-next.jpg" alt="Next">
-                        </div>
-                        <div class="content">
-                            <h6><a href="blog-details.html">Building Accessible Menu Systems</a></h6>
-                            <a class="read-more" href="blog-details.html">Read More <i class="far fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="comments">
-                    <h3 class="comment-title">Popular Comments</h3>
-                    <div class="comment-body wow fadeInUp delay-0-2s">
-                        <div class="author-thumb">
-                            <img src="~/assets/images/blog/comment-author1.jpg" alt="Author">
-                        </div>
-                        <div class="content">
-                            <ul class="blog-meta">
-                                <li>
-                                    <h6>William L. Jackson</h6>
-                                </li>
-                                <li>
-                                    <a href="#">May 25, 2023</a>
-                                </li>
-                            </ul>
-                            <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihile molestiae consequatur, vel illum qui dolorem eum fugiat voluptas</p>
-                            <a class="read-more" href="#">Reply <i class="far fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="comment-body comment-child wow fadeInUp delay-0-2s">
-                        <div class="author-thumb">
-                            <img src="~/assets/images/blog/comment-author2.jpg" alt="Author">
-                        </div>
-                        <div class="content">
-                            <ul class="blog-meta">
-                                <li>
-                                    <h6>James M. Stovall</h6>
-                                </li>
-                                <li>
-                                    <a href="#">May 25, 2023</a>
-                                </li>
-                            </ul>
-                            <p>At vero eos et accusamus et iusto dignissimos ducimus blanditiis sapiente praesentium voluptatum deleniti atque corrupti quos dolores</p>
-                            <a class="read-more" href="#">Reply <i class="far fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="comment-body wow fadeInUp delay-0-2s">
-                        <div class="author-thumb">
-                            <img src="~/assets/images/blog/comment-author3.jpg" alt="Author">
-                        </div>
-                        <div class="content">
-                            <ul class="blog-meta">
-                                <li>
-                                    <h6>Lee M. Moreno</h6>
-                                </li>
-                                <li>
-                                    <a href="#">May 25, 2023</a>
-                                </li>
-                            </ul>
-                            <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur</p>
-                            <a class="read-more" href="#">Reply <i class="far fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <form id="comment-form" class="comment-form bgc-lighter mt-60 wow fadeInUp delay-0-2s" name="comment-form" action="#" method="post">
-                    <h3>Leave a Reply</h3>
-                    <p>we denounce with righteous indignation and dislike men who beguiled</p>
-                    <div class="row mt-30">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="text" id="full-name" name="full-name" class="form-control" value="" placeholder="Full Name" required="">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="email" id="blog-email" name="blog-email" class="form-control" value="" placeholder="Email Address" required="">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <input type="url" id="website" name="website" class="form-control" value="" placeholder="Website" required="">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <textarea name="message" id="message" class="form-control" rows="4" placeholder="Message" required=""></textarea>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group mb-0">
-                                <button type="submit" class="theme-btn">Send Comment <i class="far fa-angle-right"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
+                @await Component.InvokeAsync("CommentList")
+                @await Component.InvokeAsync("AddComment")
+
+
+
             </div>
             <div class="col-lg-4">
                 <div class="main-sidebar rmt-65">

@@ -1,4 +1,6 @@
-﻿  <!--Form Back Drop-->
+﻿  @model List<Blog>
+
+<!--Form Back Drop-->
 <div class="form-back-drop"></div>
 
 <!-- Hidden Sidebar -->
@@ -63,204 +65,32 @@
 <section class="blog-page-area py-130 rpy-100 rel z-1">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-xl-4 col-md-6">
-                <div class="blog-grid-item wow fadeInUp delay-0-2s">
-                    <div class="image">
-                        <img src="~/assets/images/blog/blog1.jpg" alt="Blog">
-                        <ul class="blog-meta">
-                            <li>
-                                <i class="far fa-user"></i>
-                                <a href="#">Diann W. Gaddis</a>
-                            </li>
-                            <li>
-                                <i class="far fa-calendar-alt"></i>
-                                <a href="#">25 June 2023</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="blog-content">
-                        <h4><a href="blog-details.html">Knowing Business & Priorities</a></h4>
-                        <p>Perspiciatis omniste voluptate accusantiume doloremque laudantium, totam aperiam</p>
-                        <a class="theme-btn" href="blog-details.html">Read More <i class="fal fa-angle-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-md-6">
-                <div class="blog-grid-item wow fadeInUp delay-0-3s">
-                    <div class="image">
-                        <img src="~/assets/images/blog/blog2.jpg" alt="Blog">
-                        <ul class="blog-meta">
-                            <li>
-                                <i class="far fa-user"></i>
-                                <a href="#">Diann W. Gaddis</a>
-                            </li>
-                            <li>
-                                <i class="far fa-calendar-alt"></i>
-                                <a href="#">25 June 2023</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="blog-content">
-                        <h4><a href="blog-details.html">Considered Making Decisions</a></h4>
-                        <p>Perspiciatis omniste voluptate accusantiume doloremque laudantium, totam aperiam</p>
-                        <a class="theme-btn" href="blog-details.html">Read More <i class="fal fa-angle-right"></i></a>
+           @foreach (var item in Model)
+            {
+                <div class="col-xl-4 col-md-6">
+                    <div class="blog-grid-item wow fadeInUp delay-0-2s">
+                        <div class="image">
+                            <img src="~/assets/images/blog/@item.HoverImage" alt="Blog">
+                            <ul class="blog-meta">
+                                <li>
+                                    <i class="far fa-user"></i>
+                                    <a href="#">@item.Name</a>
+                                </li>
+                                <li>
+                                    <i class="far fa-calendar-alt"></i>
+                                    <a href="#">@item.BlogDate</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="blog-content">
+                            <h4><a href="blog-details.html">@item.Title</a></h4>
+                            <p>@item.</p>
+                            <a class="theme-btn" asp-action="Detail" asp-controller="Blog" asp-route-id="@item.Id">Read More <i class="fal fa-angle-right"></i></a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-xl-4 col-md-6">
-                <div class="blog-grid-item wow fadeInUp delay-0-4s">
-                    <div class="image">
-                        <img src="~/assets/images/blog/blog3.jpg" alt="Blog">
-                        <ul class="blog-meta">
-                            <li>
-                                <i class="far fa-user"></i>
-                                <a href="#">Diann W. Gaddis</a>
-                            </li>
-                            <li>
-                                <i class="far fa-calendar-alt"></i>
-                                <a href="#">25 June 2023</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="blog-content">
-                        <h4><a href="blog-details.html">Making Business Ideas Planned</a></h4>
-                        <p>Perspiciatis omniste voluptate accusantiume doloremque laudantium, totam aperiam</p>
-                        <a class="theme-btn" href="blog-details.html">Read More <i class="fal fa-angle-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-md-6">
-                <div class="blog-grid-item wow fadeInUp delay-0-2s">
-                    <div class="image">
-                        <img src="~/assets/images/blog/blog7.jpg" alt="Blog">
-                        <ul class="blog-meta">
-                            <li>
-                                <i class="far fa-user"></i>
-                                <a href="#">Diann W. Gaddis</a>
-                            </li>
-                            <li>
-                                <i class="far fa-calendar-alt"></i>
-                                <a href="#">25 June 2023</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="blog-content">
-                        <h4><a href="blog-details.html">Knowing Business & Priorities</a></h4>
-                        <p>Perspiciatis omniste voluptate accusantiume doloremque laudantium, totam aperiam</p>
-                        <a class="theme-btn" href="blog-details.html">Read More <i class="fal fa-angle-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-md-6">
-                <div class="blog-grid-item wow fadeInUp delay-0-3s">
-                    <div class="image">
-                        <img src="~/assets/images/blog/blog8.jpg" alt="Blog">
-                        <ul class="blog-meta">
-                            <li>
-                                <i class="far fa-user"></i>
-                                <a href="#">Diann W. Gaddis</a>
-                            </li>
-                            <li>
-                                <i class="far fa-calendar-alt"></i>
-                                <a href="#">25 June 2023</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="blog-content">
-                        <h4><a href="blog-details.html">Considered Making Decisions</a></h4>
-                        <p>Perspiciatis omniste voluptate accusantiume doloremque laudantium, totam aperiam</p>
-                        <a class="theme-btn" href="blog-details.html">Read More <i class="fal fa-angle-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-md-6">
-                <div class="blog-grid-item wow fadeInUp delay-0-4s">
-                    <div class="image">
-                        <img src="~/assets/images/blog/blog9.jpg" alt="Blog">
-                        <ul class="blog-meta">
-                            <li>
-                                <i class="far fa-user"></i>
-                                <a href="#">Diann W. Gaddis</a>
-                            </li>
-                            <li>
-                                <i class="far fa-calendar-alt"></i>
-                                <a href="#">25 June 2023</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="blog-content">
-                        <h4><a href="blog-details.html">Making Business Ideas Planned</a></h4>
-                        <p>Perspiciatis omniste voluptate accusantiume doloremque laudantium, totam aperiam</p>
-                        <a class="theme-btn" href="blog-details.html">Read More <i class="fal fa-angle-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-md-6">
-                <div class="blog-grid-item wow fadeInUp delay-0-2s">
-                    <div class="image">
-                        <img src="~/assets/images/blog/blog10.jpg" alt="Blog">
-                        <ul class="blog-meta">
-                            <li>
-                                <i class="far fa-user"></i>
-                                <a href="#">Diann W. Gaddis</a>
-                            </li>
-                            <li>
-                                <i class="far fa-calendar-alt"></i>
-                                <a href="#">25 June 2023</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="blog-content">
-                        <h4><a href="blog-details.html">Knowing Business & Priorities</a></h4>
-                        <p>Perspiciatis omniste voluptate accusantiume doloremque laudantium, totam aperiam</p>
-                        <a class="theme-btn" href="blog-details.html">Read More <i class="fal fa-angle-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-md-6">
-                <div class="blog-grid-item wow fadeInUp delay-0-3s">
-                    <div class="image">
-                        <img src="~/assets/images/blog/blog11.jpg" alt="Blog">
-                        <ul class="blog-meta">
-                            <li>
-                                <i class="far fa-user"></i>
-                                <a href="#">Diann W. Gaddis</a>
-                            </li>
-                            <li>
-                                <i class="far fa-calendar-alt"></i>
-                                <a href="#">25 June 2023</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="blog-content">
-                        <h4><a href="blog-details.html">Considered Making Decisions</a></h4>
-                        <p>Perspiciatis omniste voluptate accusantiume doloremque laudantium, totam aperiam</p>
-                        <a class="theme-btn" href="blog-details.html">Read More <i class="fal fa-angle-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-md-6">
-                <div class="blog-grid-item wow fadeInUp delay-0-4s">
-                    <div class="image">
-                        <img src="~/assets/images/blog/blog12.jpg" alt="Blog">
-                        <ul class="blog-meta">
-                            <li>
-                                <i class="far fa-user"></i>
-                                <a href="#">Diann W. Gaddis</a>
-                            </li>
-                            <li>
-                                <i class="far fa-calendar-alt"></i>
-                                <a href="#">25 June 2023</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="blog-content">
-                        <h4><a href="blog-details.html">Making Business Ideas Planned</a></h4>
-                        <p>Perspiciatis omniste voluptate accusantiume doloremque laudantium, totam aperiam</p>
-                        <a class="theme-btn" href="blog-details.html">Read More <i class="fal fa-angle-right"></i></a>
-                    </div>
-                </div>
-            </div>
+            }
+           
         </div>
         <ul class="pagination flex-wrap justify-content-center wow fadeInUp delay-0-2s">
             <li class="page-item disabled">

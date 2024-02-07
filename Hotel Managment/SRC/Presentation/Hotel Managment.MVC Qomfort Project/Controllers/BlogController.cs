@@ -1,17 +1,30 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Hotel_Managment.Domain.Entities;
+using Hotel_Managment.Rersistance.DAL;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Hotel_Managment.MVC_Qomfort_Project.Controllers
 {
     public class BlogController : Controller
     {
+        private readonly AppDbContext _context;
+
+        public BlogController(AppDbContext context)
+        {
+           _context = context;
+        }
         public IActionResult Index()
         {
-            return View();
+            List<Blog> blog=_context.Blogs.Include(x=>x.Comments).ToList();    
+            return View(blog);
         }
-        public IActionResult Detail(int id)
+        public async Task <IActionResult> Detail(int id)
         {
+            if (id <= 0) return BadRequest();
 
-            return View();  
+            Blog blog = await _context.Blogs.Include(x=>x.Comments).FirstOrDefaultAsync(b => b.Id == id);
+            if(blog == null) return NotFound();
+            return View(blog);  
         }
     }
 }

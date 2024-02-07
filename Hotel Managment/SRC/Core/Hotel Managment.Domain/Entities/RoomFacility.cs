@@ -2,7 +2,7 @@
 
 namespace Hotel_Managment.Domain.Entities
 {
-    public class RoomFacility:BaseEntity
+    public class RoomFacility
     {
         public int Id { get; set; }
 

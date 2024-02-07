@@ -1,10 +1,10 @@
-﻿using Hotel_Managment.Domain.Entities.Common;
-
+﻿
 namespace Hotel_Managment.Domain.Entities
 {
-    public class Room : BaseNameable
+    public class Room 
     {
         public int Id { get; set; }
+        public string Name { get; set; }
         public string Description { get; set; }
         public string DetailDescription { get; set; }
         public decimal Price { get; set; }

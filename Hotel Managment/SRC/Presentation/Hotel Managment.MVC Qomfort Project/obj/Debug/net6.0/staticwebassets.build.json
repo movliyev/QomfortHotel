@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+J7dMrH87fwTeP61ETCPSBauwlpo4V1V8XtjNJIs+Vw=",
+  "Hash": "d7BiRPMPJwr/xu1/r2FnUfD8SN9LR6lXf3kiwlYjscE=",
   "Source": "Hotel Managment.MVC Qomfort Project",
   "BasePath": "_content/Hotel Managment.MVC Qomfort Project",
   "Mode": "Default",
@@ -2616,6 +2616,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\images\\blog\\comment-author3.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\assets\\images\\blog\\indir.jpg",
+      "SourceId": "Hotel Managment.MVC Qomfort Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\",
+      "BasePath": "_content/Hotel Managment.MVC Qomfort Project",
+      "RelativePath": "assets/images/blog/indir.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\blog\\indir.jpg"
     },
     {
       "Identity": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\Hotel Managment\\SRC\\Presentation\\Hotel Managment.MVC Qomfort Project\\wwwroot\\assets\\images\\faq\\faq-left.jpg",
