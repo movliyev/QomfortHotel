@@ -201,7 +201,7 @@ namespace Hotel_Managment.Rersistance.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("BlogId")
+                    b.Property<int?>("BlogId")
                         .HasColumnType("int");
 
                     b.Property<string>("CommentContent")
@@ -211,9 +211,8 @@ namespace Hotel_Managment.Rersistance.Migrations
                     b.Property<DateTime>("CommentDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("CommentState")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("CommentState")
+                        .HasColumnType("bit");
 
                     b.Property<string>("CoomentUser")
                         .IsRequired()
@@ -665,9 +664,7 @@ namespace Hotel_Managment.Rersistance.Migrations
                 {
                     b.HasOne("Hotel_Managment.Domain.Entities.Blog", "Blog")
                         .WithMany("Comments")
-                        .HasForeignKey("BlogId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("BlogId");
 
                     b.Navigation("Blog");
                 });

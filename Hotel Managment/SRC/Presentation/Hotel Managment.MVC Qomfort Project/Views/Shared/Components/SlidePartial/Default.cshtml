@@ -1,24 +1,23 @@
-﻿<!-- Slider Section Start -->
+﻿
+@model List<Slide>
+<!-- Slider Section Start -->
 <section class="hero-slider-two rel z-1">
     <div class="slider-two-active">
-        <div class="slider-item-two" style="background-image: url(assets/images/slider/slider-two1.jpg)">
-            <div class="container">
-                <div class="slider-content-two">
-                    <h1>Enjoy Vacations With <i>Luxury Hotel</i></h1>
-                    <p>We’re Awards Winning Hotel Agency & we’ve 25+ Years Of Experience</p>
-                    <a href="room-grid.html" class="theme-btn">Explore Our Rooms <i class="far fa-angle-right"></i></a>
+      
+        
+        @foreach (var item in Model)
+        {
+            <div class="slider-item-two" style="background-image: url(~/assets/images/slider/slider-two1.jpg)">
+                <div class="container">
+                    <div class="slider-content-two">
+                        <h1>@item.Title</h1>
+                        <p>@item.Description</p>
+                        <a asp-action="RoomList" asp-controller="Room" class="theme-btn">Explore Our Rooms <i class="far fa-angle-right"></i></a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="slider-item-two" style="background-image: url(assets/images/slider/slider-two2.jpg)">
-            <div class="container">
-                <div class="slider-content-two">
-                    <h1>Enjoy Vacations With <i>Luxury Hotel</i></h1>
-                    <p>We’re Awards Winning Hotel Agency & we’ve 25+ Years Of Experience</p>
-                    <a href="contact.html" class="theme-btn">Contact Us <i class="far fa-angle-right"></i></a>
-                </div>
-            </div>
-        </div>
+        }
+       
     </div>
     <div class="bg-lines">
         <span></span><span></span>

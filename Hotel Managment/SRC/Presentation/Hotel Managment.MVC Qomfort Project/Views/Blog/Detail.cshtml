@@ -106,8 +106,28 @@
                         </div>
                     </div>
                 </div>
-                @await Component.InvokeAsync("CommentList")
-                @await Component.InvokeAsync("AddComment")
+                @* @await Component.InvokeAsync("CommentList",new{id=ViewBag.i}) *@
+                <div class="admin-comment bgc-lighter mb-60 wow fadeInUp delay-0-2s">
+                    @foreach (var item in Model.Comments)
+                    {
+                        <div class="comment-body">
+                            <div class="author-thumb">
+                                <img src="~/assets/images/blog/admin-author.jpg" alt="Author">
+                            </div>
+                            <div class="content">
+                                <h5>@item.CoomentUser</h5>
+                                <p>@item.CommentContent</p>
+                                <div class="social-style-two">
+                                    <a href="contact.html"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="contact.html"><i class="fab fa-twitter"></i></a>
+                                    <a href="contact.html"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="contact.html"><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                @await Html.PartialAsync("~/Views/Comment/AddComment.cshtml")
 
 
 

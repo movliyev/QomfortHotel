@@ -72,6 +72,7 @@ namespace Hotel_Managment.MVC_Qomfort_Project.Controllers
                 Email = vm.Email,
                 UserName = vm.UserName
             };
+            
             var result = await _userManager.CreateAsync(appUser, vm.Password);
             if (!result.Succeeded)
             {

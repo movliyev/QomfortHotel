@@ -23,7 +23,8 @@ namespace Hotel_Managment.Rersistance.Implementations.Repositories.Generic
            return query.ToList();
 
         }
-      
+        
+
         public List<T> GetListByFilter(Expression<Func<T, bool>> filter)
         {
            return _dbSet.Where(filter).ToList(); 
@@ -43,6 +44,7 @@ namespace Hotel_Managment.Rersistance.Implementations.Repositories.Generic
         public async Task AddAsync(T entity)
         {
             await _dbSet.AddAsync(entity);
+            _context.SaveChangesAsync();
         }
         public void Update(T entity)
         {

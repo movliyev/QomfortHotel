@@ -21,8 +21,8 @@ namespace Hotel_Managment.MVC_Qomfort_Project.Controllers
         public async Task <IActionResult> Detail(int id)
         {
             if (id <= 0) return BadRequest();
-
-            Blog blog = await _context.Blogs.Include(x=>x.Comments).FirstOrDefaultAsync(b => b.Id == id);
+            ViewBag.i = id;
+            Blog blog = await _context.Blogs.Include(x=>x.Comments.Where(x=>x.BlogId==id)).FirstOrDefaultAsync(b => b.Id == id);
             if(blog == null) return NotFound();
             return View(blog);  
         }

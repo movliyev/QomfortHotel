@@ -25,7 +25,8 @@ namespace Hotel_Managment.Rersistance.Implementations.Service
 
         public void TAdd(Comment entity)
         {
-            throw new NotImplementedException();
+            _repo.AddAsync(entity); 
+            _repo.SaveChangesAsync();
         }
 
         public void TDelete(Comment entity)
