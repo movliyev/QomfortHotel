@@ -1,0 +1,313 @@
+﻿<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title -->
+    <title>Qomfort - Hotel Booking HTML Template || Home Two</title>
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" href="~/assets/images/favicon.png" type="image/x-icon">
+
+    <!-- Flaticon -->
+    <link rel="stylesheet" href="~/assets/css/flaticon.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/assets/css/fontawesome-5.14.0.min.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="~/assets/css/bootstrap.min.css">
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="~/assets/css/magnific-popup.min.css">
+    <!-- Nice Select -->
+    <link rel="stylesheet" href="~/assets/css/nice-select.min.css">
+    <!-- Type Writer -->
+    <link rel="stylesheet" href="~/assets/css/jquery.animatedheadline.css">
+    <!-- Animate -->
+    <link rel="stylesheet" href="~/assets/css/animate.min.css">
+    <!-- Slick -->
+    <link rel="stylesheet" href="~/assets/css/slick.min.css">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="~/assets/css/style.css">
+
+</head>
+<body class="home-one">
+    <div class="page-wrapper">
+
+        <!-- Preloader -->
+        <div class="preloader"></div>
+
+        <!-- main header -->
+        <header class="main-header header-white py-5">
+            <!--Header-Upper-->
+            <div class="header-upper">
+                <div class="container container-1720 clearfix">
+
+                    <div class="header-inner rel d-flex align-items-center">
+                        <div class="logo-outer">
+                            <div class="logo"><a href="index.html"><img src="~/assets/images/logos/logo-white.png" alt="Logo" title="Logo"></a></div>
+                        </div>
+
+                        <div class="nav-outer clearfix ms-lg-4">
+                            <!-- Main Menu -->
+                            <nav class="main-menu navbar-expand-lg">
+                                <div class="navbar-header">
+                                    <div class="mobile-logo my-15">
+                                        <a href="index.html">
+                                            <img src="~/assets/images/logos/logo-white.png" alt="Logo" title="Logo">
+                                        </a>
+                                    </div>
+
+                                    <!-- Toggle Button -->
+                                    <button type="button" class="navbar-toggle" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+
+                                <div class="navbar-collapse collapse clearfix">
+                                    <ul class="navigation clearfix">
+                                        <li>
+                                            <a asp-action="Index" asp-controller="Home">Home</a>
+
+                                        </li>
+                                        <li>
+                                            <a asp-action="RoomList" asp-controller="Room">Room</a>
+
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#">pages</a>
+                                            <ul>
+                                                <li><a asp-action="Index" asp-controller="About">About us</a></li>
+                                                <li><a asp-action="Index" asp-controller="Servicee">Services</a></li>
+                                                <li><a asp-action="Index" asp-controller="Gallery">Gallery</a></li>
+
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#">shop</a>
+                                            <ul>
+                                                <li><a href="shop.html">shop Grid</a></li>
+                                                <li><a href="product-details.html">Product details</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a asp-action="index" asp-controller="Blog">Blog</a>
+
+                                        </li>
+                                        <li><a asp-action="Index" asp-controller="Contact">Contact</a></li>
+                                         @if (User.Identity.IsAuthenticated)
+                                        {
+                                        <li>
+                                        <a class="dropdown-item" href="my-account.html">@User.Identity.Name</a>
+                                        </li>
+                                        <li>
+                                        <a class="dropdown-item" asp-action="logout" asp-controller="account">Log Out</a>
+                                        </li>
+                                        }
+                                        else
+                                        {
+                                        <li>
+                                        <a class="dropdown-item" asp-action="register" asp-controller="account">Register</a>
+                                        </li>
+                                        <li>
+                                        <a class="dropdown-item" asp-action="login" asp-controller="account" >Login</a>
+                                        </li>
+                                        }
+                                    </ul>
+                                </div>
+
+                            </nav>
+                            <!-- Main Menu End-->
+                        </div>
+
+
+                        <button class="shopping-bag me-auto">
+                            <i class="fal fa-shopping-bag"></i>
+                            <span>0</span>
+                        </button>
+
+                        <!-- Menu Button -->
+                        <div class="menu-btns">
+                            <span class="menu-phone-number">
+                                <i class="far fa-phone"></i>
+                                <a href="callto:+00012345688">+000 (123) 456 88</a>
+                            </span>
+                            <a href="contact.html" class="theme-btn">Book Now <i class="far fa-angle-right"></i></a>
+                            <!-- menu sidbar -->
+                            <div class="menu-sidebar">
+                                <button>
+                                    <img src="~/assets/images/icons/sidebar-toggler.png" alt="Toggler">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End Header Upper-->
+        </header>
+
+        @RenderBody()
+
+        <!-- footer area start -->
+        <footer class="main-footer footer-two bgc-black pt-100 rel z-1">
+            <div class="container">
+                <div class="footer-instagram pb-50">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-6">
+                            <div class="instagram-item">
+                                <a class="instagram-gallery wow fadeInDown delay-0-2s" href="~/assets/images/instagrams/footer-instagram1.jpg">
+                                    <img src="~/assets/images/instagrams/footer-instagram1.jpg" alt="instagram">
+                                    <span class="icon"><i class="fab fa-instagram"></i></span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-6">
+                            <div class="instagram-item">
+                                <a class="instagram-gallery wow fadeInDown delay-0-3s" href="~/assets/images/instagrams/footer-instagram2.jpg">
+                                    <img src="~/assets/images/instagrams/footer-instagram2.jpg" alt="instagram">
+                                    <span class="icon"><i class="fab fa-instagram"></i></span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-6">
+                            <div class="instagram-item">
+                                <a class="instagram-gallery wow fadeInDown delay-0-4s" href="~/assets/images/instagrams/footer-instagram3.jpg">
+                                    <img src="~/assets/images/instagrams/footer-instagram3.jpg" alt="instagram">
+                                    <span class="icon"><i class="fab fa-instagram"></i></span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-6">
+                            <div class="instagram-item">
+                                <a class="instagram-gallery wow fadeInDown delay-0-5s" href="~/assets/images/instagrams/footer-instagram4.jpg">
+                                    <img src="~/assets/images/instagrams/footer-instagram4.jpg" alt="instagram">
+                                    <span class="icon"><i class="fab fa-instagram"></i></span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-6">
+                            <div class="instagram-item">
+                                <a class="instagram-gallery wow fadeInDown delay-0-6s" href="~/assets/images/instagrams/footer-instagram5.jpg">
+                                    <img src="~/assets/images/instagrams/footer-instagram5.jpg" alt="instagram">
+                                    <span class="icon"><i class="fab fa-instagram"></i></span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-3 col-md-4 col-6">
+                            <div class="instagram-item">
+                                <a class="instagram-gallery wow fadeInDown delay-0-7s" href="~/assets/images/instagrams/footer-instagram6.jpg">
+                                    <img src="~/assets/images/instagrams/footer-instagram6.jpg" alt="instagram">
+                                    <span class="icon"><i class="fab fa-instagram"></i></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-xl-between justify-content-between">
+                    <div class="col-xl-5 col-lg-6 order-lg-1">
+                        <div class="footer-widget widget_newsletter style-two wow fadeInUp delay-0-6s">
+                            <div class="section-title text-white">
+                                <h2>Join Our Newsletter</h2>
+                            </div>
+                            <form action="#">
+                                <input type="email" placeholder="Enter Address" required>
+                                <button class="theme-btn">Subscribe <i class="far fa-angle-right"></i></button>
+                            </form>
+                            <div class="footer-logo mt-35">
+                                <a href="index.html"><img src="~/assets/images/logos/logo.png" alt="Logo"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-5 col-6 col-small order-lg-0">
+                        <div class="footer-widget widget_nav_menu ms-0 wow fadeInUp delay-0-4s">
+                            <h4 class="footer-title">Quick Links</h4>
+                            <ul class="list-style-one">
+                                <li><a href="about.html">About company</a></li>
+                                <li><a href="about.html">History</a></li>
+                                <li><a href="about.html">Team Member</a></li>
+                                <li><a href="blog.html">Latest News</a></li>
+                                <li><a href="contact.html">Contact Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-6 col-small order-lg-2">
+                        <div class="footer-widget widget_nav_menu me-0 wow fadeInUp delay-0-4s">
+                            <h4 class="footer-title">Features</h4>
+                            <ul class="list-style-one">
+                                <li><a href="room-details.html">Free Transportation</a></li>
+                                <li><a href="room-details.html">GYM & Fitness Care</a></li>
+                                <li><a href="room-details.html">SPA Treatment</a></li>
+                                <li><a href="room-details.html">Food & Drinks</a></li>
+                                <li><a href="room-details.html">Breakfast</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom bgd-dark mt-40 pt-20 pb-5 rpt-25">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="copyright-text">
+                                <p>© 2023 <a href="index.html">Qomfort.</a> All Rights Reserved.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 text-lg-end">
+                            <ul class="footer-bottom-nav rpb-10">
+                                <li><a href="about.html">Terms</a></li>
+                                <li><a href="about.html">Privacy Policy</a></li>
+                                <li><a href="faqs.html">FAQs</a></li>
+                                <li><a href="about.html">Cookie Policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-lines">
+                <span></span><span></span>
+                <span></span><span></span>
+                <span></span><span></span>
+                <span></span><span></span>
+                <span></span><span></span>
+            </div>
+            <div class="triangle-shapes"></div>
+            <div class="triangle-shapes-two"></div>
+        </footer>
+        <!-- footer area end -->
+        <!-- Scroll Top Button -->
+        <button class="scroll-top scroll-to-target" data-target="html"><span class="fas fa-angle-double-up"></span></button>
+
+    </div>
+    <!--End pagewrapper-->
+    <!-- Jquery -->
+    <script src="~/assets/js/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <!-- Appear Js -->
+    <script src="~/assets/js/appear.min.js"></script>
+    <!-- Slick -->
+    <script src="~/assets/js/slick.min.js"></script>
+    <!-- Magnific Popup -->
+    <script src="~/assets/js/jquery.magnific-popup.min.js"></script>
+    <!-- Nice Select -->
+    <script src="~/assets/js/jquery.nice-select.min.js"></script>
+    <!-- Image Loader -->
+    <script src="~/assets/js/imagesloaded.pkgd.min.js"></script>
+    <!-- Calendar -->
+    <script src="~/assets/js/calendar.global.min.js"></script>
+    <!-- Skillbar -->
+    <script src="~/assets/js/skill.bars.jquery.min.js"></script>
+    <!-- Circle Progress -->
+    <script src="~/assets/js/circle-progress.min.js"></script>
+    <!-- Isotope -->
+    <script src="~/assets/js/isotope.pkgd.min.js"></script>
+    <!--  WOW Animation -->
+    <script src="~/assets/js/wow.min.js"></script>
+    <!-- Custom script -->
+    <script src="~/assets/js/script.js"></script>
+
+</body>
+</html>

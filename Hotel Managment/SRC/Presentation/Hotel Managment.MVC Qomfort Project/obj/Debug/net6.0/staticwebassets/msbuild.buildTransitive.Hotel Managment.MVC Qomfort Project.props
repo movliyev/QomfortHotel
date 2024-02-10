@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\Hotel Managment.MVC Qomfort Project.props" />
-</Project>

@@ -1,0 +1,167 @@
+﻿@using QomfortHotelFinal.ViewModels.Account;
+@model RegisterVM
+@{
+    Layout = null;
+}
+
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Authentication forms">
+    <meta name="author" content="Arasari Studio">
+
+    <title>Forny</title>
+    <link href="~/account/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/account/css/common.css" rel="stylesheet">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
+    <link href="~/account/css/theme-02.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="forny-container">
+
+        <div class="forny-inner">
+            <div class="mb-6 text-center forny-logo">
+                <img src="img/logo-02.svg">
+            </div>
+            <div class="forny-form">
+                <div class="text-center">
+                    <h4>Create an account</h4>
+                    <p class="mb-10">Setup a new account in a minute.</p>
+                </div>
+
+                <form method="post" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                   @*  <div class="form-group">
+                        <label asp-for="Photo">Photo</label>
+                        <input asp-for="Photo" class="form-control" placeholder="Photo" accept="image/*">
+
+                    </div> *@
+
+                    <div class="form-group">
+                        <label asp-for="Name">Name</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend bg-transparent">
+                                <span class="input-group-text bg-transparent border-right-0">
+                                    <i class="mdi mdi-account-outline text-primary"></i>
+                                </span>
+                            </div>
+                            <input asp-for="Name" class="form-control form-control-lg border-left-0" placeholder="Name">
+                        </div>
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label asp-for="Surname">Surname</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend bg-transparent">
+                                <span class="input-group-text bg-transparent border-right-0">
+                                    <i class="mdi mdi-account-outline text-primary"></i>
+                                </span>
+                            </div>
+                            <input asp-for="Surname" class="form-control form-control-lg border-left-0" placeholder="Surname">
+                        </div>
+                        <span asp-validation-for="Surname" class="text-danger"></span>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label asp-for="UserName">UserName</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend bg-transparent">
+                                <span class="input-group-text bg-transparent border-right-0">
+                                    <i class="mdi mdi-account-outline text-primary"></i>
+                                </span>
+                            </div>
+                            <input asp-for="UserName" class="form-control form-control-lg border-left-0" placeholder="UserName">
+                        </div>
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Email">Email</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend bg-transparent">
+                                <span class="input-group-text bg-transparent border-right-0">
+                                    <i class="mdi mdi-email-outline text-primary"></i>
+                                </span>
+                            </div>
+                            <input asp-for="Email" class="form-control form-control-lg border-left-0" placeholder="Email">
+                        </div>
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password">Password</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend bg-transparent">
+                                <span class="input-group-text bg-transparent border-right-0">
+                                    <i class="mdi mdi-lock-outline text-primary"></i>
+                                </span>
+                            </div>
+                            <input asp-for="Password" class="form-control form-control-lg border-left-0" id="exampleInputPassword" placeholder="Password">
+                        </div>
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ConfirmPassword">Confirm Password</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend bg-transparent">
+                                <span class="input-group-text bg-transparent border-right-0">
+                                    <i class="mdi mdi-lock-outline text-primary"></i>
+                                </span>
+                            </div>
+                            <input asp-for="ConfirmPassword" class="form-control form-control-lg border-left-0" id="exampleInputPassword" placeholder="ConfirmPassword">
+                        </div>
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-12">
+                        <label asp-for="Gender">Gender:</label>
+                        <label asp-for="Gender">
+
+                            Male  <input asp-for="Gender" placeholder="Gender" type="radio" name="Gender" value="male">
+
+                        </label>
+
+                        <label asp-for="Gender">
+                            Female <input asp-for="Gender" placeholder="Gender" type="radio" name="Gender" value="female">
+
+                        </label>
+
+                        <label asp-for="Gender">
+                            OtheGender <input asp-for="Gender" placeholder="Gender" type="radio" name="Gender" value="other">
+
+                        </label>
+                        <span class="text-danger" asp-validation-for="Gender"></span>
+
+
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary btn-block">Register</button>
+                    </div>
+
+
+
+                    <div class="text-center mt-10">
+                        Already have an account? <a asp-action="Login" asp-controller="Account">Login here</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="~/account/js/jquery.min.js"></script>
+    <script src="~/account/js/bootstrap.min.js"></script>
+    <script src="~/account/js/main.js"></script>
+    <script src="~/account/js/demo.js"></script>
+
+</body>
+
+</html>

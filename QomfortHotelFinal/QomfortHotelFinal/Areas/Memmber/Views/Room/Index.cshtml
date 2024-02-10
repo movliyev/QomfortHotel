@@ -1,0 +1,53 @@
+﻿@model List<Room>
+@{
+    int count = 0;
+}
+<div class="row">
+
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Basic Data Table</h4>
+                <p class="card-subtitle mb-4">
+                    DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction
+                    function:
+                    <code>$().DataTable();</code>.
+                </p>
+
+                <table id="basic-datatable" class="table dt-responsive nowrap">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Adults</th>
+                            <th>Setting</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            count++;
+                            <tr>
+                                <th scope="row">@count</th>
+                                <td> <img style="width:100px;height:100px;" src="~/assets/images/rooms/@item.RoomImages.FirstOrDefault(p=>p.IsPrimary==true)?.Url" alt="Room"></td>
+                                <td>@item.Name</td>
+                                <td>@item.Category.Name</td>
+                                <td >$@item.Price</td>
+                                <td >@item.Capacity</td>
+                                <td>
+                                    <a asp-action="detail" asp-controller="Room" asp-route-id="@item.Id" class="btn btn-outline-info">Detail</a>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+
+            </div> <!-- end card body-->
+        </div> <!-- end card -->
+    </div><!-- end col-->
+</div>

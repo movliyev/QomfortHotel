@@ -1,0 +1,101 @@
+﻿@using QomfortHotelFinal.ViewModels.Account;
+
+
+@model LoginVM
+@{
+    Layout = null;
+}
+
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Authentication forms">
+    <meta name="author" content="Arasari Studio">
+
+    <title>Forny</title>
+    <link href="~/account/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/account/css/common.css" rel="stylesheet">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
+    <link href="~/account/css/theme-02.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="forny-container">
+
+        <div class="forny-inner">
+            <div class="mb-6 text-center forny-logo">
+                <img src="img/logo-02.svg">
+            </div>
+            <div class="forny-form">
+                <div class="text-center">
+                    <h4>Login into account</h4>
+                    <p class="mb-10">Use your credentials to access your account.</p>
+                </div>
+                <form method="post" >
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group">
+                        <label asp-for="UserNameOrEmail">UserName Or Email</label>
+                        <div class="input-group">
+                           
+                            <input asp-for="UserNameOrEmail" type="text" class="form-control form-control-lg border-left-0" placeholder="UserName Or Email">
+                        </div>
+                        <span asp-validation-for="UserNameOrEmail" class="text-danger"></span>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label asp-for="Password">Password</label>
+                        <div class="input-group">
+                           
+                            <input asp-for="Password" type="password" class="form-control form-control-lg border-left-0" placeholder="Name">
+                        </div>
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+
+
+                    <div class="row mt-6 mb-6">
+                        <div class="col-6 d-flex align-items-center">
+
+                            <div class="custom-control custom-checkbox">
+                                <input asp-for="IsRemembered" type="checkbox" class="custom-control-input" >
+                                <label asp-for="IsRemembered" class="custom-control-label" >
+                                    Remember me
+                                </label>
+                            </div>
+
+                        </div>
+                        <div class="col-6 text-right">
+                            <a href="02_reset.html">Forgot password?</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+                    </div>
+
+
+
+                    <div class="text-center mt-10">
+                        Don't have an account? <a asp-action="Register" asp-controller="Account">Register here</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="~/account/js/jquery.min.js"></script>
+    <script src="~/account/js/bootstrap.min.js"></script>
+    <script src="~/account/js/main.js"></script>
+    <script src="~/account/js/demo.js"></script>
+
+</body>
+
+</html>
