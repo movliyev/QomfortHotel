@@ -25,8 +25,8 @@ namespace QomfortHotelFinal.Controllers
             List<Room> rooms = _context.Rooms.Include(r => r.RoomImages.Where(x => x.IsPrimary == true))
                 .Include(r => r.Category).Take(4).ToList();
             List<Slide> slides = _context.Slides.ToList();
-            List<Servicee> servicees = _context.Servisees.ToList();
-            List<Gallery> galleries = _context.Galleries.ToList();
+            List<Servicee> servicees = _context.Servisees.Take(8).ToList();
+            List<Gallery> galleries = _context.Galleries.Take(8).ToList();
             List<Testimonial> testimonials = _context.Testimonials.ToList();
             HomeAbout homeabout = _context.HomeAbouts.FirstOrDefault();
             List<Blog> blogs = _context.Blogs.ToList();

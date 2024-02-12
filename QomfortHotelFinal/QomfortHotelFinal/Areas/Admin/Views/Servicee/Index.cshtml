@@ -1,0 +1,91 @@
+﻿@model PaginateVM<Servicee>
+@{
+    int count = (Model.CurrentPage - 1) * 3;
+}
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Servicee Table</h4>
+                        <a asp-action="Create" asp-controller="Servicee" class="btn btn-outline-info">Ceate Servicee</a>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-borderless mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            No
+                                        </th>
+                                        <th>
+                                            Name
+                                        </th>
+                                        <th>
+                                            Room Count
+                                        </th>
+                                        <th>
+                                           Description
+                                        </th>
+                                        <th>
+
+                                            Settings
+                                        </th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (Servicee item in Model.Items)
+                                    {
+                                        count++;
+                                        <tr>
+                                            <td>
+                                                @count
+                                            </td>
+
+                                            <td>
+                                                @item.Name
+                                            </td>
+                                            <td>
+                                                @item.RoomServicees.Count
+                                            </td>
+                                            <td>
+                                                @item.Description
+                                            </td>
+                                            <td>
+                                                <a asp-action="Update" asp-controller="Servicee" asp-route-id="@item.Id" class="btn btn-warning btn-info"><i class="mdi mdi-grease-pencil"></i></a>
+                                                <a asp-action="Delete" asp-controller="Servicee" asp-route-id="@item.Id" class="btn btn-danger btn-info"><i class="mdi mdi-delete"></i></a>
+                                            </td>
+                                        </tr>
+
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination">
+                                <li class="page-item @(Model.CurrentPage<=1?"disabled":"")"><a class="page-link" asp-route-page="@(Model.CurrentPage-1)" asp-action="index" asp-controller="Servicee">Previous</a></li>
+                                @for (int i = 0; i < Model.TotalPage; i++)
+                                {
+                                    <li class="page-item @(Model.CurrentPage - 1 == i? "disabled":"")"><a class="page-link" asp-route-page="@(i+1)" asp-action="index" asp-controller="Servicee">@(i + 1)</a></li>
+                                }
+
+                                <li class="page-item @(Model.TotalPage<=Model.CurrentPage?"disabled":"")"><a class="page-link" asp-route-page="@(Model.CurrentPage+1)" asp-action="index" asp-controller="Servicee">Next</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <!-- end card-body-->
+                </div>
+                <!-- end card -->
+
+            </div>
+        </div>
+    </div>
+</div>

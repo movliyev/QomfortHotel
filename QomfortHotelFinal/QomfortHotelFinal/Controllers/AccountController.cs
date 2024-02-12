@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using QomfortHotelFinal.Models;
 using QomfortHotelFinal.Utilities.Extensions;
+using QomfortHotelFinal.ViewModels;
 using QomfortHotelFinal.ViewModels.Account;
 
 namespace QomfortHotelFinal.Controllers
@@ -48,6 +49,11 @@ namespace QomfortHotelFinal.Controllers
                 ModelState.AddModelError("Email", "Email uslubu yanlisdir");
                 return View(vm);
             }
+            if (!vm.Email.CheckPhoneNumber())
+            {
+                ModelState.AddModelError("PhoneNumber", "Phonenumber uslubu yanlisdir");
+                return View(vm);
+            }
 
             //if (!vm.Photo.ValidateType("image/"))
             //{
@@ -67,6 +73,7 @@ namespace QomfortHotelFinal.Controllers
             AppUser appUser = new AppUser
             {
                 //UserImage = filename,
+                PhoneNumber = vm.PhoneNumber,   
                 Name = vm.Name.Capitalize(),
                 Surname = vm.Surname.Capitalize(),
                 Gender = vm.Gender,
@@ -97,11 +104,12 @@ namespace QomfortHotelFinal.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Login(LoginVM vm)
+        public async Task<IActionResult> Login(LoginVM vm,string? returnUrl)
         {
 
 
             if (!ModelState.IsValid) return View(vm);
+            
             AppUser user = await _userManager.FindByNameAsync(vm.UserNameOrEmail);
             if (user is null)
             {
@@ -126,12 +134,36 @@ namespace QomfortHotelFinal.Controllers
 
             //await _signInManager.SignInAsync(user, false);
 
-            return RedirectToAction("Update", "Profile", new { area ="Memmber"});
+            //return RedirectToAction("Update", "Profile", new { area ="Memmber"});
+            if(returnUrl is null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            return Redirect(returnUrl);
         }
         public async Task<IActionResult> LogOut()
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
+
+
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordVM vm)
+        {
+            if(!ModelState.IsValid)return View(vm);
+            var user=await _userManager.FindByEmailAsync(vm.Email);
+            if(user == null) return NotFound();
+            //https://localhost:
+            string token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            string link=Url.Action("ResetPassword","Account",new { userid = user.Id, });
+            
+        }
+
     }
 }

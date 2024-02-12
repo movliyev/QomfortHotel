@@ -20,13 +20,16 @@ namespace QomfortHotelFinal.Controllers
 
             List<Room> room = await _context.Rooms.Include(p => p.RoomImages)
                 .Include(p => p.RoomFacilities).ThenInclude(x => x.Facility)
+                .Include(p => p.RoomServicees).ThenInclude(p=>p.Servicee)
                 .Include(r => r.Category).ToListAsync();
             Room room1 = await _context.Rooms
                 .Include(p => p.Category)
                 .Include(p => p.RoomImages)
+                .Include(p => p.RoomFacilities).ThenInclude(x => x.Facility)
+                .Include(p => p.RoomServicees).ThenInclude(p => p.Servicee)
                 .FirstOrDefaultAsync(x => x.Id == id);
             if (room1 == null) return NotFound();
-
+          
 
             RoomVM roomvm = new RoomVM
             {
@@ -42,5 +45,10 @@ namespace QomfortHotelFinal.Controllers
             List<Room> room = await _context.Rooms.Include(p => p.RoomImages).Include(r => r.Category).ToListAsync();
             return View(room);
         }
+
+        //public async Task<IActionResult> NewReservation()
+        //{
+
+        //}
     }
 }

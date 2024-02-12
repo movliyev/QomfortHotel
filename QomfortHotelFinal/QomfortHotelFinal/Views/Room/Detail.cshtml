@@ -118,16 +118,14 @@
                         <iframe src="https://www.google.com/maps/embed?pb=!1m12!1m10!1m3!1d142190.2862584524!2d-74.01298319978558!3d40.721725351435126!2m1!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sbd!4v1663473911885!5m2!1sen!2sbd" style="border:0; width: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                     <div class="section-title mt-45">
-                        <h2>Rules & Regulations</h2>
+                        <h2>Room Services</h2>
                     </div>
-                    <p>To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage avoids a pain that produces no resultant pleasure</p>
                     <ul class="list-style-two pt-10 wow fadeInUp delay-0-2s">
-                        <li>Check-in: After 02:00pm</li>
-                        <li>Checkout: Before 11:00am</li>
-                        <li>Late Checkout: Additional charge 50% of the room rate.</li>
-                        <li>No smoking in side the room</li>
-                        <li>No pets</li>
-                        <li>Identification document is must for hotel registration.</li>
+                       @foreach (var item in Model.Room.RoomServicees)
+                        {
+                            <li>@item.Servicee.Name</li>
+                        }
+                       
                     </ul>
                 </div>
             </div>

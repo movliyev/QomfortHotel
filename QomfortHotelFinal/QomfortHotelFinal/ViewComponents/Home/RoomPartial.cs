@@ -22,10 +22,10 @@ namespace QomfortHotelFinal.ViewComponents.Home
             switch (key)
             {
                 case 1:
-                    rooms = await _context.Rooms.OrderBy(p => p.Name).Take(8).Include(p => p.RoomImages.Where(pi => pi.IsPrimary != null)).ToListAsync();
+                    rooms = await _context.Rooms.OrderBy(p => p.Name).Take(4).Include(p => p.RoomImages.Where(pi => pi.IsPrimary != null)).ToListAsync();
                     break;
                 case 2:
-                    rooms = await _context.Rooms.OrderByDescending(p => p.Price).Take(8).Include(p => p.RoomImages.Where(pi => pi.IsPrimary != null)).ToListAsync();
+                    rooms = await _context.Rooms.OrderByDescending(p => p.Id).Take(4).Include(p => p.RoomImages.Where(pi => pi.IsPrimary != null)).ToListAsync();
                     break;
 
                 default:
@@ -33,6 +33,7 @@ namespace QomfortHotelFinal.ViewComponents.Home
                     break;
             }
             return View(rooms);
+            
         }
     }
 }

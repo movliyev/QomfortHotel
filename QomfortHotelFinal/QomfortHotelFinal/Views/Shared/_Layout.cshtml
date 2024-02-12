@@ -98,24 +98,30 @@
 
                                         </li>
                                         <li><a asp-action="Index" asp-controller="Contact">Contact</a></li>
-                                         @if (User.Identity.IsAuthenticated)
-                                        {
-                                        <li>
-                                        <a class="dropdown-item" href="my-account.html">@User.Identity.Name</a>
+                                        <li class="dropdown d-none d-lg-block">
+                                          
+                                            <ul class="dropdown-menu"
+                                                aria-labelledby="settingButton">
+                                                @if (User.Identity.IsAuthenticated)
+                                                {
+                                                    <li>
+                                                        <a class="dropdown-item" href="my-account.html">@User.Identity.Name</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" asp-action="logout" asp-controller="account">Log Out</a>
+                                                    </li>
+                                                }
+                                                else
+                                                {
+                                                    <li>
+                                                        <a class="dropdown-item" asp-action="register" asp-controller="account">Register</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" asp-action="login" asp-controller="account" asp-route-returnurl="@Context.Request.Path.Value">Login</a>
+                                                    </li>
+                                                }
+                                            </ul>
                                         </li>
-                                        <li>
-                                        <a class="dropdown-item" asp-action="logout" asp-controller="account">Log Out</a>
-                                        </li>
-                                        }
-                                        else
-                                        {
-                                        <li>
-                                        <a class="dropdown-item" asp-action="register" asp-controller="account">Register</a>
-                                        </li>
-                                        <li>
-                                        <a class="dropdown-item" asp-action="login" asp-controller="account" >Login</a>
-                                        </li>
-                                        }
                                     </ul>
                                 </div>
 
@@ -308,6 +314,6 @@
     <script src="~/assets/js/wow.min.js"></script>
     <!-- Custom script -->
     <script src="~/assets/js/script.js"></script>
-
+   
 </body>
 </html>

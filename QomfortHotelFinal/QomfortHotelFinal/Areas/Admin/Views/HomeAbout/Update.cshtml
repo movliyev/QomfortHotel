@@ -1,0 +1,76 @@
+﻿@model UpdateHomeAboutVM
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+
+            <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Update HomeAbout</h4>
+
+                        <form class="forms-sample" method="post" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <img style="width:200px;height:200px;" src="~/assets/images/about/@Model.Img1" />
+                                <input asp-for="Img1" type="hidden" class="form-control">
+
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Photo1">Photo</label>
+                                <input asp-for="Photo1" class="form-control" placeholder="Photo1">
+                                <span class="text-danger" asp-validation-for="Photo1"></span>
+                            </div>
+                            <div class="form-group">
+                                <img style="width:200px;height:200px;" src="~/assets/images/about/@Model.Img2" />
+                                <input asp-for="Img2" type="hidden" class="form-control">
+
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Photo2">Photo</label>
+                                <input asp-for="Photo2" class="form-control" placeholder="Photo2">
+                                <span class="text-danger" asp-validation-for="Photo2"></span>
+                            </div><div class="form-group">
+                                <img style="width:200px;height:200px;" src="~/assets/images/about/@Model.Img3" />
+                                <input asp-for="Img3" type="hidden" class="form-control">
+
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Photo3">Photo</label>
+                                <input asp-for="Photo3" class="form-control" placeholder="Photo3">
+                                <span class="text-danger" asp-validation-for="Photo3"></span>
+                            </div><div class="form-group">
+                                <img style="width:200px;height:200px;" src="~/assets/images/rooms/@Model.rImg" />
+                                <input asp-for="rImg" type="hidden" class="form-control">
+
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Photor">Photor</label>
+                                <input asp-for="Photor" class="form-control" placeholder="Photor">
+                                <span class="text-danger" asp-validation-for="Photor"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Title">Title</label>
+                                <input asp-for="Title" class="form-control" placeholder="Title">
+                                <span class="text-danger" asp-validation-for="Title"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Description">Description</label>
+                                <input asp-for="Description" class="form-control" placeholder="Description">
+                                <span class="text-danger" asp-validation-for="Description"></span>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary me-2">Submit</button>
+                            <button asp-action="Index" class="btn btn-light">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

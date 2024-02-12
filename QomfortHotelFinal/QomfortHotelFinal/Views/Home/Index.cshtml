@@ -155,7 +155,7 @@
                         <p>@Model.HomeAbouts.Description</p>
                     </div>
                     <div class="feature-list mb-15 wow fadeInUp delay-0-3s">
-                        @foreach (var item in Model.Servicees)
+                        @foreach (var item in Model.Servicees.Take(4))
                         {
                             <div class="feature-item">
                                 <div class="icon">
@@ -188,7 +188,7 @@
         <div class="row align-items-center">
             <div class="col-lg-5">
                 <div class="superior-room-content rmb-75">
-                    @foreach (var item in Model.Rooms)
+                    @foreach (var item in Model.Rooms.Take(5))
                     {
                         <div class="feature-item style-three wow fadeInUp delay-0-2s">
                             <div class="content">
@@ -231,7 +231,7 @@
                     <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#rooms">Room</button>
                 </li>
                 <li>
-                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#suites">Cheap Room</button>
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#suites">Latest Room</button>
                 </li>
             </ul>
         </div>
@@ -309,7 +309,6 @@
             @foreach (var item in Model.Servicees)
             {
                 <div class="service-item-two wow fadeInUp delay-0-2s">
-                    <span class="number">01</span>
                     <h4><a href="room-details.html">@item.Name</a></h4>
                     <p>@item.Description</p>
                     <div class="icon">
@@ -369,12 +368,12 @@
                         <h2>Quality Services & Food Your Trip Are Enjoyable</h2>
                         <p>Sed ut perspiciatis unde omniste natus voluptatem accusantiume doloremque laudantium, totam rem aperiam inventore</p>
                     </div>
-                    <a class="theme-btn" href="room-grid.html">Explore Our Rooms <i class="fal fa-angle-right"></i></a>
+                    <a class="theme-btn" asp-action="RomList" asp-controller="Room"> Our Rooms <i class="fal fa-angle-right"></i></a>
                 </div>
             </div>
             <div class="col-lg-7">
                 <div class="row gap-50">
-                    @foreach (var item in Model.Servicees)
+                    @foreach (var item in Model.Servicees.Take(3))
                     {
                         <div class="col-lg-4 col-6 col-small">
                             <div class="service-item style-two wow fadeInUp delay-0-3s">

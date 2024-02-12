@@ -12,10 +12,11 @@
         public int Capacity { get; set; }
         public int CategoryId { get; set; }
         public List<RoomImage>? RoomImages { get; set; }
-
         public int BathRoom { get; set; }
         public Category Category { get; set; }
         public List<RoomFacility> RoomFacilities { get; set; }
+        public List<RoomService> RoomServicees { get; set; }
         public bool? Status { get; set; }
+        public List<Reservation> Reservations { get; set; }
     }
 }

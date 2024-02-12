@@ -98,6 +98,18 @@
                         <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
                     <div class="form-group">
+                        <label asp-for="PhoneNumber">PhoneNumber</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend bg-transparent">
+                                <span class="input-group-text bg-transparent border-right-0">
+                                    <i class="mdi mdi-email-outline text-primary"></i>
+                                </span>
+                            </div>
+                            <input asp-for="PhoneNumber" class="form-control form-control-lg border-left-0" placeholder="PhoneNumber">
+                        </div>
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
                         <label asp-for="Password">Password</label>
                         <div class="input-group">
                             <div class="input-group-prepend bg-transparent">

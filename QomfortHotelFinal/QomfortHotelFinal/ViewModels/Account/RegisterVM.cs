@@ -26,6 +26,10 @@ namespace QomfortHotelFinal.ViewModels.Account
         [MaxLength(256, ErrorMessage = "256 den cox simvol olmaz")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
+        [Required(ErrorMessage = "Phone daxil edilmelidir")]
+        [MaxLength(100, ErrorMessage = "100 den cox simvol olmaz")]
+        [DataType(DataType.PhoneNumber)]
+        public string PhoneNumber { get; set; }
         [Required(ErrorMessage = "Password daxil edilmelidir")]
         [DataType(DataType.Password)]
         public string Password { get; set; }

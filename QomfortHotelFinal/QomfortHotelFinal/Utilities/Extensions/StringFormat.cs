@@ -21,5 +21,12 @@ namespace QomfortHotelFinal.Utilities.Extensions
             return regex.IsMatch(Email);
 
         }
+        public static bool CheckPhoneNumber(this string Phone)
+        {
+            string phone = @"^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$";
+            Regex regex = new Regex(phone);
+            return regex.IsMatch(phone);
+
+        }
     }
 }

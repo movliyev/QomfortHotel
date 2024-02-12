@@ -8,8 +8,6 @@
         public string Img1 { get; set; }
         public string Img2 { get; set; }
         public string Img3 { get; set; }
-        //public List<Servicee>? Servicees { get; set; }
-        //public List<Room>? Rooms { get; set; }
         public string rImg { get; set; }
     }
 }
