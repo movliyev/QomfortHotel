@@ -28,11 +28,14 @@ namespace QomfortHotelFinal.Controllers
                 .Include(p => p.RoomFacilities).ThenInclude(x => x.Facility)
                 .Include(p => p.RoomServicees).ThenInclude(p => p.Servicee)
                 .FirstOrDefaultAsync(x => x.Id == id);
+            Reservation rvm = _context.Reservations.FirstOrDefault();
+
             if (room1 == null) return NotFound();
-          
+
 
             RoomVM roomvm = new RoomVM
             {
+                Reservation = rvm,
                 Room = room1,
                 Rooms = room
 
@@ -42,6 +45,7 @@ namespace QomfortHotelFinal.Controllers
         }
         public async Task<IActionResult> RoomList()
         {
+
             List<Room> room = await _context.Rooms.Include(p => p.RoomImages).Include(r => r.Category).ToListAsync();
             return View(room);
         }

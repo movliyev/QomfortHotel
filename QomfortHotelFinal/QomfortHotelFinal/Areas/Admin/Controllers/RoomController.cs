@@ -63,20 +63,19 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(CreateRoomVM vm)
         {
+            vm.Categorys = await _context.Categories.ToListAsync();
+            vm.Facilitiys = await _context.Facilities.ToListAsync();
+            vm.Servicees = await _context.Servisees.ToListAsync();
             if (!ModelState.IsValid)
             {
-                vm.Categorys = await _context.Categories.ToListAsync();
-                vm.Facilitiys = await _context.Facilities.ToListAsync();
-                vm.Servicees = await _context.Servisees.ToListAsync();
+               
                 return View(vm);
             }
             bool result = await _context.Categories.AnyAsync(c => c.Id == vm.CategoryId);
 
             if (!result)
             {
-                vm.Categorys = await _context.Categories.ToListAsync();
-                vm.Facilitiys = await _context.Facilities.ToListAsync();
-                vm.Servicees = await _context.Servisees.ToListAsync();
+              
                 ModelState.AddModelError("CategoryId", "Bu id li category movcud deyil");
                 return View(vm);
             }
@@ -85,9 +84,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
                 bool Serviceeresult = await _context.Servisees.AnyAsync(t => t.Id == item);
                 if (!Serviceeresult)
                 {
-                    vm.Categorys = await _context.Categories.ToListAsync();
-                    vm.Facilitiys = await _context.Facilities.ToListAsync();
-                    vm.Servicees = await _context.Servisees.ToListAsync();
+                   
                     ModelState.AddModelError("ServiceeIds", "Bu id li Servicee movcud deyil");
                     return View(vm);
                 }
@@ -97,34 +94,32 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
                 bool cresult = await _context.Facilities.AnyAsync(t => t.Id == item);
                 if (!cresult)
                 {
-                    vm.Categorys = await _context.Categories.ToListAsync();
-                    vm.Facilitiys = await _context.Facilities.ToListAsync();
-                    vm.Servicees = await _context.Servisees.ToListAsync();
+                    
                     ModelState.AddModelError("Facilityids", "Bu id li Facility movcud deyil");
                     return View(vm);
                 }
             }
-           
 
-            if (!vm.MainPhoto.ValidateType("image/"))
+            if (vm.MainPhoto is not null)
             {
-                vm.Categorys = await _context.Categories.ToListAsync();
-                vm.Facilitiys = await _context.Facilities.ToListAsync();
-                vm.Servicees = await _context.Servisees.ToListAsync();
-                ModelState.AddModelError("MainPhoto", "Fayl tipi uyqun deyil");
-                return View(vm);
-            }
+                if (!vm.MainPhoto.ValidateType("image/"))
+                {
 
-            if (!vm.MainPhoto.ValidateSize(600))
-            {
-                vm.Categorys = await _context.Categories.ToListAsync();
-                vm.Facilitiys = await _context.Facilities.ToListAsync();
-                vm.Servicees = await _context.Servisees.ToListAsync();
-                ModelState.AddModelError("MainPhoto", "Fayl olcusu uyqun deyil");
-                return View(vm);
+                    ModelState.AddModelError("MainPhoto", "Fayl tipi uyqun deyil");
+                    return View(vm);
+                }
+
+                if (!vm.MainPhoto.ValidateSize(600))
+                {
+
+
+                    ModelState.AddModelError("MainPhoto", "Fayl olcusu uyqun deyil");
+                    return View(vm);
+
+                }
 
             }
-           
+                       
 
             RoomImage main = new RoomImage
             {
@@ -136,10 +131,11 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
             //{
             //    ModelState.AddModelError("Price,Bed,Size,Capacity", "there is no negative or zero quantity");
             //}
+           
             Room Room = new Room
             {
                 
-                Name=vm.Name,
+                Name=vm.Name.Capitalize(),
                 Description=vm.Description, 
                 DetailDescription=vm.DetailDescription,
                 Price=vm.Price,
@@ -155,6 +151,26 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
 
 
             };
+            if (vm.Price <= 10)
+            {
+                ModelState.AddModelError("Price", "No quantity less than 10");
+                return View(vm);
+            }
+            if (vm.Bed <= 0)
+            {
+                ModelState.AddModelError("Bed", "No quantity less than 0");
+                return View(vm);
+            }
+            if (vm.Size <= 100)
+            {
+                ModelState.AddModelError("Size", "No quantity less than 100");
+                return View(vm);
+            }
+            if (vm.BathRoom <= 0)
+            {
+                ModelState.AddModelError("BathRoom", "No quantity less than 0");
+                return View(vm);
+            }
 
             TempData["Message"] = "";
 
@@ -185,7 +201,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
             {
                 RoomService pServicee = new RoomService
                 {
-                    ServiceId = item,
+                    ServiceeId = item,
                 };
                 Room.RoomServicees.Add(pServicee);
             }
@@ -204,7 +220,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        //[Authorize(Roles = "Admin,Moderator")]
+        
         public async Task<IActionResult> Update(int id)
         {
             if (id <= 0) return BadRequest();
@@ -219,15 +235,15 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
             {
                 Name = Room.Name,
                 Price = Room.Price,
-                Bed=Room.Bed,   
+                Bed = Room.Bed,
                 Size = Room.Size,
                 Capacity = Room.Capacity,
-                BathRoom=Room.BathRoom,  
+                BathRoom = Room.BathRoom,
                 Description = Room.Description,
-               DetailDescription = Room.DetailDescription,  
+                DetailDescription = Room.DetailDescription,
                 CategoryId = Room.CategoryId,
                 RoomImages = Room.RoomImages,
-                Serviceeids = Room.RoomServicees.Select(p => p.ServiceId).ToList(),
+                Serviceeids = Room.RoomServicees.Select(p => p.ServiceeId).ToList(),
                 Facilityids = Room.RoomFacilities.Select(p => p.FacilityId).ToList(),
                 Categorys = await _context.Categories.ToListAsync(),
                 Servicees = await _context.Servisees.ToListAsync(),
@@ -250,14 +266,15 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
               .Include(p => p.RoomFacilities)
               .Include(p => p.RoomImages)
               .FirstOrDefaultAsync(p => p.Id == id);
-            if (exsist == null)return NotFound();   
+            if (exsist == null) return NotFound();
 
+            pvm.Categorys = await _context.Categories.ToListAsync();
+            pvm.Servicees = await _context.Servisees.ToListAsync();
+            pvm.Facilitiys = await _context.Facilities.ToListAsync();
+            pvm.RoomImages = exsist.RoomImages;
             if (!ModelState.IsValid)
             {
-                pvm.Categorys = await _context.Categories.ToListAsync();
-                pvm.Servicees = await _context.Servisees.ToListAsync();
-                pvm.Facilitiys = await _context.Facilities.ToListAsync();
-                pvm.RoomImages = exsist.RoomImages;
+               
                 return View(pvm);
             }
 
@@ -266,20 +283,14 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
             {
                 if (!pvm.MainPhoto.ValidateType("image/"))
                 {
-                    pvm.Categorys = await _context.Categories.ToListAsync();
-                    pvm.Servicees = await _context.Servisees.ToListAsync();
-                    pvm.Facilitiys = await _context.Facilities.ToListAsync();
-                    pvm.RoomImages = exsist.RoomImages;
+                   
                     ModelState.AddModelError("MainPhoto", "Fayl tipi uyqun deyil");
                     return View(pvm);
                 }
 
                 if (!pvm.MainPhoto.ValidateSize(600))
                 {
-                    pvm.Categorys = await _context.Categories.ToListAsync();
-                    pvm.Servicees = await _context.Servisees.ToListAsync();
-                    pvm.Facilitiys = await _context.Facilities.ToListAsync();
-                    pvm.RoomImages = exsist.RoomImages;
+                   
 
                     ModelState.AddModelError("MainPhoto", "Fayl olcusu uyqun deyil");
                     return View(pvm);
@@ -294,33 +305,27 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
             bool result = await _context.Categories.AnyAsync(c => c.Id == pvm.CategoryId);
             if (!result)
             {
-                pvm.Categorys = await _context.Categories.ToListAsync();
-                pvm.Servicees = await _context.Servisees.ToListAsync();
-                pvm.Facilitiys = await _context.Facilities.ToListAsync();
-                pvm.RoomImages = exsist.RoomImages;
+               
 
                 ModelState.AddModelError("CategoryId", "Bele bir category movcud deyil");
                 return View(pvm);
             }
 
-            exsist.RoomServicees.RemoveAll(pt => !pvm.Serviceeids.Exists(tid => tid == pt.ServiceId));
+            exsist.RoomServicees.RemoveAll(pt => !pvm.Serviceeids.Exists(tid => tid == pt.ServiceeId));
 
 
-            List<int> create = pvm.Serviceeids.Where(tid => !exsist.RoomServicees.Exists(pt => pt.ServiceId == tid)).ToList();
+            List<int> create = pvm.Serviceeids.Where(tid => !exsist.RoomServicees.Exists(pt => pt.ServiceeId == tid)).ToList();
             foreach (var tid in create)
             {
                 bool tresult = await _context.Servisees.AnyAsync(t => t.Id == tid);
                 if (!tresult)
                 {
-                    pvm.Categorys = await _context.Categories.ToListAsync();
-                    pvm.Servicees = await _context.Servisees.ToListAsync();
-                    pvm.Facilitiys = await _context.Facilities.ToListAsync();
-                    pvm.RoomImages = exsist.RoomImages;
+                   
 
-                    ModelState.AddModelError("CategoryId", "Bele bir Servicee movcud deyil");
+                    ModelState.AddModelError("ServiceeId", "Bele bir Servicee movcud deyil");
                     return View(pvm);
                 }
-                exsist.RoomServicees.Add(new RoomService { ServiceId = tid });
+                exsist.RoomServicees.Add(new RoomService { ServiceeId = tid });
             }
 
 
@@ -343,7 +348,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
             }
             foreach (var item in exsist.RoomServicees)
             {
-                if (!pvm.Serviceeids.Exists(t => t == item.ServiceId))
+                if (!pvm.Serviceeids.Exists(t => t == item.ServiceeId))
                 {
                     _context.RoomServices.Remove(item);
                 }
@@ -351,10 +356,10 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
 
             foreach (int item in pvm.Serviceeids)
             {
-                if (!exsist.RoomServicees.Any(p => p.ServiceId == item))
+                if (!exsist.RoomServicees.Any(p => p.ServiceeId == item))
                 {
                     exsist.RoomServicees.Add(new RoomService
-                    { ServiceId = item });
+                    { ServiceeId = item });
 
                 }
             }
@@ -373,7 +378,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
                     Url = pvm.Name
                 });
             }
-           
+
 
             if (pvm.Imageids is null)
             {
@@ -411,20 +416,44 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
 
             }
 
-            exsist.Name = pvm.Name;
+            exsist.Name = pvm.Name.Capitalize();
             exsist.Description = pvm.Description;
             exsist.Price = pvm.Price;
             exsist.CategoryId = pvm.CategoryId;
-            exsist.Bed= pvm.Bed;
-            exsist.BathRoom = pvm.BathRoom; 
-            exsist.DetailDescription = pvm.DetailDescription;   
+            exsist.Bed = pvm.Bed;
+            exsist.BathRoom = pvm.BathRoom;
+            exsist.DetailDescription = pvm.DetailDescription;
             exsist.Capacity = pvm.Capacity;
+            if (pvm.Price <= 10)
+            {
+                ModelState.AddModelError("Price", "No quantity less than 10");
+                return View(pvm);
+            }
+            if (pvm.Capacity <= 0)
+            {
+                ModelState.AddModelError("Capacity", "No quantity less than 0");
+                return View(pvm);
+            }
+            if (pvm.Bed <= 0)
+            {
+                ModelState.AddModelError("Bed", "No quantity less than 0");
+                return View(pvm);
+            }
+            if (pvm.Size <= 100)
+            {
+                ModelState.AddModelError("Size", "No quantity less than 100");
+                return View(pvm);
+            }
+            if (pvm.BathRoom <= 0)
+            {
+                ModelState.AddModelError("BathRoom", "No quantity less than 0");
+                return View(pvm);
+            }
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
 
         }
 
-        //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
             if (id <= 0) return BadRequest();

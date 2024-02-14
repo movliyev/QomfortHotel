@@ -508,4 +508,11 @@ C:\Users\helpdesk_connect\Desktop\Hotel\QomfortHotelFinal\QomfortHotelFinal\obj\
 C:\Users\helpdesk_connect\Desktop\Hotel\QomfortHotelFinal\QomfortHotelFinal\obj\Debug\net6.0\QomfortHotelFinal.pdb
 C:\Users\helpdesk_connect\Desktop\Hotel\QomfortHotelFinal\QomfortHotelFinal\obj\Debug\net6.0\QomfortHotelFinal.genruntimeconfig.cache
 C:\Users\helpdesk_connect\Desktop\Hotel\QomfortHotelFinal\QomfortHotelFinal\obj\Debug\net6.0\ref\QomfortHotelFinal.dll
-C:\Users\helpdesk_connect\Desktop\Hotel\QomfortHotelFinal\QomfortHotelFinal\obj\Debug\net6.0\scopedcss\Areas\Admin\Views\Shared\_AdminLayout.cshtml.rz.scp.css
+C:\Users\helpdesk_connect\Desktop\Hotel\QomfortHotelFinal\QomfortHotelFinal\bin\Debug\net6.0\BouncyCastle.Cryptography.dll
+C:\Users\helpdesk_connect\Desktop\Hotel\QomfortHotelFinal\QomfortHotelFinal\bin\Debug\net6.0\MailKit.dll
+C:\Users\helpdesk_connect\Desktop\Hotel\QomfortHotelFinal\QomfortHotelFinal\bin\Debug\net6.0\MimeKit.dll
+C:\Users\helpdesk_connect\Desktop\Hotel\QomfortHotelFinal\QomfortHotelFinal\bin\Debug\net6.0\System.Formats.Asn1.dll
+C:\Users\helpdesk_connect\Desktop\Hotel\QomfortHotelFinal\QomfortHotelFinal\bin\Debug\net6.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\helpdesk_connect\Desktop\Hotel\QomfortHotelFinal\QomfortHotelFinal\bin\Debug\net6.0\System.Text.Encoding.CodePages.dll
+C:\Users\helpdesk_connect\Desktop\Hotel\QomfortHotelFinal\QomfortHotelFinal\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\helpdesk_connect\Desktop\Hotel\QomfortHotelFinal\QomfortHotelFinal\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Text.Encoding.CodePages.dll

@@ -1,66 +1,82 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MailKit.Search;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using QomfortHotelFinal.DAL;
 using QomfortHotelFinal.Models;
+using QomfortHotelFinal.ViewModels;
+using System.Security.Claims;
 
 namespace QomfortHotelFinal.Controllers
 {
     public class ReservationController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly UserManager<AppUser> _userManager;
 
-        public ReservationController(AppDbContext context)
+        public ReservationController(AppDbContext context,UserManager<AppUser> userManager)
         {
            _context = context;
+            _userManager = userManager;
         }
-        public IActionResult CreateReservation()
+        [HttpGet]
+        public async Task< IActionResult> CreateReservation()
         {
-            ViewData["CustomerId"] = new SelectList(_context.Set<AppUser>(), "Id", "Id");
+            
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateReservation([Bind("StartDate,EndDate,AppUserId")] Reservation booking)
+        public async Task <IActionResult> CreateReservation(RoomVM vm)
         {
-            if (ModelState.IsValid)
-            {
-                int roomId = -1;
-                DateTime startDate = booking.ArrivalDateTime;
-                DateTime endDate = booking.DeparturDateTime;
+           
+                AppUser user = await _userManager.Users
+           .Include(u => u.Reservations)
+           .ThenInclude(bi => bi.Room)
+           .FirstOrDefaultAsync(u => u.Id == User.FindFirstValue(ClaimTypes.NameIdentifier));
 
-                if (startDate <= DateTime.Today || startDate > endDate)
+
+                if (!ModelState.IsValid) return View(vm);
+
+
+                // Find the room
+                var room = _context.Rooms.Find(vm.RoomId);
+                if (room == null)
                 {
-                    ViewData["AppUserId"] = new SelectList(_context.Set<AppUser>(), "Id", "Id", booking.AppUserId);
-                    ViewBag.Status = "The start date cannot be in the past or later than the end date.";
-                    return View(booking);
+                    return NotFound();
                 }
 
-                var activeBookings = _context.Reservations.Where(b => b.IsActive);
-                foreach (var room in _context.Rooms)
-                {
-                    var activeBookingsForCurrentRoom = activeBookings.Where(b => b.RoomId == room.Id);
-                    if (activeBookingsForCurrentRoom.All(b => startDate < b.ArrivalDateTime &&
-                        endDate < b.ArrivalDateTime || startDate > b.DeparturDateTime && endDate > b.DeparturDateTime))
-                    {
-                        roomId = room.Id;
-                        break;
-                    }
-                }
 
-                if (roomId >= 0)
-                {
-                    booking.RoomId = roomId;
-                    booking.IsActive = true;
-                    _context.Reservations.Add(booking);
-                    await _context.SaveChangesAsync();
-                    return RedirectToAction("Home","Index");
-                }
-            }
 
-            //ViewData["CustomerId"] = new SelectList(_context.Set<AppUser>(), "Id", "Id", booking.AppUserId);
-            //ViewBag.Status = "The booking could not be created. There were no available room.";
-            return View(booking);
+
+                // Calculate total price based on selected dates
+                decimal totalPrice = (vm.DeparturDate - vm.ArrivalDate).Days * room.Price;
+
+                // Create reservation
+                var reservation = new Reservation
+                {
+                    ArrivalDate = vm.ArrivalDate,
+                    DeparturDate = vm.DeparturDate,
+                    //TotalPrice = totalPrice,
+                    ReservationDate = DateTime.Now,
+                    PersonCount = vm.PersonCount,
+                    Children = vm.Children
+
+                };
+
+                _context.Reservations.Add(reservation);
+                _context.SaveChanges();
+            
+          
+
+            return RedirectToAction("Index", "Home");   
         }
+
+
+
     }
 }
+

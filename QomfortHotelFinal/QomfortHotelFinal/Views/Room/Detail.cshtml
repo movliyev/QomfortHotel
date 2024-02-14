@@ -131,28 +131,28 @@
             </div>
             <div class="col-lg-5">
                 <div class="room-details-sidebar bgc-lighter p-50 rp-40">
-                    <form class="widget-search-filter wow fadeInUp delay-0-4s">
+                    <form  method="post" class="widget-search-filter wow fadeInUp delay-0-4s">
                         <div class="form-group">
-                            <label for="checkin">Check In</label>
-                            <input type="date" id="checkin" required>
+                            <label asp-for="ArrivalDate">Check In</label>
+                            <input asp-for="ArrivalDate" type="date" required>
                         </div>
                         <div class="form-group">
-                            <label for="checkout">Check Out</label>
-                            <input type="date" id="checkout" required>
+                            <label asp-for="DeparturDate">Check Out</label>
+                            <input asp-for="DeparturDate" type="date"  required>
                         </div>
                         <div class="form-group">
-                            <label for="adults">Adults</label>
-                            <select name="adults" id="adults">
-                                <option value="adults1">1</option>
+                            <label asp-for="PersonCount">Adults</label>
+                            <select asp-for="PersonCount" id="adults">
+                                @* <option value="adults1">@Room.</option> *@
                                 <option value="adults2">2</option>
                                 <option value="adults3" selected>3</option>
                                 <option value="adults3">4</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="children">Children</label>
-                            <select name="children" id="children">
-                                <option value="children1">1</option>
+                            <label asp-for="Children">Children</label>
+                            <select asp-for="Children">
+                                <option value="children1"></option>
                                 <option value="children2" selected>2</option>
                                 <option value="children3">3</option>
                             </select>

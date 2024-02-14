@@ -413,24 +413,26 @@ namespace QomfortHotelFinal.Migrations
                     b.Property<string>("AppUserId1")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<DateTime>("ArrivalDateTime")
+                    b.Property<DateTime>("ArrivalDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DeparturDateTime")
+                    b.Property<int>("Children")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DeparturDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
 
                     b.Property<int>("PersonCount")
                         .HasColumnType("int");
 
+                    b.Property<DateTime?>("ReservationDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("RoomId")
                         .HasColumnType("int");
+
+                    b.Property<double?>("TotalPrice")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 
@@ -528,10 +530,6 @@ namespace QomfortHotelFinal.Migrations
                     b.Property<bool?>("IsPrimary")
                         .HasColumnType("bit");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("RoomId")
                         .HasColumnType("int");
 
@@ -555,9 +553,6 @@ namespace QomfortHotelFinal.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<int>("RoomId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ServiceId")
                         .HasColumnType("int");
 
                     b.Property<int>("ServiceeId")

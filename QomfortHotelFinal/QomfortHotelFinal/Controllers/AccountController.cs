@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using QomfortHotelFinal.Abstractions.MailService;
 using QomfortHotelFinal.Models;
 using QomfortHotelFinal.Utilities.Extensions;
 using QomfortHotelFinal.ViewModels;
@@ -15,13 +16,14 @@ namespace QomfortHotelFinal.Controllers
         private readonly SignInManager<AppUser> _signInManager;
         private readonly RoleManager<IdentityRole> _role;
         private readonly IWebHostEnvironment _env;
-
-        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<IdentityRole> role, IWebHostEnvironment env)
+        private readonly IMailService _ser;
+        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<IdentityRole> role, IWebHostEnvironment env,  IMailService ser )
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _role = role;
             _env = env;
+            _ser = ser;
         }
         [HttpGet]
         public IActionResult Register()
@@ -161,8 +163,29 @@ namespace QomfortHotelFinal.Controllers
             if(user == null) return NotFound();
             //https://localhost:
             string token = await _userManager.GeneratePasswordResetTokenAsync(user);
-            string link=Url.Action("ResetPassword","Account",new { userid = user.Id, });
-            
+            string link=Url.Action("ResetPassword","Account",new { userid = user.Id, token=token},HttpContext.Request.Scheme);
+            string body = $"<a href='{link}'>ResetPassword</a>";
+            await _ser.SendEmailAsync(user.Email,"ResetPassword", body, true);
+            return RedirectToAction(nameof(Login));
+        }
+
+        public async Task<IActionResult>ResetPassword(string userId,string token)
+        {
+            if (string.IsNullOrWhiteSpace(userId) || string.IsNullOrWhiteSpace(token)) return BadRequest();
+            var user=await _userManager.FindByIdAsync(userId);
+            if(user == null) return NotFound(); 
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult>ResetPassword(ResetPasswordVM vm, string userId, string token)
+        {
+            if (string.IsNullOrWhiteSpace(userId) || string.IsNullOrWhiteSpace(token)) return BadRequest();
+            if (!ModelState.IsValid) return View(vm);
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null) return NotFound();
+            var identityuser = await _userManager.ResetPasswordAsync(user, token, vm.ConfirmPassword);
+            return RedirectToAction(nameof(Login));
         }
 
     }

@@ -6,7 +6,7 @@
 
         public int RoomId { get; set; }
         public Room Room { get; set; }
-        public int ServiceId { get; set; }
+        public int ServiceeId { get; set; }
         public Servicee Servicee { get; set; }
     }
 }

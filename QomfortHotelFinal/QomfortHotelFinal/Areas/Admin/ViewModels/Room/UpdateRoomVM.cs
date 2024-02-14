@@ -12,11 +12,10 @@ namespace QomfortHotelFinal.Areas.Admin.ViewModels
         public int Bed { get; set; }
         public int Capacity { get; set; }
         public int CategoryId { get; set; }
-        public List<Category> Categorys { get; set; }
+        public List<Category>? Categorys { get; set; }
         public List<int> Serviceeids { get; set; }
         public List<int> Facilityids { get; set; }
         public int BathRoom { get; set; }
-        public bool? Status { get; set; }
         public List<Facility>? Facilitiys { get; set; }
         public List<Servicee>? Servicees { get; set; }
         public IFormFile MainPhoto { get; set; }

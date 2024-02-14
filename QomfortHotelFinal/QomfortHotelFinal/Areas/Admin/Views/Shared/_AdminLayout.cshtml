@@ -60,7 +60,6 @@
                                 <li><a asp-action="Index" asp-controller="Setting">Settings</a></li>
                                 <li><a asp-action="Index" asp-controller="HomeAbout">HomeAbout</a></li>
                                 <li><a asp-action="Index" asp-controller="Facility">Facilities</a></li>
-                                <li><a asp-action="Index" asp-controller="Category">Categorys</a></li>
                                 <li><a asp-action="Index" asp-controller="Gallery">Galleries</a></li>
                                 <li><a asp-action="Index" asp-controller="Servicee">Services</a></li>
                                
@@ -346,7 +345,7 @@
 
     <!-- App js -->
     <script src="~/Massets/js/theme.js"></script>
-
+    @RenderSection("DeleteImage",false);
 </body>
 
 </html>
