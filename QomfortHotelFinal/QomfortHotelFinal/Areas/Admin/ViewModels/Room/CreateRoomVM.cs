@@ -30,6 +30,7 @@ namespace QomfortHotelFinal.Areas.Admin.ViewModels
         [Required]
 
         public int Capacity { get; set; }
+        public bool Status { get; set; }
         public int CategoryId { get; set; }
         public List<Category>? Categorys { get; set; }
         public List<int> Serviceeids { get; set; }

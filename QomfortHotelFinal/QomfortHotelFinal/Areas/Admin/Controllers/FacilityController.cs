@@ -7,6 +7,8 @@ using QomfortHotelFinal.Models;
 namespace QomfortHotelFinal.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Route("Admin/[controller]/[action]")]
+
     public class FacilityController : Controller
     {
         private readonly AppDbContext _context;

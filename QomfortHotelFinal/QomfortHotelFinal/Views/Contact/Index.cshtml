@@ -1,4 +1,8 @@
-﻿<!--Form Back Drop-->
+﻿@using QomfortHotelFinal.ViewModels.Contact;
+
+@model ContactVM
+
+<!--Form Back Drop-->
 <div class="form-back-drop"></div>
 
 <!-- Hidden Sidebar -->
@@ -9,24 +13,7 @@
             <h4>Get Appointment</h4>
         </div>
 
-        <!--Appointment Form-->
-        <div class="appointment-form">
-            <form method="post" action="contact.html">
-                <div class="form-group">
-                    <input type="text" name="text" value="" placeholder="Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" name="email" value="" placeholder="Email Address" required>
-                </div>
-                <div class="form-group">
-                    <textarea placeholder="Message" rows="5"></textarea>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="theme-btn">Submit now</button>
-                </div>
-            </form>
-        </div>
-
+       
         <!--Social Icons-->
         <div class="social-style-one">
             <a href="#"><i class="fab fa-twitter"></i></a>
@@ -44,7 +31,7 @@
             <h1 class="page-title wow fadeInUp delay-0-2s">Contact</h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb justify-content-center wow fadeInUp delay-0-4s">
-                    <li class="breadcrumb-item"><a href="index.html">home</a></li>
+                    <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home">home</a></li>
                     <li class="breadcrumb-item active">Contact</li>
                 </ol>
             </nav>
@@ -155,42 +142,48 @@
                         <h3>Send Us Message</h3>
                         <p>Your email address will not be published. Required fields are marked *</p>
                     </div>
-                    <form id="contactForm" class="contactForm" action="assets/php/form-process.php" name="contactForm" method="post">
+                    <form  class="contactForm"  method="post">
                         <div class="row gap-20 pt-15">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" id="name" name="name" class="form-control" value="" placeholder="Full name" required data-error="Please enter your name">
+                                    <input asp-for="FullName" type="text"  class="form-control"  placeholder="Full name" required data-error="Please enter your name">
+                                    <span asp-validation-for="FullName" class="text-danger"></span>
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" id="phone_number" name="phone_number" class="form-control" value="" placeholder="Phone" required data-error="Please enter your Phone">
+                                    <input type="text" asp-for="Phone" class="form-control" value="" placeholder="Phone" required data-error="Please enter your Phone">
+                                    <span asp-validation-for="FullName" class="text-danger"></span>
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="email" id="email" name="email" class="form-control" value="" placeholder="Email" required data-error="Please enter your Email">
+                                    <input type="email" asp-for="Email" class="form-control" value="" placeholder="Email" required data-error="Please enter your Email">
+                                    <span asp-validation-for="FullName" class="text-danger"></span>
+
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" id="subject" name="subject" class="form-control" value="" placeholder="Subject" required data-error="Please enter your Subject">
+                                    <input type="text" asp-for="Subject" class="form-control" value="" placeholder="Subject" required data-error="Please enter your Subject">
+                                    <span asp-validation-for="FullName" class="text-danger"></span>
+
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <textarea name="message" id="message" class="form-control" rows="3" placeholder="Message" required data-error="Please enter your Message"></textarea>
+                                    <textarea asp-for="Message" class="form-control"  placeholder="Message" required data-error="Please enter your Message"></textarea>
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group pt-5 mb-0">
                                     <button type="submit" class="theme-btn">Send Message<i class="far fa-arrow-right"></i></button>
-                                    <div id="msgSubmit" class="hidden"></div>
+                                    
                                 </div>
                             </div>
                         </div>

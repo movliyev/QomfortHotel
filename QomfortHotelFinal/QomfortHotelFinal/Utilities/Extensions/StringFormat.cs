@@ -23,7 +23,7 @@ namespace QomfortHotelFinal.Utilities.Extensions
         }
         public static bool CheckPhoneNumber(this string Phone)
         {
-            string phone = @"^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$";
+            string phone = @"^[1-9]\d{2}-\d{3}-\d{4}$";
             Regex regex = new Regex(phone);
             return regex.IsMatch(phone);
 

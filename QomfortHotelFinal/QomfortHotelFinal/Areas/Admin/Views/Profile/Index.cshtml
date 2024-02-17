@@ -1,0 +1,27 @@
+﻿@model AppUser
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="col-md-6 col-xl-3">
+
+    <div class="card">
+        <img class="card-img-top img-fluid" src="~/assets/images/User/@Model.UserImage" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Name:@Model.Name</h5>
+            <h5 class="card-title">Surname:@Model.Surname</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Phone:@Model.PhoneNumber</li>
+            <li class="list-group-item">Email:@Model.Email</li>
+        </ul>
+        <div>
+            <a asp-action="update" asp-controller="profile" class="btn btn-warning">Edit</a>
+        </div>
+       
+    </div>
+
+</div><!-- end col -->

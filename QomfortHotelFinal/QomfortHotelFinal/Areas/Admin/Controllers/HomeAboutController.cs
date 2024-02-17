@@ -8,6 +8,8 @@ using QomfortHotelFinal.Utilities.Extensions;
 namespace QomfortHotelFinal.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Route("Admin/[controller]/[action]")]
+
     public class HomeAboutController : Controller
     {
 

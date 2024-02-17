@@ -1,43 +1,6 @@
 ﻿@model List<Room>
 <!--Form Back Drop-->
-<div class="form-back-drop"></div>
 
-<!-- Hidden Sidebar -->
-<section class="hidden-bar">
-    <div class="inner-box text-center">
-        <div class="cross-icon"><span class="fa fa-times"></span></div>
-        <div class="title">
-            <h4>Get Appointment</h4>
-        </div>
-
-        <!--Appointment Form-->
-        <div class="appointment-form">
-            <form method="post" action="contact.html">
-                <div class="form-group">
-                    <input type="text" name="text" value="" placeholder="Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" name="email" value="" placeholder="Email Address" required>
-                </div>
-                <div class="form-group">
-                    <textarea placeholder="Message" rows="5"></textarea>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="theme-btn">Submit now</button>
-                </div>
-            </form>
-        </div>
-
-        <!--Social Icons-->
-        <div class="social-style-one">
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-pinterest-p"></i></a>
-        </div>
-    </div>
-</section>
-<!--End Hidden Sidebar -->
 <!-- Page Banner Start -->
 <section class="page-banner-area pt-140 rpt-80 pb-240 rpb-150 rel z-1 bgs-cover bgc-black text-center" style="background-image: url(assets/images/background/banner.jpg)">
     <div class="container">
@@ -125,13 +88,31 @@
                         <li>
                             <i class="far fa-bath"></i>
                             <a href="#">Bathrooms :@item.BathRoom</a>
+                            <br />
+                            <br />
+                            @if (item.Status == true)
+                            {
+                                <i class="feather-arrow-right-circle"></i>
+                                <a class="text-info">Status :Active</a>
+                               
+                                
+
+                            }
+                            else
+                            {
+                                <i class="feather-arrow-right-circle"></i>
+                                <a class="text-danger">Status :Reserved</a>
+                            }
+                        </li>
+                        <li>
+                           
                         </li>
                     </ul>
                     <p>@item.Description</p>
                     <hr>
                     <div class="price-more">
                         <div class="price">Price <span>$@item.Price</span>/per night</div>
-                        <a class="read-more" asp-action="Detail" asp-controller="Room" asp-route-id="@item.Id">Room Details <i class="fal fa-angle-right"></i></a>
+                        <a class="read-more" asp-action="Reserv" asp-controller="Room" asp-route-id="@item.Id">Room Details <i class="fal fa-angle-right"></i></a>
                     </div>
                 </div>
             </div>

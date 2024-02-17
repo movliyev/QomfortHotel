@@ -1,7 +1,10 @@
+using Hangfire;
+using Hangfire.SqlServer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using QomfortHotelFinal.Abstractions.MailService;
 using QomfortHotelFinal.DAL;
+using QomfortHotelFinal.Middlewares;
 using QomfortHotelFinal.Models;
 using QomfortHotelFinal.Services;
 using System.Configuration;
@@ -9,10 +12,14 @@ using System.Configuration;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddHangfire(config => config.UseSqlServerStorage(builder.Configuration.GetConnectionString("Default")));
+builder.Services.AddHangfireServer();
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AppDbContext>(
     opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("Default"))
     );
+
+   
 
 builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
 {
@@ -30,8 +37,9 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
 
     //options.SignIn.RequireConfirmedEmail = true;
 }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
+builder.Services.AddScoped<LayoutService>();
 
-builder.Services.AddScoped<IMailService, MailService>();
+builder.Services.AddScoped<IEmailService, EmailService>();
 
 //builder.Services.AddMvc(config =>
 //{
@@ -54,25 +62,20 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
-
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllerRoute(
-      name: "areas",
-      pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-    );
-});
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllerRoute(
-      name: "areas",
-      pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-    );
-});
-
+app.UseHangfireDashboard();
+//app.UseMiddleware<GlobalExceptionHandlerMiddleware>();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+      name: "areas",
+      pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+    );
+});
+
 
 
 app.Run();

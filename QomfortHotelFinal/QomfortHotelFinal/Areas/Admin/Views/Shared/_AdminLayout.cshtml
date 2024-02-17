@@ -52,7 +52,7 @@
                         </li>
 
                         <li>
-                            <a href="javascript: void(0);" class="has-arrow"><i class="feather-copy"></i><span>Tables</span></a>
+                            <a href="javascript: void(0);" class="has-arrow"><i class="mdi mdi-table-large"></i><span>Tables</span></a>
                             <ul class="sub-menu" aria-expanded="false">
                                 <li><a asp-action="Index" asp-controller="Room">Rooms</a></li>
                                 <li><a asp-action="Index" asp-controller="Category">Categorys</a></li>
@@ -142,33 +142,6 @@
                                 <li><a href="icons-fontawesome.html">Font awesome</a></li>
                             </ul>
                         </li>
-
-                        <li class="menu-title">More</li>
-
-                        <li><a href="calendar.html"><i class="feather-calendar"></i><span>Calendar</span></a></li>
-
-                        <li>
-                            <a href="javascript: void(0);" class="has-arrow"><i class="feather-map"></i><span>Maps</span></a>
-                            <ul class="sub-menu" aria-expanded="false">
-                                <li><a href="maps-google.html">Google Maps</a></li>
-                                <li><a href="maps-vector.html">Vector Maps</a></li>
-                            </ul>
-                        </li>
-
-                        <li>
-                            <a href="javascript: void(0);" class="has-arrow"><i class="feather-share"></i><span>Multi Level</span></a>
-                            <ul class="sub-menu" aria-expanded="true">
-                                <li><a href="javascript: void(0);">Level 1.1</a></li>
-                                <li>
-                                    <a href="javascript: void(0);" class="has-arrow">Level 1.2</a>
-                                    <ul class="sub-menu" aria-expanded="true">
-                                        <li><a href="javascript: void(0);">Level 2.1</a></li>
-                                        <li><a href="javascript: void(0);">Level 2.2</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-
                     </ul>
                 </div>
                 <!-- Sidebar -->
@@ -266,6 +239,7 @@
 
                             @if (User.Identity.IsAuthenticated)
                             {
+                                
                                 <button type="button" class="btn header-item" id="page-header-user-dropdown"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
@@ -282,7 +256,7 @@
                                     <a class="dropdown-item d-flex align-items-center justify-content-between" asp-action="Logout" asp-controller="Account" asp-route-area="">
                                         <span>Log Out</span>
                                     </a>
-                                    <a class="dropdown-item d-flex align-items-center justify-content-between" asp-action="Update" asp-controller="Profile">
+                                    <a class="dropdown-item d-flex align-items-center justify-content-between" asp-action="Index" asp-controller="Profile">
                                         <span>Profile</span>
 
                                     </a>

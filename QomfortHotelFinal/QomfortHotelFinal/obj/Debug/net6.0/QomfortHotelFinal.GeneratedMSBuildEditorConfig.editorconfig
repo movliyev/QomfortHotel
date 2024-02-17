@@ -52,6 +52,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZUFib3V0XFVwZGF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/helpdesk_connect/Desktop/Hotel/QomfortHotelFinal/QomfortHotelFinal/Areas/Admin/Views/MyReserv/MyOldReservation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTXlSZXNlcnZcTXlPbGRSZXNlcnZhdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/helpdesk_connect/Desktop/Hotel/QomfortHotelFinal/QomfortHotelFinal/Areas/Admin/Views/Profile/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZmlsZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/helpdesk_connect/Desktop/Hotel/QomfortHotelFinal/QomfortHotelFinal/Areas/Admin/Views/Profile/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZmlsZVxVcGRhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/helpdesk_connect/Desktop/Hotel/QomfortHotelFinal/QomfortHotelFinal/Areas/Admin/Views/Room/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUm9vbVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -100,30 +112,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/helpdesk_connect/Desktop/Hotel/QomfortHotelFinal/QomfortHotelFinal/Areas/Memmber/Views/DashBoard/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWVtbWJlclxWaWV3c1xEYXNoQm9hcmRcSW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/helpdesk_connect/Desktop/Hotel/QomfortHotelFinal/QomfortHotelFinal/Areas/Memmber/Views/Profile/Update.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWVtbWJlclxWaWV3c1xQcm9maWxlXFVwZGF0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/helpdesk_connect/Desktop/Hotel/QomfortHotelFinal/QomfortHotelFinal/Areas/Memmber/Views/Reservation/NewReservation.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWVtbWJlclxWaWV3c1xSZXNlcnZhdGlvblxOZXdSZXNlcnZhdGlvbi5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/helpdesk_connect/Desktop/Hotel/QomfortHotelFinal/QomfortHotelFinal/Areas/Memmber/Views/Room/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWVtbWJlclxWaWV3c1xSb29tXEluZGV4LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/helpdesk_connect/Desktop/Hotel/QomfortHotelFinal/QomfortHotelFinal/Areas/Memmber/Views/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWVtbWJlclxWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/helpdesk_connect/Desktop/Hotel/QomfortHotelFinal/QomfortHotelFinal/Areas/Memmber/Views/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWVtbWJlclxWaWV3c1xfVmlld1N0YXJ0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/helpdesk_connect/Desktop/Hotel/QomfortHotelFinal/QomfortHotelFinal/Views/About/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJvdXRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -164,12 +152,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2FsbGVyeVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/helpdesk_connect/Desktop/Hotel/QomfortHotelFinal/QomfortHotelFinal/Views/Home/ErrorPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFcnJvclBhZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/helpdesk_connect/Desktop/Hotel/QomfortHotelFinal/QomfortHotelFinal/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/helpdesk_connect/Desktop/Hotel/QomfortHotelFinal/QomfortHotelFinal/Views/Room/Detail.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbVxEZXRhaWwuY3NodG1s
+[C:/Users/helpdesk_connect/Desktop/Hotel/QomfortHotelFinal/QomfortHotelFinal/Views/Room/Reserv.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbVxSZXNlcnYuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/helpdesk_connect/Desktop/Hotel/QomfortHotelFinal/QomfortHotelFinal/Views/Room/RoomList.cshtml]
@@ -191,10 +183,6 @@ build_metadata.AdditionalFiles.CssScope =
 [C:/Users/helpdesk_connect/Desktop/Hotel/QomfortHotelFinal/QomfortHotelFinal/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/helpdesk_connect/Desktop/Hotel/QomfortHotelFinal/QomfortHotelFinal/Areas/Memmber/Views/Shared/_MemmberLayout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWVtbWJlclxWaWV3c1xTaGFyZWRcX01lbW1iZXJMYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-17qpgn7tj0
 
 [C:/Users/helpdesk_connect/Desktop/Hotel/QomfortHotelFinal/QomfortHotelFinal/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s

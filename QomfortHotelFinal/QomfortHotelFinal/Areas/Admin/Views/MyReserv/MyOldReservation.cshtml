@@ -1,0 +1,81 @@
+﻿
+@model List<Reservation>
+@{
+    int count = 0;
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Category Table</h4>
+
+                        <div class="table-responsive">
+                            <table class="table table-dark table-borderless mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            No
+                                        </th>
+                                        <th>
+                                           RoomName
+                                        </th>
+                                        <th>
+                                           Reservation date
+                                        </th>
+                                        <th>
+
+                                            Romm category
+                                        </th>
+                                        <th>
+
+                                          Person Count
+                                        </th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        count++;
+                                        <tr>
+                                            <td>
+                                                @count
+                                            </td>
+
+                                            <td>
+                                                @item.Room.Name
+                                            </td>
+                                            <td>
+                                                @item.ReservationDate
+                                            </td>
+                                            <td>
+                                                @item.Room.Category.Name
+                                            </td>
+                                            <td>
+                                                @item.Children+@item.PersonCount
+                                            </td>
+                                        </tr>
+
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                       
+                    </div>
+                    <!-- end card-body-->
+                </div>
+                <!-- end card -->
+
+            </div>
+        </div>
+    </div>
+</div>

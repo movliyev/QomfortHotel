@@ -16,8 +16,8 @@ namespace QomfortHotelFinal.Controllers
         private readonly SignInManager<AppUser> _signInManager;
         private readonly RoleManager<IdentityRole> _role;
         private readonly IWebHostEnvironment _env;
-        private readonly IMailService _ser;
-        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<IdentityRole> role, IWebHostEnvironment env,  IMailService ser )
+        private readonly IEmailService _ser;
+        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<IdentityRole> role, IWebHostEnvironment env,  IEmailService ser )
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -51,11 +51,11 @@ namespace QomfortHotelFinal.Controllers
                 ModelState.AddModelError("Email", "Email uslubu yanlisdir");
                 return View(vm);
             }
-            if (!vm.Email.CheckPhoneNumber())
-            {
-                ModelState.AddModelError("PhoneNumber", "Phonenumber uslubu yanlisdir");
-                return View(vm);
-            }
+            //if (!vm.Email.CheckPhoneNumber())
+            //{
+            //    ModelState.AddModelError("PhoneNumber", "Phonenumber uslubu yanlisdir");
+            //    return View(vm);
+            //}
 
             //if (!vm.Photo.ValidateType("image/"))
             //{
@@ -86,7 +86,7 @@ namespace QomfortHotelFinal.Controllers
             var result = await _userManager.CreateAsync(appUser, vm.Password);
             if (result.Succeeded)
             {
-
+                await _signInManager.SignInAsync(appUser, false);
                 return RedirectToAction("Index","Home");
 
             }
@@ -97,7 +97,7 @@ namespace QomfortHotelFinal.Controllers
                     ModelState.AddModelError(String.Empty, item.Description);
                 }
             }
-            //await _signInManager.SignInAsync(appUser, false);
+           
             return View(vm);
         }
         [HttpGet]

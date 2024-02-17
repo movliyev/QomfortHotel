@@ -73,35 +73,34 @@
 <!-- Search Filter and Features Start -->
 <section class="search-and-features-area bgc-lighter pb-50 rel z-1">
     <div class="container container-1550">
-        <div class="search-filter-inner rel z-2">
-            <div class="section-title text-white mb-20 wow fadeInUp delay-0-2s">
-                <span class="sub-title mb-5">Booking Your Seat</span>
-                <h3>Find & Booked Your Seats</h3>
+        <form asp-action="Index" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                
+                <input asp-for="ArrivalDate" type="date" class="form-control" />
+                <span asp-validation-for="ArrivalDate" class="text-danger"></span>
             </div>
-            <div class="filter-item wow fadeInUp delay-0-3s">
-                <input type="text" onfocus="(this.type='date')" placeholder="Check In">
+            <div class="form-group">
+                
+                <input asp-for="DeparturDate" type="date" class="form-control " />
+                <span asp-validation-for="DeparturDate" class="text-danger"></span>
             </div>
-            <div class="filter-item wow fadeInUp delay-0-4s">
-                <input type="text" onfocus="(this.type='date')" placeholder="Check Out">
+            <div class="form-group">
+               
+                <input asp-for="Adult" type="number" class="form-control" />
+                <span asp-validation-for="Adult" class="text-danger"></span>
             </div>
-            <div class="filter-item wow fadeInUp delay-0-5s">
-                <select name="adults" id="adults">
-                    <option value="adults">Adults</option>
-                    <option value="adults1">1</option>
-                    <option value="adults2">2</option>
-                    <option value="adults3">3</option>
-                </select>
+            <div class="form-group">
+               
+                <input asp-for="Adult" type="number" class="form-control" />
+                <span asp-validation-for="Adult" class="text-danger"></span>
             </div>
-            <div class="filter-item wow fadeInUp delay-0-6s">
-                <select name="children" id="children">
-                    <option value="children">Children</option>
-                    <option value="children1">1</option>
-                    <option value="children2">2</option>
-                    <option value="children3">3</option>
-                </select>
+
+
+            <div class="form-group">
+                <input type="submit" value="Szukaj" class="btn btn-primary" />
             </div>
-            <button class="theme-btn style-two wow fadeInUp delay-0-7s">Search Now <i class="far fa-angle-right"></i></button>
-        </div>
+        </form>
     </div>
     <div class="container">
         <div class="row justify-content-center">

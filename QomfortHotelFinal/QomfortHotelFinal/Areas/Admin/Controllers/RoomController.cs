@@ -9,6 +9,7 @@ using QomfortHotelFinal.Utilities.Extensions;
 namespace QomfortHotelFinal.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Route("Admin/[controller]/[action]")]
 
     public class RoomController : Controller
     {
@@ -32,6 +33,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
 
             List<Room> Rooms = await _context.Rooms.Skip((page - 1) * 3).Take(3)
                 .Include(p => p.Category)
+                .Include(x=>x.Reservations)
                 .Include(p => p.RoomImages.Where(pi => pi.IsPrimary == true))
                 .Include(p => p.RoomServicees)
                 .ThenInclude(pt => pt.Servicee)
@@ -131,10 +133,10 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
             //{
             //    ModelState.AddModelError("Price,Bed,Size,Capacity", "there is no negative or zero quantity");
             //}
-           
+
             Room Room = new Room
             {
-                
+                Status = true,
                 Name=vm.Name.Capitalize(),
                 Description=vm.Description, 
                 DetailDescription=vm.DetailDescription,
