@@ -7,6 +7,7 @@ using QomfortHotelFinal.DAL;
 using QomfortHotelFinal.Middlewares;
 using QomfortHotelFinal.Models;
 using QomfortHotelFinal.Services;
+using Stripe;
 using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,7 +20,7 @@ builder.Services.AddDbContext<AppDbContext>(
     opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("Default"))
     );
 
-   
+builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("Stripe"));
 
 builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
 {
@@ -64,6 +65,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.UseHangfireDashboard();
 //app.UseMiddleware<GlobalExceptionHandlerMiddleware>();
+StripeConfiguration.ApiKey = builder.Configuration["Stripe:Secretkey"];
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

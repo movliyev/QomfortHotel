@@ -1,4 +1,9 @@
 ﻿@model OrderVM
+@inject IOptions<StripeSettings> Stripe
+@{
+
+}
+
 <br />
 <br />
 <br />
@@ -7,7 +12,24 @@
 
 
 <main class="main-content">
-    
+    <div class="breadcrumb-area breadcrumb-height">
+       
+        <div class="container h-100">
+            <div class="row h-100">
+                <div class="col-lg-7">
+                    <div class="breadcrumb-item">
+                        <h2 class="breadcrumb-heading">Checkout Page</h2>
+                        <ul>
+                            <li>
+                                <a asp-action="Index" asp-controller="Home" class="btn btn-warning">Home</a>
+                            </li>
+                            <li>Checkout</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
    
     <div class="checkout-area section-space-y-axis-100">
         <div class="container">
@@ -15,18 +37,22 @@
             <div class="row">
                 <div class="col-lg-6 col-12">
                     <form method="post">
-                        <div class="checkbox-form">
+                        <div class="checkbox-form" onchange="this.form.submit()">
                             <h3>Billing Details</h3>
                             <div class="row">
 
-                               
-                                <div class="order-button-payment">
-                                    <input value="Place order" type="submit" />
-                                </div>
-
-
+                            
+                            <script src="//checkout.stripe.com/v2/checkout.js"
+                                    class="stripe-button"
+                                    data-key="@Stripe.Value.Publishablekey"
+                                    data-amount="@ViewBag.Total"
+                                    data-name="Your project name"
+                                    data-locale="en"
+                                    data-discription="Sample charge"
+                                    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                                    data-zip-code="true">
+                            </script>
                             </div>
-
                         </div>
                     </form>
                 </div>
@@ -37,7 +63,7 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th class="cart-product-name">Room Name--Room Price--Arrival Date--DeparturDate</th>
+                                        <th class="cart-product-name">RoomName--RoomPrice--ArrivalDate--DeparturDate</th>
                                         <th class="cart-product-total">Total</th>
                                     </tr>
                                 </thead>
@@ -47,8 +73,8 @@
                                        
                                         <tr class="cart_item">
                                             <td class="cart-product-name">
-                                                @item.Room.Name<strong class="product-quantity">
-                                                    @item.Room.Price
+                                                @item.Room.Name --<strong class="product-quantity">
+                                                    $@item.Room.Price
                                                 </strong>--<strong class="product-quantity">
                                                     @item.ArrivalDate.ToShortDateString()
                                                 </strong>--<strong class="product-quantity">
@@ -60,17 +86,18 @@
                                             </td>
                                         </tr>
                                     }
-
+                                    
                                 </tbody>
                                 <tfoot>
 
-                                   @*  <tr class="order-total">
+                                    <tr class="order-total">
                                         <th>Order Total</th>
                                         <td>
-                                            <strong><span class="amount">$@(((item.DeparturDate - item.ArrivalDate).Days) * item.Room.Price)</span></strong>
+                                            <strong><span class="amount">$@Model.TotalPrice</span></strong>
                                         </td>
-                                    </tr> *@
+                                    </tr>
                                 </tfoot>
+                               
                             </table>
                         </div>
                         <div class="payment-method">

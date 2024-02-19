@@ -16,7 +16,8 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.26",
           "Microsoft.EntityFrameworkCore.Tools": "6.0.26",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.16",
-          "MimeKit": "4.3.0"
+          "MimeKit": "4.3.0",
+          "Stripe.net": "43.15.0"
         },
         "runtime": {
           "QomfortHotelFinal.dll": {}
@@ -1864,6 +1865,18 @@
       "runtime.ubuntu.14.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.ubuntu.16.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.ubuntu.16.10-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
+      "Stripe.net/43.15.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1",
+          "System.Configuration.ConfigurationManager": "6.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Stripe.net.dll": {
+            "assemblyVersion": "43.15.0.0",
+            "fileVersion": "43.15.0.0"
+          }
+        }
+      },
       "System.AppContext/4.3.0": {
         "dependencies": {
           "System.Runtime": "4.3.0"
@@ -3754,6 +3767,13 @@
       "sha512": "sha512-VB5cn/7OzUfzdnC8tqAIMQciVLiq2epm2NrAm1E9OjNRyG4lVhfR61SMcLizejzQP8R8Uf/0l5qOIbUEi+RdEg==",
       "path": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl/4.3.0",
       "hashPath": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512"
+    },
+    "Stripe.net/43.15.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5i4uFhhHJKEK68ewVelq/QNjnJv2CCMo84zpUp9C0Qi8gvJy19Vsg+jbXGn8882M3mhcMPxDehpOkm8wmyohaw==",
+      "path": "stripe.net/43.15.0",
+      "hashPath": "stripe.net.43.15.0.nupkg.sha512"
     },
     "System.AppContext/4.3.0": {
       "type": "package",

@@ -9,6 +9,7 @@ using QomfortHotelFinal.DAL;
 using QomfortHotelFinal.Models;
 using QomfortHotelFinal.Utilities.Exceptions;
 using QomfortHotelFinal.ViewModels;
+using Stripe;
 using System.Security.Claims;
 
 namespace QomfortHotelFinal.Controllers
@@ -210,7 +211,7 @@ namespace QomfortHotelFinal.Controllers
             return View(orderVM);
         }
         [HttpPost]
-        public async Task<IActionResult> Checkout(OrderVM ovm)
+        public async Task<IActionResult> Checkout(OrderVM ovm,string stripeEmail,string stripeToken)
         {
             AppUser user = await _userManager.Users
         .Include(u => u.Reservations.Where(b => b.OrderId == null))
@@ -225,17 +226,45 @@ namespace QomfortHotelFinal.Controllers
             }
 
             decimal totalPrice = ovm.TotalPrice; // Ödenecek toplam tutar
-
+           
             // Siparişi oluştur
             Order order = new Order
             {
-                Status = true,
+                Status = null,
                 AppUserId = user.Id,
                 PurchasedAt = DateTime.Now,
                 Reservations = user.Reservations.ToList(),
                 TotalPrice = totalPrice
             };
+            var optionCust = new CustomerCreateOptions
+            {
+                Email = stripeEmail,
+                Name = user.Name + " " + user.Surname,
+                Phone = user.PhoneNumber
+            };
+            var serviceCust = new CustomerService();
+            Customer customer = serviceCust.Create(optionCust);
 
+            totalPrice = totalPrice * 100;
+            var optionsCharge = new ChargeCreateOptions
+            {
+
+                Amount = (long)totalPrice,
+                Currency = "USD",
+                Description = "Room Selling amount",
+                Source = stripeToken,
+                ReceiptEmail = stripeEmail
+
+
+            };
+            //var serviceCharge = new ChargeService();
+            //Charge charge = serviceCharge.Create(optionsCharge);
+            //if (charge.Status != "succeeded")
+            //{
+            //    ViewBag.Reservations = item;
+            //    ModelState.AddModelError("Room", "Odenishde problem var");
+            //    return View();
+            //}
             await _context.Orders.AddAsync(order);
             await _context.SaveChangesAsync();
 

@@ -533,3 +533,4 @@ C:\Users\helpdesk_connect\Desktop\Hotel\QomfortHotelFinal\QomfortHotelFinal\bin\
 C:\Users\helpdesk_connect\Desktop\Hotel\QomfortHotelFinal\QomfortHotelFinal\bin\Debug\net6.0\zh-TW\Hangfire.Core.resources.dll
 C:\Users\helpdesk_connect\Desktop\Hotel\QomfortHotelFinal\QomfortHotelFinal\bin\Debug\net6.0\zh\Hangfire.Core.resources.dll
 C:\Users\helpdesk_connect\Desktop\Hotel\QomfortHotelFinal\QomfortHotelFinal\bin\Debug\net6.0\Hangfire.SqlServer.dll
+C:\Users\helpdesk_connect\Desktop\Hotel\QomfortHotelFinal\QomfortHotelFinal\bin\Debug\net6.0\Stripe.net.dll
