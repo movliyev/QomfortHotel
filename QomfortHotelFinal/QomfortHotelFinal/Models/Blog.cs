@@ -6,7 +6,6 @@
         public DateTime BlogDate { get; set; }
         public string Desc1 { get; set; }
         public string Desc2 { get; set; }
-        public string Name { get; set; }
         public string Title { get; set; }
         public string HoverImage { get; set; }
         public string MainImage { get; set; }

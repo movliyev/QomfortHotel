@@ -10,8 +10,8 @@ namespace QomfortHotelFinal.ViewModels
         public List<Servicee> Servicees { get; set; }
         public HomeAbout HomeAbouts { get; set; }
         public List<Gallery> Galleries { get; set; }
+        public List<Comment> Comments { get; set; }
         public List<Blog> Blogs { get; set; }
-        public List<Testimonial> Testimonials { get; set; }
 
         [Required]
         [DataType(DataType.Date)]

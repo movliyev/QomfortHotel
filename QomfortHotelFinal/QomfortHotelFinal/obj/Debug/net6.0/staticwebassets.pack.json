@@ -1457,6 +1457,14 @@
       "PackagePath": "staticwebassets\\assets\\images\\activity\\activity3.jpg"
     },
     {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\background\\b1.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\background\\b1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\background\\b2.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\background\\b2.jpg"
+    },
+    {
       "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\background\\banner-room.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\background\\banner-room.jpg"
     },
@@ -1475,6 +1483,10 @@
     {
       "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\background\\blog-banner.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\background\\blog-banner.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\background\\detail1c.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\background\\detail1c.jpg"
     },
     {
       "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\background\\offer-banner.jpg",
@@ -1497,20 +1509,20 @@
       "PackagePath": "staticwebassets\\assets\\images\\background\\video-bg.jpg"
     },
     {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\blog\\1a639f66-2298-456d-83fd-d91f1869f786b2.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\blog\\1a639f66-2298-456d-83fd-d91f1869f786b2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\blog\\3d7c519c-7753-42c4-a704-dffeada31833b1.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\blog\\3d7c519c-7753-42c4-a704-dffeada31833b1.jpg"
+    },
+    {
       "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\blog\\admin-author.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\blog\\admin-author.jpg"
     },
     {
-      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\blog\\blog-details.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\blog\\blog-details.jpg"
-    },
-    {
       "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\blog\\blog-next.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\blog\\blog-next.jpg"
-    },
-    {
-      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\blog\\blog-prev.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\blog\\blog-prev.jpg"
     },
     {
       "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\blog\\blog1.jpg",
@@ -1533,16 +1545,8 @@
       "PackagePath": "staticwebassets\\assets\\images\\blog\\blog2.jpg"
     },
     {
-      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\blog\\blog3.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\blog\\blog3.jpg"
-    },
-    {
       "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\blog\\blog4.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\blog\\blog4.jpg"
-    },
-    {
-      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\blog\\blog5.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\blog\\blog5.jpg"
     },
     {
       "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\blog\\blog6.jpg",
@@ -1551,10 +1555,6 @@
     {
       "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\blog\\blog7.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\blog\\blog7.jpg"
-    },
-    {
-      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\blog\\blog8.jpg",
-      "PackagePath": "staticwebassets\\assets\\images\\blog\\blog8.jpg"
     },
     {
       "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\blog\\blog9.jpg",
@@ -1571,6 +1571,14 @@
     {
       "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\blog\\comment-author3.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\blog\\comment-author3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\blog\\dcd07644-68f7-4eec-98df-274fe05302fab4.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\blog\\dcd07644-68f7-4eec-98df-274fe05302fab4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\blog\\f973b75a-3b5d-4a36-857d-898f5b4b4398b3.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\blog\\f973b75a-3b5d-4a36-857d-898f5b4b4398b3.jpg"
     },
     {
       "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\blog\\indir.jpg",
@@ -1725,6 +1733,18 @@
       "PackagePath": "staticwebassets\\assets\\images\\icons\\sidebar-toggler.png"
     },
     {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\instagrams\\b4.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\instagrams\\b4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\instagrams\\b5.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\instagrams\\b5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\instagrams\\b6.png",
+      "PackagePath": "staticwebassets\\assets\\images\\instagrams\\b6.png"
+    },
+    {
       "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\instagrams\\footer-instagram1.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\instagrams\\footer-instagram1.jpg"
     },
@@ -1747,6 +1767,18 @@
     {
       "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\instagrams\\footer-instagram6.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\instagrams\\footer-instagram6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\instagrams\\home2.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\instagrams\\home2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\instagrams\\home5.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\instagrams\\home5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\instagrams\\home6.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\instagrams\\home6.jpg"
     },
     {
       "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\instagrams\\instagram1.jpg",
@@ -2087,6 +2119,10 @@
     {
       "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\shop\\thumb3.jpg",
       "PackagePath": "staticwebassets\\assets\\images\\shop\\thumb3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\slider\\18fa0b5a-731c-4966-8953-763845f5691fb6.png",
+      "PackagePath": "staticwebassets\\assets\\images\\slider\\18fa0b5a-731c-4966-8953-763845f5691fb6.png"
     },
     {
       "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\slider\\3768a1e1-7620-45da-97c1-0ff363e5754fslide1.jpg",

@@ -415,15 +415,15 @@
             </div>
         </div>
         <div class="testimonials-three-slider">
-            @foreach (var item in Model.Testimonials)
+            @foreach (var item in Model.Comments)
             {
                 <div class="testimonials-item-three wow fadeInUp delay-0-2s">
                     <div class="author">
-                        <img src="~/assets/images/testimonials/@item.Image" alt="Testi Author">
+                        <img style="width:50px;height:50px;" src="~/assets/images/User/@item.AppUser.UserImage" alt="Testi Author">
                     </div>
-                    <div class="text">@item.Comment</div>
+                    <div class="text">"@item.CommentContent"</div>
                     <div class="testi-des">
-                        <h6>@item.Name</h6>
+                        <h6>@item.AppUser.UserName</h6>
 
                     </div>
                     <div class="ratting">
@@ -469,7 +469,7 @@
                         <ul class="blog-meta">
                             <li>
                                 <i class="far fa-user"></i>
-                                <a href="#">@item.Name</a>
+                                <a href="#">Admin</a>
                             </li>
                             <li>
                                 <i class="far fa-calendar-alt"></i>

@@ -80,6 +80,10 @@
                             <a href="#">Bathrooms : @Model.Room.BathRoom</a>
                         </li>
                         <li>
+                            <i class="far fa-user"></i>
+                            <a href="#">Capacity : @Model.Room.Capacity</a>
+                        </li>
+                        <li>
                             <div class="ratting">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -109,17 +113,30 @@
                         }
 
                     </ul>
-                    <h3>Rezervasyon Tarihleri</h3>
-                    <ul>
-                        @foreach (var reservation in Model.ReservationDates)
+                    <div class="section-title mt-45">
+                        <h2>Room Services</h2>
+                    </div>
+                    <ul class="list-style-two pt-10 wow fadeInUp delay-0-2s">
+                        @foreach (var item in Model.Room.RoomServicees)
                         {
-                            <li>@reservation.ToShortDateString()</li>
+                            <li>@item.Servicee.Name</li>
                         }
+
                     </ul>
+                    <h3>Reservation Dates</h3>
+                 
+                        <ul>
+                            @foreach (var reservation in Model.ReservationDates)
+                            {
+                                <li>@reservation.ToShortDateString()</li>                            }
+                            
+                        </ul>
+                    
+                   
 
                     <div class="section-title my-40">
                         
-                        @if (Model.Room.Status == true)
+                        @if (Model.Room.Status == true && Model.DeparturDate<DateTime.Now)
                         {
                             <h2>Status :<a class="text-info">Active</a></h2>
                         }
@@ -136,16 +153,8 @@
                     <div class="room-location mt-70 wow fadeInUp delay-0-2s">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m12!1m10!1m3!1d142190.2862584524!2d-74.01298319978558!3d40.721725351435126!2m1!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sbd!4v1663473911885!5m2!1sen!2sbd" style="border:0; width: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
-                    <div class="section-title mt-45">
-                        <h2>Room Services</h2>
-                    </div>
-                    <ul class="list-style-two pt-10 wow fadeInUp delay-0-2s">
-                       @foreach (var item in Model.Room.RoomServicees)
-                        {
-                            <li>@item.Servicee.Name</li>
-                        }
-                       
-                    </ul>
+                 
+                   
                     
                    
                 </div>
@@ -156,12 +165,12 @@
                     <form asp-action="Reserv" asp-controller="Room" method="post" class="widget-search-filter wow fadeInUp delay-0-4s">
                         <div class="form-group">
                             <label asp-for="ArrivalDate">Check In</label>
-                            <input asp-for="ArrivalDate" type="date" required>
+                            <input asp-for="ArrivalDate" type="date" value="DateTime.Now" required>
                             <span asp-validation-for="ArrivalDate"></span>
                         </div>
                         <div class="form-group">
                             <label asp-for="DeparturDate">Check Out</label>
-                            <input asp-for="DeparturDate" type="date" required>
+                            <input asp-for="DeparturDate" type="date" value="DateTime.Now" required>
                             <span asp-validation-for="DeparturDate"></span>
                         </div>
                         <div class="form-group">
@@ -174,14 +183,12 @@
                             <input asp-for="Children" type="number" required>
                             <span asp-validation-for="Children"></span>
                         </div>
-
+                        <p>Total Price: <span id="totalPrice"></span></p>
                         <button class="theme-btn w-100">Check Availability <i class="far fa-angle-right"></i></button>
                     </form>
                 </div>
             </div>
-           <div>
-
-           </div>
+         
         </div>
     </div>
     <div class="bg-lines for-bg-white">
@@ -193,7 +200,21 @@
     </div>
 </section>
 <!-- Room Details Area end -->
-<!-- Instagram Area start -->
-@await Component.InvokeAsync("InstagramPartial")
 
-<!-- Instagram Area end -->
+@* @section Scripts {
+    <script>
+        document.getElementById("arrivalDate").addEventListener("change", updateTotalPrice);
+        document.getElementById("departureDate").addEventListener("change", updateTotalPrice);
+
+        function updateTotalPrice() {
+            var arrivalDate = new Date(document.getElementById("arrivalDate").value);
+            var departureDate = new Date(document.getElementById("departureDate").value);
+            var dailyPrice = parseFloat('@Model.Room.Price'); // Modeldeki günlük fiyatı alın
+
+            var totalDays = (departureDate - arrivalDate) / (1000 * 60 * 60 * 24); // Gün sayısını hesapla
+            var totalPrice = dailyPrice * totalDays; // Toplam fiyatı hesapla
+
+            document.getElementById("totalPrice").innerText = totalPrice.toFixed(2); // Toplam fiyatı güncelle
+        }
+    </script>
+    } *@

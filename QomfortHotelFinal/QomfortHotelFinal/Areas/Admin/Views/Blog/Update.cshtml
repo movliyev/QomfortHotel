@@ -1,0 +1,64 @@
+﻿@using QomfortHotelFinal.Areas.Admin.ViewModels.Blog;
+@model UpdateBlogVm
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+
+            <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Create Slide</h4>
+
+                        <form class="forms-sample" method="post" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <img style="width:200px;height:200px;" src="~/assets/images/blog/@Model.HoverImage" />
+                                <input asp-for="HoverImage" type="hidden" class="form-control">
+
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="HoverPhoto">HoverPhoto</label>
+                                <input asp-for="HoverPhoto" class="form-control" placeholder="Photo" accept="image/*">
+                                <span class="text-danger" asp-validation-for="HoverPhoto"></span>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <img style="width:200px;height:200px;" src="~/assets/images/blog/@Model.MainImage" />
+                                    <input asp-for="MainImage" type="hidden" class="form-control">
+
+                                </div>
+                                <label asp-for="MainPhoto">MainPhoto</label>
+                                <input asp-for="MainPhoto" class="form-control" placeholder="Photo" accept="image/*">
+                                <span class="text-danger" asp-validation-for="MainPhoto"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Title">Title</label>
+                                <input asp-for="Title" class="form-control" placeholder="Title">
+                                <span class="text-danger" asp-validation-for="Title"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Desc1">Content</label>
+                                <input asp-for="Desc1" class="form-control" placeholder="Content">
+                                <span class="text-danger" asp-validation-for="Desc1"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Desc2">Description</label>
+                                <input asp-for="Desc2" class="form-control" placeholder="Description">
+                                <span class="text-danger" asp-validation-for="Desc2"></span>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary me-2">Submit</button>
+                            <button asp-action="Index" class="btn btn-light">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -10,5 +10,7 @@ namespace QomfortHotelFinal.Models
         public string? UserImage { get; set; }
         public string? PhoneNumber { get; set; }
         public List<Reservation>? Reservations { get; set; }
+        public List<Comment>? Comments { get; set; }
+
     }
 }

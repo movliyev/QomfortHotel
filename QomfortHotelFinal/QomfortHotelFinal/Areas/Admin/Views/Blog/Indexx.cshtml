@@ -1,0 +1,112 @@
+﻿@model PaginateVM<Blog>
+@{
+    int count = (Model.CurrentPage - 1) * 3;
+}
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Category Table</h4>
+                        <a asp-action="Create" asp-controller="Blog" class="btn btn-outline-info">Ceate Blog</a>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-borderless mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            No
+                                        </th>
+                                        <th>
+                                            HoverImage
+                                        </th>
+                                        <th>
+                                            MainImag
+                                        </th>
+                                        <th>
+                                            Title
+                                        </th>
+                                        <th>
+                                            Content
+                                        </th>
+                                        <th>
+
+                                            Description
+                                        </th>
+                                        <th>
+
+                                            Comment Count
+                                        </th>
+                                        <th>
+
+                                            Settings
+                                        </th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (Blog item in Model.Items)
+                                    {
+                                        count++;
+                                        <tr>
+                                            <td>
+                                                @count
+                                            </td>
+
+                                            <td>
+                                                <img style="width:150px;height:150px;" src="~/assets/images/blog/@item.HoverImage" />
+                                            </td>
+                                            <td>
+                                                <img style="width:150px;height:150px;" src="~/assets/images/blog/@item.MainImage" />
+                                            </td>
+                                            <td>
+                                                @item.Title
+                                            </td>
+                                            <td>
+                                                @item.Desc1
+                                            </td>
+                                            <td>
+                                                @item.Desc2
+                                            </td>
+                                            <td>
+                                                @item.Comments.Count
+                                            </td>
+                                            <td>
+                                                <a asp-action="Update" asp-controller="Blog" asp-route-id="@item.Id" class="btn btn-warning btn-info"><i class="mdi mdi-grease-pencil"></i></a>
+                                                <a asp-action="Delete" asp-controller="Blog" asp-route-id="@item.Id" class="btn btn-danger btn-info"><i class="mdi mdi-delete"></i></a>
+                                                <a asp-action="Detail" asp-controller="Blog" asp-route-id="@item.Id" asp-route-area="" class="btn btn-outline-info"><i class="mdi mdi-open-in-new"></i></a>
+                                            </td>
+                                        </tr>
+
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination">
+                                <li class="page-item @(Model.CurrentPage<=1?"disabled":"")"><a class="page-link" asp-route-page="@(Model.CurrentPage-1)" asp-action="index" asp-controller="Blog">Previous</a></li>
+                                @for (int i = 0; i < Model.TotalPage; i++)
+                                {
+                                    <li class="page-item @(Model.CurrentPage - 1 == i? "disabled":"")"><a class="page-link" asp-route-page="@(i+1)" asp-action="index" asp-controller="Blog">@(i + 1)</a></li>
+                                }
+
+                                <li class="page-item @(Model.TotalPage<=Model.CurrentPage?"disabled":"")"><a class="page-link" asp-route-page="@(Model.CurrentPage+1)" asp-action="index" asp-controller="Blog">Next</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <!-- end card-body-->
+                </div>
+                <!-- end card -->
+
+            </div>
+        </div>
+    </div>
+</div>

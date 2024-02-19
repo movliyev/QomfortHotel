@@ -14,6 +14,8 @@ namespace QomfortHotelFinal.Models
         public DateTime DeparturDate { get; set; }
         public int RoomId { get; set; }
         public Room Room { get; set; }
+        public int? OrderId { get; set; }
+        public Order Order { get; set; }
         public bool? Status { get; set; }
         public DateTime? ReservationDate { get; set; }
 

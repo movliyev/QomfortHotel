@@ -4,7 +4,7 @@ namespace QomfortHotelFinal.ViewComponents.Detail
 {
     public class InstagramPartial:ViewComponent
     {
-        public IViewComponentResult Invoke()
+        public async Task <IViewComponentResult> InvokeAsync()
         {
             return View();
         }

@@ -51,30 +51,11 @@ namespace QomfortHotelFinal.Controllers
                 ModelState.AddModelError("Email", "Email uslubu yanlisdir");
                 return View(vm);
             }
-            //if (!vm.Email.CheckPhoneNumber())
-            //{
-            //    ModelState.AddModelError("PhoneNumber", "Phonenumber uslubu yanlisdir");
-            //    return View(vm);
-            //}
-
-            //if (!vm.Photo.ValidateType("image/"))
-            //{
-            //    ModelState.AddModelError("Photo", "File tipi uyqun deyil");
-            //    return View();
-            //}
-
-            //if (!vm.Photo.ValidateSize(2 * 1024))
-            //{
-            //    ModelState.AddModelError("Photo", "File olcusu 2-mb den boyuk olmamalidir");
-            //    return View();
-
-            //}
-
-            //string filename = await vm.Photo.CreateFileAsync(_env.WebRootPath, "assets", "images", "User");
+           
 
             AppUser appUser = new AppUser
             {
-                //UserImage = filename,
+                
                 PhoneNumber = vm.PhoneNumber,   
                 Name = vm.Name.Capitalize(),
                 Surname = vm.Surname.Capitalize(),
@@ -86,8 +67,13 @@ namespace QomfortHotelFinal.Controllers
             var result = await _userManager.CreateAsync(appUser, vm.Password);
             if (result.Succeeded)
             {
-                await _signInManager.SignInAsync(appUser, false);
-                return RedirectToAction("Index","Home");
+                //await _signInManager.SignInAsync(appUser, false);
+                var token = await _userManager.GenerateEmailConfirmationTokenAsync(appUser);
+
+                var confirmationlink = Url.Action(nameof(ConfirmEmail), "Account", new { token, Email = appUser.Email }, Request.Scheme);
+
+                await _ser.SendEmailAsync(appUser.Email, "Email Confirmation", confirmationlink);
+                return RedirectToAction(nameof(SuccesRegistered), "Account");
 
             }
             else
@@ -99,6 +85,23 @@ namespace QomfortHotelFinal.Controllers
             }
            
             return View(vm);
+        }
+        public async Task<IActionResult> ConfirmEmail(string token, string email)
+        {
+            AppUser user = await _userManager.FindByEmailAsync(email);
+            if (user == null) return NotFound();
+            var result = await _userManager.ConfirmEmailAsync(user, token);
+            if (!result.Succeeded)
+            {
+                return BadRequest();
+
+            }
+            _signInManager.SignInAsync(user, false);
+            return View();
+        }
+        public IActionResult SuccesRegistered()
+        {
+            return View();
         }
         [HttpGet]
         public IActionResult Login()
@@ -127,6 +130,11 @@ namespace QomfortHotelFinal.Controllers
             {
                 ModelState.AddModelError(String.Empty, "Account is locked. Please try again after a few minutes.");
                 return View(vm);
+            }
+            if (!user.EmailConfirmed)
+            {
+                ModelState.AddModelError(String.Empty, "Email tesdiq edildi");
+                return View();
             }
             if (!result.Succeeded)
             {
@@ -164,7 +172,7 @@ namespace QomfortHotelFinal.Controllers
             //https://localhost:
             string token = await _userManager.GeneratePasswordResetTokenAsync(user);
             string link=Url.Action("ResetPassword","Account",new { userid = user.Id, token=token},HttpContext.Request.Scheme);
-            string body = $"<a href='{link}'>ResetPassword</a>";
+            string body = $"<a class='btn btn-warning' href='{link}'>ResetPassword</a>";
             await _ser.SendEmailAsync(user.Email,"ResetPassword", body, true);
             return RedirectToAction(nameof(Login));
         }

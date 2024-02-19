@@ -18,11 +18,11 @@ namespace QomfortHotelFinal.DAL
         public DbSet<HomeAbout> HomeAbouts { get; set; }
         public DbSet<RoomFacility> RoomFacilities { get; set; }
         public DbSet<RoomImage> RoomImages { get; set; }
-        public DbSet<Testimonial> Testimonials { get; set; }
         public DbSet<Slide> Slides { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
         public DbSet<RoomService> RoomServices { get; set; }
         public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Order> Orders { get; set; }
 
     }
 }

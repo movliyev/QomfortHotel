@@ -1,0 +1,75 @@
+﻿@model List<Setting>
+@{
+    int count = 0;
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Setting Table</h4>
+                        <a asp-action="Create" asp-controller="Setting">Create</a>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-borderless mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            No
+                                        </th>
+                                        <th>
+                                            Key
+                                        </th>
+                                        <th>
+                                            Value
+                                        </th>
+                                        <th>
+
+                                            Settings
+                                        </th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        count++;
+                                        <tr>
+                                            <td>
+                                                @count
+                                            </td>
+                                                                                       
+                                            <td>
+                                               @item.Key
+                                            </td>
+                                            <td>
+                                                @item.Value
+                                            </td>
+                                            <td>
+                                                <a asp-action="Update" asp-controller="Setting" asp-route-id="@item.Id" class="btn btn-warning btn-info"><i class="mdi mdi-grease-pencil"></i></a>
+
+                                            </td>
+                                        </tr>
+
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                    <!-- end card-body-->
+                </div>
+                <!-- end card -->
+
+            </div>
+        </div>
+    </div>
+</div>
+

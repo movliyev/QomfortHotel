@@ -1,4 +1,4 @@
-﻿@model Blog
+﻿@model BlogVM
 <!--Form Back Drop-->
 <div class="form-back-drop"></div>
 
@@ -39,22 +39,19 @@
 </section>
 <!--End Hidden Sidebar -->
 <!-- Page Banner Start -->
-<section class="page-banner-area pt-140 rpy-80 pb-150 rel z-1 bgs-cover bgc-black text-center" style="background-image: url(assets/images/background/blog-banner.jpg)">
+<section class="page-banner-area pt-140 rpy-80 pb-150 rel z-1 bgs-cover bgc-black text-center" style="background-image: url(/assets/images/blog/@Model.Blog.HoverImage)">
     <div class="container">
         <div class="banner-inner text-white">
             <h1 class="page-title wow fadeInUp delay-0-2s">Knowing Business & Priorities</h1>
             <ul class="blog-meta style-two mt-20 wow fadeInUp delay-0-3s">
-                <li>
-                    <i class="far fa-user"></i>
-                    <a href="#">@Model.Name</a>
-                </li>
+              
                 <li>
                     <i class="far fa-calendar-alt"></i>
-                    <a href="#">@Model.BlogDate</a>
+                    <a href="#">@Model.Blog.BlogDate.ToShortDateString()</a>
                 </li>
                 <li>
                     <i class="far fa-comments"></i>
-                    <a href="#">Comments (@Model.Comments.Count)</a>
+                    <a href="#">Comments (@Model.Blog.Comments.Count)</a>
                 </li>
             </ul>
         </div>
@@ -74,16 +71,16 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="blog-details-content">
-                    <p class="big-first-letter">Q @Model.Desc1 </p>
+                    <p class="big-first-letter">Q @Model.Blog.Desc1 </p>
 
                     <div class="image my-40 wow fadeInUp delay-0-2s">
-                        <img src="~/assets/images/blog/@Model.MainImage" alt="Blog Single">
+                        <img src="~/assets/images/blog/@Model.Blog.MainImage" alt="Blog Single">
                     </div>
                     <blockquote>
-                        @Model.Title
-                        <span class="blockquote-footer">@Model.Name</span>
+                        @Model.Blog.Title
+                       
                     </blockquote>
-                    <p>@Model.Desc2</p>
+                    <p>@Model.Blog.Desc2</p>
 
 
                 </div>
@@ -129,15 +126,15 @@
                     {
                         <div class="comment-body wow fadeInUp delay-0-2s">
                             <div class="author-thumb">
-                                <img src="~/assets/images/blog/comment-author1.jpg" alt="Author">
+                                <img src="~/assets/images/User/@item.AppUser.UserImage" alt="Author">
                             </div>
                             <div class="content">
                                 <ul class="blog-meta">
                                     <li>
-                                        <h6>@item.CoomentUser</h6>
+                                        <h6>@item.AppUser.Name</h6>
                                     </li>
                                     <li>
-                                        <a href="#">@item.CommentDate</a>
+                                        <a href="#">@item.CommentDate.ToLongDateString()</a>
                                     </li>
                                 </ul>
                                 <p>@item.CommentContent</p>
@@ -147,7 +144,25 @@
                     }
 
                 </div>
-                @await Html.PartialAsync("~/Views/Comment/AddComment.cshtml")
+                <form class="comment-form bgc-lighter mt-60 wow fadeInUp delay-0-2s" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <h3>Leave a Reply</h3>
+                    <p>we denounce with righteous indignation and dislike men who beguiled</p>
+                    <div class="row mt-30">
+                       
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <textarea asp-for="CommentContent" class="form-control" placeholder="Message" required=""></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group mb-0">
+                                <button type="submit" class="theme-btn">Send Comment <i class="far fa-angle-right"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
             <div class="col-lg-4">
                 <div class="main-sidebar rmt-65">
@@ -248,7 +263,4 @@
     </div>
 </section>
 <!-- Blog Details Area end -->
-<!-- Instagram Area start -->
-@await Component.InvokeAsync("InstagramPartial")
-
-<!-- Instagram Area end -->
+<
