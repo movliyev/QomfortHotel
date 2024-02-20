@@ -20,5 +20,7 @@ namespace QomfortHotelFinal.ViewModels
 
         public List<DateTime>? ReservationDates { get; set; }
 
+
+
     }
 }

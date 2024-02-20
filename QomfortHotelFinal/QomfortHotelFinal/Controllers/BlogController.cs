@@ -74,6 +74,7 @@ namespace QomfortHotelFinal.Controllers
                    CommentDate=DateTime.Now,
                     BlogId = blog.Id,
                     AppUserId = user.Id,
+                    Rate=vm.Rating
                 };
                
                 await _context.Comments.AddAsync(comment);

@@ -268,7 +268,7 @@ namespace QomfortHotelFinal.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Blogs", (string)null);
+                    b.ToTable("Blogs");
                 });
 
             modelBuilder.Entity("QomfortHotelFinal.Models.Category", b =>
@@ -285,7 +285,7 @@ namespace QomfortHotelFinal.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories", (string)null);
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("QomfortHotelFinal.Models.Comment", b =>
@@ -313,13 +313,16 @@ namespace QomfortHotelFinal.Migrations
                     b.Property<bool>("CommentStatus")
                         .HasColumnType("bit");
 
+                    b.Property<int?>("Rate")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("AppUserId");
 
                     b.HasIndex("BlogId");
 
-                    b.ToTable("Comments", (string)null);
+                    b.ToTable("Comments");
                 });
 
             modelBuilder.Entity("QomfortHotelFinal.Models.Contact", b =>
@@ -358,7 +361,7 @@ namespace QomfortHotelFinal.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Contacts", (string)null);
+                    b.ToTable("Contacts");
                 });
 
             modelBuilder.Entity("QomfortHotelFinal.Models.Facility", b =>
@@ -375,7 +378,7 @@ namespace QomfortHotelFinal.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Facilities", (string)null);
+                    b.ToTable("Facilities");
                 });
 
             modelBuilder.Entity("QomfortHotelFinal.Models.Gallery", b =>
@@ -396,7 +399,7 @@ namespace QomfortHotelFinal.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Galleries", (string)null);
+                    b.ToTable("Galleries");
                 });
 
             modelBuilder.Entity("QomfortHotelFinal.Models.HomeAbout", b =>
@@ -433,7 +436,7 @@ namespace QomfortHotelFinal.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("HomeAbouts", (string)null);
+                    b.ToTable("HomeAbouts");
                 });
 
             modelBuilder.Entity("QomfortHotelFinal.Models.Order", b =>
@@ -461,7 +464,7 @@ namespace QomfortHotelFinal.Migrations
 
                     b.HasIndex("AppUserId");
 
-                    b.ToTable("Orders", (string)null);
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("QomfortHotelFinal.Models.Reservation", b =>
@@ -508,7 +511,7 @@ namespace QomfortHotelFinal.Migrations
 
                     b.HasIndex("RoomId");
 
-                    b.ToTable("Reservations", (string)null);
+                    b.ToTable("Reservations");
                 });
 
             modelBuilder.Entity("QomfortHotelFinal.Models.Room", b =>
@@ -556,7 +559,7 @@ namespace QomfortHotelFinal.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Rooms", (string)null);
+                    b.ToTable("Rooms");
                 });
 
             modelBuilder.Entity("QomfortHotelFinal.Models.RoomFacility", b =>
@@ -584,7 +587,7 @@ namespace QomfortHotelFinal.Migrations
 
                     b.HasIndex("ServiceeId");
 
-                    b.ToTable("RoomFacilities", (string)null);
+                    b.ToTable("RoomFacilities");
                 });
 
             modelBuilder.Entity("QomfortHotelFinal.Models.RoomImage", b =>
@@ -609,7 +612,7 @@ namespace QomfortHotelFinal.Migrations
 
                     b.HasIndex("RoomId");
 
-                    b.ToTable("RoomImages", (string)null);
+                    b.ToTable("RoomImages");
                 });
 
             modelBuilder.Entity("QomfortHotelFinal.Models.RoomService", b =>
@@ -632,7 +635,7 @@ namespace QomfortHotelFinal.Migrations
 
                     b.HasIndex("ServiceeId");
 
-                    b.ToTable("RoomServices", (string)null);
+                    b.ToTable("RoomServices");
                 });
 
             modelBuilder.Entity("QomfortHotelFinal.Models.Servicee", b =>
@@ -657,7 +660,7 @@ namespace QomfortHotelFinal.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Servisees", (string)null);
+                    b.ToTable("Servisees");
                 });
 
             modelBuilder.Entity("QomfortHotelFinal.Models.Setting", b =>
@@ -678,7 +681,7 @@ namespace QomfortHotelFinal.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Settings", (string)null);
+                    b.ToTable("Settings");
                 });
 
             modelBuilder.Entity("QomfortHotelFinal.Models.Slide", b =>
@@ -703,35 +706,7 @@ namespace QomfortHotelFinal.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Slides", (string)null);
-                });
-
-            modelBuilder.Entity("QomfortHotelFinal.Models.Testimonial", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Comment")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Image")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool?>("Status")
-                        .HasColumnType("bit");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Testimonials", (string)null);
+                    b.ToTable("Slides");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

@@ -126,8 +126,17 @@
                     {
                         <div class="comment-body wow fadeInUp delay-0-2s">
                             <div class="author-thumb">
-                                <img src="~/assets/images/User/@item.AppUser.UserImage" alt="Author">
+                                @if (item.AppUser.UserImage != null)
+                                {
+                                    <img src="~/assets/images/User/@item.AppUser.UserImage" alt="profil.png">
+                                }
+                                else
+                                {
+                                    <img src="~/assets/images/User/profil.png" alt="profil.png">
+                                }
+
                             </div>
+                          
                             <div class="content">
                                 <ul class="blog-meta">
                                     <li>
@@ -138,6 +147,20 @@
                                     </li>
                                 </ul>
                                 <p>@item.CommentContent</p>
+
+                                <div class="rating">
+                                    @for (int i = 5; i >= 1; i--)
+                                    {
+                                        @if (i <= item.Rate)
+                                        {
+                                            <i class="fas fa-star text-warning"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="fas fa-star"></i>
+                                        }
+                                    }
+                                </div>
                                 <a class="read-more" href="#">Reply <i class="far fa-arrow-right"></i></a>
                             </div>
                         </div>
@@ -156,6 +179,20 @@
                                 <textarea asp-for="CommentContent" class="form-control" placeholder="Message" required=""></textarea>
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <div class="rating">
+                                <input type="radio" id="star5" name="Rating" value="5" />
+                                <label for="star5" title="5 stars">&#9733;</label>
+                                <input type="radio" id="star4" name="Rating" value="4" />
+                                <label for="star4" title="4 stars">&#9733;</label>
+                                <input type="radio" id="star3" name="Rating" value="3" />
+                                <label for="star3" title="3 stars">&#9733;</label>
+                                <input type="radio" id="star2" name="Rating" value="2" />
+                                <label for="star2" title="2 stars">&#9733;</label>
+                                <input type="radio" id="star1" name="Rating" value="1" />
+                                <label for="star1" title="1 star">&#9733;</label>
+                            </div>
+                        </div>
                         <div class="col-md-12">
                             <div class="form-group mb-0">
                                 <button type="submit" class="theme-btn">Send Comment <i class="far fa-angle-right"></i></button>
@@ -163,6 +200,33 @@
                         </div>
                     </div>
                 </form>
+
+                <style>
+                    .rating {
+                        unicode-bidi: bidi-override;
+                        direction: rtl;
+                        text-align: center;
+                    }
+
+                        .rating > input {
+                            display: none;
+                        }
+
+                        .rating > label {
+                            display: inline-block;
+                            position: relative;
+                            width: 1.1em;
+                            font-size: 3em;
+                            color: #ccc;
+                            cursor: pointer;
+                        }
+
+                            .rating > label:hover,
+                            .rating > label:hover ~ label,
+                            .rating > input:checked ~ label {
+                                color: #fdd835;
+                            }
+                </style>
             </div>
             <div class="col-lg-4">
                 <div class="main-sidebar rmt-65">

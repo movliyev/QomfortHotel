@@ -76,24 +76,24 @@
         <form asp-action="Index" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                
+
                 <input asp-for="ArrivalDate" type="date" class="form-control" />
                 <span asp-validation-for="ArrivalDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                
+
                 <input asp-for="DeparturDate" type="date" class="form-control " />
                 <span asp-validation-for="DeparturDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-               
+
                 <input asp-for="Adult" type="number" class="form-control" />
                 <span asp-validation-for="Adult" class="text-danger"></span>
             </div>
             <div class="form-group">
-               
-                <input asp-for="Adult" type="number" class="form-control" />
-                <span asp-validation-for="Adult" class="text-danger"></span>
+
+                <input asp-for="Children" type="number" class="form-control" />
+                <span asp-validation-for="Children" class="text-danger"></span>
             </div>
 
 
@@ -419,19 +419,32 @@
             {
                 <div class="testimonials-item-three wow fadeInUp delay-0-2s">
                     <div class="author">
-                        <img style="width:50px;height:50px;" src="~/assets/images/User/@item.AppUser.UserImage" alt="Testi Author">
+                        @if (item.AppUser.UserImage != null)
+                        {
+                            <img style="width:50px;height:50px;" src="~/assets/images/User/@item.AppUser.UserImage" alt="profil.png">
+                        }
+                        else
+                        {
+                            <img style="width:50px;height:50px;" src="~/assets/images/User/profil.png" alt="profil.png">
+                        }
                     </div>
                     <div class="text">"@item.CommentContent"</div>
                     <div class="testi-des">
                         <h6>@item.AppUser.UserName</h6>
 
                     </div>
-                    <div class="ratting">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                    <div class="rating">
+                        @for (int i = 5; i >= 1; i--)
+                        {
+                            @if (i >= item.Rate)
+                            {
+                                <i class="fas fa-star text-warning"></i>
+                            }
+                            else
+                            {
+                                <i class="fas fa-star"></i>
+                            }
+                        }
                     </div>
                 </div>
 

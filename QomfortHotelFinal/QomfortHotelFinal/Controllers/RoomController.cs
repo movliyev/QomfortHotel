@@ -161,9 +161,11 @@ namespace QomfortHotelFinal.Controllers
                     PersonCount = vm.PersonCount,
 
                 };
-              
+               
+                      
                 await _context.Reservations.AddAsync(reservation);
                 await _context.SaveChangesAsync();
+                await UpdateRoomStatusOnArrival(room.Id, vm.ArrivalDate);
                 var endTime = vm.DeparturDate;
                 var jobId = BackgroundJob.Schedule(() => UpdateRoomStatus(room.Id), endTime);
             }
@@ -175,7 +177,44 @@ namespace QomfortHotelFinal.Controllers
 
             return RedirectToAction("Checkout", "Room");
         }
+        public async Task<IActionResult> CancelReservation(int reservationId)
+        {
+            var reservation = await _context.Reservations.FindAsync(reservationId);
+            if (reservation == null)
+            {
+                return NotFound();
+            }
 
+            _context.Reservations.Remove(reservation);
+            await _context.SaveChangesAsync();
+
+            // Rezervasyon silindiğinde oda durumunu kontrol etmek üzere bir arka plan işi planla
+            var jobId = BackgroundJob.Enqueue(() => UpdateRoomStatusOnReservationCancellation(reservation.RoomId));
+
+            return RedirectToAction("Index");
+        }
+
+        public async Task UpdateRoomStatusOnReservationCancellation(int roomId)
+        {
+            var room = await _context.Rooms.FindAsync(roomId);
+            if (room != null)
+            {
+                // Rezervasyonlar kontrol edilerek odanın durumu güncellenir
+                var activeReservation = await _context.Reservations.FirstOrDefaultAsync(r => r.RoomId == roomId && r.Status == true);
+                room.Status = (activeReservation != null);
+                await _context.SaveChangesAsync();
+            }
+        }
+        public async Task UpdateRoomStatusOnArrival(int roomId, DateTime arrivalDate)
+        {
+            var room = await _context.Rooms.FindAsync(roomId);
+            if (room != null && arrivalDate < DateTime.Now)
+            {
+                // Gelen tarih geçmişse, oda durumunu false yap
+                room.Status = false;
+                await _context.SaveChangesAsync();
+            }
+        }
         public async Task UpdateRoomStatus(int roomId)
         {
             var reservation = _context.Reservations.FirstOrDefault(r => r.RoomId == roomId && r.Status == true);

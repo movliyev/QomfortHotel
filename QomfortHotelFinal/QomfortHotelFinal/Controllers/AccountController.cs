@@ -61,7 +61,7 @@ namespace QomfortHotelFinal.Controllers
                 Surname = vm.Surname.Capitalize(),
                 Gender = vm.Gender,
                 Email = vm.Email,
-                UserName = vm.UserName
+                UserName = vm.UserName.Capitalize(),
             };
 
             var result = await _userManager.CreateAsync(appUser, vm.Password);
@@ -172,7 +172,7 @@ namespace QomfortHotelFinal.Controllers
             //https://localhost:
             string token = await _userManager.GeneratePasswordResetTokenAsync(user);
             string link=Url.Action("ResetPassword","Account",new { userid = user.Id, token=token},HttpContext.Request.Scheme);
-            string body = $"<a class='btn btn-warning' href='{link}'>ResetPassword</a>";
+            string body = @"<a class='btn btn-info'"; body += $" href='{link}'>ResetPassword";body+=@"</a>";
             await _ser.SendEmailAsync(user.Email,"ResetPassword", body, true);
             return RedirectToAction(nameof(Login));
         }

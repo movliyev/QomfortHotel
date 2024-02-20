@@ -11,5 +11,6 @@
         public AppUser AppUser { get; set; }
         public int BlogId { get; set; }
         public Blog Blog { get; set; }
+        public int? Rate { get; set; }
     }
 }
