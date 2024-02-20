@@ -43,7 +43,7 @@
                         <li class="menu-title">Menu</li>
 
                         <li>
-                            <a href="index.html"><i class="feather-home"></i><span class="badge badge-pill badge-success float-right">1</span><span>Dashboard</span></a>
+                            <a asp-action="Index" asp-controller="Dashboard"><i class="feather-home"></i><span class="badge badge-pill badge-success float-right"></span><span>Dashboard</span></a>
                         </li>
 
                         <li>
@@ -177,18 +177,12 @@
 
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right">
-
+                                    <a class="dropdown-item d-flex align-items-center justify-content-between" asp-action="Index" asp-controller="Profile">
+                                        <span>Profile</span>
+                                    </a>
                                     <a class="dropdown-item d-flex align-items-center justify-content-between" asp-action="Logout" asp-controller="Account" asp-route-area="">
                                         <span>Log Out</span>
                                     </a>
-                                    <a class="dropdown-item d-flex align-items-center justify-content-between" asp-action="Index" asp-controller="Profile">
-                                        <span>Profile</span>
-
-                                    </a>
-                                    <a class="dropdown-item d-flex align-items-center justify-content-between">
-                                        Settings
-                                    </a>
-
                                 </div>
                             }
                             else

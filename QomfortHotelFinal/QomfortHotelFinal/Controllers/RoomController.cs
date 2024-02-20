@@ -88,19 +88,17 @@ namespace QomfortHotelFinal.Controllers
             var reservationDates = reservations.SelectMany(r => Enumerable.Range(0, (r.DeparturDate - r.ArrivalDate).Days + 1)
                 .Select(offset => r.ArrivalDate.AddDays(offset)))
                 .ToList();
-          
+            vm.ReservationDates = reservationDates;
+            vm.Room = room;
             if (!ModelState.IsValid)
             {
-                vm.ReservationDates = reservationDates;
-                vm.Room =room;
                 ModelState.AddModelError(String.Empty, "The selected room could not be found.");
                 return View(vm);
             }
 
             if (vm.PersonCount + vm.Children > room.Capacity)
             {
-                vm.ReservationDates = reservationDates;
-                vm.Room = room;
+                
                 ModelState.AddModelError(string.Empty, "The total number of persons exceeds the room's capacity.");
                 return View(vm);
             }
@@ -117,8 +115,7 @@ namespace QomfortHotelFinal.Controllers
                     // Rezervasyonun bitiş tarihi kontrol ediliyor
                     if (DateTime.Now <= reservation.DeparturDate)
                     {
-                        vm.ReservationDates = reservationDates;
-                        vm.Room = room;
+                        
                         ModelState.AddModelError(String.Empty, "Belirtilen tarih aralığında başka bir rezervasyon bulunmaktadır.");
                         return View(vm);
                     }
@@ -129,8 +126,7 @@ namespace QomfortHotelFinal.Controllers
 
             if (vm.ArrivalDate < DateTime.Today || vm.ArrivalDate > vm.DeparturDate)
             {
-                vm.ReservationDates = reservationDates;
-                vm.Room = room;
+               
                 ModelState.AddModelError(String.Empty, "Invalid reservation dates.");
                 return View(vm);
             }
@@ -139,8 +135,7 @@ namespace QomfortHotelFinal.Controllers
 
             if (totalDays <= 0)
             {
-                vm.ReservationDates = reservationDates;
-                vm.Room = room;
+                
                 ModelState.AddModelError(String.Empty, "Geçersiz rezervasyon tarihleri.");
                 return View(vm);
             }
@@ -168,6 +163,7 @@ namespace QomfortHotelFinal.Controllers
                 await UpdateRoomStatusOnArrival(room.Id, vm.ArrivalDate);
                 var endTime = vm.DeparturDate;
                 var jobId = BackgroundJob.Schedule(() => UpdateRoomStatus(room.Id), endTime);
+
             }
             else
             {
@@ -177,6 +173,7 @@ namespace QomfortHotelFinal.Controllers
 
             return RedirectToAction("Checkout", "Room");
         }
+        // Reservation Databazadan silinerse room statusu true olsun
         public async Task<IActionResult> CancelReservation(int reservationId)
         {
             var reservation = await _context.Reservations.FindAsync(reservationId);
@@ -205,6 +202,7 @@ namespace QomfortHotelFinal.Controllers
                 await _context.SaveChangesAsync();
             }
         }
+        // Arrivadate de room statusu false olur
         public async Task UpdateRoomStatusOnArrival(int roomId, DateTime arrivalDate)
         {
             var room = await _context.Rooms.FindAsync(roomId);
@@ -215,6 +213,7 @@ namespace QomfortHotelFinal.Controllers
                 await _context.SaveChangesAsync();
             }
         }
+        //Departurdate de room statusu true olur
         public async Task UpdateRoomStatus(int roomId)
         {
             var reservation = _context.Reservations.FirstOrDefault(r => r.RoomId == roomId && r.Status == true);
@@ -232,6 +231,7 @@ namespace QomfortHotelFinal.Controllers
                 _context.SaveChanges();
             }
         }
+
         public async Task<IActionResult> Checkout()
         {
             AppUser user = await _userManager.Users

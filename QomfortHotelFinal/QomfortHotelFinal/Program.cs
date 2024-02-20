@@ -64,6 +64,7 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseHangfireDashboard();
+app.UseHangfireServer();
 //app.UseMiddleware<GlobalExceptionHandlerMiddleware>();
 StripeConfiguration.ApiKey = builder.Configuration["Stripe:Secretkey"];
 app.MapControllerRoute(
@@ -77,7 +78,5 @@ app.UseEndpoints(endpoints =>
       pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
     );
 });
-
-
 
 app.Run();

@@ -83,15 +83,7 @@
                             <i class="far fa-user"></i>
                             <a href="#">Capacity : @Model.Room.Capacity</a>
                         </li>
-                        <li>
-                            <div class="ratting">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </li>
+                       
                     </ul>
                     <div class="price mb-35">$@Model.Room.Price Per Night</div>
                     <p>@Model.Room.DetailDescription</p>
@@ -123,19 +115,64 @@
                         }
 
                     </ul>
-                    <h3>Reservation Dates</h3>
-                 
-                        <ul>
-                            @foreach (var reservation in Model.ReservationDates)
-                            {
-                                <li>@reservation.ToShortDateString()</li>                            }
-                            
-                        </ul>
-                    
-                   
+                  
+                        <div id="calendar"></div>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.0/main.js"></script>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function () {
+                            var calendarEl = document.getElementById('calendar');
 
+                            var events = [];
+
+                            // Reservation dates from the server-side
+                            var reservationDates = @Html.Raw(Json.Serialize(Model.ReservationDates));
+
+                            // Current date
+                            var today = moment();
+
+                            // Populate events array
+                            reservationDates.forEach(function (reservationDate) {
+                                var start = moment(reservationDate).startOf('day');
+                                var end = moment(reservationDate).add(1, 'day').startOf('day');
+
+                                var color = start.isSameOrAfter(today) ? 'red' : 'green'; // Check if the reservation date is in the future
+
+                                events.push({
+                                    title: 'Reservation',
+                                    start: start.format('YYYY-MM-DD'),
+                                    end: end.format('YYYY-MM-DD'),
+                                    allDay: true,
+                                    color: color
+                                });
+
+                                // If the reservation date is in the past and there is no following reservation date, add the day to the events array with aqua color
+                                if (start.isBefore(today) && !reservationDates.some(d => moment(d).isAfter(reservationDate))) {
+                                    var nextDay = moment(reservationDate).add(1, 'day').startOf('day');
+                                    var endDate = nextDay.isSameOrBefore(today) ? moment(today).add(1, 'day').startOf('day') : nextDay;
+                                    events.push({
+                                        title: 'Available',
+                                        start: nextDay.format('YYYY-MM-DD'),
+                                        end: endDate.format('YYYY-MM-DD'),
+                                        allDay: true,
+                                        color: 'aqua'
+                                    });
+                                }
+                            });
+
+                            var calendar = new FullCalendar.Calendar(calendarEl, {
+                                initialView: 'dayGridMonth',
+                                events: events
+                            });
+
+                            calendar.render();
+                        });
+                    </script>
+
+                
                     <div class="section-title my-40">
-                        
+
+
                         @if (Model.Room.Status == true && Model.DeparturDate<DateTime.Now)
                         {
                             <h2>Status :<a class="text-info">Active</a></h2>
@@ -146,9 +183,7 @@
                         }
                     </div>
 
-                    <div class="room-calendar wow fadeInUp delay-0-2s" id="calendar">
-                      
-                    </div>
+                  
 
                     <div class="room-location mt-70 wow fadeInUp delay-0-2s">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m12!1m10!1m3!1d142190.2862584524!2d-74.01298319978558!3d40.721725351435126!2m1!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sbd!4v1663473911885!5m2!1sen!2sbd" style="border:0; width: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>

@@ -492,7 +492,7 @@
                         <div class="image">
                             <img src="~/assets/images/blog/@item.HoverImage" alt="Blog">
                         </div>
-                        <a class="read-more" href="blog-details.html">Read More <i class="fal fa-angle-right"></i></a>
+                        <a class="read-more" asp-action="detail"asp-controller="blog"asp-route-id="@item.Id">Read More <i class="fal fa-angle-right"></i></a>
                     </div>
                 </div>
             }

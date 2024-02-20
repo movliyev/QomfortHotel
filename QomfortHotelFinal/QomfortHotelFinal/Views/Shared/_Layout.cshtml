@@ -36,6 +36,16 @@
     <link rel="stylesheet" href="~/assets/css/slick.min.css">
     <!-- Main Style -->
     <link rel="stylesheet" href="~/assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation Calendar</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.0/main.css" rel="stylesheet">
+    <style>
+        .fc-event {
+            background-color: #ff0000;
+            color: #fff;
+        }
+    </style>
 
 </head>
 <body class="home-one">
@@ -92,22 +102,24 @@
 
                                             </ul>
                                         </li>
-                                       
+
                                         <li>
                                             <a asp-action="index" asp-controller="Blog">Blog</a>
 
                                         </li>
                                         <li><a asp-action="Index" asp-controller="Contact">Contact</a></li>
-                                        <li><a asp-action="Index" asp-controller="Dashboard" asp-route-area="Admin">AdminPanel</a></li>
-                                       
-                                        <li class="dropdown d-none d-lg-block">
-                                          
-                                            <ul class="dropdown-menu"
-                                                aria-labelledby="settingButton">
+
+                                        <li class="dropdown" onmouseover="showDropdownMenu()" onmouseout="hideDropdownMenu()">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                                <i class="far fa-user" style="font-size: 24px;"></i>
+                                            </a>
+                                            <ul class="dropdown-menu" aria-labelledby="settingButton">
+
                                                 @if (User.Identity.IsAuthenticated)
                                                 {
                                                     <li>
-                                                        <a class="dropdown-item" href="my-account.html">@User.Identity.Name</a>
+                                                        <i class="far fa-user" ></i>
+                                                        <a class="dropdown-item" asp-action="Index" asp-controller="Dashboard" asp-route-area="Admin">@User.Identity.Name</a>
                                                     </li>
                                                     <li>
                                                         <a class="dropdown-item" asp-action="logout" asp-controller="account">Log Out</a>
@@ -122,6 +134,15 @@
                                                         <a class="dropdown-item" asp-action="login" asp-controller="account" asp-route-returnurl="@Context.Request.Path.Value">Login</a>
                                                     </li>
                                                 }
+                                                <script>
+                                                    function showDropdownMenu() {
+                                                        document.getElementById("dropdownMenu").style.display = "block";
+                                                    }
+
+                                                    function hideDropdownMenu() {
+                                                        document.getElementById("dropdownMenu").style.display = "none";
+                                                    }
+                                                </script>
                                             </ul>
                                         </li>
                                     </ul>
@@ -139,7 +160,7 @@
                             </span>
                             <a href="contact.html" class="theme-btn">Book Now <i class="far fa-angle-right"></i></a>
                             <!-- menu sidbar -->
-                           
+
                         </div>
                     </div>
                 </div>
@@ -184,7 +205,6 @@
             </div>
         </section>
         <!--End Hidden Sidebar -->
-
         @RenderBody()
         <section class="instagram-area">
             <div class="instagram-item wow fadeInUp delay-0-2s">
@@ -375,22 +395,7 @@
     <script src="~/assets/js/wow.min.js"></script>
     <!-- Custom script -->
     <script src="~/assets/js/script.js"></script>
-    @section Scripts {
-        <script>
-            document.getElementById("arrivalDate").addEventListener("change", updateTotalPrice);
-            document.getElementById("departureDate").addEventListener("change", updateTotalPrice);
 
-            function updateTotalPrice() {
-                var arrivalDate = new Date(document.getElementById("arrivalDate").value);
-                var departureDate = new Date(document.getElementById("departureDate").value);
-                var dailyPrice = parseFloat('@Model.Room.Price'); // Modeldeki günlük fiyatı alın
 
-                var totalDays = (departureDate - arrivalDate) / (1000 * 60 * 60 * 24); // Gün sayısını hesapla
-                var totalPrice = dailyPrice * totalDays; // Toplam fiyatı hesapla
-
-                document.getElementById("totalPrice").innerText = totalPrice.toFixed(2); // Toplam fiyatı güncelle
-            }
-        </script>
-    }
 </body>
 </html>
