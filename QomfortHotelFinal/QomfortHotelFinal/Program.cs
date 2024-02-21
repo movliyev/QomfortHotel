@@ -13,8 +13,7 @@ using System.Configuration;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddHangfire(config => config.UseSqlServerStorage(builder.Configuration.GetConnectionString("Default")));
-builder.Services.AddHangfireServer();
+
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AppDbContext>(
     opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("Default"))
@@ -41,7 +40,8 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
 builder.Services.AddScoped<LayoutService>();
 
 builder.Services.AddScoped<IEmailService, EmailService>();
-
+builder.Services.AddHangfire(config => config.UseSqlServerStorage(builder.Configuration.GetConnectionString("Default")));
+builder.Services.AddHangfireServer();
 //builder.Services.AddMvc(config =>
 //{
 //    var policy = new AuthorizationPolicyBuilder()

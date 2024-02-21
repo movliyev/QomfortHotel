@@ -461,45 +461,24 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
             if (id <= 0) return BadRequest();
 
             Room Room = await _context.Rooms.Include(p => p.RoomImages).FirstOrDefaultAsync(p => p.Id == id);
-            if (Room == null) return NotFound();
-            foreach (var item in Room.RoomImages ?? new List<RoomImage>())
+            if (Room == null) return Json(new { status=404});
+            try
             {
-                item.Url.DeleteFile(_env.WebRootPath, "assets", "images", "rooms");
+                foreach (var item in Room.RoomImages ?? new List<RoomImage>())
+                {
+                    item.Url.DeleteFile(_env.WebRootPath, "assets", "images", "rooms");
+                }
+                _context.Rooms.Remove(Room);
+                await _context.SaveChangesAsync();
             }
-            _context.Rooms.Remove(Room);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            catch (Exception)
+            {
+
+                return Json(new { status = 500 });
+            }
+           
+            return Json(new { status = 200});
         }
-
-
-
-
-
-
-        //public async Task<IActionResult> Detail(int id)
-        //{
-        //    if (id == 0) return BadRequest();
-
-        //    Room Room = await _context.Rooms
-        //        .Include(p => p.Category)
-        //        .Include(p => p.RoomImages)
-        //        .Include(p => p.RoomServicees).ThenInclude(x => x.Servicee)
-        //        .Include(p => p.RoomFacilitys).ThenInclude(x => x.Facility)
-        //        .Include(p => p.RoomSizes).ThenInclude(x => x.Size)
-        //        .FirstOrDefaultAsync(x => x.Id == id);
-
-
-
-        //    if (Room == null) return NotFound();
-        //    ViewBag.RoomServicees = await _context.RoomServicees.ToListAsync();
-        //    ViewBag.RoomFacilitys = await _context.RoomServicees.ToListAsync();
-        //    ViewBag.RoomSizes = await _context.RoomServicees.ToListAsync();
-
-
-
-        //    return View(Room);
-        //}
-
 
     }
 }

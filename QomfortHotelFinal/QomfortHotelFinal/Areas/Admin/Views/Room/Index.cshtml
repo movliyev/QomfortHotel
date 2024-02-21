@@ -15,7 +15,7 @@
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Category Table</h4>
+                        <h4 class="card-title">Room Table</h4>
                         <a asp-action="Create" asp-controller="Room" class="btn btn-outline-info">Ceate Room</a>
                         <div class="table-responsive">
                             <table class="table table-dark table-borderless mb-0">
@@ -89,8 +89,8 @@
                                                 }
                                             </td>
                                             <td>
-                                                <a asp-action="Update" asp-controller="Room" asp-route-id="@item.Id" class="btn btn-warning btn-info"><i class="mdi mdi-grease-pencil"></i></a>
-                                                <a asp-action="Delete" asp-controller="Room" asp-route-id="@item.Id" class="btn btn-danger btn-info"><i class="mdi mdi-delete"></i></a>
+                                                <a asp-action="Update" asp-controller="Room" asp-route-id="@item.Id"  class="btn btn-warning btn-info"><i class="mdi mdi-grease-pencil"></i></a>
+                                                <a asp-action="Delete" asp-controller="Room" asp-route-id="@item.Id" class="customDeletebtn btn btn-danger btn-info" class=""><i class="mdi mdi-delete"></i></a>
                                                 <a asp-action="Detail" asp-controller="Room" asp-route-id="@item.Id" asp-route-area="" class="btn btn-outline-info"><i class="mdi mdi-open-in-new"></i></a>
                                             </td>
                                         </tr>

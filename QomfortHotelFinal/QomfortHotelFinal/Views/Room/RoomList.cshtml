@@ -1,4 +1,4 @@
-﻿@model RoomListVM
+﻿@model PaginateVM<Room>
 <!--Form Back Drop-->
 
 <!-- Page Banner Start -->
@@ -75,16 +75,17 @@
             <div class="col-md-4">
                 <div class="widget widget-sorting wow fadeInUp delay-0-6s" style="text-align: center; background: linear-gradient(to right, #ff9a9e, #fad0c4, #a18cd1, #fbc2eb, #ff9a9e); padding: 20px;">
                     <h4 class="widget-title">Sorting</h4>
-                    <form asp-action="RoomList" asp-controller="Room" class="default-search-form">
+                        <form asp-action="RoomList" asp-controller="Room" asp-route-categoryId="@Model.CategoryId"
+                              asp-route-search="@Model.Search"  class="default-search-form">
                         <select onchange="this.form.submit()" name="Order" class="nice-select" style="background: linear-gradient(to right, #ff9a9e, #fad0c4, #a18cd1, #fbc2eb, #ff9a9e); color: #fff;">
-                            <option value="">Default</option>
-                            <option value="1">Name</option>
+                            <option value=""> Default</option>
+                                <option value="1">Sort by Name</option>
                             <option value="2">Price</option>
-                                <option value="3">Capacity</option>
-                                <option value="4">Size</option>
-                                <option value="5">Bathroom</option>
-                                <option value="6">Bed</option>
-                                <option value="7">Latest</option>
+                                <option value="3">Sort by Capacity</option>
+                                <option value="4">Sort by Size</option>
+                                <option value="5">Sort by Bathroom</option>
+                                <option value="6">Sort by Bed</option>
+                                <option value="7">Sort by Latest</option>
                           
 
                         </select>
@@ -105,7 +106,7 @@
                 </br>
                 </br>
                 </br>
-                @foreach (var item in Model.Rooms)
+                @foreach (var item in Model.Items)
                 {
                     <div class="room-list-item wow fadeInUp delay-0-2s">
                         <div class="image">
@@ -166,8 +167,9 @@
                     <div class="widget widget-search wow fadeInUp delay-0-2s">
 
                         <h4 class="widget-title">Search</h4>
-                        <form asp-action="RoomList" asp-controller="Room" class="default-search-form">
-                            <input name="search" type="text" placeholder="Keywords">
+                        <form asp-action="RoomList" asp-controller="Room" asp-route-categoryId="@Model.CategoryId"asp-route-order="@Model.Orrder"
+                              class="default-search-form">
+                            <input name="search" type="text" placeholder="Keywords" value="@(Model.Search==null?"":@Model.Search)">
                             <button type="submit" class="searchbutton far fa-search"></button>
                         </form>
                     </div>
@@ -175,9 +177,13 @@
                     <div class="widget widget-category wow fadeInUp delay-0-4s">
                         <h4 class="widget-title">Category</h4>
                         <ul>
+                            <li><a asp-action="RoomList" asp-controller="Room" class="category-link @(Model.CategoryId == null ? "active" : "")">All<i class="far fa-angle-right"></i></a></li>
                           @foreach (var item in Model.Categories)
                             {
-                                <li><a asp-controller="RoomList" asp-controller="Room" asp-route-categoryId="@item.Id">@item.Name<i class="far fa-angle-right"></i></a></li>
+                                <li><a asp-action="RoomList" asp-controller="Room" asp-route-categoryId="@item.Id"
+                                       asp-route-order="@Model.Orrder" asp-route-search="@Model.Search" class="category-link"
+                                       style="@(Model.CategoryId == item.Id ? "color: red;" : "")">@item.Name<span>(@item.Rooms.Count)</span><i class="far fa-angle-right"></i></a>
+                                </li>
                             }
                            
                         </ul>
@@ -185,56 +191,30 @@
                     <div class="widget widget-recent-news wow fadeInUp delay-0-2s">
                         <h4 class="widget-title">Recent News</h4>
                         <ul>
-                            <li>
-                                <div class="image">
-                                    <img src="~/assets/images/widgets/news1.jpg" alt="News">
-                                </div>
-                                <div class="content">
-                                    <h5><a href="blog-details.html">Tips For Conducting Usability Studies</a></h5>
-                                    <a href="blog-details.html" class="read-more">Read More <i class="far fa-angle-right"></i></a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="image">
-                                    <img src="~/assets/images/widgets/news2.jpg" alt="News">
-                                </div>
-                                <div class="content">
-                                    <h5><a href="blog-details.html">Building Accessible Menu Systems</a></h5>
-                                    <a href="blog-details.html" class="read-more">Read More <i class="far fa-angle-right"></i></a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="image">
-                                    <img src="~/assets/images/widgets/news3.jpg" alt="News">
-                                </div>
-                                <div class="content">
-                                    <h5><a href="blog-details.html">Tips For Conducting Usability Studies</a></h5>
-                                    <a href="blog-details.html" class="read-more">Read More <i class="far fa-angle-right"></i></a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="image">
-                                    <img src="~/assets/images/widgets/news4.jpg" alt="News">
-                                </div>
-                                <div class="content">
-                                    <h5><a href="blog-details.html">Building Accessible Menu Systems</a></h5>
-                                    <a href="blog-details.html" class="read-more">Read More <i class="far fa-angle-right"></i></a>
-                                </div>
-                            </li>
+                            @foreach (var item in Model.Blogs)
+                            {
+                                <li>
+                                    <div class="image">
+                                        <img style="width:120px;height:100px;" src="~/assets/images/blog/@item.HoverImage ">
+                                    </div>
+                                    <div class="content">
+                                        <h5><a asp-action="Detail" asp-controller="Blog" asp-route-id="@item.Id">@item.Title</a></h5>
+                                        <a asp-action="Detail" asp-controller="Blog" asp-route-id="@item.Id" class="read-more">Read More <i class="far fa-angle-right"></i></a>
+                                    </div>
+                                </li>
+                            }                           
                         </ul>
                     </div>
                     <div class="widget widget-tag-cloud wow fadeInUp delay-0-2s">
-                        <h4 class="widget-title">Popular Tags</h4>
+                        <h4 class="widget-title">Popular Services</h4>
                         <div class="tag-coulds">
-                            <a href="blog.html">Hotel</a>
-                            <a href="blog.html">Suites</a>
-                            <a href="blog.html">Rooms</a>
-                            <a href="blog.html">Restaurant</a>
-                            <a href="blog.html">Pool</a>
-                            <a href="blog.html">Deluxe</a>
-                            <a href="blog.html">Couple</a>
-                            <a href="blog.html">Luxury</a>
-                            <a href="blog.html">SPA</a>
+                          @foreach (var item in Model.Services)
+                            {
+                                <a asp-action="RoomList" asp-controller="Room" asp-route-serviceId="@item.Id" 
+                                   asp-route-order="@Model.Orrder" asp-route-search="@Model.Search" class="category-link"
+                                   style="@(Model.ServiceId == item.Id ? "color: red;" : "")">@item.Name</a>
+                            }
+                          
                         </div>
                     </div>
                     <div class="widget widget-gallery wow fadeInUp delay-0-2s">
@@ -251,9 +231,20 @@
                 </div>
             </div>
        </div>
+       @*  <nav aria-label="Page navigation example">
+            <ul class="pagination" class="sub-menu" aria-expanded="false">
+                <li class="page-item @(Model.CurrentPage<=1?"disabled":"")"><a class="page-link" asp-route-page="@(Model.CurrentPage-1)" asp-action="index" asp-controller="Room">Previous</a></li>
+                @for (int i = 0; i < Model.TotalPage; i++)
+                {
+                    <li class="page-item @(Model.CurrentPage - 1 == i? "disabled":"")"><a class="page-link" asp-route-page="@(i+1)" asp-action="index" asp-controller="Room">@(i + 1)</a></li>
+                }
 
-        <ul class="pagination pt-10 flex-wrap wow fadeInUp delay-0-2s">
-            <li class="page-item disabled">
+                <li class="page-item @(Model.TotalPage<=Model.CurrentPage?"disabled":"")"><a class="page-link" asp-route-page="@(Model.CurrentPage+1)" asp-action="index" asp-controller="Room">Next</a></li>
+            </ul>
+        </nav> *@
+        <ul class="pagination pt-10 flex-wrap wow fadeInUp delay-0-2s"aria-expanded="false">
+            <li class="page-item @(Model.CurrentPage<=1? " disabled":"")">
+                <a class="page-link" asp-route-page="@(Model.CurrentPage-1)" asp-action="roomlist" asp-controller="Room">Previous</a>
                 <span class="page-link"><i class="far fa-arrow-left"></i></span>
             </li>
             <li class="page-item active">
