@@ -1,6 +1,5 @@
 ﻿
 using Hangfire;
-using MailKit.Search;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -26,6 +25,7 @@ namespace QomfortHotelFinal.Controllers
             _userManager = userManager;
             _emailService = emailService;
         }
+        //\\\\\RESERVATION/////\\
         public async Task<IActionResult> Reserv(int id)
         {
             if (id == 0) throw new WrongRequestException("The query is incorrect");
@@ -33,10 +33,9 @@ namespace QomfortHotelFinal.Controllers
            .Include(u => u.Reservations.Where(b => b.OrderId == null))
         .ThenInclude(bi => bi.Room)
         .FirstOrDefaultAsync(u => u.Id == User.FindFirstValue(ClaimTypes.NameIdentifier));
-            //if (user == null) throw new NotFoundException("User not found");
 
 
-            Room room = await _context.Rooms.Include(x => x.Reservations.Where(x => x.RoomId ==id))
+            Room room = await _context.Rooms.Include(x => x.Reservations.Where(x => x.RoomId == id))
                 .Include(p => p.Category)
                 .Include(p => p.RoomImages.Where(x => x.IsPrimary == true))
                 .Include(p => p.RoomFacilities).ThenInclude(x => x.Facility)
@@ -46,8 +45,8 @@ namespace QomfortHotelFinal.Controllers
             if (room == null) throw new NotFoundException("Room not found");
 
             var reservations = await _context.Reservations
-       .Where(r => r.RoomId == id) // Odanın mevcut ve aktif rezervasyonlarını al
-       .ToListAsync();
+           .Where(r => r.RoomId == id) // Odanın mevcut ve aktif rezervasyonlarını al
+           .ToListAsync();
 
             // Oda rezervasyon tarihleri
             var reservationDates = reservations.SelectMany(r => Enumerable.Range(0, (r.DeparturDate - r.ArrivalDate).Days + 1)
@@ -75,7 +74,7 @@ namespace QomfortHotelFinal.Controllers
            .Include(p => p.RoomServicees).ThenInclude(p => p.Servicee)
            .FirstOrDefaultAsync(x => x.Id == id);
             if (room == null)
-            {   
+            {
 
                 ModelState.AddModelError(String.Empty, "The selected room could not be found.");
                 return View(vm);
@@ -88,6 +87,7 @@ namespace QomfortHotelFinal.Controllers
             var reservationDates = reservations.SelectMany(r => Enumerable.Range(0, (r.DeparturDate - r.ArrivalDate).Days + 1)
                 .Select(offset => r.ArrivalDate.AddDays(offset)))
                 .ToList();
+
             vm.ReservationDates = reservationDates;
             vm.Room = room;
             if (!ModelState.IsValid)
@@ -98,7 +98,7 @@ namespace QomfortHotelFinal.Controllers
 
             if (vm.PersonCount + vm.Children > room.Capacity)
             {
-                
+
                 ModelState.AddModelError(string.Empty, "The total number of persons exceeds the room's capacity.");
                 return View(vm);
             }
@@ -115,7 +115,7 @@ namespace QomfortHotelFinal.Controllers
                     // Rezervasyonun bitiş tarihi kontrol ediliyor
                     if (DateTime.Now <= reservation.DeparturDate)
                     {
-                        
+
                         ModelState.AddModelError(String.Empty, "Belirtilen tarih aralığında başka bir rezervasyon bulunmaktadır.");
                         return View(vm);
                     }
@@ -126,7 +126,7 @@ namespace QomfortHotelFinal.Controllers
 
             if (vm.ArrivalDate < DateTime.Today || vm.ArrivalDate > vm.DeparturDate)
             {
-               
+
                 ModelState.AddModelError(String.Empty, "Invalid reservation dates.");
                 return View(vm);
             }
@@ -135,7 +135,7 @@ namespace QomfortHotelFinal.Controllers
 
             if (totalDays <= 0)
             {
-                
+
                 ModelState.AddModelError(String.Empty, "Geçersiz rezervasyon tarihleri.");
                 return View(vm);
             }
@@ -156,8 +156,14 @@ namespace QomfortHotelFinal.Controllers
                     PersonCount = vm.PersonCount,
 
                 };
-               
-                      
+
+                foreach (var item in reservationDates)
+                {
+                    if (room.Status == true)
+                    {
+                        reservation.Status = false;
+                    }
+                }
                 await _context.Reservations.AddAsync(reservation);
                 await _context.SaveChangesAsync();
                 await UpdateRoomStatusOnArrival(room.Id, vm.ArrivalDate);
@@ -232,17 +238,20 @@ namespace QomfortHotelFinal.Controllers
             }
         }
 
+
+
+        //\\\\\\\\\\\\CHECKOUT///\\\\\\\\\\\\
         public async Task<IActionResult> Checkout()
         {
             AppUser user = await _userManager.Users
-        .Include(u => u.Reservations.Where(b => b.OrderId == null))
-        .ThenInclude(bi => bi.Room)
-        .FirstOrDefaultAsync(u => u.Id == User.FindFirstValue(ClaimTypes.NameIdentifier));
+           .Include(u => u.Reservations.Where(b => b.OrderId == null))
+           .ThenInclude(bi => bi.Room)
+           .FirstOrDefaultAsync(u => u.Id == User.FindFirstValue(ClaimTypes.NameIdentifier));
 
             OrderVM orderVM = new OrderVM
             {
-                
-                AppUserId=user.Id,
+
+                AppUserId = user.Id,
                 Reservations = user.Reservations.ToList(),
                 TotalPrice = user.Reservations.Sum(r => (r.DeparturDate - r.ArrivalDate).Days * r.Room.Price)
             };
@@ -250,12 +259,12 @@ namespace QomfortHotelFinal.Controllers
             return View(orderVM);
         }
         [HttpPost]
-        public async Task<IActionResult> Checkout(OrderVM ovm,string stripeEmail,string stripeToken)
+        public async Task<IActionResult> Checkout(OrderVM ovm, string stripeEmail, string stripeToken)
         {
             AppUser user = await _userManager.Users
-        .Include(u => u.Reservations.Where(b => b.OrderId == null))
-        .ThenInclude(bi => bi.Room)
-        .FirstOrDefaultAsync(u => u.Id == User.FindFirstValue(ClaimTypes.NameIdentifier));
+           .Include(u => u.Reservations.Where(b => b.OrderId == null))
+           .ThenInclude(bi => bi.Room)
+           .FirstOrDefaultAsync(u => u.Id == User.FindFirstValue(ClaimTypes.NameIdentifier));
 
             if (!ModelState.IsValid)
             {
@@ -265,7 +274,7 @@ namespace QomfortHotelFinal.Controllers
             }
 
             decimal totalPrice = ovm.TotalPrice; // Ödenecek toplam tutar
-           
+
             // Siparişi oluştur
             Order order = new Order
             {
@@ -321,7 +330,7 @@ namespace QomfortHotelFinal.Controllers
             {
                 body += @$" <tr>
                         <td>{item.Room.Name}</td>
-                        <td >{(item.Room.Price)*(item.DeparturDate-item.ArrivalDate).Days}</td>
+                        <td >{(item.Room.Price) * (item.DeparturDate - item.ArrivalDate).Days}</td>
                     </tr>";
 
             }
@@ -335,10 +344,49 @@ namespace QomfortHotelFinal.Controllers
 
         }
 
-        public async Task<IActionResult> RoomList()
+        public async Task<IActionResult> RoomList(string? search,int? order,int? categoryId)
         {
-            List<Room> room = await _context.Rooms.Include(x => x.Reservations).Include(p => p.RoomImages).Include(r => r.Category).ToListAsync();
-            return View(room);
+            IQueryable<Room> query =_context.Rooms.Include(x=>x.RoomImages).AsQueryable();
+            switch (order)
+            {
+                case 1:
+                    query=query.OrderBy(x=>x.Name);
+                    break;
+                case 2:
+                    query = query.OrderBy(x => x.Price);
+                    break;
+                case 3:
+                    query = query.OrderBy(x => x.Capacity);
+                    break;
+                case 4:
+                    query = query.OrderBy(x => x.Size);
+                    break;
+                case 5:
+                    query = query.OrderByDescending(x => x.BathRoom);
+                    break;
+                case 6:
+                    query = query.OrderByDescending(x => x.Bed);
+                    break;
+              
+                case 7:
+                    query = query.OrderByDescending(x => x.Id);
+                    break;
+
+            }
+            if (!String.IsNullOrEmpty(search))
+            {
+                query = query.Where(x => x.Name.ToLower().Contains(search.ToLower()));
+            }
+            if(categoryId != null)
+            {
+                query=query.Where(x=>x.CategoryId==categoryId);
+            }
+            RoomListVM vm = new RoomListVM
+            {
+                Rooms = await query.ToListAsync(),
+                Categories=await _context.Categories.Include(x=>x.Rooms).ToListAsync(),
+            };
+            return View(vm);
         }
 
 

@@ -377,12 +377,12 @@
                         <div class="col-lg-4 col-6 col-small">
                             <div class="service-item style-two wow fadeInUp delay-0-3s">
                                 <div class="icon">
-                                    <i class="flaticon-mop"></i>
+                                    <i class="@item.Icon"></i>
                                 </div>
                                 <div class="content">
                                     <h4><a href="room-details.html">@item.Name</a></h4>
                                     <p>@item.Description</p>
-                                    <a class="read-more" href="room-details.html">Read More <i class="@item.Icon"></i></a>
+                                    <a class="read-more" asp-action="Reserv" asp-controller="room" asp-route-id="@item.Id==@Model.Room">Read More <i class="@item.Icon"></i></a>
                                 </div>
                             </div>
                         </div>

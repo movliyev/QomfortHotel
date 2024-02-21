@@ -1,4 +1,4 @@
-﻿@model List<Room>
+﻿@model RoomListVM
 <!--Form Back Drop-->
 
 <!-- Page Banner Start -->
@@ -65,63 +65,192 @@
         <span></span><span></span>
     </div>
 </div>
+
 <!-- Search Filter and Features End -->
 <!-- Rooms Area start -->
 <section class="rooms-list-area pb-120 rpb-90 rel z-2">
     <div class="container">
-        @foreach (var item in Model)
-        {
-            <div class="room-list-item wow fadeInUp delay-0-2s">
-                <div class="image">
-                    <img src="~/assets/images/rooms/@item.RoomImages.FirstOrDefault(p=>p.IsPrimary==true)?.Url" alt="Room">
-                </div>
-                <div class="content">
-                    <h3><a asp-action="Detail" asp-controller="Room" asp-route-id="@item.Id">@item.Name</a></h3>
-                    <ul class="blog-meta">
-                        <li>
-                            <i class="far fa-drafting-compass"></i>
-                            <a href="#">Size :@item.Size 2</a>
-                        </li>
-                        <li>
-                            <i class="far fa-user"></i>
-                            <a href="#">Capacity : @item.Capacity</a>
-                        </li>
-                        <li>
-                            <i class="far fa-bed-alt"></i>
-                            <a href="#">Beds : @item.Bed</a>
-                        </li>
-                        <li>
-                            <i class="far fa-bath"></i>
-                            <a href="#">Bathrooms :@item.BathRoom</a>
-                            <br />
-                            <br />
-                            @if (item.Status == true)
-                            {
-                                <i class="feather-arrow-right-circle"></i>
-                                <a class="text-info">Status :Active</a>
-                               
-                                
+       <div class="row">
+           <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="widget widget-sorting wow fadeInUp delay-0-6s" style="text-align: center; background: linear-gradient(to right, #ff9a9e, #fad0c4, #a18cd1, #fbc2eb, #ff9a9e); padding: 20px;">
+                    <h4 class="widget-title">Sorting</h4>
+                    <form asp-action="RoomList" asp-controller="Room" class="default-search-form">
+                        <select onchange="this.form.submit()" name="Order" class="nice-select" style="background: linear-gradient(to right, #ff9a9e, #fad0c4, #a18cd1, #fbc2eb, #ff9a9e); color: #fff;">
+                            <option value="">Default</option>
+                            <option value="1">Name</option>
+                            <option value="2">Price</option>
+                                <option value="3">Capacity</option>
+                                <option value="4">Size</option>
+                                <option value="5">Bathroom</option>
+                                <option value="6">Bed</option>
+                                <option value="7">Latest</option>
+                          
 
-                            }
-                            else
+                        </select>
+                    </form>
+                </div>
+
+                </div>
+            </div>
+           
+           <div class="col-lg-8">
+                </br>
+             </br>
+             </br>
+             </br>
+                </br>
+                </br>
+                </br>
+                </br>
+                </br>
+                </br>
+                @foreach (var item in Model.Rooms)
+                {
+                    <div class="room-list-item wow fadeInUp delay-0-2s">
+                        <div class="image">
+                            <img src="~/assets/images/rooms/@item.RoomImages.FirstOrDefault(p=>p.IsPrimary==true)?.Url" alt="Room">
+                        </div>
+                        <div class="content">
+                            <h3><a asp-action="Detail" asp-controller="Room" asp-route-id="@item.Id">@item.Name</a></h3>
+                            <ul class="blog-meta">
+                                <li>
+                                    <i class="far fa-drafting-compass"></i>
+                                    <a href="#">Size :@item.Size 2</a>
+                                </li>
+                                <li>
+                                    <i class="far fa-user"></i>
+                                    <a href="#">Capacity : @item.Capacity</a>
+                                </li>
+                                <li>
+                                    <i class="far fa-bed-alt"></i>
+                                    <a href="#">Beds : @item.Bed</a>
+                                </li>
+                                <li>
+                                    <i class="far fa-bath"></i>
+                                    <a href="#">Bathrooms :@item.BathRoom</a>
+                                    <br />
+                                    <br />
+                                    @if (item.Status == true)
+                                    {
+                                        <i class="feather-arrow-right-circle"></i>
+                                        <a class="text-info">Status :Active</a>
+
+
+
+                                    }
+                                    else
+                                    {
+                                        <i class="feather-arrow-right-circle"></i>
+                                        <a class="text-danger">Status :Reserved</a>
+                                    }
+                                </li>
+                                <li>
+
+                                </li>
+                            </ul>
+                            <p>@item.Description</p>
+                            <hr>
+                            <div class="price-more">
+                                <div class="price">Price <span>$@item.Price</span>/per night</div>
+                                <a class="read-more" asp-action="Reserv" asp-controller="Room" asp-route-id="@item.Id">Room Details <i class="fal fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                }
+                
+
+           </div>
+            <div class="col-lg-4">
+                <div class="main-sidebar rmt-65">
+                    <div class="widget widget-search wow fadeInUp delay-0-2s">
+
+                        <h4 class="widget-title">Search</h4>
+                        <form asp-action="RoomList" asp-controller="Room" class="default-search-form">
+                            <input name="search" type="text" placeholder="Keywords">
+                            <button type="submit" class="searchbutton far fa-search"></button>
+                        </form>
+                    </div>
+                  
+                    <div class="widget widget-category wow fadeInUp delay-0-4s">
+                        <h4 class="widget-title">Category</h4>
+                        <ul>
+                          @foreach (var item in Model.Categories)
                             {
-                                <i class="feather-arrow-right-circle"></i>
-                                <a class="text-danger">Status :Reserved</a>
+                                <li><a asp-controller="RoomList" asp-controller="Room" asp-route-categoryId="@item.Id">@item.Name<i class="far fa-angle-right"></i></a></li>
                             }
-                        </li>
-                        <li>
                            
-                        </li>
-                    </ul>
-                    <p>@item.Description</p>
-                    <hr>
-                    <div class="price-more">
-                        <div class="price">Price <span>$@item.Price</span>/per night</div>
-                        <a class="read-more" asp-action="Reserv" asp-controller="Room" asp-route-id="@item.Id">Room Details <i class="fal fa-angle-right"></i></a>
+                        </ul>
+                    </div>
+                    <div class="widget widget-recent-news wow fadeInUp delay-0-2s">
+                        <h4 class="widget-title">Recent News</h4>
+                        <ul>
+                            <li>
+                                <div class="image">
+                                    <img src="~/assets/images/widgets/news1.jpg" alt="News">
+                                </div>
+                                <div class="content">
+                                    <h5><a href="blog-details.html">Tips For Conducting Usability Studies</a></h5>
+                                    <a href="blog-details.html" class="read-more">Read More <i class="far fa-angle-right"></i></a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="image">
+                                    <img src="~/assets/images/widgets/news2.jpg" alt="News">
+                                </div>
+                                <div class="content">
+                                    <h5><a href="blog-details.html">Building Accessible Menu Systems</a></h5>
+                                    <a href="blog-details.html" class="read-more">Read More <i class="far fa-angle-right"></i></a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="image">
+                                    <img src="~/assets/images/widgets/news3.jpg" alt="News">
+                                </div>
+                                <div class="content">
+                                    <h5><a href="blog-details.html">Tips For Conducting Usability Studies</a></h5>
+                                    <a href="blog-details.html" class="read-more">Read More <i class="far fa-angle-right"></i></a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="image">
+                                    <img src="~/assets/images/widgets/news4.jpg" alt="News">
+                                </div>
+                                <div class="content">
+                                    <h5><a href="blog-details.html">Building Accessible Menu Systems</a></h5>
+                                    <a href="blog-details.html" class="read-more">Read More <i class="far fa-angle-right"></i></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="widget widget-tag-cloud wow fadeInUp delay-0-2s">
+                        <h4 class="widget-title">Popular Tags</h4>
+                        <div class="tag-coulds">
+                            <a href="blog.html">Hotel</a>
+                            <a href="blog.html">Suites</a>
+                            <a href="blog.html">Rooms</a>
+                            <a href="blog.html">Restaurant</a>
+                            <a href="blog.html">Pool</a>
+                            <a href="blog.html">Deluxe</a>
+                            <a href="blog.html">Couple</a>
+                            <a href="blog.html">Luxury</a>
+                            <a href="blog.html">SPA</a>
+                        </div>
+                    </div>
+                    <div class="widget widget-gallery wow fadeInUp delay-0-2s">
+                        <h4 class="widget-title">Gallery</h4>
+                        <div class="gallery-widget">
+                            <a href="#"> <img src="~/assets/images/widgets/gallery1.jpg" alt="Gallery"> </a>
+                            <a href="#"> <img src="~/assets/images/widgets/gallery2.jpg" alt="Gallery"> </a>
+                            <a href="#"> <img src="~/assets/images/widgets/gallery3.jpg" alt="Gallery"> </a>
+                            <a href="#"> <img src="~/assets/images/widgets/gallery4.jpg" alt="Gallery"> </a>
+                            <a href="#"> <img src="~/assets/images/widgets/gallery5.jpg" alt="Gallery"> </a>
+                            <a href="#"> <img src="~/assets/images/widgets/gallery6.jpg" alt="Gallery"> </a>
+                        </div>
                     </div>
                 </div>
             </div>
-        }
+       </div>
 
         <ul class="pagination pt-10 flex-wrap wow fadeInUp delay-0-2s">
             <li class="page-item disabled">
@@ -140,6 +269,7 @@
             </li>
         </ul>
     </div>
+
     <div class="bg-lines for-bg-white">
         <span></span><span></span>
         <span></span><span></span>
@@ -149,4 +279,3 @@
     </div>
 </section>
 <!-- Rooms Area end -->
-<

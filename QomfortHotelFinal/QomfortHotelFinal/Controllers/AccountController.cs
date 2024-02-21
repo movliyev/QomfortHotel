@@ -96,7 +96,7 @@ namespace QomfortHotelFinal.Controllers
                 return BadRequest();
 
             }
-            _signInManager.SignInAsync(user, false);
+            await _signInManager.SignInAsync(user, false);
             return View();
         }
         public IActionResult SuccesRegistered()
