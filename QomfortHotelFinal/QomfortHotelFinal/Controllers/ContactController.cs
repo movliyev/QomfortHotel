@@ -1,14 +1,17 @@
 ﻿using Hangfire;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using QomfortHotelFinal.DAL;
 using QomfortHotelFinal.Models;
+using QomfortHotelFinal.Utilities.Extensions;
 using QomfortHotelFinal.ViewModels;
 using System.Security.Claims;
 
 namespace QomfortHotelFinal.Controllers
 {
+    [AllowAnonymous]
     public class ContactController : Controller
     {
         private readonly AppDbContext _context;
@@ -33,32 +36,32 @@ namespace QomfortHotelFinal.Controllers
             };
             return View(vm);
         }
+
+        [Authorize(Roles = "Memmber")]
         [HttpPost]
         public async Task<IActionResult> Index(ContactVM vm)
         {
-            Contact contact = await _context.Contacts.FirstOrDefaultAsync();
-            if (contact == null) return NotFound();
-            vm.Contact = contact;
-            if(!ModelState.IsValid) return View(vm);
+            if (!ModelState.IsValid)
+                return View(vm);
+
             if (User.Identity.IsAuthenticated)
             {
                 var user = await _userManager.GetUserAsync(HttpContext.User);
 
                 Message message = new Message
                 {
-                  MessageDate=DateTime.Now,
-                  Messages=vm.Messages,
+                    AppUserId = user.Id,
+                    MessageDate = DateTime.Now,
+                    Messages = vm.Messages.Capitalize(),
                     Rate = vm.Rating,
-                    Subject=vm.Subject,
+                    Subject = vm.Subject.Capitalize(),
                 };
 
                 await _context.Messages.AddAsync(message);
                 await _context.SaveChangesAsync();
-              
             }
             else
             {
-
                 return RedirectToAction("Login", "Account");
             }
 

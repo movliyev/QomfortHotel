@@ -27,7 +27,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
             AppUser user = await _userman.FindByNameAsync(User.Identity.Name);
             if(user == null)return NotFound();
            
-            var list = await _context.Reservations.Include(x=>x.Room).ThenInclude(x=>x.Category).Where(x=>x.AppUserId==user.Id).Where(x => x.Status == false).ToListAsync();
+            var list = await _context.Reservations.Include(x=>x.Room).ThenInclude(x=>x.Category).Where(x=>x.AppUserId==user.Id).Where(x => x.DeparturDate < DateTime.Now).ToListAsync();
          
             
             return View(list);

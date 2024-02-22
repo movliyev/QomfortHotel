@@ -53,7 +53,6 @@
                                 <li>
                                     <a href="javascript: void(0);" class="has-arrow"><i class="mdi mdi-table-large"></i><span>Tables</span></a>
                                     <ul class="sub-menu" aria-expanded="false">
-                                        <li><a asp-action="Index" asp-controller="Room">Rooms</a></li>
                                         <li><a asp-action="Indexx" asp-controller="Blog">Blogs</a></li>
                                         <li><a asp-action="Index" asp-controller="Category">Categorys</a></li>
                                         <li><a asp-action="Index" asp-controller="Slide">Slides</a></li>
@@ -63,12 +62,25 @@
 
                                     </ul>
                                 </li>
-
+                              
                                 <li>
                                     <a asp-action="Index" asp-controller="Home" asp-route-area=""><i class="mdi mdi-home"></i><span>Home</span></a>
                                 </li>
                                 <li>
                                     <a asp-action="MyOldReservation" asp-controller="Myreserv" asp-route-area="Admin"><i class="mdi mdi-home"></i><span>My old reservation</span></a>
+                                </li>
+                                <li>
+                                    <a asp-action="MyCurrentReservation" asp-controller="Myreserv" asp-route-area="Admin"><i class="mdi mdi-home"></i><span>My current reservation</span></a>
+                                </li>
+                                <li>
+                                    <a asp-action="Index" asp-controller="Room" asp-route-area="Admin"><i class="mdi mdi-home"></i><span>Rooms</span></a>
+                                </li>
+                                <li>
+                                    <a asp-action="Index" asp-controller="Gallery" asp-route-area="Admin"><i class="mdi mdi-home"></i><span>Galleries</span></a>
+                                </li> <li>
+                                    <a asp-action="MyCurrentReservation" asp-controller="Myreserv" asp-route-area="Admin"><i class="mdi mdi-home"></i><span>My current reservation</span></a>
+                                </li> <li>
+                                    <a asp-action="MyCurrentReservation" asp-controller="Myreserv" asp-route-area="Admin"><i class="mdi mdi-home"></i><span>My current reservation</span></a>
                                 </li>
                                 <li>
                                     <a asp-action="MyCurrentReservation" asp-controller="Myreserv" asp-route-area="Admin"><i class="mdi mdi-home"></i><span>My current reservation</span></a>
@@ -248,12 +260,19 @@
                                         <li><a asp-action="Index" asp-controller="Gallery">Galleries</a></li>
                                         <li><a asp-action="Index" asp-controller="Servicee">Services</a></li>
                                         <li><a asp-action="Index" asp-controller="Setting">Settings</a></li>
+                                        <li><a asp-action="Index" asp-controller="Contact">Contact</a></li>
 
                                     </ul>
                                 </li>
 
                                 <li>
                                     <a asp-action="Index" asp-controller="Home" asp-route-area=""><i class="mdi mdi-home"></i><span>Home</span></a>
+                                </li>
+                                <li>
+                                    <a asp-action="Index" asp-controller="Role" ><i class="mdi mdi-home"></i><span>Roles</span></a>
+                                </li>
+                                <li>
+                                    <a asp-action="UserList" asp-controller="Role"><i class="mdi mdi-home"></i><span>UserList</span></a>
                                 </li>
 
 
@@ -289,44 +308,7 @@
                                     </a>
                                 </div>
 
-                                <script>
-                                    $(document).ready(function () {
-                                        // Sayfa yüklendiğinde ve herhangi bir yorum oluşturulduğunda yorum sayısını güncelle
-                                        updateCommentNotification();
-
-                                        // Yeni bir yorum oluşturulduğunda veya sayfa yüklendiğinde yorum sayısını güncelle
-                                        function updateCommentNotification() {
-                                            $.ajax({
-                                                url: '/Comment/Index', // Yorum sayısını almak için bir endpoint belirtin
-                                                type: 'GET',
-                                                success: function (data) {
-                                                    // Ajax isteği başarılı olduysa, yeni yorum sayısını alın
-                                                    var newCommentCount = data;
-
-                                                    // Yeni yorum sayısını bildirim göstergesindeki sayıya güncelleyin
-                                                    var commentCountElement = $('.comment-count');
-                                                    commentCountElement.text(newCommentCount);
-
-                                                    // Yeni yorum sayısı 0'dan büyükse, sayıyı gösterin; değilse sayıyı gizleyin
-                                                    if (newCommentCount > 0) {
-                                                        commentCountElement.show();
-                                                    } else {
-                                                        commentCountElement.hide();
-                                                    }
-                                                },
-                                                error: function (xhr, status, error) {
-                                                    // Ajax isteği başarısız olduysa hata mesajını konsola yazdırabilirsiniz
-                                                    console.error('Yorum sayısı alınamadı:', error);
-                                                }
-                                            });
-                                        }
-
-                                        // Yorum sayısına tıklandığında yorumların listesine yönlendir
-                                        $('#commentNotification').on('click', function () {
-                                            window.location.href = '/Comment/List'; // Yeni yorumların listelendiği sayfa
-                                        });
-                                    });
-                                </script>
+                               
                                 <div class="dropdown d-inline-block ml-2">
 
                                     @if (User.Identity.IsAuthenticated)

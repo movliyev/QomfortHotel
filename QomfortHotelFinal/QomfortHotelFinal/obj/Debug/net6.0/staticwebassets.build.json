@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "qaje4YjGl4ByOsMdCK1tKfG9k73xP4pSr1Z0aUtehM4=",
+  "Hash": "FnZ+BN/IlP5vPNDf+7HpyTFYDT8dmxdhkZMWczDHgzM=",
   "Source": "QomfortHotelFinal",
   "BasePath": "_content/QomfortHotelFinal",
   "Mode": "Default",
@@ -2378,6 +2378,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\images\\background\\detail1c.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\background\\ffa5cf22-7673-4102-81eb-d34f8d05e3a3a1.png",
+      "SourceId": "QomfortHotelFinal",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\",
+      "BasePath": "_content/QomfortHotelFinal",
+      "RelativePath": "assets/images/background/ffa5cf22-7673-4102-81eb-d34f8d05e3a3a1.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\background\\ffa5cf22-7673-4102-81eb-d34f8d05e3a3a1.png"
     },
     {
       "Identity": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\background\\offer-banner.jpg",

@@ -157,13 +157,13 @@ namespace QomfortHotelFinal.Controllers
 
                 };
 
-                foreach (var item in reservationDates)
-                {
-                    if (room.Status == true)
-                    {
-                        reservation.Status = false;
-                    }
-                }
+                //if (room.Status == false)
+                //{
+                //    foreach (var reservation1 in reservationDates)
+                //    {
+                //        reservation1.S = true;
+                //    }
+                //}
                 await _context.Reservations.AddAsync(reservation);
                 await _context.SaveChangesAsync();
                 var arrivalDate = vm.ArrivalDate;

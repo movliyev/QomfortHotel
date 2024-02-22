@@ -1,0 +1,72 @@
+﻿@using Microsoft.AspNetCore.Identity;
+
+@model List<AppUser>
+@{
+    int count = 0;
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">User Table</h4>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-borderless mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            No
+                                        </th>
+                                        <th>
+                                            User Name
+                                        </th>
+                                        <th>
+                                           AddRole
+                                        </th>
+
+
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        count++;
+                                        <tr>
+                                            <td>
+                                                @count
+                                            </td>
+
+                                            <td>
+                                                @item.Name
+                                            </td>
+                                            <td>
+                                               <a asp-action="AssignRole" asp-controller="Role" asp-route-itemId="@item.Id" class="btn btn-warning">AddRole</a>
+                                            </td>
+
+
+                                        </tr>
+
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                    <!-- end card-body-->
+                </div>
+                <!-- end card -->
+
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,58 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using QomfortHotelFinal.Areas.Admin.ViewModels;
+using QomfortHotelFinal.DAL;
+using QomfortHotelFinal.Models;
+
+namespace QomfortHotelFinal.Areas.Admin.Controllers
+{
+    public class MessageController : Controller
+    {
+        private readonly AppDbContext _context;
+
+        public MessageController(AppDbContext context)
+        {
+            _context = context;
+        }
+        public async Task<IActionResult> Index(int page = 1)
+        {
+            if (page < 1) return BadRequest();
+            int count = await _context.Messages.CountAsync();
+
+            List<Message> Message = await _context.Messages.OrderByDescending(x => x.Id)
+                .Include(x => x.AppUser)
+                .Skip((page - 1) * 3).Take(3).ToListAsync();
+            PaginateVM<Message> pagvm = new PaginateVM<Message>
+            {
+                Items = Message,
+                TotalPage = Math.Ceiling((double)count / 3),
+                CurrentPage = page,
+            };
+
+            return View(pagvm);
+        }
+
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            if (id <= 0) return BadRequest();
+            Message exsist = await _context.Messages.FirstOrDefaultAsync(s => s.Id == id);
+            if (exsist == null) return Json(new { status = 404 });
+            try
+            {
+
+                _context.Messages.Remove(exsist);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception)
+            {
+
+                return Json(new { status = 500 });
+            }
+
+            return Json(new { status = 200 });
+        }
+
+
+    }
+}
