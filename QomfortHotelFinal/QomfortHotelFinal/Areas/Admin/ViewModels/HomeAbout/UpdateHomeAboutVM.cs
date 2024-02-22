@@ -5,12 +5,10 @@ namespace QomfortHotelFinal.Areas.Admin.ViewModels
 {
     public class UpdateHomeAboutVM
     {
-        [Required]
-        [MaxLength(50, ErrorMessage = "No more than 50 characters")]
+        [MaxLength(100, ErrorMessage = "No more than 100 characters")]
         [MinLength(3,ErrorMessage ="No less than 3 characters")]
         public string Title { get; set; }
-        [Required]
-        [MaxLength(100, ErrorMessage = "No more than 100 characters")]
+        [MaxLength(256, ErrorMessage = "No more than 256 characters")]
         [MinLength(3, ErrorMessage = "No less than 3 characters")]
         public string Description { get; set; }
         [NotMapped]

@@ -220,12 +220,11 @@
                     <div class="widget widget-gallery wow fadeInUp delay-0-2s">
                         <h4 class="widget-title">Gallery</h4>
                         <div class="gallery-widget">
-                            <a href="#"> <img src="~/assets/images/widgets/gallery1.jpg" alt="Gallery"> </a>
-                            <a href="#"> <img src="~/assets/images/widgets/gallery2.jpg" alt="Gallery"> </a>
-                            <a href="#"> <img src="~/assets/images/widgets/gallery3.jpg" alt="Gallery"> </a>
-                            <a href="#"> <img src="~/assets/images/widgets/gallery4.jpg" alt="Gallery"> </a>
-                            <a href="#"> <img src="~/assets/images/widgets/gallery5.jpg" alt="Gallery"> </a>
-                            <a href="#"> <img src="~/assets/images/widgets/gallery6.jpg" alt="Gallery"> </a>
+                           @foreach (var item in Model.Galleries)
+                            {
+                                <a href="https://www.instagram.com/"> <img style="width:100px;height:100px" src="~/assets/images/gallery/@item.Image" alt="Gallery"> </a>
+                            }
+                           
                         </div>
                     </div>
                 </div>

@@ -9,12 +9,17 @@ namespace QomfortHotelFinal.ViewModels
         public Room? Room { get; set; }
 
         public bool? Status { get; set; }
-        [Required]
+        [Required(ErrorMessage = "A Personcount must be included")]
+        
         public int PersonCount { get; set; }
+        [Required(ErrorMessage = "A Children must be included")]
+       
         public int Children { get; set; }
-        [Required]
+        [Required(ErrorMessage = "A ArrivalFate must be included")]
+        [DataType(DataType.DateTime)]   
         public DateTime ArrivalDate { get; set; }
-        [Required]
+        [Required(ErrorMessage = "A DeparturDate must be included")]
+        [DataType(DataType.DateTime)]
         public DateTime DeparturDate { get; set; }
         public DateTime? ReservationDate { get; set; }
 

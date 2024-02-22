@@ -4,8 +4,9 @@ namespace QomfortHotelFinal.Areas.Admin.ViewModels
 {
     public class UpdateCategoryVM
     {
-        [Required(ErrorMessage = "Add daxil edilmelidir")]
-        [MaxLength(25, ErrorMessage = "25 den uzun simvol olmaz")]
+      
+        [MaxLength(100, ErrorMessage = "No more than 100 characters")]
+        [MinLength(4, ErrorMessage = "Be less than 4 characters")]
         public string Name { get; set; }
     }
 }

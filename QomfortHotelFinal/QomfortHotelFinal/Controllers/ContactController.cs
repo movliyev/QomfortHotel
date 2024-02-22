@@ -1,41 +1,68 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Hangfire;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using QomfortHotelFinal.DAL;
 using QomfortHotelFinal.Models;
-using QomfortHotelFinal.ViewModels.Contact;
+using QomfortHotelFinal.ViewModels;
+using System.Security.Claims;
 
 namespace QomfortHotelFinal.Controllers
 {
     public class ContactController : Controller
     {
         private readonly AppDbContext _context;
+        private readonly UserManager<AppUser> _userManager;
 
-        public ContactController(AppDbContext context)
+        public ContactController(AppDbContext context,UserManager<AppUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
         [HttpGet]
-        public IActionResult Index()
+        public async Task <IActionResult> Index()
         {
-            return View();
+            AppUser user = await _userManager.Users
+             .Include(x=>x.Messagess)
+           .FirstOrDefaultAsync(u => u.Id == User.FindFirstValue(ClaimTypes.NameIdentifier));
+            Contact contact = await _context.Contacts.FirstOrDefaultAsync();
+            if(contact==null) return NotFound();
+            ContactVM vm = new ContactVM
+            {
+                Contact = contact,
+            };
+            return View(vm);
         }
         [HttpPost]
         public async Task<IActionResult> Index(ContactVM vm)
         {
-            if(!ModelState.IsValid)
+            Contact contact = await _context.Contacts.FirstOrDefaultAsync();
+            if (contact == null) return NotFound();
+            vm.Contact = contact;
+            if(!ModelState.IsValid) return View(vm);
+            if (User.Identity.IsAuthenticated)
             {
-                return View(vm);
+                var user = await _userManager.GetUserAsync(HttpContext.User);
+
+                Message message = new Message
+                {
+                  MessageDate=DateTime.Now,
+                  Messages=vm.Messages,
+                    Rate = vm.Rating,
+                    Subject=vm.Subject,
+                };
+
+                await _context.Messages.AddAsync(message);
+                await _context.SaveChangesAsync();
+              
             }
-            await _context.Contacts.AddAsync(new Contact
+            else
             {
-                Email = vm.Email,
-                FullName = vm.FullName,
-                MessageStatus = true,
-                Message = vm.Message,
-                Subject = vm.Subject,
-                MessageDate = DateTime.Now,
-            });
-            await _context.SaveChangesAsync();
-            return RedirectToAction("Index", "Home");
+
+                return RedirectToAction("Login", "Account");
+            }
+
+            return RedirectToAction("Index", "Contact");
         }
     }
 }

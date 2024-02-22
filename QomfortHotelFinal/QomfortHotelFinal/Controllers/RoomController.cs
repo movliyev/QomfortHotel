@@ -14,7 +14,7 @@ using System.Security.Claims;
 
 namespace QomfortHotelFinal.Controllers
 {
-    [AllowAnonymous]
+   
 
     public class RoomController : Controller
     {
@@ -28,6 +28,7 @@ namespace QomfortHotelFinal.Controllers
             _userManager = userManager;
             _emailService = emailService;
         }
+        [Authorize(Roles = "Memmber,Admin")]
         //\\\\\RESERVATION/////\\
         public async Task<IActionResult> Reserv(int id)
         {
@@ -65,7 +66,7 @@ namespace QomfortHotelFinal.Controllers
 
             return View(roomvm);
         }
-
+        [Authorize(Roles = "Memmber")]
         [HttpPost]
         public async Task<IActionResult> Reserv(int id, RoomVM vm)
         {
@@ -76,12 +77,8 @@ namespace QomfortHotelFinal.Controllers
            .Include(p => p.RoomFacilities).ThenInclude(x => x.Facility)
            .Include(p => p.RoomServicees).ThenInclude(p => p.Servicee)
            .FirstOrDefaultAsync(x => x.Id == id);
-            if (room == null)
-            {
-
-                ModelState.AddModelError(String.Empty, "The selected room could not be found.");
-                return View(vm);
-            }
+            if (room == null)return NotFound();
+           
             var reservations = await _context.Reservations
             .Where(r => r.RoomId == id) // Odanın mevcut ve aktif rezervasyonlarını al
              .ToListAsync();
@@ -107,8 +104,8 @@ namespace QomfortHotelFinal.Controllers
             }
 
             var existingReservations = await _context.Reservations
-       .Where(r => r.RoomId == id && r.Status == true) // Odanın mevcut ve aktif rezervasyonlarını al
-       .ToListAsync();
+            .Where(r => r.RoomId == id && r.Status == true) // Odanın mevcut ve aktif rezervasyonlarını al
+            .ToListAsync();
 
             // Seçilen tarih aralığında başka bir rezervasyon var mı kontrol et
             foreach (var reservation in existingReservations)
@@ -413,16 +410,16 @@ namespace QomfortHotelFinal.Controllers
             }
             PaginateVM<Room> vm = new PaginateVM<Room>
             {
-                Services=await _context.Servisees.OrderByDescending(x=>x.Id).Include(x=>x.RoomServicees).ThenInclude(x=>x.Room).Take(8).ToListAsync(), 
-                Blogs=await _context.Blogs.OrderByDescending(x=>x.Id).Take(5).ToListAsync(),
-                Items = await query.Skip((page - 1) * 3).Take(3).ToListAsync(),
-                Categories=await _context.Categories.Include(x=>x.Rooms).ToListAsync(),
-                Orrder=order,
-                Search=search,
-                CategoryId=categoryId,
-                ServiceId=serviceId,
-            
-                TotalPage = Math.Ceiling((double)count / 3),
+                Services = await _context.Servisees.OrderByDescending(x => x.Id).Include(x => x.RoomServicees).ThenInclude(x => x.Room).Take(8).ToListAsync(),
+                Blogs = await _context.Blogs.OrderByDescending(x => x.Id).Take(5).ToListAsync(),
+                Items = await query.Skip((page - 1) * 5).Take(5).ToListAsync(),
+                Categories = await _context.Categories.Include(x => x.Rooms).ToListAsync(),
+                Orrder = order,
+                Search = search,
+                CategoryId = categoryId,
+                ServiceId = serviceId,
+                Galleries = await _context.Galleries.OrderByDescending(x=>x.Id).Take(8).ToListAsync(),
+                TotalPage = Math.Ceiling((double)count / 5),
                 CurrentPage = page,
             };
             return View(vm);

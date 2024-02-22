@@ -188,7 +188,7 @@
             <div class="col-xl-3 col-lg-4 col-sm-6">
                 <div class="counter-item style-two counter-text-wrap wow fadeInUp delay-0-2s">
                     <div class="icon">
-                        <i class="fal fa-hotel"></i>
+                        <i class="fal fa-bed-alt"></i>
                     </div>
                     <span class="count-text" data-speed="3000" data-stop="@Model.Rooms.Count">0</span>
                     <span class="counter-title">Rooms</span>
@@ -199,8 +199,8 @@
                     <div class="icon">
                         <i class="fal fa-bed-alt"></i>
                     </div>
-                    <span class="count-text" data-speed="3000" data-stop="305">0</span>
-                    <span class="counter-title">Luxury Rooms</span>
+                    <span class="count-text" data-speed="3000" data-stop="@Model.Blogs.Count">0</span>
+                    <span class="counter-title">Blogs</span>
                 </div>
             </div>
             <div class="col-xl-3 col-lg-4 col-sm-6">
@@ -208,8 +208,8 @@
                     <div class="icon">
                         <i class="fal fa-umbrella-beach"></i>
                     </div>
-                    <span class="count-text" data-speed="3000" data-stop="68">0</span>
-                    <span class="counter-title">Beaches</span>
+                    <span class="count-text" data-speed="3000" data-stop="@Model.Comments.Count">0</span>
+                    <span class="counter-title">Comments</span>
                 </div>
             </div>
             <div class="col-xl-3 col-lg-4 col-sm-6">
@@ -217,8 +217,8 @@
                     <div class="icon">
                         <i class="fal fa-users-cog"></i>
                     </div>
-                    <span class="count-text" data-speed="3000" data-stop="383">0</span>
-                    <span class="counter-title">Regular Guest</span>
+                    <span class="count-text" data-speed="3000" data-stop="@Model.Servicees.Count">0</span>
+                    <span class="counter-title">Services</span>
                 </div>
             </div>
         </div>
@@ -274,7 +274,7 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="gallery-item style-two wow fadeInUp delay-0-2s">
                         <div class="image">
-                            <img src="~/assets/images/gallery/@item.Image" alt="Gallery">
+                            <img style="width:400px;height:400px" src="~/assets/images/gallery/@item.Image" alt="Gallery">
                         </div>
                         <div class="over-content">
                             <h2>@item.Name</h2>
@@ -320,7 +320,7 @@
                                 <div class="content">
                                     <h4><a href="room-details.html">@item.Name</a></h4>
                                     <p>@item.Description</p>
-                                    <a class="read-more" asp-action="Reserv" asp-controller="room" asp-route-id="@item.Id==@Model.Rooms">Read More <i class="@item.Icon"></i></a>
+                                    
                                 </div>
                             </div>
                         </div>

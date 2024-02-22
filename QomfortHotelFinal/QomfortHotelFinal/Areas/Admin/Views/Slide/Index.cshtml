@@ -15,7 +15,7 @@
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Category Table</h4>
+                        <h4 class="card-title">Slide Table</h4>
                         <a asp-action="Create" asp-controller="Slide" class="btn btn-outline-info">Ceate Slide</a>
                         <div class="table-responsive">
                             <table class="table table-dark table-borderless mb-0">
@@ -80,7 +80,7 @@
                                 <li class="page-item @(Model.CurrentPage<=1?"disabled":"")"><a class="page-link" asp-route-page="@(Model.CurrentPage-1)" asp-action="index" asp-controller="Slide">Previous</a></li>
                                 @for (int i = 0; i < Model.TotalPage; i++)
                                 {
-                                    <li class="page-item @(Model.CurrentPage - 1 == i? "disabled":"")"><a class="page-link" asp-route-page="@(i+1)" asp-action="index" asp-controller="Slide">@(i + 1)</a></li>
+                                    <li class="page-item @(Model.CurrentPage - 1 == i? "active":"")"><a class="page-link" asp-route-page="@(i+1)" asp-action="index" asp-controller="Slide">@(i + 1)</a></li>
                                 }
 
                                 <li class="page-item @(Model.TotalPage<=Model.CurrentPage?"disabled":"")"><a class="page-link" asp-route-page="@(Model.CurrentPage+1)" asp-action="index" asp-controller="Slide">Next</a></li>

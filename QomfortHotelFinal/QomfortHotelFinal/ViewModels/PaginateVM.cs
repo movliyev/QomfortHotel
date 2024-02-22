@@ -17,5 +17,6 @@ namespace QomfortHotelFinal.ViewModels
         public int? ServiceId { get; set; }
         public string? Search { get; set; }
         public List<Blog> Blogs { get; set; }
+        public List<Gallery>? Galleries { get; set; }
     }
 }

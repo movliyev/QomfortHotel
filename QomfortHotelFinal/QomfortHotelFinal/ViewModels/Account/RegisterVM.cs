@@ -5,37 +5,43 @@ namespace QomfortHotelFinal.ViewModels.Account
 {
     public class RegisterVM
     {
-        [Required(ErrorMessage = "Name daxil edilmelidir")]
-        [MinLength(3, ErrorMessage = "3 den az simvol olmaz")]
-        [MaxLength(25, ErrorMessage = "25 den cox simvol olmaz")]
+        [Required(ErrorMessage = "A Name must be included")]
+        [MaxLength(256, ErrorMessage = "No more than 256 characters")]
+        [MinLength(3, ErrorMessage = "Be less than 3 characters")]
+      
         public string Name { get; set; }
-        [Required(ErrorMessage = "Surname daxil edilmelidir")]
-        [MinLength(3, ErrorMessage = "3 den az simvol olmaz")]
-        [MaxLength(25, ErrorMessage = "25 den cox simvol olmaz")]
+        [Required(ErrorMessage = "A Surname must be included")]
+        [MaxLength(256, ErrorMessage = "No more than 256 characters")]
+        [MinLength(3, ErrorMessage = "Be less than 3 characters")]
         public string Surname { get; set; }
-        [Required(ErrorMessage = "UserName daxil edilmelidir")]
-        [MinLength(4, ErrorMessage = "4 den az simvol olmaz")]
-        [MaxLength(25, ErrorMessage = "25 den cox simvol olmaz")]
+        [Required(ErrorMessage = "A  UserName must be included")]
+        [MaxLength(256, ErrorMessage = "No more than 256 characters")]
+        [MinLength(4, ErrorMessage = "Be less than 4 characters")]
         public string UserName { get; set; }
-        
-        [NotMapped]
-        public IFormFile? Photo { get; set; }
-        [Required(ErrorMessage = "Gender secilmelidir")]
+
+        [Required(ErrorMessage = "A Gender must be included")]
         public string Gender { get; set; }
-        [Required(ErrorMessage = "Email daxil edilmelidir")]
-        [MaxLength(256, ErrorMessage = "256 den cox simvol olmaz")]
-        [DataType(DataType.EmailAddress)]
-        public string Email { get; set; }
-        [Required(ErrorMessage = "Phone daxil edilmelidir")]
-        [MaxLength(100, ErrorMessage = "100 den cox simvol olmaz")]
+        [Required(ErrorMessage = "A  Email must be included")]
+        [MaxLength(256, ErrorMessage = "No more than 256 characters")]
+        [MinLength(4, ErrorMessage = "Be less than 4 characters")]
         [DataType(DataType.PhoneNumber)]
+        public string Email { get; set; }
+        [Required(ErrorMessage = "A  PhoneNumber must be included")]
+        [MaxLength(256, ErrorMessage = "No more than 256 characters")]
+        [MinLength(3, ErrorMessage = "Be less than 3 characters")]
+        [DataType(DataType.PhoneNumber)]
+
         public string PhoneNumber { get; set; }
-        [Required(ErrorMessage = "Password daxil edilmelidir")]
+        [Required(ErrorMessage = "A Password must be included")]
+        [MaxLength(100, ErrorMessage = "No more than 100 characters")]
+        [MinLength(8, ErrorMessage = "Be less than 8 characters")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
-        [Required(ErrorMessage = "Password daxil edilmelidir")]
+        [Required(ErrorMessage = "A Password must be included")]
+        [MaxLength(100, ErrorMessage = "No more than 100 characters")]
+        [MinLength(8, ErrorMessage = "Be less than 8 characters")]
         [DataType(DataType.Password)]
-        [Compare(nameof(Password), ErrorMessage = "The passwords are not the same")]
+        [Compare(nameof(Password))]  
         public string ConfirmPassword { get; set; }
     }
 }

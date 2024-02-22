@@ -1,4 +1,4 @@
-﻿@using QomfortHotelFinal.ViewModels.Contact;
+﻿@using QomfortHotelFinal.ViewModels
 
 @model ContactVM
 
@@ -25,13 +25,13 @@
 </section>
 <!--End Hidden Sidebar -->
 <!-- Page Banner Start -->
-<section class="page-banner-area pt-170 rpt-110 pb-190 rpb-125 rel z-1 bgs-cover bgc-black text-center" style="background-image: url(assets/images/background/banner-shop.jpg)">
+<section class="page-banner-area pt-170 rpt-110 pb-190 rpb-125 rel z-1 bgs-cover bgc-black text-center" style="background-image: url(/assets/images/background/banner-shop.jpg)">
     <div class="container">
         <div class="banner-inner text-white">
             <h1 class="page-title wow fadeInUp delay-0-2s">Contact</h1>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb justify-content-center wow fadeInUp delay-0-4s">
-                    <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home">home</a></li>
+                    <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home">Home</a></li>
                     <li class="breadcrumb-item active">Contact</li>
                 </ol>
             </nav>
@@ -60,9 +60,9 @@
                             </div>
                         </div>
                     </div>
-                    <ul class="nav location-tab mb-40 wow fadeInUp delay-0-2s">
+                    <ul >
                         <li><a href="#australia" data-bs-toggle="tab" class="active show">Australia</a></li>
-                        <li><a href="#newyork" data-bs-toggle="tab">New York</a></li>
+                       
                     </ul>
                     <div class="tab-content wow fadeInUp delay-0-2s">
                         <div class="tab-pane fade active show" id="australia">
@@ -72,7 +72,7 @@
                                 </div>
                                 <div class="content">
                                     <span class="title">Locations</span>
-                                    <span class="text">55 Main Street, 2nd block, Melbourne, Australia</span>
+                                    <span class="text">@Model.Contact.Location</span>
                                 </div>
                             </div>
                             <div class="contact-info-item">
@@ -82,7 +82,7 @@
                                 <div class="content">
                                     <span class="title">Email Address</span>
                                     <span class="text">
-                                        <a href="mailto:support@gmail.com">support@gmail.com</a>,
+                                        <a href="mailto:support@gmail.com">@Model.Contact.Email</a>,
                                         <a href="mailto:infohotel.net">infohotel.net</a>
                                     </span>
                                 </div>
@@ -94,45 +94,12 @@
                                 <div class="content">
                                     <span class="title">Make A Call</span>
                                     <span class="text">
-                                        <a href="calto:+0001234568899">+000 (123) 456 88 99</a>
+                                        <a href="calto:+0001234568899">@Model.Contact.PhoneNumber</a>
                                     </span>
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="newyork">
-                            <div class="contact-info-item">
-                                <div class="icon">
-                                    <i class="flaticon-location-1"></i>
-                                </div>
-                                <div class="content">
-                                    <span class="title">Locations</span>
-                                    <span class="text">55 Main Street, 2nd block, Melbourne, New York</span>
-                                </div>
-                            </div>
-                            <div class="contact-info-item">
-                                <div class="icon">
-                                    <i class="flaticon-email-marketing"></i>
-                                </div>
-                                <div class="content">
-                                    <span class="title">Email Address</span>
-                                    <span class="text">
-                                        <a href="mailto:support@gmail.com">support@gmail.com</a>,
-                                        <a href="mailto:infohotel.net">infohotel.net</a>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="contact-info-item">
-                                <div class="icon">
-                                    <i class="flaticon-call"></i>
-                                </div>
-                                <div class="content">
-                                    <span class="title">Make A Call</span>
-                                    <span class="text">
-                                        <a href="calto:+0001234568899">+000 (123) 456 88 99</a>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
+                       
                     </div>
                 </div>
             </div>
@@ -143,41 +110,36 @@
                         <p>Your email address will not be published. Required fields are marked *</p>
                     </div>
                     <form  class="contactForm"  method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <div class="row gap-20 pt-15">
+                            
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input asp-for="FullName" type="text"  class="form-control"  placeholder="Full name" required data-error="Please enter your name">
-                                    <span asp-validation-for="FullName" class="text-danger"></span>
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" asp-for="Phone" class="form-control" value="" placeholder="Phone" required data-error="Please enter your Phone">
-                                    <span asp-validation-for="FullName" class="text-danger"></span>
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="email" asp-for="Email" class="form-control" value="" placeholder="Email" required data-error="Please enter your Email">
-                                    <span asp-validation-for="FullName" class="text-danger"></span>
-
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" asp-for="Subject" class="form-control" value="" placeholder="Subject" required data-error="Please enter your Subject">
-                                    <span asp-validation-for="FullName" class="text-danger"></span>
+                                    <input type="text" asp-for="Subject" class="form-control"  placeholder="Subject" required data-error="Please enter your Subject">
+                                    <span asp-validation-for="Subject" class="text-danger"></span>
 
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <textarea asp-for="Message" class="form-control"  placeholder="Message" required data-error="Please enter your Message"></textarea>
+                                    <input asp-for="Messages" class="form-control"  placeholder="Message" required data-error="Please enter your Message">
+                                    <span asp-validation-for="Messages" class="text-danger"></span>
                                     <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="rating">
+                                    <input type="radio" id="star5" name="Rating" value="5" />
+                                    <label for="star5" title="5 stars">&#9733;</label>
+                                    <input type="radio" id="star4" name="Rating" value="4" />
+                                    <label for="star4" title="4 stars">&#9733;</label>
+                                    <input type="radio" id="star3" name="Rating" value="3" />
+                                    <label for="star3" title="3 stars">&#9733;</label>
+                                    <input type="radio" id="star2" name="Rating" value="2" />
+                                    <label for="star2" title="2 stars">&#9733;</label>
+                                    <input type="radio" id="star1" name="Rating" value="1" />
+                                    <label for="star1" title="1 star">&#9733;</label>
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -188,6 +150,36 @@
                             </div>
                         </div>
                     </form>
+                    <style>
+                        .card-pricing .card-pricing-features li {
+                            padding: 15px;
+                        }
+
+                        .rating {
+                            unicode-bidi: bidi-override;
+                            direction: rtl;
+                            text-align: center;
+                        }
+
+                            .rating > input {
+                                display: none;
+                            }
+
+                            .rating > label {
+                                display: inline-block;
+                                position: relative;
+                                width: 1.1em;
+                                font-size: 3em;
+                                color: #ccc;
+                                cursor: pointer;
+                            }
+
+                                .rating > label:hover,
+                                .rating > label:hover ~ label,
+                                .rating > input:checked ~ label {
+                                    color: #fdd835;
+                                }
+                    </style>
                 </div>
             </div>
         </div>
@@ -210,4 +202,3 @@
     </div>
 </div>
 <!-- Location Map Area End -->
-<

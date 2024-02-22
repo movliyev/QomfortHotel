@@ -93,16 +93,7 @@
                                             <a asp-action="RoomList" asp-controller="Room">Room</a>
 
                                         </li>
-                                        <li class="dropdown">
-                                            <a href="#">pages</a>
-                                            <ul>
-                                                <li><a asp-action="Index" asp-controller="About">About us</a></li>
-                                                <li><a asp-action="Index" asp-controller="Servicee">Services</a></li>
-                                                <li><a asp-action="Index" asp-controller="Gallery">Gallery</a></li>
-
-                                            </ul>
-                                        </li>
-
+                                       
                                         <li>
                                             <a asp-action="index" asp-controller="Blog">Blog</a>
 
@@ -158,7 +149,7 @@
                                 <i class="far fa-phone"></i>
                                 <a href="@settings["Phone"]">@settings["Phone"]</a>
                             </span>
-                            <a href="contact.html" class="theme-btn">Book Now <i class="far fa-angle-right"></i></a>
+                            <a asp-action="RoomList" asp-controller="Room" class="theme-btn">Book Now <i class="far fa-angle-right"></i></a>
                             <!-- menu sidbar -->
 
                         </div>

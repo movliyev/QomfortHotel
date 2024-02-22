@@ -337,25 +337,19 @@ namespace QomfortHotelFinal.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("FullName")
+                    b.Property<string>("HoverImage")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Message")
+                    b.Property<string>("Location")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("MessageDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("MessageStatus")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Phone")
+                    b.Property<string>("PhoneNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Subject")
+                    b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -437,6 +431,39 @@ namespace QomfortHotelFinal.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("HomeAbouts");
+                });
+
+            modelBuilder.Entity("QomfortHotelFinal.Models.Message", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("AppUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("MessageDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Messages")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Rate")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Subject")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.ToTable("Messages");
                 });
 
             modelBuilder.Entity("QomfortHotelFinal.Models.Order", b =>
@@ -779,6 +806,17 @@ namespace QomfortHotelFinal.Migrations
                     b.Navigation("Blog");
                 });
 
+            modelBuilder.Entity("QomfortHotelFinal.Models.Message", b =>
+                {
+                    b.HasOne("QomfortHotelFinal.Models.AppUser", "AppUser")
+                        .WithMany("Messagess")
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+                });
+
             modelBuilder.Entity("QomfortHotelFinal.Models.Order", b =>
                 {
                     b.HasOne("QomfortHotelFinal.Models.AppUser", "AppUser")
@@ -882,6 +920,8 @@ namespace QomfortHotelFinal.Migrations
             modelBuilder.Entity("QomfortHotelFinal.Models.AppUser", b =>
                 {
                     b.Navigation("Comments");
+
+                    b.Navigation("Messagess");
 
                     b.Navigation("Reservations");
                 });
