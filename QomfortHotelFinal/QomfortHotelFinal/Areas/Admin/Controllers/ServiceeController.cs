@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using QomfortHotelFinal.Areas.Admin.ViewModels;
 using QomfortHotelFinal.DAL;
@@ -9,7 +10,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("Admin/[controller]/[action]")]
-
+    [Authorize(Roles = "Admin,Memmber")]
     public class ServiceeController : Controller
     {
         private readonly AppDbContext _context;
@@ -112,11 +113,23 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
             if (id <= 0) return BadRequest();
 
             Servicee existed = await _context.Servisees.FirstOrDefaultAsync(c => c.Id == id);
+            if (existed == null) return Json(new { status = 404 });
+            try
+            {
 
-            if (existed is null) return NotFound();
-            _context.Servisees.Remove(existed);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+                _context.Servisees.Remove(existed);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception)
+            {
+
+                return Json(new { status = 500 });
+            }
+
+            return Json(new { status = 200 });
+           
+           
+           
         }
 
 

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using QomfortHotelFinal.Areas.Admin.ViewModels;
 using QomfortHotelFinal.DAL;
@@ -9,7 +10,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("Admin/[controller]/[action]")]
-
+    [Authorize(Roles = "Admin")]
     public class HomeAboutController : Controller
     {
 

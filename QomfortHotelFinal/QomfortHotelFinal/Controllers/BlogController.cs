@@ -1,7 +1,9 @@
 ﻿
 
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using QomfortHotelFinal.DAL;
 using QomfortHotelFinal.Models;
@@ -11,6 +13,8 @@ using System.Security.Claims;
 
 namespace QomfortHotelFinal.Controllers
 {
+    [AllowAnonymous]
+
     public class BlogController : Controller
     {
         private readonly AppDbContext _context;
@@ -21,10 +25,21 @@ namespace QomfortHotelFinal.Controllers
             _context = context;
            _userManager = userManager;
         }
-        public IActionResult Index()
+        public async Task <IActionResult> Index(int page = 1)
         {
-            List<Blog> blog = _context.Blogs.Include(x => x.Comments).ToList();
-            return View(blog);
+            if (page < 1) return BadRequest();
+
+            int count = await _context.Blogs.CountAsync();
+
+            List<Blog> blog =await _context.Blogs.Include(x => x.Comments).ToListAsync();
+            PaginateVM<Blog> pagvm = new PaginateVM<Blog>
+            {
+                Items = blog,
+                TotalPage = Math.Ceiling((double)count / 3),
+                CurrentPage = page,
+            };
+
+            return View(pagvm);
         }
         public async Task<IActionResult> Detail(int id)
         {

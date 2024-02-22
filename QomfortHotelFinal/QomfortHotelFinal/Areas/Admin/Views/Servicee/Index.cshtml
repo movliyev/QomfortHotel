@@ -59,8 +59,14 @@
                                                 @item.Description
                                             </td>
                                             <td>
-                                                <a asp-action="Update" asp-controller="Servicee" asp-route-id="@item.Id" class="btn btn-warning btn-info"><i class="mdi mdi-grease-pencil"></i></a>
-                                                <a asp-action="Delete" asp-controller="Servicee" asp-route-id="@item.Id" class="btn btn-danger btn-info"><i class="mdi mdi-delete"></i></a>
+                                                @{
+                                                    if (!User.IsInRole("Memmber"))
+                                                    {
+                                                        <a asp-action="Update" asp-controller="Servicee" asp-route-id="@item.Id" class="btn btn-warning btn-info"><i class="mdi mdi-grease-pencil"></i></a>
+                                                        <a asp-action="Delete" asp-controller="Servicee" asp-route-id="@item.Id" class="customDeletebtn btn btn-danger btn-info"><i class="mdi mdi-delete"></i></a>
+                                                    }
+                                                }
+                                               
                                             </td>
                                         </tr>
 

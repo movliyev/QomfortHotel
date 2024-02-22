@@ -1,0 +1,153 @@
+﻿@model PaginateVM<Comment>
+@{
+    int count = (Model.CurrentPage - 1) * 3;
+}
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Comment Table</h4>
+                       
+                        <div class="table-responsive">
+                            <table class="table table-dark table-borderless mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            No
+                                        </th>
+                                        <th>
+                                           UserImage
+                                        </th>
+                                        <th>
+                                           UserName
+                                        </th>
+                                        <th>
+                                           CommentContent
+                                        </th>
+                                        <th>
+                                            CommentDate
+                                        </th>
+                                        <th>
+                                            BlogTitle
+                                        </th>
+                                        <th>
+                                            Rating
+                                        </th>
+                                       
+                                        <th>
+
+                                            Settings
+                                        </th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                   
+                                    @foreach (Comment item in Model.Items)
+                                    {
+                                        count++;
+                                        <tr>
+                                            <td>
+                                                @count
+                                            </td>
+
+                                            <td>
+                                                <img style="width:150px;height:150px;" src="~/assets/images/User/@item.AppUser.UserImage" />
+                                            </td>
+                                            <td>
+                                                @item.AppUser.UserName
+                                            </td>
+                                            <td>
+                                                @item.CommentContent
+                                            </td>
+                                            <td>
+                                                @item.CommentDate
+                                            </td>
+                                            <td>
+                                                @item.Blog.Title
+                                            </td>
+                                            <td>
+                                                <div class="rating">
+                                                    @for (int i = 5; i >= 1; i--)
+                                                    {
+                                                        @if (i <= item.Rate)
+                                                        {
+                                                            <i class="fas fa-star text-warning"></i>
+                                                        }
+                                                        else
+                                                        {
+                                                            <i class="fas fa-star"></i>
+                                                        }
+                                                    }
+                                                </div>
+                                            </td>
+                                           
+                                            <td>
+                                                <a asp-action="Delete" asp-controller="Comment" asp-route-id="@item.Id" class="customDeletebtn btn btn-danger btn-info" class=""><i class="mdi mdi-delete"></i></a>
+                                            </td>
+                                        </tr>
+
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination" class="sub-menu" aria-expanded="false">
+                                <li class="page-item @(Model.CurrentPage<=1?"disabled":"")"><a class="page-link" asp-route-page="@(Model.CurrentPage-1)" asp-action="index" asp-controller="Comment">Previous</a></li>
+                                @for (int i = 0; i < Model.TotalPage; i++)
+                                {
+                                    <li class="page-item @(Model.CurrentPage - 1 == i? "active":"")"><a class="page-link" asp-route-page="@(i+1)" asp-action="index" asp-controller="Comment">@(i + 1)</a></li>
+                                }
+
+                                <li class="page-item @(Model.TotalPage<=Model.CurrentPage?"disabled":"")"><a class="page-link" asp-route-page="@(Model.CurrentPage+1)" asp-action="index" asp-controller="Comment">Next</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <!-- end card-body-->
+                </div>
+                <!-- end card -->
+
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .card-pricing .card-pricing-features li {
+        padding: 15px;
+    }
+
+    .rating {
+        unicode-bidi: bidi-override;
+        direction: rtl;
+        text-align: center;
+    }
+
+        .rating > input {
+            display: none;
+        }
+
+        .rating > label {
+            display: inline-block;
+            position: relative;
+            width: 1.1em;
+            font-size: 3em;
+            color: #ccc;
+            cursor: pointer;
+        }
+
+            .rating > label:hover,
+            .rating > label:hover ~ label,
+            .rating > input:checked ~ label {
+                color: #fdd835;
+            }
+</style>

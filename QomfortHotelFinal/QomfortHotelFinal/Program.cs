@@ -1,6 +1,8 @@
 using Hangfire;
 using Hangfire.SqlServer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using QomfortHotelFinal.Abstractions.MailService;
 using QomfortHotelFinal.DAL;
@@ -42,14 +44,14 @@ builder.Services.AddScoped<LayoutService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddHangfire(config => config.UseSqlServerStorage(builder.Configuration.GetConnectionString("Default")));
 builder.Services.AddHangfireServer();
-//builder.Services.AddMvc(config =>
-//{
-//    var policy = new AuthorizationPolicyBuilder()
-//    .RequireAuthenticatedUser()
-//    .Build();
-//    config.Filters.Add(new AuthorizeFilter(policy));
-//});
-//builder.Services.AddMvc();
+builder.Services.AddMvc(config =>
+{
+    var policy = new AuthorizationPolicyBuilder()
+    .RequireAuthenticatedUser()
+    .Build();
+    config.Filters.Add(new AuthorizeFilter(policy));
+});
+builder.Services.AddMvc();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

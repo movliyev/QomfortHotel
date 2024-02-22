@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using QomfortHotelFinal.Areas.Admin.ViewModels;
 using QomfortHotelFinal.Areas.Admin.ViewModels.Blog;
@@ -10,7 +11,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("Admin/[controller]/[action]")]
-
+    [Authorize(Roles = "Admin,Memmber")]
     public class BlogController : Controller
     {
 
@@ -25,7 +26,8 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
 
         public async Task<IActionResult> Indexx(int page = 1)
         {
-            int count = await _context.Categories.CountAsync();
+            if (page < 1) return BadRequest();
+            int count = await _context.Blogs.CountAsync();
 
             List<Blog> Blogs = await _context.Blogs.OrderByDescending(x=>x.Id).Include(x=>x.Comments).Skip((page - 1) * 3).Take(3).ToListAsync();
             PaginateVM<Blog> pagvm = new PaginateVM<Blog>
@@ -191,14 +193,21 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
         {
             if (id <= 0) return BadRequest();
             Blog exsist = await _context.Blogs.FirstOrDefaultAsync(s => s.Id == id);
-            if (exsist == null) return NotFound();
-            exsist.MainImage.DeleteFile(_env.WebRootPath, "assets", "images", "blog");
-            exsist.HoverImage.DeleteFile(_env.WebRootPath, "assets", "images", "blog");
-            _context.Blogs.Remove(exsist);
-            await _context.SaveChangesAsync();
+            if (exsist == null) return Json(new { status = 404 });
+            try
+            {
+                exsist.MainImage.DeleteFile(_env.WebRootPath, "assets", "images", "blog");
+                exsist.HoverImage.DeleteFile(_env.WebRootPath, "assets", "images", "blog");
+                _context.Blogs.Remove(exsist);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception)
+            {
 
+                return Json(new { status = 500 });
+            }
 
-            return RedirectToAction(nameof(Indexx));
+            return Json(new { status = 200 });
         }
 
 

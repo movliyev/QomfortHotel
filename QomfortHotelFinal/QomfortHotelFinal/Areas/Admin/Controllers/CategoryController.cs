@@ -4,12 +4,13 @@ using QomfortHotelFinal.DAL;
 using QomfortHotelFinal.Models;
 using Microsoft.EntityFrameworkCore;
 using QomfortHotelFinal.Utilities.Extensions;
+using Microsoft.AspNetCore.Authorization;
 
 namespace QomfortHotelFinal.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("Admin/[controller]/[action]")]
-
+    [Authorize(Roles = "Admin,Memmber")]
     public class CategoryController : Controller
     {
         private readonly AppDbContext _context;
@@ -106,11 +107,22 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
             if (id <= 0) return BadRequest();
 
             Category existed = await _context.Categories.FirstOrDefaultAsync(c => c.Id == id);
+            if (existed == null) return Json(new { status = 404 });
+            try
+            {
+                _context.Categories.Remove(existed);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception)
+            {
 
-            if (existed is null) return NotFound();
-            _context.Categories.Remove(existed);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+                return Json(new { status = 500 });
+            }
+
+            return Json(new { status = 200 });
+           
+          
+           
         }
 
       

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using QomfortHotelFinal.Areas.Admin.ViewModels.Setting;
 using QomfortHotelFinal.DAL;
@@ -8,6 +9,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("Admin/[controller]/[action]")]
+    [Authorize(Roles = "Admin,Memmber")]
     public class SettingController : Controller
     {
         private readonly AppDbContext _context;
@@ -21,42 +23,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
             List<Setting> settings = await _context.Settings.ToListAsync();
             return View(settings);
         }
-        public IActionResult Create()
-        {
-            return View();
-        }
-        [HttpPost]
-        public async Task<IActionResult> Create(CreateSettingVM vm)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View(vm);
-
-            }
-            bool result = _context.Settings.Any(c => c.Key.Trim() == vm.Key.Trim());
-            if (result)
-            {
-                ModelState.AddModelError("Name", "Bu adda key movcuddur");
-                return View();
-            }
-            bool result2 = _context.Settings.Any(c => c.Value.Trim() == vm.Value.Trim());
-            if (result2)
-            {
-                ModelState.AddModelError("Name", "Bu adda Value movcuddur");
-                return View();
-            }
-            Setting set = new Setting
-            {
-                Key = vm.Key,
-                Value = vm.Value
-            };
-
-            await _context.Settings.AddAsync(set);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-
+      
 
         public async Task<IActionResult> Update(int id)
         {

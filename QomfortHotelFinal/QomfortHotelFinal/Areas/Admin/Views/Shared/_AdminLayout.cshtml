@@ -1,245 +1,419 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿
+@{
+    if (User.IsInRole("Memmber"))
+    {
+        <!DOCTYPE html>
+        <html lang="en">
 
-<head>
-    <meta charset="utf-8" />
-    <title>Drezoc - Admin & Dashboard Template</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
-    <meta content="MyraStudio" name="author" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <head>
+            <meta charset="utf-8" />
+            <title>Drezoc - Admin & Dashboard Template</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+            <meta content="MyraStudio" name="author" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="~/Massets/images/favicon.ico">
+            <!-- App favicon -->
+            <link rel="shortcut icon" href="~/Massets/images/favicon.ico">
 
-    <!-- App css -->
-    <link href="~/Massets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="~/Massets/css/icons.min.css" rel="stylesheet" type="text/css" />
-    <link href="~/Massets/css/theme.min.css" rel="stylesheet" type="text/css" />
+            <!-- App css -->
+            <link href="~/Massets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+            <link href="~/Massets/css/icons.min.css" rel="stylesheet" type="text/css" />
+            <link href="~/Massets/css/theme.min.css" rel="stylesheet" type="text/css" />
 
-</head>
+        </head>
 
-<body>
+        <body>
 
-    <!-- Begin page -->
-    <div id="layout-wrapper">
+            <!-- Begin page -->
+            <div id="layout-wrapper">
 
-        <!-- ========== Left Sidebar Start ========== -->
-        <div class="vertical-menu">
+                <!-- ========== Left Sidebar Start ========== -->
+                <div class="vertical-menu">
 
-            <div data-simplebar class="h-100">
+                    <div data-simplebar class="h-100">
 
-                <!-- LOGO -->
-                <div class="navbar-brand-box">
-                    <a href="index.html">
-                        <img src="~/assets/images/logos/logo-white.png" alt="Logo" title="Logo">
-                    </a>
-                </div>
-
-                <!--- Sidemenu -->
-                <div id="sidebar-menu">
-                    <!-- Left Menu Start -->
-                    <ul class="metismenu list-unstyled" id="side-menu">
-                        <li class="menu-title">Menu</li>
-
-                        <li>
-                            <a asp-action="Index" asp-controller="Dashboard"><i class="feather-home"></i><span class="badge badge-pill badge-success float-right"></span><span>Dashboard</span></a>
-                        </li>
-
-                        <li>
-                            <a href="javascript: void(0);" class="has-arrow"><i class="mdi mdi-table-large"></i><span>Tables</span></a>
-                            <ul class="sub-menu" aria-expanded="false">
-                                <li><a asp-action="Index" asp-controller="Room">Rooms</a></li>
-                                <li><a asp-action="Indexx" asp-controller="Blog" >Blogs</a></li>
-                                <li><a asp-action="Index" asp-controller="Category">Categorys</a></li>
-                                <li><a asp-action="Index" asp-controller="Slide">Slides</a></li>
-                                <li><a asp-action="Index" asp-controller="HomeAbout">HomeAbout</a></li>
-                                <li><a asp-action="Index" asp-controller="Facility">Facilities</a></li>
-                                <li><a asp-action="Index" asp-controller="Gallery">Galleries</a></li>
-                                <li><a asp-action="Index" asp-controller="Servicee">Services</a></li>
-                                <li><a asp-action="Index" asp-controller="Setting">Settings</a></li>
-                               
-                            </ul>
-                        </li>
-
-                        <li>
-                            <a asp-action="Index" asp-controller="Home" asp-route-area="" ><i class="mdi mdi-home"></i><span>Home</span></a>
-                        </li>
-
-                     
-                    </ul>
-                </div>
-                <!-- Sidebar -->
-            </div>
-        </div>
-        <!-- Left Sidebar End -->
-        <!-- ============================================================== -->
-        <!-- Start right Content here -->
-        <!-- ============================================================== -->
-        <div class="main-content">
-
-            <header id="page-topbar">
-                <div class="navbar-header">
-                    <div class="d-flex align-items-center">
-                        <button type="button" class="btn btn-sm mr-2 d-lg-none header-item" id="vertical-menu-btn">
-                            <i class="fa fa-fw fa-bars"></i>
-                        </button>
-
-                        <div class="header-breadcumb">
-                            <h6 class="header-pretitle d-none d-md-block">Pages <i class="dripicons-arrow-thin-right"></i> Dashboard</h6>
-                            <h2 class="header-title">Overview</h2>
+                        <!-- LOGO -->
+                        <div class="navbar-brand-box">
+                            <a href="index.html">
+                                <img src="~/assets/images/logos/logo-white.png" alt="Logo" title="Logo">
+                            </a>
                         </div>
+
+                        <!--- Sidemenu -->
+                        <div id="sidebar-menu">
+                            <!-- Left Menu Start -->
+                            <ul class="metismenu list-unstyled" id="side-menu">
+                                <li class="menu-title">Menu</li>
+
+                                <li>
+                                    <a asp-action="Index" asp-controller="Dashboard"><i class="feather-home"></i><span class="badge badge-pill badge-success float-right"></span><span>Dashboard</span></a>
+                                </li>
+
+                                <li>
+                                    <a href="javascript: void(0);" class="has-arrow"><i class="mdi mdi-table-large"></i><span>Tables</span></a>
+                                    <ul class="sub-menu" aria-expanded="false">
+                                        <li><a asp-action="Index" asp-controller="Room">Rooms</a></li>
+                                        <li><a asp-action="Indexx" asp-controller="Blog">Blogs</a></li>
+                                        <li><a asp-action="Index" asp-controller="Category">Categorys</a></li>
+                                        <li><a asp-action="Index" asp-controller="Slide">Slides</a></li>
+                                        <li><a asp-action="Index" asp-controller="Facility">Facilities</a></li>
+                                        <li><a asp-action="Index" asp-controller="Gallery">Galleries</a></li>
+                                        <li><a asp-action="Index" asp-controller="Servicee">Services</a></li>
+
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <a asp-action="Index" asp-controller="Home" asp-route-area=""><i class="mdi mdi-home"></i><span>Home</span></a>
+                                </li>
+                                <li>
+                                    <a asp-action="MyOldReservation" asp-controller="Myreserv" asp-route-area="Admin"><i class="mdi mdi-home"></i><span>My old reservation</span></a>
+                                </li>
+                                <li>
+                                    <a asp-action="MyCurrentReservation" asp-controller="Myreserv" asp-route-area="Admin"><i class="mdi mdi-home"></i><span>My current reservation</span></a>
+                                </li>
+
+
+                            </ul>
+                        </div>
+                        <!-- Sidebar -->
                     </div>
-                    <div class="d-flex align-items-center">
+                </div>
+                <!-- Left Sidebar End -->
+                <!-- ============================================================== -->
+                <!-- Start right Content here -->
+                <!-- ============================================================== -->
+                <div class="main-content">
 
-                        <button type="button" class="btn btn-primary d-none d-lg-block ml-2">
-                            <i class="mdi mdi-pencil-outline mr-1"></i> Create Reports
-                        </button>
+                    <header id="page-topbar">
+                        <div class="navbar-header">
+                            <div class="d-flex align-items-center">
+                                <button type="button" class="btn btn-sm mr-2 d-lg-none header-item" id="vertical-menu-btn">
+                                    <i class="fa fa-fw fa-bars"></i>
+                                </button>
 
-                        <div class="dropdown d-inline-block ml-2">
-                            <button type="button" class="btn header-item noti-icon" id="page-header-notifications-dropdown"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="mdi mdi-bell-outline"></i>
-                                <span class="badge badge-danger badge-pill">6</span>
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-0"
-                                 aria-labelledby="page-header-notifications-dropdown">
-                                <div class="p-3">
-                                    <div class="row align-items-center">
-                                        <div class="col">
-                                            <h6 class="m-0"> Notifications </h6>
-                                        </div>
-                                        <div class="col-auto">
-                                            <a href="#!" class="small"> View All</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div data-simplebar style="max-height: 230px;">
-                                    <a href="" class="text-reset">
-                                        <div class="media py-2 px-3">
-                                            <img src="~/Massets/images/users/avatar-2.jpg"
-                                                 class="mr-3 rounded-circle avatar-xs" alt="user-pic">
-                                            <div class="media-body">
-                                                <h6 class="mt-0 mb-1">Samuel Coverdale</h6>
-                                                <p class="font-size-12 mb-1">You have new follower on Instagram</p>
-                                                <p class="font-size-12 mb-0 text-muted"><i class="mdi mdi-clock-outline"></i> 2 min ago</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="" class="text-reset">
-                                        <div class="media py-2 px-3">
-                                            <div class="avatar-xs mr-3">
-                                                <span class="avatar-title bg-success rounded-circle">
-                                                    <i class="mdi mdi-cloud-download-outline"></i>
-                                                </span>
-                                            </div>
-                                            <div class="media-body">
-                                                <h6 class="mt-0 mb-1">Download Available !</h6>
-                                                <p class="font-size-12 mb-1">Latest version of admin is now available. Please download here.</p>
-                                                <p class="font-size-12 mb-0 text-muted"><i class="mdi mdi-clock-outline"></i> 4 hours ago</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="" class="text-reset">
-                                        <div class="media py-2 px-3">
-                                            <img src="~/Massets/images/users/avatar-3.jpg"
-                                                 class="mr-3 rounded-circle avatar-xs" alt="user-pic">
-                                            <div class="media-body">
-                                                <h6 class="mt-0 mb-1">Victoria Mendis</h6>
-                                                <p class="font-size-12 mb-1">Just upgraded to premium account.</p>
-                                                <p class="font-size-12 mb-0 text-muted"><i class="mdi mdi-clock-outline"></i> 1 day ago</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="p-2 border-top">
-                                    <a class="btn btn-sm btn-light btn-block text-center" href="javascript:void(0)">
-                                        <i class="mdi mdi-arrow-down-circle mr-1"></i> Load More..
-                                    </a>
+                                <div class="header-breadcumb">
+                                    <h6  class="header-pretitle d-none d-md-block">Pages <i class="dripicons-arrow-thin-right"></i> Dashboard</h6>
+                                    <h2 class="header-title">Overview</h2>
                                 </div>
                             </div>
+                            <div class="d-flex align-items-center">
+
+                              
+                                <div class="dropdown d-inline-block ml-2">
+
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+                                       
+
+                                        <button type="button" class="btn header-item" id="page-header-user-dropdown"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+
+                                            <img class="rounded-circle header-profile-user" src="~/assets/images/User/"
+                                                 alt="Header Avatar">
+                                            <span class="d-none d-sm-inline-block ml-1">@User.Identity.Name</span>
+                                            <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
+
+
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a class="dropdown-item d-flex align-items-center justify-content-between" asp-action="Index" asp-controller="Profile">
+                                                <span>Profile</span>
+                                            </a>
+                                            <a class="dropdown-item d-flex align-items-center justify-content-between" asp-action="Logout" asp-controller="Account" asp-route-area="">
+                                                <span>Log Out</span>
+                                            </a>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="dropdown-menu dropdown-menu-right">
+
+                                            <a class="dropdown-item d-flex align-items-center justify-content-between" asp-action="register" asp-controller="account">
+                                                <span>Register</span>
+                                            </a>
+                                            <a class="dropdown-item d-flex align-items-center justify-content-between" asp-action="login" asp-controller="account">
+                                                <span>Login</span>
+
+                                            </a>
+
+                                        </div>
+                                    }
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </header>
+                    @RenderBody()
+
+
+
+                </div>
+                <!-- end main content-->
+            </div>
+            <!-- END layout-wrapper -->
+            <!-- Overlay-->
+            <div class="menu-overlay"></div>
+
+
+            <!-- jQuery  -->
+            <script src="~/Massets/js/jquery.min.js"></script>
+            <script src="~/Massets/js/bootstrap.bundle.min.js"></script>
+            <script src="~/Massets/js/metismenu.min.js"></script>
+            <script src="~/Massets/js/waves.js"></script>
+            <script src="~/Massets/js/simplebar.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            <script src="~/Massets/js/main.js"></script>
+
+            <!-- Sparkline Js-->
+            <script src="../plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
+
+            <!-- Morris Js-->
+            <script src="../plugins/morris-js/morris.min.js"></script>
+            <!-- Raphael Js-->
+            <script src="../plugins/raphael/raphael.min.js"></script>
+
+            <!-- Custom Js -->
+            <script src="~/Massets/pages/dashboard-demo.js"></script>
+
+            <!-- App js -->
+            <script src="~/Massets/js/theme.js"></script>
+            @RenderSection("DeleteImage",false);
+        </body>
+
+        </html>
+    }
+    else
+    {
+        <!DOCTYPE html>
+        <html lang="en">
+
+        <head>
+            <meta charset="utf-8" />
+            <title>Drezoc - Admin & Dashboard Template</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+            <meta content="MyraStudio" name="author" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+            <!-- App favicon -->
+            <link rel="shortcut icon" href="~/Massets/images/favicon.ico">
+
+            <!-- App css -->
+            <link href="~/Massets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+            <link href="~/Massets/css/icons.min.css" rel="stylesheet" type="text/css" />
+            <link href="~/Massets/css/theme.min.css" rel="stylesheet" type="text/css" />
+
+        </head>
+
+        <body>
+
+            <!-- Begin page -->
+            <div id="layout-wrapper">
+
+                <!-- ========== Left Sidebar Start ========== -->
+                <div class="vertical-menu">
+
+                    <div data-simplebar class="h-100">
+
+                        <!-- LOGO -->
+                        <div class="navbar-brand-box">
+                            <a href="index.html">
+                                <img src="~/assets/images/logos/logo-white.png" alt="Logo" title="Logo">
+                            </a>
                         </div>
 
-                        <div class="dropdown d-inline-block ml-2">
+                        <!--- Sidemenu -->
+                        <div id="sidebar-menu">
+                            <!-- Left Menu Start -->
+                            <ul class="metismenu list-unstyled" id="side-menu">
+                                <li class="menu-title">Menu</li>
 
-                            @if (User.Identity.IsAuthenticated)
-                            {
-                                
-                                <button type="button" class="btn header-item" id="page-header-user-dropdown"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <li>
+                                    <a asp-action="Index" asp-controller="Dashboard"><i class="feather-home"></i><span class="badge badge-pill badge-success float-right"></span><span>Dashboard</span></a>
+                                </li>
+
+                                <li>
+                                    <a href="javascript: void(0);" class="has-arrow"><i class="mdi mdi-table-large"></i><span>Tables</span></a>
+                                    <ul class="sub-menu" aria-expanded="false">
+                                        <li><a asp-action="Index" asp-controller="Room">Rooms</a></li>
+                                        <li><a asp-action="Indexx" asp-controller="Blog">Blogs</a></li>
+                                        <li><a asp-action="Index" asp-controller="Category">Categorys</a></li>
+                                        <li><a asp-action="Index" asp-controller="Slide">Slides</a></li>
+                                        <li><a asp-action="Index" asp-controller="HomeAbout">HomeAbout</a></li>
+                                        <li><a asp-action="Index" asp-controller="Facility">Facilities</a></li>
+                                        <li><a asp-action="Index" asp-controller="Gallery">Galleries</a></li>
+                                        <li><a asp-action="Index" asp-controller="Servicee">Services</a></li>
+                                        <li><a asp-action="Index" asp-controller="Setting">Settings</a></li>
+
+                                    </ul>
+                                </li>
+
+                                <li>
+                                    <a asp-action="Index" asp-controller="Home" asp-route-area=""><i class="mdi mdi-home"></i><span>Home</span></a>
+                                </li>
 
 
-                                    <img class="rounded-circle header-profile-user" src="~/Massets/images/users/avatar-1.jpg"
-                                         alt="Header Avatar">
-                                    <span class="d-none d-sm-inline-block ml-1">@User.Identity.Name</span>
-                                    <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
-
-
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item d-flex align-items-center justify-content-between" asp-action="Index" asp-controller="Profile">
-                                        <span>Profile</span>
-                                    </a>
-                                    <a class="dropdown-item d-flex align-items-center justify-content-between" asp-action="Logout" asp-controller="Account" asp-route-area="">
-                                        <span>Log Out</span>
-                                    </a>
-                                </div>
-                            }
-                            else
-                            {
-                                <div class="dropdown-menu dropdown-menu-right">
-
-                                    <a class="dropdown-item d-flex align-items-center justify-content-between" asp-action="register" asp-controller="account">
-                                        <span>Register</span>
-                                    </a>
-                                    <a class="dropdown-item d-flex align-items-center justify-content-between" asp-action="login" asp-controller="account">
-                                        <span>Login</span>
-
-                                    </a>
-
-                                </div>
-                            }
-
+                            </ul>
                         </div>
-
+                        <!-- Sidebar -->
                     </div>
                 </div>
-            </header>
-            @RenderBody()
+                <!-- Left Sidebar End -->
+                <!-- ============================================================== -->
+                <!-- Start right Content here -->
+                <!-- ============================================================== -->
+                <div class="main-content">
 
-           
+                    <header id="page-topbar">
+                        <div class="navbar-header">
+                            <div class="d-flex align-items-center">
+                                <button type="button" class="btn btn-sm mr-2 d-lg-none header-item" id="vertical-menu-btn">
+                                    <i class="fa fa-fw fa-bars"></i>
+                                </button>
 
-        </div>
-        <!-- end main content-->
-    </div>
-    <!-- END layout-wrapper -->
-    <!-- Overlay-->
-    <div class="menu-overlay"></div>
+                                <div class="header-breadcumb">
+                                    <h6 class="header-pretitle d-none d-md-block">Pages <i class="dripicons-arrow-thin-right"></i> Dashboard</h6>
+                                    <h2 class="header-title">Overview</h2>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center">
+
+                                <div class="dropdown d-inline-block ml-2">
+                                    <a asp-action="Index" asp-controller="Comment" class="btn header-item noti-icon" id="commentNotification">
+                                        <i class="mdi mdi-bell-outline"></i>
+                                        <span class="badge badge-danger badge-pill comment-count">0</span>
+                                    </a>
+                                </div>
+
+                                <script>
+                                    $(document).ready(function () {
+                                        // Sayfa yüklendiğinde ve herhangi bir yorum oluşturulduğunda yorum sayısını güncelle
+                                        updateCommentNotification();
+
+                                        // Yeni bir yorum oluşturulduğunda veya sayfa yüklendiğinde yorum sayısını güncelle
+                                        function updateCommentNotification() {
+                                            $.ajax({
+                                                url: '/Comment/Index', // Yorum sayısını almak için bir endpoint belirtin
+                                                type: 'GET',
+                                                success: function (data) {
+                                                    // Ajax isteği başarılı olduysa, yeni yorum sayısını alın
+                                                    var newCommentCount = data;
+
+                                                    // Yeni yorum sayısını bildirim göstergesindeki sayıya güncelleyin
+                                                    var commentCountElement = $('.comment-count');
+                                                    commentCountElement.text(newCommentCount);
+
+                                                    // Yeni yorum sayısı 0'dan büyükse, sayıyı gösterin; değilse sayıyı gizleyin
+                                                    if (newCommentCount > 0) {
+                                                        commentCountElement.show();
+                                                    } else {
+                                                        commentCountElement.hide();
+                                                    }
+                                                },
+                                                error: function (xhr, status, error) {
+                                                    // Ajax isteği başarısız olduysa hata mesajını konsola yazdırabilirsiniz
+                                                    console.error('Yorum sayısı alınamadı:', error);
+                                                }
+                                            });
+                                        }
+
+                                        // Yorum sayısına tıklandığında yorumların listesine yönlendir
+                                        $('#commentNotification').on('click', function () {
+                                            window.location.href = '/Comment/List'; // Yeni yorumların listelendiği sayfa
+                                        });
+                                    });
+                                </script>
+                                <div class="dropdown d-inline-block ml-2">
+
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+
+                                        <button type="button" class="btn header-item" id="page-header-user-dropdown"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
 
-    <!-- jQuery  -->
-    <script src="~/Massets/js/jquery.min.js"></script>
-    <script src="~/Massets/js/bootstrap.bundle.min.js"></script>
-    <script src="~/Massets/js/metismenu.min.js"></script>
-    <script src="~/Massets/js/waves.js"></script>
-    <script src="~/Massets/js/simplebar.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="~/Massets/js/main.js"></script>
+                                            <img class="rounded-circle header-profile-user" src="~/Massets/images/users/avatar-1.jpg"
+                                                 alt="Header Avatar">
+                                            <span class="d-none d-sm-inline-block ml-1">@User.Identity.Name</span>
+                                            <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
 
-    <!-- Sparkline Js-->
-    <script src="../plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
 
-    <!-- Morris Js-->
-    <script src="../plugins/morris-js/morris.min.js"></script>
-    <!-- Raphael Js-->
-    <script src="../plugins/raphael/raphael.min.js"></script>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a class="dropdown-item d-flex align-items-center justify-content-between" asp-action="Index" asp-controller="Profile">
+                                                <span>Profile</span>
+                                            </a>
+                                            <a class="dropdown-item d-flex align-items-center justify-content-between" asp-action="Logout" asp-controller="Account" asp-route-area="">
+                                                <span>Log Out</span>
+                                            </a>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="dropdown-menu dropdown-menu-right">
 
-    <!-- Custom Js -->
-    <script src="~/Massets/pages/dashboard-demo.js"></script>
+                                            <a class="dropdown-item d-flex align-items-center justify-content-between" asp-action="register" asp-controller="account">
+                                                <span>Register</span>
+                                            </a>
+                                            <a class="dropdown-item d-flex align-items-center justify-content-between" asp-action="login" asp-controller="account">
+                                                <span>Login</span>
 
-    <!-- App js -->
-    <script src="~/Massets/js/theme.js"></script>
-    @RenderSection("DeleteImage",false);
-</body>
+                                            </a>
 
-</html>
+                                        </div>
+                                    }
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </header>
+                    @RenderBody()
+
+
+
+                </div>
+                <!-- end main content-->
+            </div>
+            <!-- END layout-wrapper -->
+            <!-- Overlay-->
+            <div class="menu-overlay"></div>
+
+
+            <!-- jQuery  -->
+            <script src="~/Massets/js/jquery.min.js"></script>
+            <script src="~/Massets/js/bootstrap.bundle.min.js"></script>
+            <script src="~/Massets/js/metismenu.min.js"></script>
+            <script src="~/Massets/js/waves.js"></script>
+            <script src="~/Massets/js/simplebar.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            <script src="~/Massets/js/main.js"></script>
+
+            <!-- Sparkline Js-->
+            <script src="../plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
+
+            <!-- Morris Js-->
+            <script src="../plugins/morris-js/morris.min.js"></script>
+            <!-- Raphael Js-->
+            <script src="../plugins/raphael/raphael.min.js"></script>
+
+            <!-- Custom Js -->
+            <script src="~/Massets/pages/dashboard-demo.js"></script>
+
+            <!-- App js -->
+            <script src="~/Massets/js/theme.js"></script>
+            @RenderSection("DeleteImage",false);
+        </body>
+
+        </html>
+
+
+
+
+    }
+}
+

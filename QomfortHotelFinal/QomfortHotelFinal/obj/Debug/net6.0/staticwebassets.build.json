@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "jIvUKfyUU34WNj0DC52RYQ2y4u82pOhI85JmcOrrEa0=",
+  "Hash": "s3XH1ApA7MgFIVstPPAPJr7Mg/d4r2OP0Fq96JG0F48=",
   "Source": "QomfortHotelFinal",
   "BasePath": "_content/QomfortHotelFinal",
   "Mode": "Default",
@@ -5591,6 +5591,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\images\\User\\2fd9a3b4-3d66-4ac7-a37f-964950464aa3profil.png"
+    },
+    {
+      "Identity": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\User\\65274d8c-3fa5-4b25-94bd-5849b94452b3b2.jpg",
+      "SourceId": "QomfortHotelFinal",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\",
+      "BasePath": "_content/QomfortHotelFinal",
+      "RelativePath": "assets/images/User/65274d8c-3fa5-4b25-94bd-5849b94452b3b2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\User\\65274d8c-3fa5-4b25-94bd-5849b94452b3b2.jpg"
     },
     {
       "Identity": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\User\\6a0d3209-5029-4ddd-b510-aca789720236a2.png",

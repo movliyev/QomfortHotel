@@ -17,7 +17,13 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Category Table</h4>
-                        <a asp-action="Create" asp-controller="Category" class="btn btn-outline-info">Ceate Category</a>
+                        @{
+                            if (!User.IsInRole("Memmber"))
+                            {
+                                <a asp-action="Create" asp-controller="Category" class="btn btn-outline-info">Ceate Category</a>
+                            }
+                        }
+                       
                         <div class="table-responsive">
                             <table class="table table-dark table-borderless mb-0">
                                 <thead>
@@ -31,10 +37,16 @@
                                         <th>
                                             Rooms Count
                                         </th>
-                                        <th>
+                                        @{
+                                            if (!User.IsInRole("Memmber"))
+                                            {
+                                                <th>
 
-                                            Settings
-                                        </th>
+                                                    Settings
+                                                </th>
+                                            }
+                                        }
+                                       
 
                                     </tr>
                                 </thead>
@@ -54,8 +66,14 @@
                                                 @item.Rooms.Count
                                             </td>
                                             <td>
-                                                <a asp-action="Update" asp-controller="Category" asp-route-id="@item.Id" class="btn btn-warning btn-info"><i class="mdi mdi-grease-pencil"></i></a>
-                                                <a asp-action="Delete" asp-controller="Category" asp-route-id="@item.Id" class="btn btn-danger btn-info"><i class="mdi mdi-delete"></i></a>
+                                                @{
+                                                    if (!User.IsInRole("Memmber"))
+                                                    {
+                                                        <a asp-action="Update" asp-controller="Category" asp-route-id="@item.Id" class="btn btn-warning btn-info"><i class="mdi mdi-grease-pencil"></i></a>
+                                                        <a asp-action="Delete" asp-controller="Category" asp-route-id="@item.Id" class="customDeletebtn btn btn-danger btn-info"><i class="mdi mdi-delete"></i></a>
+                                                    }
+                                                }
+                                              
                                             </td>
                                         </tr>
 

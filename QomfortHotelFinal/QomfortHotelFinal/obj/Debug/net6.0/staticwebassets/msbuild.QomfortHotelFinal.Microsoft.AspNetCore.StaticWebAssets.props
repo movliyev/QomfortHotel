@@ -5216,6 +5216,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\User\2fd9a3b4-3d66-4ac7-a37f-964950464aa3profil.png))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\User\65274d8c-3fa5-4b25-94bd-5849b94452b3b2.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>QomfortHotelFinal</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/QomfortHotelFinal</BasePath>
+      <RelativePath>assets/images/User/65274d8c-3fa5-4b25-94bd-5849b94452b3b2.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\User\65274d8c-3fa5-4b25-94bd-5849b94452b3b2.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\User\6a0d3209-5029-4ddd-b510-aca789720236a2.png))">
       <SourceType>Package</SourceType>
       <SourceId>QomfortHotelFinal</SourceId>

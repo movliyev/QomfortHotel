@@ -1,5 +1,6 @@
 ﻿
 using Hangfire;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -13,6 +14,8 @@ using System.Security.Claims;
 
 namespace QomfortHotelFinal.Controllers
 {
+    [AllowAnonymous]
+
     public class RoomController : Controller
     {
         private readonly AppDbContext _context;
@@ -418,6 +421,9 @@ namespace QomfortHotelFinal.Controllers
                 Search=search,
                 CategoryId=categoryId,
                 ServiceId=serviceId,
+            
+                TotalPage = Math.Ceiling((double)count / 3),
+                CurrentPage = page,
             };
             return View(vm);
         }

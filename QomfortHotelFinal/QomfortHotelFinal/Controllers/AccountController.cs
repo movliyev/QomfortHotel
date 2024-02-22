@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using QomfortHotelFinal.Abstractions.MailService;
 using QomfortHotelFinal.Models;
+using QomfortHotelFinal.Utilities.Enums;
 using QomfortHotelFinal.Utilities.Extensions;
 using QomfortHotelFinal.ViewModels;
 using QomfortHotelFinal.ViewModels.Account;
@@ -67,12 +68,15 @@ namespace QomfortHotelFinal.Controllers
             var result = await _userManager.CreateAsync(appUser, vm.Password);
             if (result.Succeeded)
             {
+
                 //await _signInManager.SignInAsync(appUser, false);
                 var token = await _userManager.GenerateEmailConfirmationTokenAsync(appUser);
 
                 var confirmationlink = Url.Action(nameof(ConfirmEmail), "Account", new { token, Email = appUser.Email }, Request.Scheme);
 
                 await _ser.SendEmailAsync(appUser.Email, "Email Confirmation", confirmationlink);
+                await _userManager.AddToRoleAsync(appUser, UserRole.Memmber.ToString());
+
                 return RedirectToAction(nameof(SuccesRegistered), "Account");
 
             }
@@ -99,6 +103,27 @@ namespace QomfortHotelFinal.Controllers
             await _signInManager.SignInAsync(user, false);
             return View();
         }
+
+
+
+        public async Task<IActionResult> CreateRoles()
+        {
+            foreach (var role in Enum.GetValues(typeof(UserRole)))
+            {
+                if(!await _role.RoleExistsAsync(role.ToString()))
+                {
+                    await _role.CreateAsync(new IdentityRole
+                    {
+                        Name = role.ToString(),
+                    });
+                }
+               
+            }
+            return RedirectToAction("Index","Home");   
+        }
+
+
+
         public IActionResult SuccesRegistered()
         {
             return View();

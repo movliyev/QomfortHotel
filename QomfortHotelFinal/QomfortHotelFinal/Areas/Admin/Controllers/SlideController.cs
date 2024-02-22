@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using QomfortHotelFinal.Areas.Admin.ViewModels;
@@ -10,7 +11,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("Admin/[controller]/[action]")]
-
+    [Authorize(Roles = "Admin,Memmber")]
     public class SlideController : Controller
     {
 
@@ -147,28 +148,23 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
         {
             if (id <= 0) return BadRequest();
             Slide exsist = await _context.Slides.FirstOrDefaultAsync(s => s.Id == id);
-            if (exsist == null) return NotFound();
-            exsist.Image.DeleteFile(_env.WebRootPath, "assets", "image", "slider");
-            _context.Slides.Remove(exsist);
-            await _context.SaveChangesAsync();
+            if (exsist == null) return Json(new { status = 404 });
+            try
+            {
 
 
-            return RedirectToAction(nameof(Index));
+                exsist.Image.DeleteFile(_env.WebRootPath, "assets", "image", "slider");
+                _context.Slides.Remove(exsist);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception)
+            {
+
+                return Json(new { status = 500 });
+            }
+
+            return Json(new { status = 200 });
+  
         }
-
-
-
-        //public async Task<IActionResult> Detail(int id)
-        //{
-
-        //    Slide slides = await _context.Slides.FirstOrDefaultAsync(x => x.Id == id);
-        //    if (id == 0) return BadRequest();
-
-
-        //    if (slides == null) return NotFound();
-
-
-        //    return View(slides);
-        //}
     }
 }

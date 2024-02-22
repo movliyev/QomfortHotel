@@ -4,43 +4,7 @@
 <!--Form Back Drop-->
 <div class="form-back-drop"></div>
 
-<!-- Hidden Sidebar -->
-<section class="hidden-bar">
-    <div class="inner-box text-center">
-        <div class="cross-icon"><span class="fa fa-times"></span></div>
-        <div class="title">
-            <h4>Get Appointment</h4>
-        </div>
-
-        <!--Appointment Form-->
-        <div class="appointment-form">
-            <form method="post" action="contact.html">
-                <div class="form-group">
-                    <input type="text" name="text" value="" placeholder="Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" name="email" value="" placeholder="Email Address" required>
-                </div>
-                <div class="form-group">
-                    <textarea placeholder="Message" rows="5"></textarea>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="theme-btn">Submit now</button>
-                </div>
-            </form>
-        </div>
-
-        <!--Social Icons-->
-        <div class="social-style-one">
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-pinterest-p"></i></a>
-        </div>
-    </div>
-</section>
-<!--End Hidden Sidebar -->
-<!-- Slider Section Start -->
+<
 <section class="hero-slider-two rel z-1">
     <div class="slider-two-active">
 
@@ -72,36 +36,7 @@
 <!-- Slider Section End -->
 <!-- Search Filter and Features Start -->
 <section class="search-and-features-area bgc-lighter pb-50 rel z-1">
-    <div class="container container-1550">
-        <form asp-action="Index" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-
-                <input asp-for="ArrivalDate" type="date" class="form-control" />
-                <span asp-validation-for="ArrivalDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-
-                <input asp-for="DeparturDate" type="date" class="form-control " />
-                <span asp-validation-for="DeparturDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-
-                <input asp-for="Adult" type="number" class="form-control" />
-                <span asp-validation-for="Adult" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-
-                <input asp-for="Children" type="number" class="form-control" />
-                <span asp-validation-for="Children" class="text-danger"></span>
-            </div>
-
-
-            <div class="form-group">
-                <input type="submit" value="Szukaj" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
+   
     <div class="container">
         <div class="row justify-content-center">
             @foreach (var item in Model.Servicees)
@@ -186,9 +121,12 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-5">
+               
                 <div class="superior-room-content rmb-75">
+                   
                     @foreach (var item in Model.Rooms.Take(5))
                     {
+
                         <div class="feature-item style-three wow fadeInUp delay-0-2s">
                             <div class="content">
                                 <h3><a href="room-details.html">@item.Name</a></h3>
@@ -252,8 +190,8 @@
                     <div class="icon">
                         <i class="fal fa-hotel"></i>
                     </div>
-                    <span class="count-text" data-speed="3000" data-stop="49">0</span>
-                    <span class="counter-title">Luxury Hotels</span>
+                    <span class="count-text" data-speed="3000" data-stop="@Model.Rooms.Count">0</span>
+                    <span class="counter-title">Rooms</span>
                 </div>
             </div>
             <div class="col-xl-3 col-lg-4 col-sm-6">
@@ -382,7 +320,7 @@
                                 <div class="content">
                                     <h4><a href="room-details.html">@item.Name</a></h4>
                                     <p>@item.Description</p>
-                                    <a class="read-more" asp-action="Reserv" asp-controller="room" asp-route-id="@item.Id==@Model.Room">Read More <i class="@item.Icon"></i></a>
+                                    <a class="read-more" asp-action="Reserv" asp-controller="room" asp-route-id="@item.Id==@Model.Rooms">Read More <i class="@item.Icon"></i></a>
                                 </div>
                             </div>
                         </div>
