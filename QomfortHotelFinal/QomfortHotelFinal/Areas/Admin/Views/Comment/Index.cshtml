@@ -42,6 +42,9 @@
                                         <th>
                                             Rating
                                         </th>
+                                        <th>
+                                            Status
+                                        </th>
                                        
                                         <th>
 
@@ -90,8 +93,19 @@
                                                     }
                                                 </div>
                                             </td>
+                                            <td>
+                                                @if (item.CommentStatus == true)
+                                                {
+                                                    <h4 class=" btn btn-info text-dark">Active</h4>
+                                                }
+                                                else
+                                                {
+                                                    <h4 class="btn btn-danger text-dark">Passive</h4>
+                                                }
+                                            </td>
                                            
                                             <td>
+                                                <a asp-action="UpdateStatus" asp-controller="Message" asp-route-id="@item.Id" class="btn btn-warning btn-info">Edit Status</a>
                                                 <a asp-action="Delete" asp-controller="Comment" asp-route-id="@item.Id" class="customDeletebtn btn btn-danger btn-info" class=""><i class="mdi mdi-delete"></i></a>
                                             </td>
                                         </tr>

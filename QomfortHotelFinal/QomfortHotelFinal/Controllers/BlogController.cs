@@ -48,14 +48,15 @@ namespace QomfortHotelFinal.Controllers
            .Include(u => u.Comments)
         .ThenInclude(bi => bi.Blog)
         .FirstOrDefaultAsync(u => u.Id == User.FindFirstValue(ClaimTypes.NameIdentifier));
-           
-           
+                    
 
             Blog blog = await _context.Blogs.OrderByDescending(p => p.Id)
                 .Include(x => x.Comments.Where(x => x.BlogId == id)).FirstOrDefaultAsync(b => b.Id == id);
 
             if (blog == null) throw new NotFoundException("Room not found");
-            List<Comment> comments = await _context.Comments.Include(x => x.Blog).Include(x=>x.AppUser).OrderByDescending(x=>x.Id).Take(5).Where(x=>x.BlogId==id).ToListAsync();
+            List<Comment> comments = await _context.Comments.Include(x => x.Blog).Include(x=>x.AppUser).OrderByDescending(x=>x.Id).Take(5).Where(x=>x.BlogId==id)
+                .Where(x=>x.CommentStatus==true)
+                .ToListAsync();
           
             BlogVM blogvm = new BlogVM
             {
@@ -69,7 +70,7 @@ namespace QomfortHotelFinal.Controllers
         [HttpPost]
         public async Task<IActionResult> Detail(int id, BlogVM vm)
         {
-            if (id <= 0) return BadRequest();
+            if (id <= 0) throw new WrongRequestException("The query is incorrect");
             Blog blog = await _context.Blogs.OrderByDescending(p => p.Id)
                .Include(x => x.Comments.Where(x => x.BlogId == id)).FirstOrDefaultAsync(b => b.Id == id);
             if (blog == null)return NotFound(); 
@@ -85,7 +86,7 @@ namespace QomfortHotelFinal.Controllers
                 Comment comment = new Comment
                 {
                    CommentContent=vm.CommentContent,
-                   CommentStatus=true,
+                   CommentStatus=false,
                    CommentDate=DateTime.Now,
                     BlogId = blog.Id,
                     AppUserId = user.Id,

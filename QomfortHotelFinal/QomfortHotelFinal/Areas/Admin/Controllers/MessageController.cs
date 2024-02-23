@@ -57,9 +57,9 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
             }
             Message exsisted = await _context.Messages.FirstOrDefaultAsync(c => c.Id == id);
             if (exsisted == null) return NotFound();
-          
-           
-            //exsisted.Status =status;
+
+
+            exsisted.Status = status.Value;
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

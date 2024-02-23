@@ -290,7 +290,7 @@ namespace QomfortHotelFinal.Controllers
             {
                 ovm.Reservations = user.Reservations.ToList();
                 ovm.TotalPrice = user.Reservations.Sum(r => (r.DeparturDate - r.ArrivalDate).Days * r.Room.Price);
-                ModelState.AddModelError("", "Odenishde problem var");
+                ModelState.AddModelError(String.Empty, "Odenishde problem var");
                 return View(ovm);
             }
             await _context.Orders.AddAsync(order);
@@ -301,7 +301,9 @@ namespace QomfortHotelFinal.Controllers
              <table border=""1"">
                <thead>
                    <tr>
-                       <th> Name </th>
+                       <th> Name </th>                       
+                       <th> ArrivalDate </th>
+                       <th> Departurdate </th>
                        <th> Price </th>
                    </tr>
                </thead>
@@ -309,7 +311,9 @@ namespace QomfortHotelFinal.Controllers
             foreach (var item in order.Reservations)
             {
                 body += @$" <tr>
-                        <td>{item.Room.Name}</td>
+                        <td>{item.Room.Name}</td>                     
+                        <td>{item.ArrivalDate.ToShortDateString()}</td>
+                           <td>{item.DeparturDate.ToShortDateString()}</td>
                         <td >{(item.Room.Price) * (item.DeparturDate - item.ArrivalDate).Days}</td>
                     </tr>";
 

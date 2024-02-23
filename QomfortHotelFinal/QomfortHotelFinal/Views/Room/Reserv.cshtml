@@ -171,7 +171,7 @@
 
 
                     <div class="section-title my-40">
-                        @if (Model.Room.Status == true && Model.DeparturDate > DateTime.Now && Model.ArrivalDate < DateTime.Now)
+                        @if ( Model.DeparturDate > DateTime.Now && Model.ArrivalDate < DateTime.Now)
                         {
                            
                             <h2>Status :<a class="text-info">Available</a></h2>

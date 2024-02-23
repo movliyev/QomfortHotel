@@ -26,7 +26,7 @@ namespace QomfortHotelFinal.Controllers
             List<Slide> slides = _context.Slides.ToList();
             List<Servicee> servicees = _context.Servisees.Include(x=>x.RoomServicees).Take(8).ToList();
             List<Gallery> galleries = _context.Galleries.Take(8).ToList();
-            List<Comment> comments =  _context.Comments.Include(x => x.Blog).Include(x => x.AppUser).OrderByDescending(x => x.Id).ToList();
+            List<Comment> comments =  _context.Comments.Include(x => x.Blog).Include(x => x.AppUser).OrderByDescending(x => x.Id).Where(x=>x.CommentStatus==true).ToList();
             HomeAbout homeabout = _context.HomeAbouts.FirstOrDefault();
             List<Blog> blogs = _context.Blogs.OrderByDescending(x=>x.Id).Take(3).ToList();
             HomeVM vm = new HomeVM

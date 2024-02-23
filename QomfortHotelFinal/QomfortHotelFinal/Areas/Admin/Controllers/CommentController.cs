@@ -37,7 +37,31 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
 
             return View(pagvm);
         }
-       
+        public async Task<IActionResult> UpdateStatus(int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            Comment exsisted = await _context.Comments.FirstOrDefaultAsync(c => c.Id == id);
+            if (exsisted == null) return NotFound();
+            return View(exsisted);
+        }
+        [HttpPost]
+        public async Task<IActionResult> UpdateStatus(int id, bool? status)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            Comment comment = await _context.Comments.FirstOrDefaultAsync(c => c.Id == id);
+            if (comment == null) return NotFound();
+
+
+            comment.CommentStatus = status.Value;
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
 
         public async Task<IActionResult> Delete(int id)
         {

@@ -1,61 +1,62 @@
-﻿@model AppUser
-        <!DOCTYPE html>
-        <html lang="en">
+﻿@using Microsoft.AspNetCore.Identity;
+@inject UserManager<AppUser> userManager
+<!DOCTYPE html>
+<html lang="en">
 
-        <head>
-            <meta charset="utf-8" />
-            <title>Drezoc - Admin & Dashboard Template</title>
-            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-            <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
-            <meta content="MyraStudio" name="author" />
-            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<head>
+    <meta charset="utf-8" />
+    <title>Drezoc - Admin & Dashboard Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+    <meta content="MyraStudio" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-            <!-- App favicon -->
-            <link rel="shortcut icon" href="~/Massets/images/favicon.ico">
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="~/Massets/images/favicon.ico">
 
-            <!-- App css -->
-            <link href="~/Massets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-            <link href="~/Massets/css/icons.min.css" rel="stylesheet" type="text/css" />
-            <link href="~/Massets/css/theme.min.css" rel="stylesheet" type="text/css" />
+    <!-- App css -->
+    <link href="~/Massets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Massets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Massets/css/theme.min.css" rel="stylesheet" type="text/css" />
 
-        </head>
+</head>
 
-        <body>
+<body>
 
-            <!-- Begin page -->
-            <div id="layout-wrapper">
+    <!-- Begin page -->
+    <div id="layout-wrapper">
 
-                <!-- ========== Left Sidebar Start ========== -->
-                <div class="vertical-menu">
+        <!-- ========== Left Sidebar Start ========== -->
+        <div class="vertical-menu">
 
-                    <div data-simplebar class="h-100">
+            <div data-simplebar class="h-100">
 
-                        <!-- LOGO -->
-                        <div class="navbar-brand-box">
-                            <a href="index.html">
-                                <img src="~/assets/images/logos/logo-white.png" alt="Logo" title="Logo">
-                            </a>
-                        </div>
+                <!-- LOGO -->
+                <div class="navbar-brand-box">
+                    <a href="index.html">
+                        <img src="~/assets/images/logos/logo-white.png" alt="Logo" title="Logo">
+                    </a>
+                </div>
 
-                        <!--- Sidemenu -->
-                        <div id="sidebar-menu">
-                            <!-- Left Menu Start -->
-                            <ul class="metismenu list-unstyled" id="side-menu">
-                                <li class="menu-title">Menu</li>
+                <!--- Sidemenu -->
+                <div id="sidebar-menu">
+                    <!-- Left Menu Start -->
+                    <ul class="metismenu list-unstyled" id="side-menu">
+                        <li class="menu-title">Menu</li>
 
+                        <li>
+                            <a asp-action="Index" asp-controller="Dashboard"><i class="feather-home"></i><span class="badge badge-pill badge-success float-right"></span><span>Dashboard</span></a>
+                        </li>
+                        @{
+                            if (User.IsInRole("Memmber"))
+                            {
                                 <li>
-                                    <a asp-action="Index" asp-controller="Dashboard"><i class="feather-home"></i><span class="badge badge-pill badge-success float-right"></span><span>Dashboard</span></a>
+                                    <a asp-action="MyOldReservation" asp-controller="Myreserv" asp-route-area="Admin"><i class="mdi mdi-star-four-points"></i><span>My old reservation</span></a>
                                 </li>
-                                @{
-                                    if (User.IsInRole("Memmber"))
-                                    {
-                                        <li>
-                                            <a asp-action="MyOldReservation" asp-controller="Myreserv" asp-route-area="Admin"><i class="mdi mdi-star-four-points"></i><span>My old reservation</span></a>
-                                        </li>
-                                        <li>
-                                            <a asp-action="MyCurrentReservation" asp-controller="Myreserv" asp-route-area="Admin"><i class="mdi mdi-star-four-points"></i><span>My current reservation</span></a>
-                                        </li>
-                               
+                                <li>
+                                    <a asp-action="MyCurrentReservation" asp-controller="Myreserv" asp-route-area="Admin"><i class="mdi mdi-star-four-points"></i><span>My current reservation</span></a>
+                                </li>
+
                             }
                             else
                             {
@@ -73,151 +74,167 @@
                                 </li>
                             }
                         }
-                        
-                                <li>
-                                    <a asp-action="Index" asp-controller="Room" asp-route-area="Admin"><i class="feather-arrow-right-circle"></i><span>Rooms</span></a>
-                                </li>
-                                <li>
-                                    <a asp-action="Index" asp-controller="Gallery" asp-route-area="Admin"><i class="feather-arrow-right-circle"></i><span>Galleries</span></a>
-                                </li>
-                                <li>
-                                    <a asp-action="Indexx" asp-controller="Blog" asp-route-area="Admin"><i class="feather-arrow-right-circle"></i><span>Blogs</span></a>
-                                </li>
-                                <li>
-                                    <a asp-action="Index" asp-controller="Category" asp-route-area="Admin"><i class="feather-arrow-right-circle"></i><span>Categories</span></a>
-                                </li>
-                                <li>
-                                    <a asp-action="Index" asp-controller="Slide" asp-route-area="Admin"><i class="feather-arrow-right-circle"></i><span>Slides</span></a>
-                                </li>
-                                <li>
-                                    <a asp-action="Index" asp-controller="Facilities" asp-route-area="Admin"><i class="feather-arrow-right-circle"></i><span>Facilities</span></a>
-                                </li>
-                                <li>
-                                    <a asp-action="Index" asp-controller="Servicee" asp-route-area="Admin"><i class="feather-arrow-right-circle"></i><span>Servicee</span></a>
-                                </li>
-                                <li>
-                                    <a asp-action="Index" asp-controller="Home" asp-route-area=""><i class="mdi mdi-home"></i><span>Home</span></a>
-                                </li>
 
-                            </ul>
-                        </div>
-                        <!-- Sidebar -->
-                    </div>
+                        <li>
+                            <a asp-action="Index" asp-controller="Room" asp-route-area="Admin"><i class="feather-arrow-right-circle"></i><span>Rooms</span></a>
+                        </li>
+                        <li>
+                            <a asp-action="Index" asp-controller="Gallery" asp-route-area="Admin"><i class="feather-arrow-right-circle"></i><span>Galleries</span></a>
+                        </li>
+                        <li>
+                            <a asp-action="Indexx" asp-controller="Blog" asp-route-area="Admin"><i class="feather-arrow-right-circle"></i><span>Blogs</span></a>
+                        </li>
+                        <li>
+                            <a asp-action="Index" asp-controller="Category" asp-route-area="Admin"><i class="feather-arrow-right-circle"></i><span>Categories</span></a>
+                        </li>
+                        <li>
+                            <a asp-action="Index" asp-controller="Slide" asp-route-area="Admin"><i class="feather-arrow-right-circle"></i><span>Slides</span></a>
+                        </li>
+                        <li>
+                            <a asp-action="Index" asp-controller="Facilities" asp-route-area="Admin"><i class="feather-arrow-right-circle"></i><span>Facilities</span></a>
+                        </li>
+                        <li>
+                            <a asp-action="Index" asp-controller="Servicee" asp-route-area="Admin"><i class="feather-arrow-right-circle"></i><span>Servicee</span></a>
+                        </li>
+                        <li>
+                            <a asp-action="Index" asp-controller="Home" asp-route-area=""><i class="mdi mdi-home"></i><span>Home</span></a>
+                        </li>
+
+                    </ul>
                 </div>
-                <!-- Left Sidebar End -->
-                <!-- ============================================================== -->
-                <!-- Start right Content here -->
-                <!-- ============================================================== -->
-                <div class="main-content">
-
-                    <header id="page-topbar">
-                        <div class="navbar-header">
-                            <div class="d-flex align-items-center">
-                                <button type="button" class="btn btn-sm mr-2 d-lg-none header-item" id="vertical-menu-btn">
-                                    <i class="fa fa-fw fa-bars"></i>
-                                </button>
-
-                                <div class="header-breadcumb">
-                                    <h6 class="header-pretitle d-none d-md-block">Pages <i class="dripicons-arrow-thin-right"></i> Dashboard</h6>
-                                    <h2 class="header-title">Overview</h2>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center">
-
-                                @{
-                                    if (User.IsInRole("Admin"))
-                                    {
-                                        <div class="dropdown d-inline-block ml-2">
-                                            <a asp-action="Index" asp-controller="Message" class="btn header-item noti-icon">
-                                                <i class="mdi mdi-bell-outline"></i>
-                                                <span class="badge badge-danger badge-pill message-count">0</span>
-                                            </a>
-                                        </div>
-                                    }
-                                }
-                                <div class="dropdown d-inline-block ml-2">
-
-                                    @if (User.Identity.IsAuthenticated)
-                                    {
-
-
-                                        <button type="button" class="btn header-item" id="page-header-user-dropdown"
-                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
-
-                                            <img class="rounded-circle header-profile-user" src="~/assets/images/User/@Model.UserImage"
-                                                 alt="Header Avatar">
-                                            <span class="d-none d-sm-inline-block ml-1">@User.Identity.Name</span>
-                                            <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
-
-
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item d-flex align-items-center justify-content-between" asp-action="Index" asp-controller="Profile">
-                                                <span>Profile</span>
-                                            </a>
-                                            <a class="dropdown-item d-flex align-items-center justify-content-between" asp-action="Logout" asp-controller="Account" asp-route-area="">
-                                                <span>Log Out</span>
-                                            </a>
-                                        </div>
-                                    }
-                                    else
-                                    {
-                                        <div class="dropdown-menu dropdown-menu-right">
-
-                                            <a class="dropdown-item d-flex align-items-center justify-content-between" asp-action="register" asp-controller="account">
-                                                <span>Register</span>
-                                            </a>
-                                            <a class="dropdown-item d-flex align-items-center justify-content-between" asp-action="login" asp-controller="account">
-                                                <span>Login</span>
-
-                                            </a>
-
-                                        </div>
-                                    }
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </header>
-                    @RenderBody()
-
-
-
-                </div>
-                <!-- end main content-->
+                <!-- Sidebar -->
             </div>
-            <!-- END layout-wrapper -->
-            <!-- Overlay-->
-            <div class="menu-overlay"></div>
+        </div>
+        <!-- Left Sidebar End -->
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="main-content">
+
+            <header id="page-topbar">
+                <div class="navbar-header">
+                    <div class="d-flex align-items-center">
+                        <button type="button" class="btn btn-sm mr-2 d-lg-none header-item" id="vertical-menu-btn">
+                            <i class="fa fa-fw fa-bars"></i>
+                        </button>
+
+                        <div class="header-breadcumb">
+                            <h6 class="header-pretitle d-none d-md-block">Pages <i class="dripicons-arrow-thin-right"></i> Dashboard</h6>
+                            <h2 class="header-title">Overview</h2>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center">
+
+                        @{
+                            if (User.IsInRole("Admin"))
+                            {
+                                <div class="dropdown d-inline-block ml-2">
+                                    <a asp-action="Index" asp-controller="Message" class="btn header-item noti-icon">
+                                        <i class="mdi mdi-bell-outline"></i>
+                                        <span class="badge badge-danger badge-pill message-count">0</span>
+                                    </a>
+                                </div>
+                            }
+                        }
+                        <div class="dropdown d-inline-block ml-2">
+
+                            @if (User.Identity.IsAuthenticated)
+                            {
 
 
-            <!-- jQuery  -->
-            <script src="~/Massets/js/jquery.min.js"></script>
-            <script src="~/Massets/js/bootstrap.bundle.min.js"></script>
-            <script src="~/Massets/js/metismenu.min.js"></script>
-            <script src="~/Massets/js/waves.js"></script>
-            <script src="~/Massets/js/simplebar.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-            <script src="~/Massets/js/main.js"></script>
 
-            <!-- Sparkline Js-->
-            <script src="../plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
 
-            <!-- Morris Js-->
-            <script src="../plugins/morris-js/morris.min.js"></script>
-            <!-- Raphael Js-->
-            <script src="../plugins/raphael/raphael.min.js"></script>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <button type="button" class="btn header-item" id="page-header-user-dropdown"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        @if (User.Identity.IsAuthenticated)
+                                        {
+                                            var appUser = await userManager.GetUserAsync(User);
+                                            if (appUser != null && appUser.UserImage != null)
+                                            {
+                                                <img class="rounded-circle header-profile-user" src="~/assets/images/User/@(appUser.UserImage)"
+                                                alt="Header Avatar">
+                                            }
+                                            else
+                                            {
+                                                <img class="rounded-circle header-profile-user" src="~/assets/images/User/profil.png">
+                                                
+                                            }
+                                        }
 
-            <!-- Custom Js -->
-            <script src="~/Massets/pages/dashboard-demo.js"></script>
 
-            <!-- App js -->
-            <script src="~/Massets/js/theme.js"></script>
-            @RenderSection("DeleteImage",false);
-        </body>
+                                        <span class="d-none d-sm-inline-block ml-1">@User.Identity.Name</span>
+                                        <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
 
-        </html>
-    }
-   
+
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a class="dropdown-item d-flex align-items-center justify-content-between" asp-action="Index" asp-controller="Profile">
+                                            <span>Profile</span>
+                                        </a>
+                                        <a class="dropdown-item d-flex align-items-center justify-content-between" asp-action="Logout" asp-controller="Account" asp-route-area="">
+                                            <span>Log Out</span>
+                                        </a>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="dropdown-menu dropdown-menu-right">
+
+                                        <a class="dropdown-item d-flex align-items-center justify-content-between" asp-action="register" asp-controller="account">
+                                            <span>Register</span>
+                                        </a>
+                                        <a class="dropdown-item d-flex align-items-center justify-content-between" asp-action="login" asp-controller="account">
+                                            <span>Login</span>
+
+                                        </a>
+
+                                    </div>
+                                }
+                            }
+                        </div>
+
+                        </div>
+                    </div>
+                </header>
+                                @RenderBody()
+
+
+
+            </div>
+            <!-- end main content-->
+        </div>
+        <!-- END layout-wrapper -->
+        <!-- Overlay-->
+        <div class="menu-overlay"></div>
+
+
+        <!-- jQuery  -->
+        <script src="~/Massets/js/jquery.min.js"></script>
+        <script src="~/Massets/js/bootstrap.bundle.min.js"></script>
+        <script src="~/Massets/js/metismenu.min.js"></script>
+        <script src="~/Massets/js/waves.js"></script>
+        <script src="~/Massets/js/simplebar.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="~/Massets/js/main.js"></script>
+
+        <!-- Sparkline Js-->
+        <script src="../plugins/jquery-sparkline/jquery.sparkline.min.js"></script>
+
+        <!-- Morris Js-->
+        <script src="../plugins/morris-js/morris.min.js"></script>
+        <!-- Raphael Js-->
+        <script src="../plugins/raphael/raphael.min.js"></script>
+
+        <!-- Custom Js -->
+        <script src="~/Massets/pages/dashboard-demo.js"></script>
+
+        <!-- App js -->
+        <script src="~/Massets/js/theme.js"></script>
+                                @RenderSection("DeleteImage",false)
+                                ;
+    </body>
+
+    </html>
+                            }

@@ -22,7 +22,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
         {
 
             List<Room> room=_context.Rooms.Include(x=>x.RoomImages.Where(x=>x.IsPrimary==true)).Include(x=>x.Category).Include(x=>x.Category).Include(x=>x.RoomFacilities).ThenInclude(x=>x.Facility).OrderByDescending(x=>x.Id).Take(5).ToList();
-            List<Message>  message =_context.Messages.Include(x=>x.AppUser).ToList();
+            List<Message>  message =_context.Messages.Include(x=>x.AppUser).Where(x=>x.Status==true).ToList();
             var slides=_context.Slides.ToList();
             var reservations=_context.Reservations.ToList();
             var Service=_context.Servisees.ToList();
