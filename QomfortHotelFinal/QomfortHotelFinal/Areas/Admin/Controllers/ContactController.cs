@@ -81,11 +81,13 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
                 string filename = await vm.Photo.CreateFileAsync(_env.WebRootPath, "assets", "images", "background");
                 exsist.HoverImage.DeleteFile(_env.WebRootPath, "assets", "images", "background");
                 exsist.HoverImage = filename;
+               
             }
 
             exsist.Title = vm.Title.Capitalize();
             exsist.Email = vm.Email;
-
+            exsist.Location = vm.Location;
+            exsist.PhoneNumber = vm.PhoneNumber;    
             await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));

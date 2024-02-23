@@ -3600,6 +3600,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\preloader.gif))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\038c6836-a8c6-4317-a119-f2808a504864b6.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>QomfortHotelFinal</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/QomfortHotelFinal</BasePath>
+      <RelativePath>assets/images/rooms/038c6836-a8c6-4317-a119-f2808a504864b6.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\038c6836-a8c6-4317-a119-f2808a504864b6.png))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\0585fc30-1bed-4a99-a9fc-7a7ebd01f15ca2.png))">
       <SourceType>Package</SourceType>
       <SourceId>QomfortHotelFinal</SourceId>
@@ -3712,22 +3728,6 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\1e03d60a-400e-40a1-8432-0d0251986baaa2.png))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\251c60fe-d288-4d9d-9dbb-b1c857e4a9d7a2.png))">
-      <SourceType>Package</SourceType>
-      <SourceId>QomfortHotelFinal</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/QomfortHotelFinal</BasePath>
-      <RelativePath>assets/images/rooms/251c60fe-d288-4d9d-9dbb-b1c857e4a9d7a2.png</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\251c60fe-d288-4d9d-9dbb-b1c857e4a9d7a2.png))</OriginalItemSpec>
-    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\27b1760a-fe8c-4128-94e8-1f14695dd60aa2.png))">
       <SourceType>Package</SourceType>
       <SourceId>QomfortHotelFinal</SourceId>
@@ -3807,6 +3807,22 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\3a0fa81f-de85-4875-976f-abdbe9c42ccda2.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\414b295f-3fab-47e1-b987-7615f7d8050ab4.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>QomfortHotelFinal</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/QomfortHotelFinal</BasePath>
+      <RelativePath>assets/images/rooms/414b295f-3fab-47e1-b987-7615f7d8050ab4.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\414b295f-3fab-47e1-b987-7615f7d8050ab4.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\42884911-f779-4660-b699-ff7daf1ab607a2.png))">
       <SourceType>Package</SourceType>
@@ -3904,22 +3920,6 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\4b7d0e57-0faf-4d29-99f0-68cac9ba6d8ea3.png))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\4be9529f-8f93-4d04-9147-9059251472e7a3.png))">
-      <SourceType>Package</SourceType>
-      <SourceId>QomfortHotelFinal</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/QomfortHotelFinal</BasePath>
-      <RelativePath>assets/images/rooms/4be9529f-8f93-4d04-9147-9059251472e7a3.png</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\4be9529f-8f93-4d04-9147-9059251472e7a3.png))</OriginalItemSpec>
-    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\576be25e-13a8-4d8c-b8a8-8402526d2c8da1.png))">
       <SourceType>Package</SourceType>
       <SourceId>QomfortHotelFinal</SourceId>
@@ -3967,6 +3967,38 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\5deb491a-248f-468b-aec2-e1dcae5e1b37haboutaxrinciseekil.png))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\5f19b2c1-afff-4b20-91ac-e297088d8dcfb4.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>QomfortHotelFinal</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/QomfortHotelFinal</BasePath>
+      <RelativePath>assets/images/rooms/5f19b2c1-afff-4b20-91ac-e297088d8dcfb4.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\5f19b2c1-afff-4b20-91ac-e297088d8dcfb4.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\5f8fc33f-5529-4106-ae50-51f3d11a73edhome6.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>QomfortHotelFinal</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/QomfortHotelFinal</BasePath>
+      <RelativePath>assets/images/rooms/5f8fc33f-5529-4106-ae50-51f3d11a73edhome6.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\5f8fc33f-5529-4106-ae50-51f3d11a73edhome6.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\65659831-281a-40ef-93a8-0e579d6bac12a3.png))">
       <SourceType>Package</SourceType>
@@ -4288,6 +4320,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\b1030236-5dcd-4752-9413-7f0683e8cb2dr1.jpg))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\b3043a0f-4e58-46f3-b68e-327f879a7346b3.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>QomfortHotelFinal</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/QomfortHotelFinal</BasePath>
+      <RelativePath>assets/images/rooms/b3043a0f-4e58-46f3-b68e-327f879a7346b3.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\b3043a0f-4e58-46f3-b68e-327f879a7346b3.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\b66878e2-5db4-4155-92d7-503e7cfdf56da2.png))">
       <SourceType>Package</SourceType>
       <SourceId>QomfortHotelFinal</SourceId>
@@ -4336,12 +4384,12 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\b775a269-0930-445f-97ca-255ef18f2380a3.png))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\b8afcda7-2755-4690-b578-d12ebdbc5bcea2.png))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\b89f4021-e0a4-44d8-9f87-648ab8641b6fb5.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>QomfortHotelFinal</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/QomfortHotelFinal</BasePath>
-      <RelativePath>assets/images/rooms/b8afcda7-2755-4690-b578-d12ebdbc5bcea2.png</RelativePath>
+      <RelativePath>assets/images/rooms/b89f4021-e0a4-44d8-9f87-648ab8641b6fb5.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -4350,7 +4398,7 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\b8afcda7-2755-4690-b578-d12ebdbc5bcea2.png))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\b89f4021-e0a4-44d8-9f87-648ab8641b6fb5.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\bda39f43-c802-4710-accc-6dbf307b06a7a2.png))">
       <SourceType>Package</SourceType>
@@ -4383,22 +4431,6 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\c16daaf6-da89-4d9a-aad4-7bc4fd8868d1b3.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\c2894ae7-526d-4518-9754-b5cdae43d1fba1.png))">
-      <SourceType>Package</SourceType>
-      <SourceId>QomfortHotelFinal</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/QomfortHotelFinal</BasePath>
-      <RelativePath>assets/images/rooms/c2894ae7-526d-4518-9754-b5cdae43d1fba1.png</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\c2894ae7-526d-4518-9754-b5cdae43d1fba1.png))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\c57f355a-c569-4e96-b438-5221fc1632afhaboutaxrinciseekil.png))">
       <SourceType>Package</SourceType>
@@ -4496,22 +4528,6 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\d251a77b-ab94-4c7e-8f9c-0123f7f0b4c6a1.png))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\d322c658-6a4c-4d2a-9fc9-9370f784d6f0haboutaxrinciseekil.png))">
-      <SourceType>Package</SourceType>
-      <SourceId>QomfortHotelFinal</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/QomfortHotelFinal</BasePath>
-      <RelativePath>assets/images/rooms/d322c658-6a4c-4d2a-9fc9-9370f784d6f0haboutaxrinciseekil.png</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\d322c658-6a4c-4d2a-9fc9-9370f784d6f0haboutaxrinciseekil.png))</OriginalItemSpec>
-    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\d3c2de53-a481-4aa6-b1bd-e1b63bd95398b3.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>QomfortHotelFinal</SourceId>
@@ -4544,12 +4560,12 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\d4a75677-2fe6-4d12-b719-575bd945d432b3.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\da884161-0503-482d-949a-7afe4842796bb4.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\d8f0b26e-5b3d-48ff-875a-369006ef90cbb5.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>QomfortHotelFinal</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/QomfortHotelFinal</BasePath>
-      <RelativePath>assets/images/rooms/da884161-0503-482d-949a-7afe4842796bb4.jpg</RelativePath>
+      <RelativePath>assets/images/rooms/d8f0b26e-5b3d-48ff-875a-369006ef90cbb5.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -4558,23 +4574,7 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\da884161-0503-482d-949a-7afe4842796bb4.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\dd04123f-fc83-4b3f-8c4e-7b52441cfb4eb3.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>QomfortHotelFinal</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/QomfortHotelFinal</BasePath>
-      <RelativePath>assets/images/rooms/dd04123f-fc83-4b3f-8c4e-7b52441cfb4eb3.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\dd04123f-fc83-4b3f-8c4e-7b52441cfb4eb3.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\d8f0b26e-5b3d-48ff-875a-369006ef90cbb5.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\dd4ca7f4-be64-4f1a-96f5-0307da3d64d9b2.jpg))">
       <SourceType>Package</SourceType>
@@ -4672,22 +4672,6 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\e3755dd2-ee35-4287-a940-0fb8a2064252a2.png))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\faf8192a-7b15-46f9-a26f-b89ac2b7c088a3.png))">
-      <SourceType>Package</SourceType>
-      <SourceId>QomfortHotelFinal</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/QomfortHotelFinal</BasePath>
-      <RelativePath>assets/images/rooms/faf8192a-7b15-46f9-a26f-b89ac2b7c088a3.png</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\faf8192a-7b15-46f9-a26f-b89ac2b7c088a3.png))</OriginalItemSpec>
-    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\fba37bb3-ab1a-44b0-accf-b89f64cafcb1a1.png))">
       <SourceType>Package</SourceType>
       <SourceId>QomfortHotelFinal</SourceId>
@@ -4703,22 +4687,6 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\fba37bb3-ab1a-44b0-accf-b89f64cafcb1a1.png))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\fc2197cb-0802-4319-96cd-086a3837b140a3.png))">
-      <SourceType>Package</SourceType>
-      <SourceId>QomfortHotelFinal</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/QomfortHotelFinal</BasePath>
-      <RelativePath>assets/images/rooms/fc2197cb-0802-4319-96cd-086a3837b140a3.png</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\fc2197cb-0802-4319-96cd-086a3837b140a3.png))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\assets\images\rooms\ff7f3b2b-f887-4845-b3fb-6eb9d839c5afr1.jpg))">
       <SourceType>Package</SourceType>

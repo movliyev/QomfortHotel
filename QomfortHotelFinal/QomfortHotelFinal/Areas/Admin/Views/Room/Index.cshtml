@@ -48,9 +48,7 @@
                                         <th>
                                             Category
                                         </th>
-                                        <th>
-                                            Status
-                                        </th>
+                                      
                                        
                                         <th>
 
@@ -85,16 +83,7 @@
                                             <td>
                                                 @item.Category.Name
                                             </td>
-                                            <td>
-                                              @*   @if (item.Reservations.De == true)
-                                                {
-                                                    <h4 class="text-info">Active</h4>
-                                                }
-                                                else
-                                                {
-                                                    <h4 class="text-danger">Reserved</h4>
-                                                } *@
-                                            </td>
+                                           
                                             <td>
                                                 @{
                                                     if (!User.IsInRole("Memmber"))

@@ -169,19 +169,7 @@
                         });
                     </script>
 
-
-                    <div class="section-title my-40">
-                        @if ( Model.DeparturDate > DateTime.Now && Model.ArrivalDate < DateTime.Now)
-                        {
-                           
-                            <h2>Status :<a class="text-info">Available</a></h2>
-                        }
-                        else
-                        {
-                            <h2>Status :<a class="text-danger">Reserved</a></h2>
-                        }
-                    </div>
-
+                   
                   
 
                     <div class="room-location mt-70 wow fadeInUp delay-0-2s">
@@ -210,15 +198,20 @@
                         <div class="form-group">
                             <label asp-for="PersonCount">Adults</label>
                             <input asp-for="PersonCount" type="number" required>
-                            <span asp-validation-for="PersonCount"></span>
+                            <span class="text-danger" asp-validation-for="PersonCount"></span>
                         </div>
                         <div class="form-group">
                             <label asp-for="Children">Children</label>
                             <input asp-for="Children" type="number" required>
                             <span asp-validation-for="Children"></span>
                         </div>
-                        <p>Total Price: <span id="totalPrice"></span></p>
-                        <button class="theme-btn w-100">Check Availability <i class="far fa-angle-right"></i></button>
+                        @{
+                            if (!User.IsInRole("Admin"))
+                            {
+                                <button class="theme-btn w-100">Check Availability <i class="far fa-angle-right"></i></button>
+                            }
+                        }
+                       
                     </form>
                 </div>
             </div>

@@ -11392,11 +11392,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\QomfortHotelFinal.csproj",
+      "projectUniqueName": "C:\\Users\\helpdesk_connect\\Desktop\\Yeni klasör\\QomfortHotel\\QomfortHotelFinal\\QomfortHotelFinal\\QomfortHotelFinal.csproj",
       "projectName": "QomfortHotelFinal",
-      "projectPath": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\QomfortHotelFinal.csproj",
+      "projectPath": "C:\\Users\\helpdesk_connect\\Desktop\\Yeni klasör\\QomfortHotel\\QomfortHotelFinal\\QomfortHotelFinal\\QomfortHotelFinal.csproj",
       "packagesPath": "C:\\Users\\helpdesk_connect\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\obj\\",
+      "outputPath": "C:\\Users\\helpdesk_connect\\Desktop\\Yeni klasör\\QomfortHotel\\QomfortHotelFinal\\QomfortHotelFinal\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

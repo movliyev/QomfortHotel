@@ -49,11 +49,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
         {
 
 
-            //if (Blogvm.Photo is null)
-            //{
-            //    ModelState.AddModelError("Photo", "Shekil mutleq secilmelidir");
-            //    return View();
-            //}
+           
 
             if (!ModelState.IsValid)
             {
