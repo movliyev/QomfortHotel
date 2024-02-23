@@ -16,7 +16,13 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Slide Table</h4>
-                        <a asp-action="Create" asp-controller="Slide" class="btn btn-outline-info">Ceate Slide</a>
+                        @{
+                            if (!User.IsInRole("Memmber"))
+                            {
+                                <a asp-action="Create" asp-controller="Slide" class="btn btn-outline-info">Ceate Slide</a>
+                            }
+                        }
+                      
                         <div class="table-responsive">
                             <table class="table table-dark table-borderless mb-0">
                                 <thead>
@@ -33,11 +39,16 @@
                                         <th>
                                             Description
                                         </th>
-                                        <th>
+                                       
+                                        @{
+                                            if (!User.IsInRole("Memmber,Blogger"))
+                                            {
+                                                <th>
 
-                                            Settings
-                                        </th>
-
+                                                    Settings
+                                                </th>
+                                            }
+                                        }
                                     </tr>
                                 </thead>
                                 <tbody>

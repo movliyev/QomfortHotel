@@ -11,7 +11,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("Admin/[controller]/[action]")]
-    [Authorize(Roles="Admin,Memmber")]
+   
     public class RoomController : Controller
     {
 
@@ -24,8 +24,8 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
             _env = env;
         }
 
-        //[Authorize(Roles = "Admin,Moderator")]
-
+       
+        [Authorize(Roles = "Admin,Memmber,Blogger")]
         public async Task<IActionResult> Index(int page = 1)
         {
             if (page < 1) return BadRequest();
@@ -51,7 +51,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
 
             return View(pagvm);
         }
-        //[Authorize(Roles = "Admin,Moderator")]
+        [Authorize(Roles = "Admin")]
 
         public async Task<IActionResult> Create()
         {
@@ -223,7 +223,8 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        
+        [Authorize(Roles = "Admin")]
+
         public async Task<IActionResult> Update(int id)
         {
             if (id <= 0) return BadRequest();
@@ -280,7 +281,31 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
                
                 return View(pvm);
             }
-
+            if (pvm.Price <= 10)
+            {
+                ModelState.AddModelError("Price", "No quantity less than 10");
+                return View(pvm);
+            }
+            if (pvm.Capacity <= 0)
+            {
+                ModelState.AddModelError("Capacity", "No quantity less than 0");
+                return View(pvm);
+            }
+            if (pvm.Bed <= 0)
+            {
+                ModelState.AddModelError("Bed", "No quantity less than 0");
+                return View(pvm);
+            }
+            if (pvm.Size >= 100)
+            {
+                ModelState.AddModelError("Size", "No quantity less than 100");
+                return View(pvm);
+            }
+            if (pvm.BathRoom <= 0)
+            {
+                ModelState.AddModelError("BathRoom", "No quantity less than 0");
+                return View(pvm);
+            }
             if (exsist == null) return NotFound();
             if (pvm.MainPhoto is not null)
             {
@@ -369,7 +394,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
 
             if (pvm.MainPhoto != null)
             {
-                string fileNAme = await pvm.MainPhoto.CreateFileAsync(_env.WebRootPath, "assets", "images", "rooms");
+                string fileName = await pvm.MainPhoto.CreateFileAsync(_env.WebRootPath, "assets", "images", "rooms");
 
                 RoomImage eximg = exsist.RoomImages.FirstOrDefault(p => p.IsPrimary == true);
                 eximg.Url.DeleteFile(_env.WebRootPath, "assets", "images", "rooms");
@@ -378,7 +403,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
                 exsist.RoomImages.Add(new RoomImage
                 {
                     IsPrimary = true,
-                    Url = pvm.Name
+                    Url = fileName
                 });
             }
 
@@ -427,35 +452,12 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
             exsist.BathRoom = pvm.BathRoom;
             exsist.DetailDescription = pvm.DetailDescription;
             exsist.Capacity = pvm.Capacity;
-            if (pvm.Price <= 10)
-            {
-                ModelState.AddModelError("Price", "No quantity less than 10");
-                return View(pvm);
-            }
-            if (pvm.Capacity <= 0)
-            {
-                ModelState.AddModelError("Capacity", "No quantity less than 0");
-                return View(pvm);
-            }
-            if (pvm.Bed <= 0)
-            {
-                ModelState.AddModelError("Bed", "No quantity less than 0");
-                return View(pvm);
-            }
-            if (pvm.Size <= 100)
-            {
-                ModelState.AddModelError("Size", "No quantity less than 100");
-                return View(pvm);
-            }
-            if (pvm.BathRoom <= 0)
-            {
-                ModelState.AddModelError("BathRoom", "No quantity less than 0");
-                return View(pvm);
-            }
+           
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
 
         }
+        [Authorize(Roles = "Admin")]
 
         public async Task<IActionResult> Delete(int id)
         {

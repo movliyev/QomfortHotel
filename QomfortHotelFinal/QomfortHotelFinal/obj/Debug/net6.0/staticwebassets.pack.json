@@ -1873,6 +1873,10 @@
       "PackagePath": "staticwebassets\\assets\\images\\rooms\\152db539-e403-428c-961c-9ec22f8a8d16a3.png"
     },
     {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\rooms\\16763947-5f3e-44b3-b0dc-2ddf89e84585b2.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\rooms\\16763947-5f3e-44b3-b0dc-2ddf89e84585b2.jpg"
+    },
+    {
       "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\rooms\\195ca410-20c6-471f-b460-bc7515074ff5a3.png",
       "PackagePath": "staticwebassets\\assets\\images\\rooms\\195ca410-20c6-471f-b460-bc7515074ff5a3.png"
     },
@@ -1903,10 +1907,6 @@
     {
       "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\rooms\\3a0fa81f-de85-4875-976f-abdbe9c42ccda2.png",
       "PackagePath": "staticwebassets\\assets\\images\\rooms\\3a0fa81f-de85-4875-976f-abdbe9c42ccda2.png"
-    },
-    {
-      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\rooms\\41ee8192-5a04-47dc-ba18-de4a40b83fb5a3.png",
-      "PackagePath": "staticwebassets\\assets\\images\\rooms\\41ee8192-5a04-47dc-ba18-de4a40b83fb5a3.png"
     },
     {
       "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\rooms\\42884911-f779-4660-b699-ff7daf1ab607a2.png",
@@ -2001,6 +2001,10 @@
       "PackagePath": "staticwebassets\\assets\\images\\rooms\\8d6f9594-1951-4f48-9d4d-3e6a8b033dbea2.png"
     },
     {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\rooms\\9212bcc0-09d2-4f20-80b4-5e7f9a96efdcb4.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\rooms\\9212bcc0-09d2-4f20-80b4-5e7f9a96efdcb4.jpg"
+    },
+    {
       "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\rooms\\a3e8132c-3927-4ae8-8ea4-600af1b37846a2.png",
       "PackagePath": "staticwebassets\\assets\\images\\rooms\\a3e8132c-3927-4ae8-8ea4-600af1b37846a2.png"
     },
@@ -2045,6 +2049,10 @@
       "PackagePath": "staticwebassets\\assets\\images\\rooms\\bda39f43-c802-4710-accc-6dbf307b06a7a2.png"
     },
     {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\rooms\\c16daaf6-da89-4d9a-aad4-7bc4fd8868d1b3.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\rooms\\c16daaf6-da89-4d9a-aad4-7bc4fd8868d1b3.jpg"
+    },
+    {
       "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\rooms\\c2894ae7-526d-4518-9754-b5cdae43d1fba1.png",
       "PackagePath": "staticwebassets\\assets\\images\\rooms\\c2894ae7-526d-4518-9754-b5cdae43d1fba1.png"
     },
@@ -2075,6 +2083,26 @@
     {
       "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\rooms\\d322c658-6a4c-4d2a-9fc9-9370f784d6f0haboutaxrinciseekil.png",
       "PackagePath": "staticwebassets\\assets\\images\\rooms\\d322c658-6a4c-4d2a-9fc9-9370f784d6f0haboutaxrinciseekil.png"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\rooms\\d3c2de53-a481-4aa6-b1bd-e1b63bd95398b3.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\rooms\\d3c2de53-a481-4aa6-b1bd-e1b63bd95398b3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\rooms\\d4a75677-2fe6-4d12-b719-575bd945d432b3.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\rooms\\d4a75677-2fe6-4d12-b719-575bd945d432b3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\rooms\\da884161-0503-482d-949a-7afe4842796bb4.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\rooms\\da884161-0503-482d-949a-7afe4842796bb4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\rooms\\dd04123f-fc83-4b3f-8c4e-7b52441cfb4eb3.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\rooms\\dd04123f-fc83-4b3f-8c4e-7b52441cfb4eb3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\rooms\\dd4ca7f4-be64-4f1a-96f5-0307da3d64d9b2.jpg",
+      "PackagePath": "staticwebassets\\assets\\images\\rooms\\dd4ca7f4-be64-4f1a-96f5-0307da3d64d9b2.jpg"
     },
     {
       "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\assets\\images\\rooms\\detail1a.jpg",
@@ -2535,6 +2563,446 @@
     {
       "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\css\\.DS_Store",
+      "PackagePath": "staticwebassets\\yeni\\css\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\css\\plugins\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\yeni\\css\\plugins\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\css\\plugins\\fancybox.min.css",
+      "PackagePath": "staticwebassets\\yeni\\css\\plugins\\fancybox.min.css"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\css\\plugins\\font-awesome.min.css",
+      "PackagePath": "staticwebassets\\yeni\\css\\plugins\\font-awesome.min.css"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\css\\plugins\\swiper.min.css",
+      "PackagePath": "staticwebassets\\yeni\\css\\plugins\\swiper.min.css"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\css\\style.css",
+      "PackagePath": "staticwebassets\\yeni\\css\\style.css"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\.DS_Store",
+      "PackagePath": "staticwebassets\\yeni\\img\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\blog\\.DS_Store",
+      "PackagePath": "staticwebassets\\yeni\\img\\blog\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\blog\\1.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\blog\\1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\blog\\2.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\blog\\2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\blog\\3.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\blog\\3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\blog\\4.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\blog\\4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\blog\\5.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\blog\\5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\blog\\6.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\blog\\6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\blog\\7.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\blog\\7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\blog\\8.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\blog\\8.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\faces\\.DS_Store",
+      "PackagePath": "staticwebassets\\yeni\\img\\faces\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\faces\\1.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\faces\\1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\faces\\2.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\faces\\2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\faces\\3.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\faces\\3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\faces\\4.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\faces\\4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\faces\\5.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\faces\\5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\faces\\6.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\faces\\6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\faces\\7.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\faces\\7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\faces\\8.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\faces\\8.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\faces\\customers\\.DS_Store",
+      "PackagePath": "staticwebassets\\yeni\\img\\faces\\customers\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\faces\\customers\\1.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\faces\\customers\\1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\faces\\customers\\2.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\faces\\customers\\2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\faces\\customers\\3.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\faces\\customers\\3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\faces\\customers\\4.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\faces\\customers\\4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\faces\\customers\\5.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\faces\\customers\\5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\faces\\customers\\6.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\faces\\customers\\6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\faces\\customers\\7.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\faces\\customers\\7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\faces\\large\\.DS_Store",
+      "PackagePath": "staticwebassets\\yeni\\img\\faces\\large\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\faces\\large\\1.png",
+      "PackagePath": "staticwebassets\\yeni\\img\\faces\\large\\1.png"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\icons\\.DS_Store",
+      "PackagePath": "staticwebassets\\yeni\\img\\icons\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\icons\\zoom.svg",
+      "PackagePath": "staticwebassets\\yeni\\img\\icons\\zoom.svg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\partners\\.DS_Store",
+      "PackagePath": "staticwebassets\\yeni\\img\\partners\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\partners\\1.svg",
+      "PackagePath": "staticwebassets\\yeni\\img\\partners\\1.svg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\partners\\2.svg",
+      "PackagePath": "staticwebassets\\yeni\\img\\partners\\2.svg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\photo\\.DS_Store",
+      "PackagePath": "staticwebassets\\yeni\\img\\photo\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\photo\\1.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\photo\\1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\photo\\2.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\photo\\2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\.DS_Store",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\1.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\1\\.DS_Store",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\1\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\1\\1.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\1\\1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\1\\2.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\1\\2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\1\\3.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\1\\3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\1\\4.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\1\\4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\1\\5.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\1\\5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\1\\6.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\1\\6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\1\\7.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\1\\7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\2.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\2\\.DS_Store",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\2\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\2\\1.gif",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\2\\1.gif"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\2\\2.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\2\\2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\2\\3.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\2\\3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\2\\4.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\2\\4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\3.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\3\\.DS_Store",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\3\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\3\\1.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\3\\1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\3\\2.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\3\\2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\3\\3.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\3\\3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\3\\4.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\3\\4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\4.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\4\\.DS_Store",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\4\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\4\\1.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\4\\1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\4\\2.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\4\\2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\4\\3.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\4\\3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\4\\4.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\4\\4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\4\\5.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\4\\5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\4\\6.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\4\\6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\4\\7.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\4\\7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\5.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\5\\.DS_Store",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\5\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\5\\1.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\5\\1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\5\\2.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\5\\2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\5\\3.gif",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\5\\3.gif"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\5\\4.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\5\\4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\5\\5.gif",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\5\\5.gif"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\5\\5.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\5\\5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\5\\6.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\5\\6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\5\\7.gif",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\5\\7.gif"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\6.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\6\\.DS_Store",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\6\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\6\\1.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\6\\1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\6\\2.gif",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\6\\2.gif"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\6\\3.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\6\\3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\6\\4.gif",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\6\\4.gif"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\6\\5.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\6\\5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\6\\6.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\6\\6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\6\\7.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\6\\7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\img\\works\\6\\8.jpg",
+      "PackagePath": "staticwebassets\\yeni\\img\\works\\6\\8.jpg"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\js\\.DS_Store",
+      "PackagePath": "staticwebassets\\yeni\\js\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\js\\main.js",
+      "PackagePath": "staticwebassets\\yeni\\js\\main.js"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\js\\plugins\\.DS_Store",
+      "PackagePath": "staticwebassets\\yeni\\js\\plugins\\.DS_Store"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\js\\plugins\\ScrollTo.min.js",
+      "PackagePath": "staticwebassets\\yeni\\js\\plugins\\ScrollTo.min.js"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\js\\plugins\\ScrollTrigger.min.js",
+      "PackagePath": "staticwebassets\\yeni\\js\\plugins\\ScrollTrigger.min.js"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\js\\plugins\\fancybox.min.js",
+      "PackagePath": "staticwebassets\\yeni\\js\\plugins\\fancybox.min.js"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\js\\plugins\\gsap.min.js",
+      "PackagePath": "staticwebassets\\yeni\\js\\plugins\\gsap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\js\\plugins\\jquery.min.js",
+      "PackagePath": "staticwebassets\\yeni\\js\\plugins\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\js\\plugins\\smooth-scroll.js",
+      "PackagePath": "staticwebassets\\yeni\\js\\plugins\\smooth-scroll.js"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\js\\plugins\\swiper.min.js",
+      "PackagePath": "staticwebassets\\yeni\\js\\plugins\\swiper.min.js"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\js\\plugins\\swup.min.js",
+      "PackagePath": "staticwebassets\\yeni\\js\\plugins\\swup.min.js"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\js\\plugins\\tilt.js",
+      "PackagePath": "staticwebassets\\yeni\\js\\plugins\\tilt.js"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\scss\\_common.scss",
+      "PackagePath": "staticwebassets\\yeni\\scss\\_common.scss"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\scss\\_components.scss",
+      "PackagePath": "staticwebassets\\yeni\\scss\\_components.scss"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\scss\\_variables.scss",
+      "PackagePath": "staticwebassets\\yeni\\scss\\_variables.scss"
+    },
+    {
+      "Id": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotelFinal\\QomfortHotelFinal\\wwwroot\\yeni\\scss\\style.scss",
+      "PackagePath": "staticwebassets\\yeni\\scss\\style.scss"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.QomfortHotelFinal.Microsoft.AspNetCore.StaticWebAssets.props",

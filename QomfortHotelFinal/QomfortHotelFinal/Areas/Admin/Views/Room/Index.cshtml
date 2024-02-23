@@ -16,7 +16,13 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Room Table</h4>
-                        <a asp-action="Create" asp-controller="Room" class="btn btn-outline-info">Ceate Room</a>
+                        @{
+                            if (!User.IsInRole("Memmber"))
+                            {
+                                <a asp-action="Create" asp-controller="Room" class="btn btn-outline-info">Ceate Room</a>
+                            }
+                        }
+                    
                         <div class="table-responsive">
                             <table class="table table-dark table-borderless mb-0">
                                 <thead>
@@ -45,9 +51,7 @@
                                         <th>
                                             Status
                                         </th>
-                                        <th>
-                                            Rating
-                                        </th>
+                                       
                                         <th>
 
                                             Settings

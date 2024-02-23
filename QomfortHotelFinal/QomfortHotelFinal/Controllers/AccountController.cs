@@ -69,12 +69,13 @@ namespace QomfortHotelFinal.Controllers
             if (result.Succeeded)
             {
 
-                //await _signInManager.SignInAsync(appUser, false);
                 var token = await _userManager.GenerateEmailConfirmationTokenAsync(appUser);
 
                 var confirmationlink = Url.Action(nameof(ConfirmEmail), "Account", new { token, Email = appUser.Email }, Request.Scheme);
 
-                await _ser.SendEmailAsync(appUser.Email, "Email Confirmation", confirmationlink);
+                string buttonHtml = $"<a href='{confirmationlink}' style='background-color: #17a2b8; color: white; text-decoration: none; padding: 10px 20px; border-radius: 5px; display: inline-block;'>Confirm Email</a>";
+
+                await _ser.SendEmailAsync(appUser.Email, "Email Confirmation", buttonHtml);
                 await _userManager.AddToRoleAsync(appUser, UserRole.Memmber.ToString());
 
                 return RedirectToAction(nameof(SuccesRegistered), "Account");
@@ -196,8 +197,11 @@ namespace QomfortHotelFinal.Controllers
             if(user == null) return NotFound();
             //https://localhost:
             string token = await _userManager.GeneratePasswordResetTokenAsync(user);
-            string link=Url.Action("ResetPassword","Account",new { userid = user.Id, token=token},HttpContext.Request.Scheme);
-            string body = @"<a class='btn btn-info'"; body += $" href='{link}'>ResetPassword";body+=@"</a>";
+            string link = Url.Action("ResetPassword", "Account", new { userid = user.Id, token = token }, HttpContext.Request.Scheme);
+
+            string buttonHtml = $"<a href='{link}' style='background-color: #17a2b8; color: white; text-decoration: none; padding: 10px 20px; border-radius: 5px; display: inline-block;'>Reset Password</a>";
+
+            string body = $"Please click the following link to reset your password: {buttonHtml}";
             await _ser.SendEmailAsync(user.Email,"ResetPassword", body, true);
             return RedirectToAction(nameof(Login));
         }

@@ -101,7 +101,7 @@
                                         <li><a asp-action="Index" asp-controller="Contact">Contact</a></li>
 
                                         <li class="dropdown" onmouseover="showDropdownMenu()" onmouseout="hideDropdownMenu()">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                            <a href="#">
                                                 <i class="far fa-user" style="font-size: 24px;"></i>
                                             </a>
                                             <ul class="dropdown-menu" aria-labelledby="settingButton">
@@ -286,15 +286,9 @@
                 <div class="row justify-content-xl-between justify-content-between">
                     <div class="col-xl-5 col-lg-6 order-lg-1">
                         <div class="footer-widget widget_newsletter style-two wow fadeInUp delay-0-6s">
-                            <div class="section-title text-white">
-                                <h2>Join Our Newsletter</h2>
-                            </div>
-                            <form action="#">
-                                <input type="email" placeholder="Enter Address" required>
-                                <button class="theme-btn">Subscribe <i class="far fa-angle-right"></i></button>
-                            </form>
+                           
                             <div class="footer-logo mt-35">
-                                <a href="index.html"><img src="~/assets/images/logos/logo.png" alt="Logo"></a>
+                                <a ><img src="~/assets/images/logos/@settings["Logo"]" alt="Logo"></a>
                             </div>
                         </div>
                     </div>
@@ -302,11 +296,8 @@
                         <div class="footer-widget widget_nav_menu ms-0 wow fadeInUp delay-0-4s">
                             <h4 class="footer-title">Quick Links</h4>
                             <ul class="list-style-one">
-                                <li><a href="about.html">About company</a></li>
-                                <li><a href="about.html">History</a></li>
-                                <li><a href="about.html">Team Member</a></li>
-                                <li><a href="blog.html">Latest News</a></li>
-                                <li><a href="contact.html">Contact Us</a></li>
+                                <li><a asp-action="Index" asp-controller="Blog">Latest News</a></li>
+                                <li><a asp-action="Index" asp-controller="Contact">Contact Us</a></li>
                             </ul>
                         </div>
                     </div>
@@ -314,10 +305,7 @@
                         <div class="footer-widget widget_nav_menu me-0 wow fadeInUp delay-0-4s">
                             <h4 class="footer-title">Features</h4>
                             <ul class="list-style-one">
-                                <li><a href="room-details.html">Free Transportation</a></li>
-                                <li><a href="room-details.html">GYM & Fitness Care</a></li>
-                                <li><a href="room-details.html">SPA Treatment</a></li>
-                                <li><a href="room-details.html">Food & Drinks</a></li>
+                                <li><a asp-action="RoomList" asp-controller="Room">Rooms</a></li>
                                 <li><a href="room-details.html">Breakfast</a></li>
                             </ul>
 

@@ -10,7 +10,6 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("Admin/[controller]/[action]")]
-    [Authorize(Roles = "Admin,Memmber")]
     public class ServiceeController : Controller
     {
         private readonly AppDbContext _context;
@@ -19,6 +18,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
         {
             _context = context;
         }
+        [Authorize(Roles = "Admin,Memmber,Blogger")]
 
         public async Task<IActionResult> Index(int page = 1)
         {
@@ -35,6 +35,8 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
 
             return View(pagvm);
         }
+        [Authorize(Roles = "Admin")]
+
         public IActionResult Create()
         {
             return View();
@@ -65,6 +67,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [Authorize(Roles = "Admin")]
 
         //UPDATE 
         public async Task<IActionResult> Update(int id)
@@ -104,6 +107,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+        [Authorize(Roles = "Admin")]
 
 
         //DELETE

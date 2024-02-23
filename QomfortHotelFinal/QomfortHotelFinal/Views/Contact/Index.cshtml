@@ -113,14 +113,27 @@
                     <form  class="contactForm"  method="post">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <div class="row gap-20 pt-15">
-                            
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" asp-for="Subject" class="form-control"  placeholder="Subject" required data-error="Please enter your Subject">
-                                    <span asp-validation-for="Subject" class="text-danger"></span>
 
-                                    <div class="help-block with-errors"></div>
-                                </div>
+                            <div class="col-md-12">
+                                <b> <label asp-for="Subject">Subject:</label></b><br>
+                                <label asp-for="Subject">
+
+                                    Complaint  <input asp-for="Subject" placeholder="Gender" type="radio" name="Subject" value="complaint">
+
+                                </label>
+                                <br>
+                                <label asp-for="Subject">
+                                    Offers <input asp-for="Subject" placeholder="Gender" type="radio" name="Subject" value="offers">
+
+                                </label><br>
+                                <label asp-for="Subject">
+                                    Other <input asp-for="Subject" placeholder="Gender" type="radio" name="Subject" value="other">
+
+                                </label>
+                                                              
+                                <span class="text-danger" asp-validation-for="Subject"></span>
+
+
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
@@ -143,12 +156,18 @@
                                     <label for="star1" title="1 star">&#9733;</label>
                                 </div>
                             </div>
-                            <div class="col-md-12">
-                                <div class="form-group pt-5 mb-0">
-                                    <button type="submit" class="theme-btn">Send Message<i class="far fa-arrow-right"></i></button>
-                                    
-                                </div>
-                            </div>
+                            @{
+                                if (!User.IsInRole("Admin"))
+                                {
+                                    <div class="col-md-12">
+                                        <div class="form-group pt-5 mb-0">
+                                            <button type="submit" class="theme-btn">Send Message<i class="far fa-arrow-right"></i></button>
+
+                                        </div>
+                                    </div>
+                                }
+                            }
+                          
                         </div>
                     </form>
                     <style>

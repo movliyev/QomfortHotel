@@ -23,7 +23,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
             _context = context;
             _env = env;
         }
-        [Authorize(Roles = "Admin,Memmber,Blogger")]
+        [Authorize(Roles = "Admin,Memmber")]
         public async Task<IActionResult> Indexx(int page = 1)
         {
             if (page < 1) return BadRequest();
@@ -39,7 +39,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
 
             return View(pagvm);
         }
-        [Authorize(Roles = "Blogger")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
@@ -112,7 +112,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
             return RedirectToAction(nameof(Indexx));
         }
 
-        [Authorize(Roles = "Blogger")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(int id)
         {
             if (id <= 0) return BadRequest();
@@ -189,7 +189,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
 
 
 
-        [Authorize(Roles = "Blogger")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
             if (id <= 0) return BadRequest();

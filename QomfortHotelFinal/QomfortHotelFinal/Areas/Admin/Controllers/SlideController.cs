@@ -11,7 +11,6 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("Admin/[controller]/[action]")]
-    [Authorize(Roles = "Admin,Memmber")]
     public class SlideController : Controller
     {
 
@@ -23,6 +22,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
             _context = context;
             _env = env;
         }
+        [Authorize(Roles = "Admin,Memmber,Blogger")]
 
         public async Task<IActionResult> Index(int page = 1)
         {
@@ -38,6 +38,9 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
 
             return View(pagvm);
         }
+
+        [Authorize(Roles = "Admin")]
+
         public IActionResult Create()
         {
             return View();
@@ -46,12 +49,6 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
         public async Task<IActionResult> Create(CreateSlideVM slidevm)
         {
 
-
-            //if (slidevm.Photo is null)
-            //{
-            //    ModelState.AddModelError("Photo", "Shekil mutleq secilmelidir");
-            //    return View();
-            //}
 
             if (!ModelState.IsValid)
             {
@@ -87,6 +84,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+        [Authorize(Roles = "Admin")]
 
 
         public async Task<IActionResult> Update(int id)
@@ -140,6 +138,9 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+
+        [Authorize(Roles = "Admin")]
 
 
 

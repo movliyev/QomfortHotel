@@ -10,7 +10,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("Admin/[controller]/[action]")]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin,Blogger")]
     public class CommentController : Controller
     {
         private readonly AppDbContext _context;
@@ -19,6 +19,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
         {
            _context = context;
         }
+        
         public async Task<IActionResult> Index(int page = 1)
         {
             if (page < 1) return BadRequest();

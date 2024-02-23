@@ -1,0 +1,56 @@
+﻿@model Message
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+
+            <div class="col-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Update HomeAbout</h4>
+
+                        <form class="forms-sample" method="post" enctype="multipart/form-data">
+                            <div class="col-md-12">
+                                <b> <label asp-for="Status">Status:</label></b><br>
+                                <label asp-for="Subject">
+
+                                    Active  <input asp-for="Status" placeholder="Status" type="radio"  value="true">
+
+                                </label>
+                                <br>
+                                <label asp-for="Status">
+                                    Passive <input asp-for="Status" placeholder="Status" type="radio"  value="false">
+
+                                </label><br>
+                               
+                                <span class="text-danger" asp-validation-for="Status"></span>
+
+
+                            </div>
+
+                            <button type="submit" class="btn btn-primary me-2">Submit</button>
+                            <button asp-action="Index" class="btn btn-light">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

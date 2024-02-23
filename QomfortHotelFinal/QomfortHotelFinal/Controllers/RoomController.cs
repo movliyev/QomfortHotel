@@ -70,83 +70,65 @@ namespace QomfortHotelFinal.Controllers
         [HttpPost]
         public async Task<IActionResult> Reserv(int id, RoomVM vm)
         {
-            if (id <= 0) return BadRequest();
+            if (id <= 0) throw new WrongRequestException("The query is incorrect");
             Room room = await _context.Rooms.Include(x => x.Reservations.Where(x => x.Id == id))
            .Include(p => p.Category)
            .Include(p => p.RoomImages.Where(x => x.IsPrimary == true))
            .Include(p => p.RoomFacilities).ThenInclude(x => x.Facility)
            .Include(p => p.RoomServicees).ThenInclude(p => p.Servicee)
            .FirstOrDefaultAsync(x => x.Id == id);
-            if (room == null)return NotFound();
-           
+            if (room == null) throw new NotFoundException("Room not found");
+            //reservations
             var reservations = await _context.Reservations
-            .Where(r => r.RoomId == id) // Odanın mevcut ve aktif rezervasyonlarını al
+            .Where(r => r.RoomId == id) 
              .ToListAsync();
 
-            // Oda rezervasyon tarihleri
+            // Reservation tarixleri
             var reservationDates = reservations.SelectMany(r => Enumerable.Range(0, (r.DeparturDate - r.ArrivalDate).Days + 1)
                 .Select(offset => r.ArrivalDate.AddDays(offset)))
                 .ToList();
 
             vm.ReservationDates = reservationDates;
             vm.Room = room;
-            if (!ModelState.IsValid)
-            {
-                ModelState.AddModelError(String.Empty, "The selected room could not be found.");
-                return View(vm);
-            }
-
+            if (!ModelState.IsValid)return View(vm);
+           
             if (vm.PersonCount + vm.Children > room.Capacity)
             {
-
                 ModelState.AddModelError(string.Empty, "The total number of persons exceeds the room's capacity.");
                 return View(vm);
             }
 
             var existingReservations = await _context.Reservations
-            .Where(r => r.RoomId == id && r.Status == true) // Odanın mevcut ve aktif rezervasyonlarını al
-            .ToListAsync();
+      .Where(r => r.RoomId == id && r.Status == true)
+      .ToListAsync();
 
             // Seçilen tarih aralığında başka bir rezervasyon var mı kontrol et
-            foreach (var reservation in existingReservations)
+            foreach (var reserv in existingReservations)
             {
-                if (vm.ArrivalDate <= reservation.DeparturDate && vm.DeparturDate >= reservation.ArrivalDate)
+                if (vm.ArrivalDate <= reserv.DeparturDate.AddDays(1) && vm.DeparturDate >= reserv.ArrivalDate)
                 {
-                    // Rezervasyonun bitiş tarihi kontrol ediliyor
-                    if (DateTime.Now <= reservation.DeparturDate)
+                    if (DateTime.Now <= reserv.DeparturDate.AddDays(1))
                     {
-
-                        ModelState.AddModelError(String.Empty, "Belirtilen tarih aralığında başka bir rezervasyon bulunmaktadır.");
+                        ModelState.AddModelError(String.Empty, "There is another reserve in this date range.");
                         return View(vm);
                     }
                 }
             }
 
 
-
-            if (vm.ArrivalDate < DateTime.Today || vm.ArrivalDate > vm.DeparturDate)
+            if (vm.ArrivalDate < DateTime.Today || vm.ArrivalDate > vm.DeparturDate || (vm.DeparturDate - vm.ArrivalDate).Days <= 0)
             {
-
                 ModelState.AddModelError(String.Empty, "Invalid reservation dates.");
                 return View(vm);
             }
-            // Toplam gün sayısını hesaplayın
-            int totalDays = (vm.DeparturDate - vm.ArrivalDate).Days;
-
-            if (totalDays <= 0)
-            {
-
-                ModelState.AddModelError(String.Empty, "Geçersiz rezervasyon tarihleri.");
-                return View(vm);
-            }
-
+            Reservation reservation = null;
             if (User.Identity.IsAuthenticated)
             {
                 var user = await _userManager.GetUserAsync(HttpContext.User);
 
-                Reservation reservation = new Reservation
+                reservation = new Reservation
                 {
-                    Status = true,
+                    Status = false,
                     ArrivalDate = vm.ArrivalDate,
                     DeparturDate = vm.DeparturDate,
                     ReservationDate = DateTime.Now,
@@ -157,18 +139,19 @@ namespace QomfortHotelFinal.Controllers
 
                 };
 
-                //if (room.Status == false)
-                //{
-                //    foreach (var reservation1 in reservationDates)
-                //    {
-                //        reservation1.S = true;
-                //    }
-                //}
-                await _context.Reservations.AddAsync(reservation);
+               if (vm.DeparturDate > DateTime.Now && vm.ArrivalDate < DateTime.Now)
+                {
+                    room.Status = false;
+                }
+                else
+                {
+                    room.Status = true;
+                }
+                    await _context.Reservations.AddAsync(reservation);
                 await _context.SaveChangesAsync();
-                var arrivalDate = vm.ArrivalDate;
-                var departureDate = vm.DeparturDate;
-                var jobId = BackgroundJob.Schedule(() => UpdateRoomStatusBetweenDates(room.Id, arrivalDate, departureDate), departureDate);
+                await UpdateRoomStatusOnArrival(room.Id, vm.ArrivalDate);
+                var endTime = vm.DeparturDate;
+                var jobId = BackgroundJob.Schedule(() => UpdateRoomStatus(room.Id), endTime);
 
 
             }
@@ -178,9 +161,8 @@ namespace QomfortHotelFinal.Controllers
                 return RedirectToAction("Login", "Account");
             }
 
-            return RedirectToAction("Checkout", "Room");
+            return RedirectToAction("Checkout", "Room", new {reservId=reservation.Id});
         }
-        // Reservation Databazadan silinerse room statusu true olsun
         public async Task<IActionResult> CancelReservation(int reservationId)
         {
             var reservation = await _context.Reservations.FindAsync(reservationId);
@@ -209,58 +191,36 @@ namespace QomfortHotelFinal.Controllers
                 await _context.SaveChangesAsync();
             }
         }
-
-       
-        public async Task UpdateRoomStatusBetweenDates(int roomId, DateTime arrivalDate, DateTime departureDate)
+        public async Task UpdateRoomStatusOnArrival(int roomId, DateTime arrivalDate)
         {
-            // Odanın rezervasyonunu kontrol et
-            var reservation = _context.Reservations.FirstOrDefault(r => r.RoomId == roomId && r.Status == true);
-            if (reservation != null && reservation.ArrivalDate >= arrivalDate && reservation.DeparturDate <= departureDate)
+            var room = await _context.Rooms.FindAsync(roomId);
+            if (room != null && arrivalDate < DateTime.Now)
             {
-                // Oda zaten doluysa yeni rezervasyon kabul edilemez, hata durumu oluştur
-                throw new Exception("Oda zaten rezerve edilmiş.");
-
-                // Alternatif olarak, hata durumunu bir hata nesnesiyle döndürebilirsiniz
-                // throw new InvalidOperationException("Oda zaten rezerve edilmiş.");
+                // Gelen tarih geçmişse, oda durumunu false yap
+                room.Status = false;
+                await _context.SaveChangesAsync();
             }
-            // Eğer rezervasyon varsa ve varış tarihi şu anki tarihten büyükse
-            if (reservation != null && reservation.ArrivalDate >= arrivalDate && reservation.DeparturDate <= departureDate)
-            {
-                // Rezervasyonun durumunu güncelle (varış tarihi gelmiş)
-                reservation.Status = false;
+        }
+        public async Task UpdateRoomStatus(int roomId)
+        {
+            var reservation = _context.Reservations.FirstOrDefault(r => r.RoomId == roomId && r.Status == true);
 
-                // Oda durumunu güncelle (işgal edilmiş)
+            if (reservation != null && reservation.DeparturDate < DateTime.Now)
+            {
+                // Rezervasyonun bitiş tarihi geçmişse, rezervasyonu iptal et ve odayı yeniden müsait yap
+                reservation.Status = false;
                 var room = _context.Rooms.Find(roomId);
                 if (room != null)
                 {
                     room.Status = true;
                 }
 
-                // Değişiklikleri veritabanına kaydet
-                await _context.SaveChangesAsync();
-            }
-            // Eğer rezervasyon yoksa veya rezervasyonun varış tarihi gelmemişse
-            else
-            {
-                // Rezervasyonu iptal et ve odayı yeniden müsait yap
-                if (reservation != null)
-                {
-                    reservation.Status = true;
-                }
-                var room = _context.Rooms.Find(roomId);
-                if (room != null)
-                {
-                    room.Status = false;
-                }
-
-                // Değişiklikleri veritabanına kaydet
-                await _context.SaveChangesAsync();
+                _context.SaveChanges();
             }
         }
 
-
         //\\\\\\\\\\\\CHECKOUT//\\\\\\\\\\\\
-        public async Task<IActionResult> Checkout()
+        public async Task<IActionResult> Checkout(int reservId)
         {
             AppUser user = await _userManager.Users
            .Include(u => u.Reservations.Where(b => b.OrderId == null))
@@ -278,7 +238,7 @@ namespace QomfortHotelFinal.Controllers
             return View(orderVM);
         }
         [HttpPost]
-        public async Task<IActionResult> Checkout(OrderVM ovm, string stripeEmail, string stripeToken)
+        public async Task<IActionResult> Checkout(int reservId,OrderVM ovm, string stripeEmail, string stripeToken)
         {
             AppUser user = await _userManager.Users
            .Include(u => u.Reservations.Where(b => b.OrderId == null))
@@ -291,8 +251,8 @@ namespace QomfortHotelFinal.Controllers
                 ovm.TotalPrice = user.Reservations.Sum(r => (r.DeparturDate - r.ArrivalDate).Days * r.Room.Price);
                 return View(ovm);
             }
-
-            decimal totalPrice = ovm.TotalPrice; // Ödenecek toplam tutar
+            Reservation reservation = user.Reservations.FirstOrDefault(r => r.Id == reservId);
+            decimal totalPrice = (reservation.DeparturDate-reservation.ArrivalDate).Days * reservation.Room.Price; // Ödenecek toplam tutar
 
             // Siparişi oluştur
             Order order = new Order
@@ -324,14 +284,15 @@ namespace QomfortHotelFinal.Controllers
 
 
             };
-            //var serviceCharge = new ChargeService();
-            //Charge charge = serviceCharge.Create(optionsCharge);
-            //if (charge.Status != "succeeded")
-            //{
-            //    ViewBag.Reservations = item;
-            //    ModelState.AddModelError("Room", "Odenishde problem var");
-            //    return View();
-            //}
+            var serviceCharge = new ChargeService();
+            Charge charge = serviceCharge.Create(optionsCharge);
+            if (charge.Status != "succeeded")
+            {
+                ovm.Reservations = user.Reservations.ToList();
+                ovm.TotalPrice = user.Reservations.Sum(r => (r.DeparturDate - r.ArrivalDate).Days * r.Room.Price);
+                ModelState.AddModelError("", "Odenishde problem var");
+                return View(ovm);
+            }
             await _context.Orders.AddAsync(order);
             await _context.SaveChangesAsync();
 
@@ -362,6 +323,10 @@ namespace QomfortHotelFinal.Controllers
             return RedirectToAction("Index", "Home");
 
         }
+
+
+
+
 
         public async Task<IActionResult> RoomList(int id,string? search,int? order,int? categoryId,int? serviceId, int page = 1)
         {

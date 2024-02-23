@@ -16,7 +16,13 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Category Table</h4>
-                        <a asp-action="Create" asp-controller="Blog" class="btn btn-outline-info">Ceate Blog</a>
+                        @{
+                            if (!User.IsInRole("Memmber"))
+                            {
+                                <a asp-action="Create" asp-controller="Blog" class="btn btn-outline-info">Ceate Blog</a>
+                            }
+                        }
+                       
                         <div class="table-responsive">
                             <table class="table table-dark table-borderless mb-0">
                                 <thead>

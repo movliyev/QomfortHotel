@@ -169,21 +169,16 @@
                         });
                     </script>
 
-                
+
                     <div class="section-title my-40">
-
-
-                        @if (Model.Room.Status == true && Model.DeparturDate<DateTime.Now)
+                        @if (Model.Room.Status == true && Model.DeparturDate > DateTime.Now && Model.ArrivalDate < DateTime.Now)
                         {
+                           
                             <h2>Status :<a class="text-info">Available</a></h2>
                         }
                         else
                         {
-                            if (Model.ArrivalDate > DateTime.Today)
-                            {
-                                <h2>Status :<a class="text-danger">Reserved</a></h2>
-                            }
-                           
+                            <h2>Status :<a class="text-danger">Reserved</a></h2>
                         }
                     </div>
 

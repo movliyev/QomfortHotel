@@ -455,8 +455,10 @@ namespace QomfortHotelFinal.Migrations
                     b.Property<int?>("Rate")
                         .HasColumnType("int");
 
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Subject")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

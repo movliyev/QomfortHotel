@@ -32,7 +32,7 @@ namespace QomfortHotelFinal.ViewModels.Account
         [DataType(DataType.PhoneNumber)]
 
         public string PhoneNumber { get; set; }
-        [Required(ErrorMessage = "A Password must be included")]
+      
         [MaxLength(100, ErrorMessage = "No more than 100 characters")]
         [MinLength(8, ErrorMessage = "Be less than 8 characters")]
         [DataType(DataType.Password)]

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using QomfortHotelFinal.Areas.Admin.ViewModels;
 using QomfortHotelFinal.DAL;
@@ -6,6 +7,10 @@ using QomfortHotelFinal.Models;
 
 namespace QomfortHotelFinal.Areas.Admin.Controllers
 {
+    [Area("Admin")]
+    [Route("Admin/[controller]/[action]")]
+
+    [Authorize(Roles ="Admin")]
     public class MessageController : Controller
     {
         private readonly AppDbContext _context;
@@ -14,6 +19,8 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
         {
             _context = context;
         }
+        [Authorize(Roles = "Admin")]
+
         public async Task<IActionResult> Index(int page = 1)
         {
             if (page < 1) return BadRequest();
@@ -31,7 +38,34 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
 
             return View(pagvm);
         }
+        public async Task<IActionResult> UpdateStatus(int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            Message exsisted = await _context.Messages.FirstOrDefaultAsync(c => c.Id == id);
+            if (exsisted == null) return NotFound();
+            return View(exsisted);  
+        }
+        [HttpPost]
+        public async Task<IActionResult>UpdateStatus(int id,bool? status)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            Message exsisted = await _context.Messages.FirstOrDefaultAsync(c => c.Id == id);
+            if (exsisted == null) return NotFound();
+          
+           
+            //exsisted.Status =status;
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
 
+
+        [Authorize(Roles = "Admin")]
 
         public async Task<IActionResult> Delete(int id)
         {

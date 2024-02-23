@@ -11,7 +11,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Route("Admin/[controller]/[action]")]
-    [Authorize(Roles = "Admin,Memmber")]
+    [Authorize(Roles = "Admin,Memmber,Blogger")]
     public class ProfileController : Controller
     {
         private readonly UserManager<AppUser> _userman;

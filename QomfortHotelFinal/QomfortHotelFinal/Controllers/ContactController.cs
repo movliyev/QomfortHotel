@@ -55,6 +55,7 @@ namespace QomfortHotelFinal.Controllers
                     Messages = vm.Messages.Capitalize(),
                     Rate = vm.Rating,
                     Subject = vm.Subject.Capitalize(),
+                    Status = false
                 };
 
                 await _context.Messages.AddAsync(message);

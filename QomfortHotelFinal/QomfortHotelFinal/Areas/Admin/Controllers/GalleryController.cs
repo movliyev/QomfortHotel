@@ -12,7 +12,6 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
 
     [Area("Admin")]
     [Route("Admin/[controller]/[action]")]
-    [Authorize(Roles = "Admin,Memmber")]
     public class GalleryController : Controller
     {
 
@@ -24,6 +23,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
             _context = context;
             _env = env;
         }
+        [Authorize(Roles = "Admin,Memmber,Blogger")]
 
         public async Task<IActionResult> Index(int page = 1)
         {
@@ -39,6 +39,9 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
 
             return View(pagvm);
         }
+
+        [Authorize(Roles = "Admin")]
+
         public IActionResult Create()
         {
             return View();
@@ -82,6 +85,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [Authorize(Roles = "Admin")]
 
         public async Task<IActionResult> Update(int id)
         {
@@ -136,6 +140,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
         }
 
 
+        [Authorize(Roles = "Admin")]
 
 
         public async Task<IActionResult> Delete(int id)
