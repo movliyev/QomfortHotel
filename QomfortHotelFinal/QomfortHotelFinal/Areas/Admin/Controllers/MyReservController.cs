@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using QomfortHotelFinal.DAL;
 using QomfortHotelFinal.Models;
+using QomfortHotelFinal.Utilities.Exceptions;
 
 namespace QomfortHotelFinal.Areas.Admin.Controllers
 {
@@ -25,8 +26,8 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
         public async Task <IActionResult> MyOldReservation()
         {
             AppUser user = await _userman.FindByNameAsync(User.Identity.Name);
-            if(user == null)return NotFound();
-           
+            if (user == null) throw new NotFoundException("User not found");
+
             var list = await _context.Reservations.Include(x=>x.Room).ThenInclude(x=>x.Category).Where(x=>x.AppUserId==user.Id).Where(x => x.DeparturDate < DateTime.Now).ToListAsync();
          
             
@@ -36,7 +37,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
         public async Task <IActionResult> MyCurrentReservation()
         {
             AppUser user = await _userman.FindByNameAsync(User.Identity.Name);
-            if (user == null) return NotFound();
+            if (user == null) throw new NotFoundException("User not found");
 
             var list = await _context.Reservations.Include(x => x.Room).ThenInclude(x => x.Category).Where(x => x.AppUserId == user.Id).Where(x => x.DeparturDate > DateTime.Now).ToListAsync();
 

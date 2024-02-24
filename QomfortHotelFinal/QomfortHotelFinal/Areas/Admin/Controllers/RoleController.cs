@@ -76,9 +76,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
             var roles= _role.Roles.ToList();
             if (user != null)
             {
-                // Kullanıcı bulundu, rolleri alabilirsiniz
                 var userroles = await _userManager.GetRolesAsync(user);
-                // Devam eden işlemler
                 List<RoleAssignVM> assign = new List<RoleAssignVM>();
                 foreach (var item in roles)
                 {

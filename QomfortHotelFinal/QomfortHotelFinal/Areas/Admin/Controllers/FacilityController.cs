@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using QomfortHotelFinal.Areas.Admin.ViewModels;
 using QomfortHotelFinal.DAL;
 using QomfortHotelFinal.Models;
+using QomfortHotelFinal.Utilities.Exceptions;
 
 namespace QomfortHotelFinal.Areas.Admin.Controllers
 {
@@ -22,7 +23,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
         [Authorize(Roles = "Admin,Memmber,Blogger")]
         public async Task<IActionResult> Index(int page = 1)
         {
-            if (page < 1) return BadRequest();
+            if (page < 1) throw new WrongRequestException("The query is incorrect");
 
             int count = await _context.Facilities.CountAsync();
             List<Facility> Facilitys = await _context.Facilities.Skip((page - 1) * 3).Take(3)
@@ -71,9 +72,10 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
         //UPDATE 
         public async Task<IActionResult> Update(int id)
         {
-            if (id <= 0) return BadRequest();
+            if (id <= 0) throw new WrongRequestException("The query is incorrect");
             Facility Facility = await _context.Facilities.FirstOrDefaultAsync(t => t.Id == id);
-            if (Facility == null) return NotFound();
+            if (Facility == null) throw new NotFoundException("Facility not found");
+
             UpdateFacilityVM vm = new UpdateFacilityVM
            {
                Name=Facility.Name,
@@ -84,12 +86,14 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(int id, UpdateFacilityVM vm)
         {
+            if (id <= 0) throw new WrongRequestException("The query is incorrect");
+
             if (!ModelState.IsValid)
             {
                 return View();
             }
             Facility exsisted = await _context.Facilities.FirstOrDefaultAsync(c => c.Id == id);
-            if (exsisted == null) return NotFound();
+            if (exsisted == null)throw new NotFoundException("Facility not found");
             bool result = await _context.Facilities.AnyAsync(c => c.Name == vm.Name && c.Id != id);
             if (result)
             {
@@ -108,7 +112,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
 
         public async Task<IActionResult> Delete(int id)
         {
-            if (id <= 0) return BadRequest();
+            if (id <= 0) throw new WrongRequestException("The query is incorrect");
 
             Facility existed = await _context.Facilities.FirstOrDefaultAsync(c => c.Id == id);
            

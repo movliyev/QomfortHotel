@@ -67,7 +67,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.UseHangfireDashboard();
 app.UseHangfireServer();
-//app.UseMiddleware<GlobalExceptionHandlerMiddleware>();
+app.UseMiddleware<GlobalExceptionHandlerMiddleware>();
 StripeConfiguration.ApiKey = builder.Configuration["Stripe:Secretkey"];
 app.MapControllerRoute(
     name: "default",

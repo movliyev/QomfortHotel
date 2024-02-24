@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using QomfortHotelFinal.Areas.Admin.ViewModels;
 using QomfortHotelFinal.DAL;
 using QomfortHotelFinal.Models;
+using QomfortHotelFinal.Utilities.Exceptions;
 using QomfortHotelFinal.Utilities.Extensions;
 
 namespace QomfortHotelFinal.Areas.Admin.Controllers
@@ -26,6 +27,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
 
         public async Task<IActionResult> Index(int page = 1)
         {
+            if(page<1) throw new WrongRequestException("The query is incorrect");
             int count = await _context.Categories.CountAsync();
 
             List<Slide> slides = await _context.Slides.Skip((page - 1) * 3).Take(3).ToListAsync();
@@ -49,6 +51,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
         public async Task<IActionResult> Create(CreateSlideVM slidevm)
         {
 
+           
 
             if (!ModelState.IsValid)
             {
@@ -89,9 +92,10 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
 
         public async Task<IActionResult> Update(int id)
         {
-            if (id <= 0) return BadRequest();
+            if (id <= 0) throw new WrongRequestException("The query is incorrect");
+
             Slide exsist = await _context.Slides.FirstOrDefaultAsync(s => s.Id == id);
-            if (exsist == null) return NotFound();
+            if (exsist == null) throw new NotFoundException("Slide not found");
 
             UpdateSlideVM slidevm = new UpdateSlideVM
             {
@@ -105,6 +109,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(int id, UpdateSlideVM slidevm)
         {
+            if (id <= 0) throw new WrongRequestException("The query is incorrect");
 
             if (!ModelState.IsValid)
             {
@@ -112,7 +117,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
             }
 
             Slide exsist = await _context.Slides.FirstOrDefaultAsync(s => s.Id == id);
-            if (exsist == null) return NotFound();
+            if (exsist == null) throw new NotFoundException("Slide not found");
 
             if (slidevm.Photo is not null)
             {

@@ -196,7 +196,7 @@ namespace QomfortHotelFinal.Controllers
             var room = await _context.Rooms.FindAsync(roomId);
             if (room != null && arrivalDate < DateTime.Now)
             {
-                // Gelen tarih geçmişse, oda durumunu false yap
+              
                 room.Status = false;
                 await _context.SaveChangesAsync();
             }
@@ -207,7 +207,7 @@ namespace QomfortHotelFinal.Controllers
 
             if (reservation != null && reservation.DeparturDate < DateTime.Now)
             {
-                // Rezervasyonun bitiş tarihi geçmişse, rezervasyonu iptal et ve odayı yeniden müsait yap
+               
                 reservation.Status = false;
                 var room = _context.Rooms.Find(roomId);
                 if (room != null)
@@ -335,7 +335,7 @@ namespace QomfortHotelFinal.Controllers
         public async Task<IActionResult> RoomList(int id,string? search,int? order,int? categoryId,int? serviceId, int page = 1)
         {
 
-            if (page < 1) return BadRequest();
+            if (page < 1) throw new WrongRequestException("The query is incorrect");
 
             int count = await _context.Rooms.CountAsync();
             IQueryable<Room> query =_context.Rooms.Include(x=>x.RoomImages).AsQueryable();

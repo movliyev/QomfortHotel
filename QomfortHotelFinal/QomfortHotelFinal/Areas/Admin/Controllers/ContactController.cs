@@ -5,6 +5,7 @@ using QomfortHotelFinal.Areas.Admin.ViewModels;
 using QomfortHotelFinal.Areas.Admin.ViewModels.Contact;
 using QomfortHotelFinal.DAL;
 using QomfortHotelFinal.Models;
+using QomfortHotelFinal.Utilities.Exceptions;
 using QomfortHotelFinal.Utilities.Extensions;
 
 namespace QomfortHotelFinal.Areas.Admin.Controllers
@@ -33,9 +34,10 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
 
         public async Task<IActionResult> Update(int id)
         {
-            if (id <= 0) return BadRequest();
+            if (id <= 0) throw new WrongRequestException("The query is incorrect");
             Contact exsist = await _context.Contacts.FirstOrDefaultAsync(s => s.Id == id);
-            if (exsist == null) return NotFound();
+            if (exsist == null) throw new NotFoundException("contact not found");
+
 
             UpdateContactVM vm = new UpdateContactVM
             {
@@ -51,7 +53,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(int id, UpdateContactVM vm)
         {
-            if(id<=0) return BadRequest();  
+            if(id<=0) throw new WrongRequestException("The query is incorrect");
             if (!ModelState.IsValid)
             {
                 return View(vm);
@@ -62,7 +64,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
                 return View(vm);
             }
             Contact exsist = await _context.Contacts.FirstOrDefaultAsync(s => s.Id == id);
-            if (exsist == null) return NotFound();
+            if (exsist == null) throw new NotFoundException("contact not found");
 
             if (vm.Photo is not null)
             {

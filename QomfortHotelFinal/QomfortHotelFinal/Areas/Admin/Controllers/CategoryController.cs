@@ -5,6 +5,7 @@ using QomfortHotelFinal.Models;
 using Microsoft.EntityFrameworkCore;
 using QomfortHotelFinal.Utilities.Extensions;
 using Microsoft.AspNetCore.Authorization;
+using QomfortHotelFinal.Utilities.Exceptions;
 
 namespace QomfortHotelFinal.Areas.Admin.Controllers
 {
@@ -22,11 +23,12 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
         [Authorize(Roles = "Admin,Memmber,Blogger")]
         public async Task<IActionResult> Index(int page = 1)
         {
-            if (page < 1) return BadRequest();
+            if (page < 1) throw new WrongRequestException("The query is incorrect");
 
             int count = await _context.Categories.CountAsync();
             List<Category> categories = await _context.Categories.Skip((page - 1) * 3).Take(3)
                 .Include(c => c.Rooms).ToListAsync();
+            if (categories == null) throw new NotFoundException("category not found");
             PaginateVM<Category> pagvm = new PaginateVM<Category>
             {
                 Items = categories,
@@ -70,9 +72,9 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
         //UPDATE 
         public async Task<IActionResult> Update(int id)
         {
-            if (id <= 0) return BadRequest();
+            if (id <= 0) throw new WrongRequestException("The query is incorrect");
             Category category = await _context.Categories.FirstOrDefaultAsync(c => c.Id == id);
-            if (category == null) return NotFound();
+            if (category == null) throw new NotFoundException("category not found");
             UpdateCategoryVM vm = new UpdateCategoryVM
             {
                 Name = category.Name.Capitalize()   
@@ -83,12 +85,13 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(int id, UpdateCategoryVM categoryvm)
         {
+            if(id<=0) throw new WrongRequestException("The query is incorrect");
             if (!ModelState.IsValid)
             {
                 return View();
             }
             Category exsisted = await _context.Categories.FirstOrDefaultAsync(c => c.Id == id);
-            if (exsisted == null) return NotFound();
+            if (exsisted == null) throw new NotFoundException("category not found");
             bool result = await _context.Categories.AnyAsync(c => c.Name == categoryvm.Name.Capitalize() && c.Id != id);
             if (result)
             {
@@ -107,7 +110,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
 
         public async Task<IActionResult> Delete(int id)
         {
-            if (id <= 0) return BadRequest();
+            if (id <= 0) throw new WrongRequestException("The query is incorrect");
 
             Category existed = await _context.Categories.FirstOrDefaultAsync(c => c.Id == id);
             if (existed == null) return Json(new { status = 404 });

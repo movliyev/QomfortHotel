@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Xk90TtP7Nexdkn4t8nXQmLOH0nqqQAn5+cQ023sBEp1AKSiOgceF5BeTxLSNRyXFVJN6+PuGTl+kgvWxPkXHwQ==",
+  "dgSpecHash": "7jRxXgY8K9UgN093f/dQ7ZX9egdqQQ3/g5I2fjeWK7RogDz9hlGM6SVVDI1l7N1/h/PQNej+osX09gTR/sxcwg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\helpdesk_connect\\Desktop\\Yeni klasör\\QomfortHotel\\QomfortHotelFinal\\QomfortHotelFinal\\QomfortHotelFinal.csproj",
+  "projectFilePath": "C:\\Users\\helpdesk_connect\\Desktop\\Hotel\\QomfortHotel\\QomfortHotelFinal\\QomfortHotelFinal\\QomfortHotelFinal.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\helpdesk_connect\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
     "C:\\Users\\helpdesk_connect\\.nuget\\packages\\hangfire.aspnetcore\\1.8.10\\hangfire.aspnetcore.1.8.10.nupkg.sha512",

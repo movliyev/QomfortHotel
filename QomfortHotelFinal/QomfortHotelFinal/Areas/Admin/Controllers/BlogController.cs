@@ -5,6 +5,7 @@ using QomfortHotelFinal.Areas.Admin.ViewModels;
 using QomfortHotelFinal.Areas.Admin.ViewModels.Blog;
 using QomfortHotelFinal.DAL;
 using QomfortHotelFinal.Models;
+using QomfortHotelFinal.Utilities.Exceptions;
 using QomfortHotelFinal.Utilities.Extensions;
 
 namespace QomfortHotelFinal.Areas.Admin.Controllers
@@ -26,7 +27,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
         [Authorize(Roles = "Admin,Memmber")]
         public async Task<IActionResult> Indexx(int page = 1)
         {
-            if (page < 1) return BadRequest();
+            if (page < 1) throw new WrongRequestException("The query is incorrect");
             int count = await _context.Blogs.CountAsync();
 
             List<Blog> Blogs = await _context.Blogs.OrderByDescending(x=>x.Id).Include(x=>x.Comments).Skip((page - 1) * 3).Take(3).ToListAsync();
@@ -111,9 +112,9 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(int id)
         {
-            if (id <= 0) return BadRequest();
+            if (id <= 0) throw new WrongRequestException("The query is incorrect");
             Blog exsist = await _context.Blogs.FirstOrDefaultAsync(s => s.Id == id);
-            if (exsist == null) return NotFound();
+            if (exsist == null) throw new NotFoundException("Blog not found");
 
             UpdateBlogVm Blogvm = new UpdateBlogVm
             {
@@ -130,14 +131,14 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(int id, UpdateBlogVm Blogvm)
         {
-
+            if(id<=0) throw new WrongRequestException("The query is incorrect");
             if (!ModelState.IsValid)
             {
                 return View(Blogvm);
             }
 
             Blog exsist = await _context.Blogs.FirstOrDefaultAsync(s => s.Id == id);
-            if (exsist == null) return NotFound();
+            if (exsist == null) throw new NotFoundException("blog not found");
 
             if (Blogvm.HoverPhoto is not null)
             {
@@ -188,7 +189,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
-            if (id <= 0) return BadRequest();
+            if (id <= 0) throw new WrongRequestException("The query is incorrect");
             Blog exsist = await _context.Blogs.FirstOrDefaultAsync(s => s.Id == id);
             if (exsist == null) return Json(new { status = 404 });
             try

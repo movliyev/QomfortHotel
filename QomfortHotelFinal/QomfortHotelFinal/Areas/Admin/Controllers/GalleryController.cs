@@ -5,6 +5,7 @@ using QomfortHotelFinal.Areas.Admin.ViewModels;
 using QomfortHotelFinal.Areas.Admin.ViewModels.Gallery;
 using QomfortHotelFinal.DAL;
 using QomfortHotelFinal.Models;
+using QomfortHotelFinal.Utilities.Exceptions;
 using QomfortHotelFinal.Utilities.Extensions;
 
 namespace QomfortHotelFinal.Areas.Admin.Controllers
@@ -23,13 +24,14 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
             _context = context;
             _env = env;
         }
-        [Authorize(Roles = "Admin,Memmber,Blogger")]
+        [Authorize(Roles = "Admin,Memmber")]
 
         public async Task<IActionResult> Index(int page = 1)
         {
             int count = await _context.Galleries.CountAsync();
 
             List<Gallery> Gallerys = await _context.Galleries.Skip((page - 1) * 3).Take(3).ToListAsync();
+
             PaginateVM<Gallery> pagvm = new PaginateVM<Gallery>
             {
                 Items = Gallerys,
@@ -89,9 +91,9 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
 
         public async Task<IActionResult> Update(int id)
         {
-            if (id <= 0) return BadRequest();
+            if (id <= 0) throw new WrongRequestException("The query is incorrect");
             Gallery exsist = await _context.Galleries.FirstOrDefaultAsync(s => s.Id == id);
-            if (exsist == null) return NotFound();
+            if (exsist == null) throw new NotFoundException("Gallery not found");
 
             UpdateGalleryVM Galleryvm = new UpdateGalleryVM
             {
@@ -105,6 +107,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(int id, UpdateGalleryVM Galleryvm)
         {
+            if (id <= 0) throw new WrongRequestException("The query is incorrect");
 
             if (!ModelState.IsValid)
             {
@@ -145,7 +148,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
 
         public async Task<IActionResult> Delete(int id)
         {
-            if (id <= 0) return BadRequest();
+            if (id <= 0) throw new WrongRequestException("The query is incorrect");
             Gallery exsist = await _context.Galleries.FirstOrDefaultAsync(s => s.Id == id);
             if (exsist == null) return Json(new { status = 404 });
             try

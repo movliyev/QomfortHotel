@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using QomfortHotelFinal.Areas.Admin.ViewModels;
 using QomfortHotelFinal.DAL;
 using QomfortHotelFinal.Models;
+using QomfortHotelFinal.Utilities.Exceptions;
 using QomfortHotelFinal.Utilities.Extensions;
 
 namespace QomfortHotelFinal.Areas.Admin.Controllers
@@ -18,11 +19,11 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
         {
             _context = context;
         }
-        [Authorize(Roles = "Admin,Memmber,Blogger")]
+        [Authorize(Roles = "Admin,Memmber")]
 
         public async Task<IActionResult> Index(int page = 1)
         {
-            if (page < 1) return BadRequest();
+            if (page < 1) throw new WrongRequestException("The query is incorrect");
 
             int count = await _context.Servisees.CountAsync();
             List<Servicee> service = await _context.Servisees.Include(p=>p.RoomServicees).Skip((page - 1) * 3).Take(3).ToListAsync();
@@ -72,9 +73,9 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
         //UPDATE 
         public async Task<IActionResult> Update(int id)
         {
-            if (id <= 0) return BadRequest();
+            if (id <= 0) throw new WrongRequestException("The query is incorrect");
             Servicee Servicee = await _context.Servisees.FirstOrDefaultAsync(c => c.Id == id);
-            if (Servicee == null) return NotFound();
+            if (Servicee == null) throw new NotFoundException("Services not found");
             UpdateServiceVM vm = new UpdateServiceVM
             {
                 Name = Servicee.Name.Capitalize(),
@@ -88,12 +89,13 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(int id, UpdateServiceVM Serviceevm)
         {
+            if (id <= 0) throw new WrongRequestException("The query is incorrect");
             if (!ModelState.IsValid)
             {
                 return View();
             }
             Servicee exsisted = await _context.Servisees.FirstOrDefaultAsync(c => c.Id == id);
-            if (exsisted == null) return NotFound();
+            if (exsisted == null) throw new NotFoundException("Services not found");
             bool result = await _context.Servisees.AnyAsync(c => c.Name == Serviceevm.Name.Capitalize() && c.Id != id);
             if (result)
             {
@@ -114,7 +116,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
 
         public async Task<IActionResult> Delete(int id)
         {
-            if (id <= 0) return BadRequest();
+            if (id <= 0) throw new WrongRequestException("The query is incorrect");
 
             Servicee existed = await _context.Servisees.FirstOrDefaultAsync(c => c.Id == id);
             if (existed == null) return Json(new { status = 404 });

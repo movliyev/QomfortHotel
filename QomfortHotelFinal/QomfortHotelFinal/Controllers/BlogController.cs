@@ -75,8 +75,8 @@ namespace QomfortHotelFinal.Controllers
                .Include(x => x.Comments.Where(x => x.BlogId == id)).FirstOrDefaultAsync(b => b.Id == id);
             if (blog == null)return NotFound(); 
           
-            if (!ModelState.IsValid)return View(vm);  
-          
+            if (!ModelState.IsValid) throw new NotFoundException("Room not found");
+
 
 
             if (User.Identity.IsAuthenticated)

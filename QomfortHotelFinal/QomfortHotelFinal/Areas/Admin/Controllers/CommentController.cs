@@ -5,6 +5,7 @@ using QomfortHotelFinal.Areas.Admin.ViewModels;
 using QomfortHotelFinal.Areas.Admin.ViewModels.Blog;
 using QomfortHotelFinal.DAL;
 using QomfortHotelFinal.Models;
+using QomfortHotelFinal.Utilities.Exceptions;
 
 namespace QomfortHotelFinal.Areas.Admin.Controllers
 {
@@ -22,12 +23,14 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
         
         public async Task<IActionResult> Index(int page = 1)
         {
-            if (page < 1) return BadRequest();
+            if (page < 1) throw new WrongRequestException("The query is incorrect");
             int count = await _context.Comments.CountAsync();
 
             List<Comment> comment = await _context.Comments.OrderByDescending(x => x.Id).Include(x => x.Blog)
                 .Include(x=>x.AppUser)
                 .Skip((page - 1) * 3).Take(3).ToListAsync();
+            if (comment == null) throw new NotFoundException("comment not found");
+
             PaginateVM<Comment> pagvm = new PaginateVM<Comment>
             {
                 Items = comment,
@@ -39,23 +42,26 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
         }
         public async Task<IActionResult> UpdateStatus(int id)
         {
+            if(id<=0) throw new WrongRequestException("The query is incorrect");
             if (!ModelState.IsValid)
             {
                 return View();
             }
             Comment exsisted = await _context.Comments.FirstOrDefaultAsync(c => c.Id == id);
-            if (exsisted == null) return NotFound();
+            if (exsisted == null) throw new NotFoundException("comment not found");
             return View(exsisted);
         }
         [HttpPost]
         public async Task<IActionResult> UpdateStatus(int id, bool? status)
         {
+            if (id <= 0) throw new WrongRequestException("The query is incorrect");
+
             if (!ModelState.IsValid)
             {
                 return View();
             }
             Comment comment = await _context.Comments.FirstOrDefaultAsync(c => c.Id == id);
-            if (comment == null) return NotFound();
+            if (comment == null) throw new NotFoundException("comment not found");
 
 
             comment.CommentStatus = status.Value;
@@ -65,7 +71,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
 
         public async Task<IActionResult> Delete(int id)
         {
-            if (id <= 0) return BadRequest();
+            if (id <= 0) throw new WrongRequestException("The query is incorrect");
             Comment exsist = await _context.Comments.FirstOrDefaultAsync(s => s.Id == id);
             if (exsist == null) return Json(new { status = 404 });
             try

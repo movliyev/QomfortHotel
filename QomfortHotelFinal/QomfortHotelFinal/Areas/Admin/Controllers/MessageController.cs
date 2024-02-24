@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using QomfortHotelFinal.Areas.Admin.ViewModels;
 using QomfortHotelFinal.DAL;
 using QomfortHotelFinal.Models;
+using QomfortHotelFinal.Utilities.Exceptions;
 
 namespace QomfortHotelFinal.Areas.Admin.Controllers
 {
@@ -23,7 +24,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
 
         public async Task<IActionResult> Index(int page = 1)
         {
-            if (page < 1) return BadRequest();
+            if (page < 1) throw new WrongRequestException("The query is incorrect");
             int count = await _context.Messages.CountAsync();
 
             List<Message> Message = await _context.Messages.OrderByDescending(x => x.Id)
@@ -40,6 +41,8 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
         }
         public async Task<IActionResult> UpdateStatus(int id)
         {
+            if (id<=0) throw new WrongRequestException("The query is incorrect");
+
             if (!ModelState.IsValid)
             {
                 return View();
@@ -51,6 +54,8 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult>UpdateStatus(int id,bool? status)
         {
+            if (id <= 0) throw new WrongRequestException("The query is incorrect");
+
             if (!ModelState.IsValid)
             {
                 return View();
@@ -69,7 +74,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
 
         public async Task<IActionResult> Delete(int id)
         {
-            if (id <= 0) return BadRequest();
+            if (id <= 0) throw new WrongRequestException("The query is incorrect");
             Message exsist = await _context.Messages.FirstOrDefaultAsync(s => s.Id == id);
             if (exsist == null) return Json(new { status = 404 });
             try

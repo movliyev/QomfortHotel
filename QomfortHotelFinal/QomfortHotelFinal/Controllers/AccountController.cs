@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using QomfortHotelFinal.Abstractions.MailService;
 using QomfortHotelFinal.Models;
 using QomfortHotelFinal.Utilities.Enums;
+using QomfortHotelFinal.Utilities.Exceptions;
 using QomfortHotelFinal.Utilities.Extensions;
 using QomfortHotelFinal.ViewModels;
 using QomfortHotelFinal.ViewModels.Account;
@@ -94,7 +95,7 @@ namespace QomfortHotelFinal.Controllers
         public async Task<IActionResult> ConfirmEmail(string token, string email)
         {
             AppUser user = await _userManager.FindByEmailAsync(email);
-            if (user == null) return NotFound();
+            if (user == null) throw new NotFoundException("User not found");
             var result = await _userManager.ConfirmEmailAsync(user, token);
             if (!result.Succeeded)
             {
@@ -220,7 +221,7 @@ namespace QomfortHotelFinal.Controllers
             if (string.IsNullOrWhiteSpace(userId) || string.IsNullOrWhiteSpace(token)) return BadRequest();
             if (!ModelState.IsValid) return View(vm);
             var user = await _userManager.FindByIdAsync(userId);
-            if (user == null) return NotFound();
+            if (user == null) throw new NotFoundException("User not found");
             var identityuser = await _userManager.ResetPasswordAsync(user, token, vm.ConfirmPassword);
             return RedirectToAction(nameof(Login));
         }

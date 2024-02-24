@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 using QomfortHotelFinal.Areas.Admin.ViewModels;
 using QomfortHotelFinal.DAL;
 using QomfortHotelFinal.Models;
+using QomfortHotelFinal.Utilities.Exceptions;
 using QomfortHotelFinal.Utilities.Extensions;
 
 namespace QomfortHotelFinal.Areas.Admin.Controllers
@@ -28,7 +29,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
         [Authorize(Roles = "Admin,Memmber,Blogger")]
         public async Task<IActionResult> Index(int page = 1)
         {
-            if (page < 1) return BadRequest();
+            if (page < 1) throw new WrongRequestException("The query is incorrect");
 
             int count = await _context.Rooms.CountAsync();
 
@@ -41,6 +42,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
                  .Include(p => p.RoomFacilities)
                 .ThenInclude(pt => pt.Facility)
                 .ToListAsync();
+            if(Rooms==null) throw new NotFoundException("Room not found");
 
             PaginateVM<Room> pagvm = new PaginateVM<Room>
             {
@@ -102,6 +104,22 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
                     return View(vm);
                 }
             }
+            if (vm.Price <= 10)
+            {
+                ModelState.AddModelError("Price", "No quantity less than 10");
+                return View(vm);
+            }
+            if (vm.Bed <= 0)
+            {
+                ModelState.AddModelError("Bed", "No quantity less than 0");
+                return View(vm);
+            }
+
+            if (vm.BathRoom <= 0)
+            {
+                ModelState.AddModelError("BathRoom", "No quantity less than 0");
+                return View(vm);
+            }
 
             if (vm.MainPhoto is not null)
             {
@@ -130,11 +148,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
                 Url = await vm.MainPhoto.CreateFileAsync(_env.WebRootPath, "assets", "images", "rooms")
 
             };
-            //if (vm.Price <= 0&&vm.Bed<=0&&vm.Size<=0&&vm.Capacity<=0)
-            //{
-            //    ModelState.AddModelError("Price,Bed,Size,Capacity", "there is no negative or zero quantity");
-            //}
-
+           
             Room Room = new Room
             {
                 Status = true,
@@ -154,26 +168,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
 
 
             };
-            if (vm.Price <= 10)
-            {
-                ModelState.AddModelError("Price", "No quantity less than 10");
-                return View(vm);
-            }
-            if (vm.Bed <= 0)
-            {
-                ModelState.AddModelError("Bed", "No quantity less than 0");
-                return View(vm);
-            }
-            if (vm.Size <= 100)
-            {
-                ModelState.AddModelError("Size", "No quantity less than 100");
-                return View(vm);
-            }
-            if (vm.BathRoom <= 0)
-            {
-                ModelState.AddModelError("BathRoom", "No quantity less than 0");
-                return View(vm);
-            }
+           
 
             TempData["Message"] = "";
 
@@ -216,7 +211,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
                 };
                 Room.RoomFacilities.Add(cServicee);
             }
-           
+          
             await _context.Rooms.AddAsync(Room);
             await _context.SaveChangesAsync();
 
@@ -227,13 +222,13 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
 
         public async Task<IActionResult> Update(int id)
         {
-            if (id <= 0) return BadRequest();
+            if (id <= 0) throw new WrongRequestException("The query is incorrect");
             Room Room = await _context.Rooms
                 .Include(p => p.RoomServicees)
                 .Include(p => p.RoomImages)
                 .Include(p => p.RoomFacilities)
                 .FirstOrDefaultAsync(p => p.Id == id);
-            if (Room == null) return NotFound();
+            if (Room == null) throw new NotFoundException("Room not found");
 
             UpdateRoomVM vm = new UpdateRoomVM
             {
@@ -264,13 +259,13 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(int id, UpdateRoomVM pvm)
         {
-            if (id <= 0) return BadRequest();
+            if (id <= 0) throw new WrongRequestException("The query is incorrect");
             Room exsist = await _context.Rooms
               .Include(p => p.RoomServicees)
               .Include(p => p.RoomFacilities)
               .Include(p => p.RoomImages)
               .FirstOrDefaultAsync(p => p.Id == id);
-            if (exsist == null) return NotFound();
+            if (exsist == null) throw new NotFoundException("Room not found");
 
             pvm.Categorys = await _context.Categories.ToListAsync();
             pvm.Servicees = await _context.Servisees.ToListAsync();
@@ -296,11 +291,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
                 ModelState.AddModelError("Bed", "No quantity less than 0");
                 return View(pvm);
             }
-            if (pvm.Size >= 100)
-            {
-                ModelState.AddModelError("Size", "No quantity less than 100");
-                return View(pvm);
-            }
+           
             if (pvm.BathRoom <= 0)
             {
                 ModelState.AddModelError("BathRoom", "No quantity less than 0");
@@ -461,7 +452,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
 
         public async Task<IActionResult> Delete(int id)
         {
-            if (id <= 0) return BadRequest();
+            if (id <= 0) throw new WrongRequestException("The query is incorrect");
 
             Room Room = await _context.Rooms.Include(p => p.RoomImages).FirstOrDefaultAsync(p => p.Id == id);
             if (Room == null) return Json(new { status=404});
