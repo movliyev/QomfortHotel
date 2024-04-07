@@ -15,14 +15,14 @@ namespace QomfortHotelFinal.ViewComponents.Home
 
             _context = context;
         }
-        public async Task<IViewComponentResult> InvokeAsync(int key = 1)
+        public async Task<IViewComponentResult> InvokeAsync(int key = 0)
         {
             List<Room> rooms = await _context.Rooms.Take(8).Include(p => p.RoomImages.Where(pi => pi.IsPrimary != true)).ToListAsync();
 
             switch (key)
             {
                 case 1:
-                    rooms = await _context.Rooms.OrderBy(p => p.Name).Take(4).Include(p => p.RoomImages.Where(pi => pi.IsPrimary != null)).ToListAsync();
+                    rooms = await _context.Rooms.OrderBy(p => p.Price).Take(4).Include(p => p.RoomImages.Where(pi => pi.IsPrimary != null)).ToListAsync();
                     break;
                 case 2:
                     rooms = await _context.Rooms.OrderByDescending(p => p.Id).Take(4).Include(p => p.RoomImages.Where(pi => pi.IsPrimary != null)).ToListAsync();

@@ -1,11 +1,13 @@
 ﻿@using Microsoft.AspNetCore.Identity;
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
 @inject UserManager<AppUser> userManager
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8" />
-    <title>Drezoc - Admin & Dashboard Template</title>
+    <title>Qomfort</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="MyraStudio" name="author" />
@@ -41,75 +43,83 @@
                 <!--- Sidemenu -->
                 <div id="sidebar-menu">
                     <!-- Left Menu Start -->
+                  
                     <ul class="metismenu list-unstyled" id="side-menu">
-                        <li class="menu-title">Menu</li>
+                        <li class="menu-title">@localizer["Menu"]</li>
 
                         <li>
-                            <a asp-action="Index" asp-controller="Dashboard"><i class="feather-home"></i><span class="badge badge-pill badge-success float-right"></span><span>Dashboard</span></a>
+                            <a asp-action="Index" asp-controller="Dashboard"><i class="feather-home"></i><span class="badge badge-pill badge-success float-right"></span><span>@localizer["Dashboard"]</span></a>
                         </li>
                         @{
                             if (User.IsInRole("Memmber"))
                             {
                                 <li>
-                                    <a asp-action="MyOldReservation" asp-controller="Myreserv" asp-route-area="Admin"><i class="mdi mdi-star-four-points"></i><span>My old reservation</span></a>
+                                    <a asp-action="MyOldReservation" asp-controller="Myreserv" asp-route-area="Admin"><i class="fas fa-book-open"></i><span>@localizer["MyOldRez."]</span></a>
                                 </li>
                                 <li>
-                                    <a asp-action="MyCurrentReservation" asp-controller="Myreserv" asp-route-area="Admin"><i class="mdi mdi-star-four-points"></i><span>My current reservation</span></a>
+                                    <a asp-action="MyCurrentReservation" asp-controller="Myreserv" asp-route-area="Admin"><i class="fas fa-book-open"></i><span>@localizer["MyCurrenrRez."]</span></a>
                                 </li>
 
                             }
                             else
                             {
                                 <li>
-                                    <a asp-action="Index" asp-controller="Role"><i class="feather-arrow-right-circle"></i><span>Roles</span></a>
+                                    <a href="javascript: void(0);" class="has-arrow"><i class="fas fa-table"></i><span>@localizer["Tables"]</span></a>
+                                    <ul class="sub-menu" aria-expanded="false">
+                                        <li>
+                                            <a asp-action="index" asp-controller="Setting"><i class="feather-arrow-right-circle"></i><span>@localizer["Settings"]</span></a>
+                                        </li>
+                                        <li>
+                                            <a asp-action="index" asp-controller="homeabout"><i class="feather-arrow-right-circle"></i><span>@localizer["HomeAbout"]</span></a>
+                                        </li>
+                                        <li>
+                                            <a asp-action="index" asp-controller="contact"><i class="feather-arrow-right-circle"></i><span>@localizer["Contact"]</span></a>
+                                        </li>
+                                    </ul>
                                 </li>
                                 <li>
-                                    <a asp-action="UserList" asp-controller="Role"><i class="feather-arrow-right-circle"></i><span>UserList</span></a>
+                                    <a asp-action="Index" asp-controller="Role"><i class="feather-arrow-right-circle"></i><span>@localizer["Role"]</span></a>
                                 </li>
                                 <li>
-                                    <a asp-action="index" asp-controller="message"><i class="feather-arrow-right-circle"></i><span>ArrivalMessages</span></a>
+                                    <a asp-action="UserList" asp-controller="Role"><i class="fas fa-user"></i><span>@localizer["UserList"]</span></a>
                                 </li>
                                 <li>
-                                    <a asp-action="index" asp-controller="comment"><i class="feather-arrow-right-circle"></i><span>BlogComments</span></a>
-                                </li>
-                                  <li>
-                                    <a asp-action="index" asp-controller="Setting"><i class="feather-arrow-right-circle"></i><span>Setting</span></a>
+                                    <a asp-action="index" asp-controller="message"><i class="fab fa-facebook-messenger"></i><span>@localizer["Messages"]</span></a>
                                 </li>
                                 <li>
-                                    <a asp-action="index" asp-controller="homeabout"><i class="feather-arrow-right-circle"></i><span>HomeAbout</span></a>
+                                    <a asp-action="index" asp-controller="comment"><i class="far fa-comment"></i><span>@localizer["Comments"]</span></a>
                                 </li>
-                                <li>
-                                    <a asp-action="index" asp-controller="contact"><i class="feather-arrow-right-circle"></i><span>Contact</span></a>
-                                </li>
+                                 
                             }
                         }
 
                         <li>
-                            <a asp-action="Index" asp-controller="Room" asp-route-area="Admin"><i class="feather-arrow-right-circle"></i><span>Rooms</span></a>
+                            <a asp-action="Index" asp-controller="Room" asp-route-area="Admin"><i class="feather-arrow-right-circle"></i><span>@localizer["Rooms"]</span></a>
                         </li>
                         <li>
-                            <a asp-action="Index" asp-controller="Gallery" asp-route-area="Admin"><i class="feather-arrow-right-circle"></i><span>Galleries</span></a>
+                            <a asp-action="Index" asp-controller="Gallery" asp-route-area="Admin"><i class="fas fa-images"></i><span>@localizer["Gallery"]</span></a>
                         </li>
                         <li>
-                            <a asp-action="Indexx" asp-controller="Blog" asp-route-area="Admin"><i class="feather-arrow-right-circle"></i><span>Blogs</span></a>
+                            <a asp-action="Indexx" asp-controller="Blog" asp-route-area="Admin"><i class="fab fa-blogger-b"></i><span>@localizer["Blogs"]</span></a>
                         </li>
                         <li>
-                            <a asp-action="Index" asp-controller="Category" asp-route-area="Admin"><i class="feather-arrow-right-circle"></i><span>Categories</span></a>
+                            <a asp-action="Index" asp-controller="Category" asp-route-area="Admin"><i class="feather-arrow-right-circle"></i><span>@localizer["Categories"]</span></a>
                         </li>
                         <li>
-                            <a asp-action="Index" asp-controller="Slide" asp-route-area="Admin"><i class="feather-arrow-right-circle"></i><span>Slides</span></a>
+                            <a asp-action="Index" asp-controller="Slide" asp-route-area="Admin"><i class="feather-arrow-right-circle"></i><span>@localizer["Slides"]</span></a>
                         </li>
                         <li>
-                            <a asp-action="Index" asp-controller="Facility" asp-route-area="Admin"><i class="feather-arrow-right-circle"></i><span>Facilities</span></a>
+                            <a asp-action="Index" asp-controller="Facility" asp-route-area="Admin"><i class="feather-arrow-right-circle"></i><span>@localizer["Facilities"]</span></a>
                         </li>
                         <li>
-                            <a asp-action="Index" asp-controller="Servicee" asp-route-area="Admin"><i class="feather-arrow-right-circle"></i><span>Servicee</span></a>
+                            <a asp-action="Index" asp-controller="Servicee" asp-route-area="Admin"><i class="feather-arrow-right-circle"></i><span>@localizer["Services"]</span></a>
                         </li>
                         <li>
-                            <a asp-action="Index" asp-controller="Home" asp-route-area=""><i class="mdi mdi-home"></i><span>Home</span></a>
+                            <a asp-action="Index" asp-controller="Home" asp-route-area=""><i class="mdi mdi-home"></i><span>@localizer["Home"]</span></a>
                         </li>
 
                     </ul>
+                   
                 </div>
                 <!-- Sidebar -->
             </div>
@@ -127,11 +137,9 @@
                             <i class="fa fa-fw fa-bars"></i>
                         </button>
 
-                        <div class="header-breadcumb">
-                            <h6 class="header-pretitle d-none d-md-block">Pages <i class="dripicons-arrow-thin-right"></i> Dashboard</h6>
-                            <h2 class="header-title">Overview</h2>
-                        </div>
                     </div>
+                   
+                   
                     <div class="d-flex align-items-center">
 
                         @{
@@ -149,8 +157,7 @@
 
                             @if (User.Identity.IsAuthenticated)
                             {
-
-
+                               
 
 
                                 @if (User.Identity.IsAuthenticated)
@@ -199,21 +206,60 @@
 
                                         </a>
 
+
                                     </div>
                                 }
                             }
                         </div>
 
+                        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css">
+
+                        <div class="dropdown d-inline-block ml-2">
+                            <button type="button" class="btn header-item" id="page-header-user-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span id="selected-flag" class="culture"></span> <span id="selected-language">Language</span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right" id="language-dropdown">
+                                <a class="dropdown-item" href="/Admin/Dashboard/Index/?culture=en" onclick="changeLanguage('us', 'English')"><span class="flag-icon flag-icon-us"></span> English</a>
+                                <a class="dropdown-item" href="/Admin/Dashboard/Index/?culture=az" onclick="changeLanguage('az', 'Azerbaijan')"><span class="flag-icon flag-icon-az"></span> Azerbaijan</a>
+                                <a class="dropdown-item" href="/Admin/Dashboard/Index/?culture=tr" onclick="changeLanguage('tr', 'Turkish')"><span class="flag-icon flag-icon-tr"></span> Turkish</a>
+                                <a class="dropdown-item" href="/Admin/Dashboard/Index/?culture=fr" onclick="changeLanguage('fr', 'French')"><span class="flag-icon flag-icon-fr"></span> French</a>
+                            </div>
                         </div>
+
+                        <script>
+                            document.addEventListener("DOMContentLoaded", function () {
+                                var selectedFlag = document.getElementById("selected-flag");
+                                var selectedLanguage = document.getElementById("selected-language");
+                                changeLanguage(selectedFlag.className.split(' ')[1].split('-')[2], selectedLanguage.textContent);
+                            });
+
+                            function changeLanguage(flagCode, languageName) {
+                                var selectedFlag = document.getElementById("selected-flag");
+                                selectedFlag.className = "flag-icon flag-icon-" + flagCode;
+                                var selectedLanguage = document.getElementById("selected-language");
+                                selectedLanguage.textContent = languageName;
+
+                                var links = document.querySelectorAll('.dropdown-menu .dropdown-item');
+                                for (var i = 0; i < links.length; i++) {
+                                    var culture = links[i].getAttribute('href').split('=')[1];
+                                    links[i].setAttribute('href', '/Admin/Dashboard/Index/?culture=' + culture);
+                                }
+                            }
+                        </script>
+                      
+
                     </div>
-                </header>
+                </div>
+            </header>
                                 @RenderBody()
 
 
 
-            </div>
-            <!-- end main content-->
         </div>
+    </div>
+   
+            <!-- end main content-->
+       
         <!-- END layout-wrapper -->
         <!-- Overlay-->
         <div class="menu-overlay"></div>

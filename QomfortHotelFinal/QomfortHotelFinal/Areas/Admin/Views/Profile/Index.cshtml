@@ -9,17 +9,26 @@
 <div class="col-md-6 col-xl-3">
 
     <div class="card">
-        <img class="card-img-top img-fluid" src="~/assets/images/User/@Model.UserImage" alt="Card image cap">
+        @if (Model.UserImage == null)
+        {
+            <img class="card-img-top img-fluid" src="~/assets/images/User/profil.png" alt="Card image cap">
+
+        }
+        else
+        {
+            <img class="card-img-top img-fluid" src="~/assets/images/User/@Model.UserImage" alt="Card image cap">
+        }
+       
         <div class="card-body">
-            <h5 class="card-title">Name:@Model.Name</h5>
-            <h5 class="card-title">Surname:@Model.Surname</h5>
+            <h5 class="card-title">Name:<span class="text-info">@Model.Name</span></h5>
+            <h5 class="card-title">Surname:<span class="text-info">@Model.Surname</span></h5>
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">Phone:@Model.PhoneNumber</li>
-            <li class="list-group-item">Email:@Model.Email</li>
+            <li class="list-group-item">Phone:<span class="text-info">@Model.PhoneNumber</span></li>
+            <li class="list-group-item">Email:<span class="text-info">@Model.Email</span></li>
         </ul>
         <div>
-            <a asp-action="update" asp-controller="profile" class="btn btn-warning">Edit</a>
+            <a asp-action="update" asp-controller="profile" class="btn btn-info">Edit</a>
         </div>
        
     </div>

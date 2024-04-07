@@ -8,7 +8,7 @@
 <section class="page-banner-area pt-140 rpy-80 pb-150 rel z-1 bgs-cover bgc-black text-center" style="background-image: url(/assets/images/blog/@Model.Blog.HoverImage)">
     <div class="container">
         <div class="banner-inner text-white">
-            <h1 class="page-title wow fadeInUp delay-0-2s">Knowing Business & Priorities</h1>
+            <h1 class="page-title wow fadeInUp delay-0-2s">@Model.Blog.Title</h1>
             <ul class="blog-meta style-two mt-20 wow fadeInUp delay-0-3s">
               
                 <li>
@@ -112,7 +112,7 @@
                 <form class="comment-form bgc-lighter mt-60 wow fadeInUp delay-0-2s" method="post">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <h3>Leave a Reply</h3>
-                    <p>we denounce with righteous indignation and dislike men who beguiled</p>
+                   
                     <div class="row mt-30">
                        
 
@@ -135,11 +135,18 @@
                                 <label for="star1" title="1 star">&#9733;</label>
                             </div>
                         </div>
-                        <div class="col-md-12">
-                            <div class="form-group mb-0">
-                                <button type="submit" class="theme-btn">Send Comment <i class="far fa-angle-right"></i></button>
+                    @{
+                        if (!User.IsInRole("Admin"))
+                        {
+                            <div class="col-md-12">
+
+                                <div class="form-group mb-0">
+                                    <button type="submit" class="theme-btn">Send Comment <i class="far fa-angle-right"></i></button>
+                                </div>
                             </div>
-                        </div>
+                        }
+                    }
+                       
                     </div>
                 </form>
 

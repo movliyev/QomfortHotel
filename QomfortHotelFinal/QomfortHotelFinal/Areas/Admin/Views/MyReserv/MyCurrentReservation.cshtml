@@ -14,7 +14,7 @@
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Category Table</h4>
+                        <h4 class="card-title">My Current Reserv</h4>
 
                         <div class="table-responsive">
                             <table class="table table-dark table-borderless mb-0">
@@ -59,7 +59,7 @@
                                                 @item.Room.Category.Name
                                             </td>
                                             <td>
-                                                @item.Children+@item.PersonCount
+                                                @(item.Children+item.PersonCount)
                                             </td>
                                         </tr>
 

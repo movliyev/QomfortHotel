@@ -61,7 +61,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
                 return View();
             }
             Message exsisted = await _context.Messages.FirstOrDefaultAsync(c => c.Id == id);
-            if (exsisted == null) return NotFound();
+            if (exsisted == null) throw new NotFoundException("message not found");
 
 
             exsisted.Status = status.Value;

@@ -8,20 +8,20 @@
                 <div class="image">
                     <img src="~/assets/images/rooms/@item.RoomImages.FirstOrDefault(p=>p.IsPrimary==true)?.Url" alt="Room">
                     <div class="image-over">
-                        <a class="category" asp-action="Detail" asp-controller="Room" asp-route-id="@item.Id">@item.Category.Name</a>
+                        <a class="category" asp-action="Reserv" asp-controller="Room" asp-route-id="@item.Id">@item.Category.Name</a>
                         <div class="price"><span>$@item.Price</span>/per night</div>
                     </div>
                 </div>
                 <div class="content">
-                    <h4><a href="room-details.html">@item.Name</a></h4>
+                    <h4><a asp-action="Reserv" asp-controller="Room" asp-route-id="@item.Id">@item.Name</a></h4>
                     <ul class="blog-meta">
                         <li>
                             <i class="far fa-bed-alt"></i>
-                            <a href="#">Adults :@item.Capacity</a>
+                            <a asp-action="Reserv" asp-controller="Room" asp-route-id="@item.Id">Adults :@item.Capacity</a>
                         </li>
                         <li>
                             <i class="far fa-drafting-compass"></i>
-                            <a href="#">Size :@item.Size /ft</a>
+                            <a asp-action="Reserv" asp-controller="Room" asp-route-id="@item.Id">Size :@item.Size /ft</a>
                         </li>
                     </ul>
                 </div>

@@ -62,9 +62,17 @@
                                             <td>
                                                 @count
                                             </td>
-
+                                          
                                             <td>
-                                                <img style="width:150px;height:150px;" src="~/assets/images/User/@item.AppUser.UserImage" />
+                                                @if (item.AppUser.UserImage == null)
+                                                {
+                                                    <img style="width:100px;height:100px; class="card-img-top img-fluid" src="~/assets/images/User/profil.png" alt="Card image cap">
+
+                                                }
+                                                else
+                                                {
+                                                    <img style="width:100px;height:100px;" src="~/assets/images/User/@item.AppUser.UserImage" />
+                                                }
                                             </td>
                                             <td>
                                                 @item.AppUser.UserName

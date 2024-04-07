@@ -55,7 +55,7 @@ namespace QomfortHotelFinal.Controllers
 
             if (blog == null) throw new NotFoundException("Room not found");
             List<Comment> comments = await _context.Comments.Include(x => x.Blog).Include(x=>x.AppUser).OrderByDescending(x=>x.Id).Take(5).Where(x=>x.BlogId==id)
-                .Where(x=>x.CommentStatus==true)
+               
                 .ToListAsync();
           
             BlogVM blogvm = new BlogVM

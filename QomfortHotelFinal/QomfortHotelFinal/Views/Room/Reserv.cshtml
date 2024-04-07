@@ -85,7 +85,7 @@
                         </li>
                        
                     </ul>
-                    <div class="price mb-35">$@Model.Room.Price Per Night</div>
+                    <div class="price mb-35">$@Model.Room.Price /Per Night</div>
                     <p>@Model.Room.DetailDescription</p>
                     <div class="room-details-images mt-45 wow fadeInUp delay-0-2s">
                         @foreach (var item in Model.Room.RoomImages.FindAll(x => x.IsPrimary == null))
@@ -116,7 +116,10 @@
 
                     </ul>
                   
-                        <div id="calendar"></div>
+                  
+                   
+                                     
+                    <div id="calendar"></div>
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.0/main.js"></script>
                     <script>
@@ -227,21 +230,3 @@
     </div>
 </section>
 <!-- Room Details Area end -->
-
-@* @section Scripts {
-    <script>
-        document.getElementById("arrivalDate").addEventListener("change", updateTotalPrice);
-        document.getElementById("departureDate").addEventListener("change", updateTotalPrice);
-
-        function updateTotalPrice() {
-            var arrivalDate = new Date(document.getElementById("arrivalDate").value);
-            var departureDate = new Date(document.getElementById("departureDate").value);
-            var dailyPrice = parseFloat('@Model.Room.Price'); // Modeldeki günlük fiyatı alın
-
-            var totalDays = (departureDate - arrivalDate) / (1000 * 60 * 60 * 24); // Gün sayısını hesapla
-            var totalPrice = dailyPrice * totalDays; // Toplam fiyatı hesapla
-
-            document.getElementById("totalPrice").innerText = totalPrice.toFixed(2); // Toplam fiyatı güncelle
-        }
-    </script>
-    } *@

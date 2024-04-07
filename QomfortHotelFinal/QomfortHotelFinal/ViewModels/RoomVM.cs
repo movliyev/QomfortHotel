@@ -7,7 +7,7 @@ namespace QomfortHotelFinal.ViewModels
     public class RoomVM
     {
         public Room? Room { get; set; }
-
+        public List<RoomImage>? RoomaImage { get; set; }
         public bool? Status { get; set; }
         [Required(ErrorMessage = "A Personcount must be included")]
         

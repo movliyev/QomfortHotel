@@ -21,6 +21,23 @@
         },
         "runtime": {
           "QomfortHotelFinal.dll": {}
+        },
+        "resources": {
+          "az/QomfortHotelFinal.resources.dll": {
+            "locale": "az"
+          },
+          "en/QomfortHotelFinal.resources.dll": {
+            "locale": "en"
+          },
+          "es/QomfortHotelFinal.resources.dll": {
+            "locale": "es"
+          },
+          "fr/QomfortHotelFinal.resources.dll": {
+            "locale": "fr"
+          },
+          "tr/QomfortHotelFinal.resources.dll": {
+            "locale": "tr"
+          }
         }
       },
       "BouncyCastle.Cryptography/2.2.1": {

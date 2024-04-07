@@ -1,13 +1,40 @@
 ﻿@model string
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black; /* Genel arka plan rengi */
+            color: red;
+        }
 
-
-
-            <div class="col-lg-6">
-                <h2 class="breadcrumb-heading">@Model</h2>
-                <ul>
-                    <li>
-                        <a asp-action="Index" asp-controller="Home">Home</a>
-                    </li>
-                    <li>404</li>
-                </ul>
-            </div>
+        .container {
+            text-align: center;
+            font-size: 24px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="breadcrumb-heading">@Model</h2>
+        <ul>
+            <li>
+                <a asp-action="Index" asp-controller="Home">Home</a>
+            </li>
+            <li>404</li>
+        </ul>
+    </div>
+</body>
+</html>

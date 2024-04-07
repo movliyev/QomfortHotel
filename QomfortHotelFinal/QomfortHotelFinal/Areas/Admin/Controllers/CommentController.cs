@@ -64,8 +64,11 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
             if (comment == null) throw new NotFoundException("comment not found");
 
 
-            comment.CommentStatus = status.Value;
+            comment.CommentStatus = status ?? true;
+
+
             await _context.SaveChangesAsync();
+           
             return RedirectToAction(nameof(Index));
         }
 

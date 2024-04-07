@@ -3,6 +3,7 @@ using Hangfire.SqlServer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using QomfortHotelFinal.Abstractions.MailService;
 using QomfortHotelFinal.DAL;
@@ -51,7 +52,11 @@ builder.Services.AddMvc(config =>
     .Build();
     config.Filters.Add(new AuthorizeFilter(policy));
 });
-builder.Services.AddMvc();
+builder.Services.AddLocalization(opt =>
+{
+    opt.ResourcesPath = "Resources";
+});
+builder.Services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix).AddDataAnnotationsLocalization(); ;
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -65,6 +70,11 @@ app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
+
+var suppertedCultures = new[] { "tr", "fr", "es", "gr", "en", "az" };
+var localizationOptions=new RequestLocalizationOptions().SetDefaultCulture(suppertedCultures[4]).AddSupportedCultures(suppertedCultures).AddSupportedUICultures
+    (suppertedCultures);
+app.UseRequestLocalization(localizationOptions);    
 app.UseHangfireDashboard();
 app.UseHangfireServer();
 app.UseMiddleware<GlobalExceptionHandlerMiddleware>();

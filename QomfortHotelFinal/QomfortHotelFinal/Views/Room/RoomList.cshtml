@@ -113,23 +113,23 @@
                             <img src="~/assets/images/rooms/@item.RoomImages.FirstOrDefault(p=>p.IsPrimary==true)?.Url" alt="Room">
                         </div>
                         <div class="content">
-                            <h3><a asp-action="Detail" asp-controller="Room" asp-route-id="@item.Id">@item.Name</a></h3>
+                            <h3><a asp-action="Reserv" asp-controller="Room" asp-route-id="@item.Id">@item.Name</a></h3>
                             <ul class="blog-meta">
                                 <li>
                                     <i class="far fa-drafting-compass"></i>
-                                    <a href="#">Size :@item.Size kv</a>
+                                    <a asp-action="Reserv" asp-controller="Room" asp-route-id="@item.Id">Size :@item.Size kv</a>
                                 </li>
                                 <li>
                                     <i class="far fa-user"></i>
-                                    <a href="#">Capacity : @item.Capacity</a>
+                                    <a asp-action="Reserv" asp-controller="Room" asp-route-id="@item.Id">Capacity : @item.Capacity</a>
                                 </li>
                                 <li>
                                     <i class="far fa-bed-alt"></i>
-                                    <a href="#">Beds : @item.Bed</a>
+                                    <a asp-action="Reserv" asp-controller="Room" asp-route-id="@item.Id">Beds : @item.Bed</a>
                                 </li>
                                 <li>
                                     <i class="far fa-bath"></i>
-                                    <a href="#">Bathrooms :@item.BathRoom</a>
+                                    <a asp-action="Reserv" asp-controller="Room" asp-route-id="@item.Id">Bathrooms :@item.BathRoom</a>
                                     <br />
                                     <br />
 

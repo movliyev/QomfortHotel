@@ -26,7 +26,7 @@ namespace QomfortHotelFinal.Areas.Admin.Controllers
         }
 
        
-        [Authorize(Roles = "Admin,Memmber,Blogger")]
+        [Authorize(Roles = "Admin,Memmber")]
         public async Task<IActionResult> Index(int page = 1)
         {
             if (page < 1) throw new WrongRequestException("The query is incorrect");

@@ -45,23 +45,22 @@ namespace QomfortHotelFinal.Controllers
                 .Include(p => p.RoomFacilities).ThenInclude(x => x.Facility)
                 .Include(p => p.RoomServicees).ThenInclude(p => p.Servicee)
                 .FirstOrDefaultAsync(x => x.Id == id);
-
+            List<RoomImage> ri=await _context.RoomImages.ToListAsync();
             if (room == null) throw new NotFoundException("Room not found");
 
             var reservations = await _context.Reservations
-           .Where(r => r.RoomId == id) // Odanın mevcut ve aktif rezervasyonlarını al
+           .Where(r => r.RoomId == id) 
            .ToListAsync();
 
-            // Oda rezervasyon tarihleri
             var reservationDates = reservations.SelectMany(r => Enumerable.Range(0, (r.DeparturDate - r.ArrivalDate).Days + 1)
                 .Select(offset => r.ArrivalDate.AddDays(offset)))
                 .ToList();
-
+          
             RoomVM roomvm = new RoomVM
             {
                 Room = room,
                 ReservationDates = reservationDates,
-
+                RoomaImage=ri
             };
 
             return View(roomvm);
@@ -78,6 +77,8 @@ namespace QomfortHotelFinal.Controllers
            .Include(p => p.RoomServicees).ThenInclude(p => p.Servicee)
            .FirstOrDefaultAsync(x => x.Id == id);
             if (room == null) throw new NotFoundException("Room not found");
+            List<RoomImage> ri = await _context.RoomImages.ToListAsync();
+
             //reservations
             var reservations = await _context.Reservations
             .Where(r => r.RoomId == id) 
@@ -90,7 +91,15 @@ namespace QomfortHotelFinal.Controllers
 
             vm.ReservationDates = reservationDates;
             vm.Room = room;
-            if (!ModelState.IsValid)return View(vm);
+            vm.RoomaImage = ri;
+            if (!ModelState.IsValid)
+            {
+                vm.ReservationDates = reservationDates;
+                vm.Room = room;
+                vm.RoomaImage = ri;
+                return View(vm);
+            }
+               
            
             if (vm.PersonCount + vm.Children > room.Capacity)
             {
@@ -109,7 +118,7 @@ namespace QomfortHotelFinal.Controllers
                 {
                     if (DateTime.Now <= reserv.DeparturDate.AddDays(1))
                     {
-                        ModelState.AddModelError(String.Empty, "There is another reserve in this date range.");
+                        ModelState.AddModelError(String.Empty, "There is another reservation in this date range.");
                         return View(vm);
                     }
                 }
@@ -128,7 +137,7 @@ namespace QomfortHotelFinal.Controllers
 
                 reservation = new Reservation
                 {
-                    Status = false,
+                    Status = true,
                     ArrivalDate = vm.ArrivalDate,
                     DeparturDate = vm.DeparturDate,
                     ReservationDate = DateTime.Now,

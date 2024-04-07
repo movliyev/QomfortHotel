@@ -6,7 +6,7 @@ namespace QomfortHotelFinal.Areas.Admin.ViewModels.Contact
     public class UpdateContactVM
     {
        
-        public string HoverImage { get; set; }
+        public string? HoverImage { get; set; }
         [MaxLength(100, ErrorMessage = "No more than 100 characters")]
         [MinLength(4, ErrorMessage = "Be less than 4 characters")]
         public string Title { get; set; }
